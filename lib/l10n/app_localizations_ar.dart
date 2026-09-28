@@ -283,14 +283,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get categoryBackToList => 'كل المجالات';
 
   @override
-  String get categoryDetailEmptyTitle => 'لا يوجد شيء هنا بعد';
-
-  @override
-  String categoryDetailEmptyMessage(String name) {
-    return 'ستظهر هنا المصادر والملاحظات والمهام التي تضيفها إلى $name.';
-  }
-
-  @override
   String get categoryIconFolder => 'مجلد';
 
   @override
@@ -407,14 +399,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sampleDataBannerMessage =>
-      'توضّح المجالات التجريبية طريقة عمل Learning OS. احذفها متى شئت.';
+      'توضّح المجالات والمصادر التجريبية طريقة عمل Learning OS. احذفها متى شئت.';
 
   @override
   String get sampleDataRemoveTitle => 'حذف البيانات التجريبية؟';
 
   @override
   String get sampleDataRemoveMessage =>
-      'سيتم حذف جميع المجالات التجريبية. المجالات التي أنشأتها بنفسك لن تتأثر.';
+      'سيتم حذف جميع المجالات والمصادر التجريبية. ما أنشأته بنفسك سيبقى كما هو.';
 
   @override
   String get sampleFlutterDescription =>
@@ -431,4 +423,364 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get sampleGitDescription =>
       'إدارة الإصدارات والفروع والتعاون عبر GitHub.';
+
+  @override
+  String get sampleResourceFlutterDocs =>
+      'الأدلة الرسمية ووصفات الـ Cookbook ومرجع الـ API الخاص بـ Flutter.';
+
+  @override
+  String get sampleResourceRiverpod =>
+      'إدارة الحالة والتخزين المؤقت التفاعلي لـ Flutter و Dart.';
+
+  @override
+  String get sampleResourceFlutterYoutube =>
+      'محاضرات و Widget of the Week وأخبار الإصدارات من فريق Flutter.';
+
+  @override
+  String get sampleResourceFlutterRepo =>
+      'الكود المصدري والمشكلات وخارطة الطريق لإطار Flutter.';
+
+  @override
+  String get sampleResourceDartLanguage =>
+      'جولة في صياغة Dart والأنواع والكلاسات والبرمجة غير المتزامنة.';
+
+  @override
+  String get sampleResourceEffectiveDart =>
+      'إرشادات لكتابة كود Dart متّسق وواضح وبالأسلوب الصحيح.';
+
+  @override
+  String get sampleResourceMaterial =>
+      'نظام تصميم Google: المكوّنات والألوان والخطوط والحركة.';
+
+  @override
+  String get sampleResourceProGit =>
+      'الكتاب المجاني عن Git: الأساسيات والفروع وأساليب العمل وما خلف الكواليس.';
+
+  @override
+  String get resourceTypeWebsite => 'موقع';
+
+  @override
+  String get resourceTypeYoutube => 'يوتيوب';
+
+  @override
+  String get resourceTypeCourse => 'دورة';
+
+  @override
+  String get resourceTypeBook => 'كتاب';
+
+  @override
+  String get resourceTypePdf => 'PDF';
+
+  @override
+  String get resourceTypeArticle => 'مقال';
+
+  @override
+  String get resourceTypeGithub => 'GitHub';
+
+  @override
+  String get resourceTypeDocumentation => 'توثيق';
+
+  @override
+  String get resourceTypeOther => 'أخرى';
+
+  @override
+  String get resourcesNew => 'إضافة مصدر';
+
+  @override
+  String resourcesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count مصدر',
+      many: '$count مصدرًا',
+      few: '$count مصادر',
+      two: 'مصدران',
+      one: 'مصدر واحد',
+      zero: 'لا توجد مصادر',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get resourcesSearchHint => 'ابحث بالعنوان أو الرابط أو #الوسم';
+
+  @override
+  String get resourcesEmptyTitle => 'مكتبتك التعليمية فارغة';
+
+  @override
+  String get resourcesEmptyMessage =>
+      'ابدأ ببناء قاعدة معرفتك بإضافة أول مصدر.';
+
+  @override
+  String get resourcesNoResultsTitle => 'لا توجد مصادر مطابقة';
+
+  @override
+  String get resourcesNoResultsMessage => 'جرّب بحثًا مختلفًا أو امسح الفلاتر.';
+
+  @override
+  String get resourcesClearFilters => 'مسح الفلاتر';
+
+  @override
+  String get filterAll => 'الكل';
+
+  @override
+  String get filterType => 'النوع';
+
+  @override
+  String get filterCategory => 'المجال';
+
+  @override
+  String get filterProgress => 'التقدّم';
+
+  @override
+  String get filterTag => 'الوسم';
+
+  @override
+  String get filterFavorites => 'المفضلة';
+
+  @override
+  String get filterUncategorized => 'بدون مجال';
+
+  @override
+  String get progressNotStarted => 'لم يبدأ';
+
+  @override
+  String get progressInProgress => 'قيد التقدّم';
+
+  @override
+  String get progressCompleted => 'مكتمل';
+
+  @override
+  String get sortLabel => 'الترتيب';
+
+  @override
+  String get sortRecentlyAdded => 'المُضاف حديثًا';
+
+  @override
+  String get sortRecentlyOpened => 'المفتوح مؤخرًا';
+
+  @override
+  String get sortTitle => 'العنوان (أ–ي)';
+
+  @override
+  String get sortProgress => 'التقدّم';
+
+  @override
+  String get resourceFormCreateTitle => 'إضافة مصدر';
+
+  @override
+  String get resourceFormEditTitle => 'تعديل المصدر';
+
+  @override
+  String get resourceFormUrl => 'الرابط';
+
+  @override
+  String get resourceFormUrlHint => 'https://…';
+
+  @override
+  String get resourceFormTitle => 'العنوان';
+
+  @override
+  String get resourceFormTitleHint => 'اتركه فارغًا لاستخدام اسم الموقع';
+
+  @override
+  String get resourceFormDescription => 'الوصف';
+
+  @override
+  String get resourceFormDescriptionHint => 'ما هو، ولماذا هو مفيد؟';
+
+  @override
+  String get resourceFormType => 'النوع';
+
+  @override
+  String get resourceFormCategory => 'المجال';
+
+  @override
+  String get resourceFormNoCategory => 'بدون مجال';
+
+  @override
+  String get resourceFormTags => 'الوسوم';
+
+  @override
+  String get resourceFormTagsHint => 'اكتب وسمًا واضغط Enter';
+
+  @override
+  String resourceFormRemoveTag(String tag) {
+    return 'إزالة الوسم $tag';
+  }
+
+  @override
+  String get resourceFormProgress => 'التقدّم';
+
+  @override
+  String get resourceFormFavorite => 'إضافة إلى المفضلة';
+
+  @override
+  String get resourceFormCreate => 'إضافة المصدر';
+
+  @override
+  String get resourceTitleRequired => 'أدخل عنوانًا أو رابطًا';
+
+  @override
+  String get resourceUrlInvalid =>
+      'أدخل عنوان ويب صحيحًا، مثل https://example.com';
+
+  @override
+  String resourceTooManyTags(int max) {
+    String _temp0 = intl.Intl.pluralLogic(
+      max,
+      locale: localeName,
+      other: 'استخدم $max وسمًا كحد أقصى',
+      few: 'استخدم $max وسوم كحد أقصى',
+      two: 'استخدم وسمين كحد أقصى',
+      one: 'استخدم وسمًا واحدًا كحد أقصى',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get resourceCreated => 'تمت إضافة المصدر';
+
+  @override
+  String get resourceUpdated => 'تم تحديث المصدر';
+
+  @override
+  String get resourceDeleted => 'تم حذف المصدر';
+
+  @override
+  String get resourceSaveError => 'تعذّر حفظ المصدر. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get resourceDeleteError => 'تعذّر حذف المصدر. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String resourceDeleteTitle(String title) {
+    return 'حذف «$title»؟';
+  }
+
+  @override
+  String get resourceDeleteMessage =>
+      'سيتم حذف هذا المصدر. يمكنك التراجع مباشرةً بعد الحذف.';
+
+  @override
+  String get resourceOpen => 'فتح';
+
+  @override
+  String get resourceOpenLink => 'فتح الرابط في تبويب جديد';
+
+  @override
+  String get resourceOpenBlocked =>
+      'منع المتصفح فتح تبويب جديد. اسمح بالنوافذ المنبثقة لهذا الموقع ثم حاول مرة أخرى.';
+
+  @override
+  String get resourceNoLink => 'بدون رابط';
+
+  @override
+  String get resourceFavoriteAdd => 'إضافة إلى المفضلة';
+
+  @override
+  String get resourceFavoriteRemove => 'إزالة من المفضلة';
+
+  @override
+  String get resourceUpdateError =>
+      'تعذّر تحديث المصدر. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String progressPercent(int value) {
+    return '$value٪';
+  }
+
+  @override
+  String progressComplete(int value) {
+    return 'مكتمل بنسبة $value٪';
+  }
+
+  @override
+  String resourceLastOpened(String date) {
+    return 'آخر فتح $date';
+  }
+
+  @override
+  String get resourceNeverOpened => 'لم يُفتح بعد';
+
+  @override
+  String get resourceNoDescription => 'بدون وصف';
+
+  @override
+  String get resourceNotFoundTitle => 'المصدر غير موجود';
+
+  @override
+  String get resourceNotFoundMessage => 'ربما تم حذفه، أو أن الرابط غير صحيح.';
+
+  @override
+  String get resourceBackToList => 'كل المصادر';
+
+  @override
+  String get resourceDetails => 'التفاصيل';
+
+  @override
+  String get resourceAbout => 'نبذة';
+
+  @override
+  String get detailCreated => 'تاريخ الإنشاء';
+
+  @override
+  String get detailUpdated => 'آخر تحديث';
+
+  @override
+  String get detailLastOpened => 'آخر فتح';
+
+  @override
+  String resourceMoreTags(int count) {
+    return '+$count';
+  }
+
+  @override
+  String categoryResourcesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count مصدر',
+      many: '$count مصدرًا',
+      few: '$count مصادر',
+      two: 'مصدران',
+      one: 'مصدر واحد',
+      zero: 'لا توجد مصادر بعد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String categoryDeleteKeepsResources(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'ستبقى مصادره الـ $count في مكتبتك بدون مجال.',
+      few: 'ستبقى مصادره الـ $count في مكتبتك بدون مجال.',
+      two: 'سيبقى مصدراه في مكتبتك بدون مجال.',
+      one: 'سيبقى مصدره في مكتبتك بدون مجال.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get categoryStatResources => 'المصادر';
+
+  @override
+  String get categoryStatCompleted => 'المكتملة';
+
+  @override
+  String get categoryStatProgress => 'التقدّم';
+
+  @override
+  String get categoryResourcesSection => 'المصادر';
+
+  @override
+  String categoryNoResourcesTitle(String name) {
+    return 'لا توجد مصادر في $name بعد';
+  }
+
+  @override
+  String get categoryNoResourcesMessage =>
+      'أضف الدورات والفيديوهات والتوثيقات والمقالات التي تتعلّم منها.';
 }

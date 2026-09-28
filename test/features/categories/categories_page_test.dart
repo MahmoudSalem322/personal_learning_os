@@ -22,24 +22,6 @@ Future<ProviderContainer> openCategories(
   return container;
 }
 
-/// Runs real storage work (sembast) outside the fake-async test zone, then
-/// lets streams and animations settle.
-///
-/// sembast delivers change notifications on the real event loop, so after
-/// the body finishes we yield to it a few times (pumping in between) until
-/// the stream updates have reached the widgets.
-Future<T> io<T>(WidgetTester tester, Future<T> Function() body) async {
-  final result = await tester.runAsync(body);
-  for (var i = 0; i < 5; i++) {
-    await tester.runAsync(
-      () => Future<void>.delayed(const Duration(milliseconds: 10)),
-    );
-    await tester.pump();
-  }
-  await tester.pumpAndSettle();
-  return result as T;
-}
-
 Future<void> createCategory(ProviderContainer c, String name) => c
     .read(categoryServiceProvider)
     .create(
@@ -68,7 +50,7 @@ void main() {
     await openCategories(tester);
 
     await tester.tap(find.text('Load sample data'));
-    await io(tester, () => Future<void>.delayed(Duration.zero));
+    await tester.io(() => Future<void>.delayed(Duration.zero));
 
     expect(find.byType(CategoryCard), findsNWidgets(4));
     expect(find.text('Git & GitHub'), findsOneWidget);
@@ -77,7 +59,7 @@ void main() {
     await tester.tap(find.widgetWithText(TextButton, 'Remove sample data'));
     await tester.pumpAndSettle();
     await tester.tap(find.widgetWithText(FilledButton, 'Remove sample data'));
-    await io(tester, () => Future<void>.delayed(Duration.zero));
+    await tester.io(() => Future<void>.delayed(Duration.zero));
 
     expect(find.byType(CategoryCard), findsNothing);
     expect(find.text('Organize your learning'), findsOneWidget);
@@ -103,7 +85,7 @@ void main() {
     await tester.pump();
 
     await tester.tap(find.text('Create category'));
-    await io(tester, () => Future<void>.delayed(Duration.zero));
+    await tester.io(() => Future<void>.delayed(Duration.zero));
 
     expect(find.byType(CategoryFormDialog), findsNothing);
     expect(find.text('Category created'), findsOneWidget);
@@ -115,7 +97,7 @@ void main() {
     tester,
   ) async {
     final container = await openCategories(tester);
-    await io(tester, () => createCategory(container, 'Flutter'));
+    await tester.io(() => createCategory(container, 'Flutter'));
 
     await tester.tap(find.widgetWithText(FilledButton, 'New category'));
     await tester.pumpAndSettle();
@@ -134,9 +116,35 @@ void main() {
     expect(find.byType(CategoryFormDialog), findsOneWidget);
   });
 
+  testWidgets('card gives the description room for two full lines', (
+    tester,
+  ) async {
+    final container = await openCategories(tester);
+    const description =
+        'A long description that certainly needs more than a single line '
+        'of text inside a category card, to check nothing is clipped.';
+    await tester.io(
+      () => container
+          .read(categoryServiceProvider)
+          .create(
+            const CategoryDraft(
+              name: 'Flutter',
+              description: description,
+              icon: 'code',
+              primaryColor: 0xFF3B82F6,
+              secondaryColor: 0xFF0EA5E9,
+            ),
+          ),
+    );
+
+    final paragraph = tester.renderObject<RenderBox>(find.text(description));
+    // Body text is 14px on a 22px line height.
+    expect(paragraph.size.height, greaterThanOrEqualTo(44));
+  });
+
   testWidgets('filters by name and shows a no-results state', (tester) async {
     final container = await openCategories(tester);
-    await io(tester, () async {
+    await tester.io(() async {
       await createCategory(container, 'Flutter');
       await createCategory(container, 'Dart');
     });
@@ -161,7 +169,7 @@ void main() {
 
   testWidgets('opens the detail page and edits the category', (tester) async {
     final container = await openCategories(tester);
-    await io(tester, () => createCategory(container, 'Flutter'));
+    await tester.io(() => createCategory(container, 'Flutter'));
 
     await tester.tap(find.byType(CategoryCard));
     await tester.pumpAndSettle();
@@ -169,7 +177,7 @@ void main() {
     final router = container.read(appRouterProvider);
     expect(router.state.uri.path, startsWith('/categories/'));
     expect(find.text('All categories'), findsOneWidget);
-    expect(find.text('Nothing here yet'), findsOneWidget);
+    expect(find.text('No resources in Flutter yet'), findsOneWidget);
 
     await tester.tap(find.widgetWithText(OutlinedButton, 'Edit'));
     await tester.pumpAndSettle();
@@ -178,7 +186,7 @@ void main() {
       'Flutter Web',
     );
     await tester.tap(find.text('Save changes'));
-    await io(tester, () => Future<void>.delayed(Duration.zero));
+    await tester.io(() => Future<void>.delayed(Duration.zero));
 
     expect(find.text('Category updated'), findsOneWidget);
     expect(find.text('Flutter Web'), findsWidgets);
@@ -188,7 +196,7 @@ void main() {
     tester,
   ) async {
     final container = await openCategories(tester);
-    await io(tester, () => createCategory(container, 'Flutter'));
+    await tester.io(() => createCategory(container, 'Flutter'));
 
     await tester.tap(find.byType(CategoryCard));
     await tester.pumpAndSettle();
@@ -197,7 +205,7 @@ void main() {
     expect(find.text('Delete “Flutter”?'), findsOneWidget);
 
     await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
-    await io(tester, () => Future<void>.delayed(Duration.zero));
+    await tester.io(() => Future<void>.delayed(Duration.zero));
 
     final router = container.read(appRouterProvider);
     expect(router.state.uri.path, '/categories');
@@ -205,7 +213,7 @@ void main() {
     expect(find.text('Category deleted'), findsOneWidget);
 
     await tester.tap(find.text('Undo'));
-    await io(tester, () => Future<void>.delayed(Duration.zero));
+    await tester.io(() => Future<void>.delayed(Duration.zero));
     expect(find.byType(CategoryCard), findsOneWidget);
   });
 
@@ -213,7 +221,7 @@ void main() {
     tester,
   ) async {
     final container = await openCategories(tester);
-    await io(tester, () => createCategory(container, 'Flutter'));
+    await tester.io(() => createCategory(container, 'Flutter'));
 
     await tester.tap(find.byTooltip('More actions'));
     await tester.pumpAndSettle();
@@ -241,11 +249,10 @@ void main() {
   ) async {
     final container = await openCategories(tester, size: TestViewports.mobile);
     await tester.tap(find.text('Load sample data'));
-    await io(tester, () => Future<void>.delayed(Duration.zero));
+    await tester.io(() => Future<void>.delayed(Duration.zero));
     expect(tester.takeException(), isNull);
 
-    await io(
-      tester,
+    await tester.io(
       () => container
           .read(settingsControllerProvider.notifier)
           .setLanguage(AppLanguage.arabic),

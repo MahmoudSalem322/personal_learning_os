@@ -6,6 +6,9 @@ import 'package:personal_learning_os/features/categories/data/local_category_rep
 import 'package:personal_learning_os/features/categories/domain/category.dart';
 import 'package:personal_learning_os/features/categories/domain/category_draft.dart';
 import 'package:personal_learning_os/features/categories/domain/category_service.dart';
+import 'package:personal_learning_os/features/resources/data/local_resource_repository.dart';
+import 'package:personal_learning_os/features/resources/data/resource_category_links.dart';
+import 'package:personal_learning_os/features/resources/domain/resource.dart';
 import 'package:sembast/sembast_memory.dart';
 
 class _SequentialIds extends IdGenerator {
@@ -26,15 +29,18 @@ CategoryDraft draft(String name, {String description = ''}) => CategoryDraft(
 void main() {
   late Database db;
   late LocalCategoryRepository repository;
+  late LocalResourceRepository resources;
   late CategoryService service;
   late DateTime now;
 
   setUp(() async {
     db = await AppDatabase.open(newDatabaseFactoryMemory());
     repository = LocalCategoryRepository(db);
+    resources = LocalResourceRepository(db);
     now = DateTime.utc(2026, 9, 28, 9);
     service = CategoryService(
       repository,
+      links: [ResourceCategoryLinks(resources)],
       ids: _SequentialIds(),
       clock: () => now,
     );
@@ -155,13 +161,46 @@ void main() {
         final created = await service.create(draft('Flutter'));
         final deleted = await service.delete(created.id);
 
-        expect(deleted, created);
+        expect(deleted.category, created);
         expect(await repository.getById(created.id), isNull);
 
         await service.restore(deleted);
         expect(await repository.getById(created.id), created);
       },
     );
+
+    test('keeps resources (uncategorized) and Undo re-links them', () async {
+      final flutter = await service.create(draft('Flutter'));
+      final dart = await service.create(draft('Dart'));
+      Resource resource(String id, String? categoryId) => Resource(
+        id: id,
+        title: id,
+        type: ResourceType.website,
+        categoryId: categoryId,
+        createdAt: now,
+        updatedAt: now,
+      );
+      await resources.saveAll([
+        resource('r1', flutter.id),
+        resource('r2', flutter.id),
+        resource('r3', dart.id),
+      ]);
+
+      final deleted = await service.delete(flutter.id);
+
+      expect(deleted.detachedCount, 2);
+      final afterDelete = {
+        for (final r in await resources.getAll()) r.id: r.categoryId,
+      };
+      expect(afterDelete, {'r1': null, 'r2': null, 'r3': dart.id});
+
+      await service.restore(deleted);
+
+      final afterUndo = {
+        for (final r in await resources.getAll()) r.id: r.categoryId,
+      };
+      expect(afterUndo, {'r1': flutter.id, 'r2': flutter.id, 'r3': dart.id});
+    });
 
     test('deleting an unknown id throws NotFoundException', () async {
       await expectLater(

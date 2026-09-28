@@ -277,14 +277,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get categoryBackToList => 'All categories';
 
   @override
-  String get categoryDetailEmptyTitle => 'Nothing here yet';
-
-  @override
-  String categoryDetailEmptyMessage(String name) {
-    return 'Resources, notes and tasks you add to $name will appear here.';
-  }
-
-  @override
   String get categoryIconFolder => 'Folder';
 
   @override
@@ -401,14 +393,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sampleDataBannerMessage =>
-      'Sample categories show how Learning OS works. Remove them whenever you\'re ready.';
+      'The sample categories and resources show how Learning OS works. Remove them whenever you\'re ready.';
 
   @override
   String get sampleDataRemoveTitle => 'Remove sample data?';
 
   @override
   String get sampleDataRemoveMessage =>
-      'All sample categories will be deleted. Categories you created yourself are not affected.';
+      'All sample categories and resources will be deleted. What you created yourself is kept.';
 
   @override
   String get sampleFlutterDescription =>
@@ -425,4 +417,353 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get sampleGitDescription =>
       'Version control, branching and collaborating on GitHub.';
+
+  @override
+  String get sampleResourceFlutterDocs =>
+      'Official guides, cookbook recipes and API reference for Flutter.';
+
+  @override
+  String get sampleResourceRiverpod =>
+      'Reactive caching and state management for Flutter and Dart.';
+
+  @override
+  String get sampleResourceFlutterYoutube =>
+      'Talks, Widget of the Week and release updates from the Flutter team.';
+
+  @override
+  String get sampleResourceFlutterRepo =>
+      'Source code, issues and roadmap of the Flutter framework.';
+
+  @override
+  String get sampleResourceDartLanguage =>
+      'A tour of Dart\'s syntax, types, classes and async features.';
+
+  @override
+  String get sampleResourceEffectiveDart =>
+      'Guidelines for writing consistent, readable and idiomatic Dart.';
+
+  @override
+  String get sampleResourceMaterial =>
+      'Google\'s design system: components, color, type and motion.';
+
+  @override
+  String get sampleResourceProGit =>
+      'The free book on Git: basics, branching, workflows and internals.';
+
+  @override
+  String get resourceTypeWebsite => 'Website';
+
+  @override
+  String get resourceTypeYoutube => 'YouTube';
+
+  @override
+  String get resourceTypeCourse => 'Course';
+
+  @override
+  String get resourceTypeBook => 'Book';
+
+  @override
+  String get resourceTypePdf => 'PDF';
+
+  @override
+  String get resourceTypeArticle => 'Article';
+
+  @override
+  String get resourceTypeGithub => 'GitHub';
+
+  @override
+  String get resourceTypeDocumentation => 'Documentation';
+
+  @override
+  String get resourceTypeOther => 'Other';
+
+  @override
+  String get resourcesNew => 'Add resource';
+
+  @override
+  String resourcesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count resources',
+      one: '1 resource',
+      zero: 'No resources',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get resourcesSearchHint => 'Search title, link or #tag';
+
+  @override
+  String get resourcesEmptyTitle => 'Your learning library is empty';
+
+  @override
+  String get resourcesEmptyMessage =>
+      'Start building your knowledge base by adding your first resource.';
+
+  @override
+  String get resourcesNoResultsTitle => 'No matching resources';
+
+  @override
+  String get resourcesNoResultsMessage =>
+      'Try a different search or clear the filters.';
+
+  @override
+  String get resourcesClearFilters => 'Clear filters';
+
+  @override
+  String get filterAll => 'All';
+
+  @override
+  String get filterType => 'Type';
+
+  @override
+  String get filterCategory => 'Category';
+
+  @override
+  String get filterProgress => 'Progress';
+
+  @override
+  String get filterTag => 'Tag';
+
+  @override
+  String get filterFavorites => 'Favorites';
+
+  @override
+  String get filterUncategorized => 'Uncategorized';
+
+  @override
+  String get progressNotStarted => 'Not started';
+
+  @override
+  String get progressInProgress => 'In progress';
+
+  @override
+  String get progressCompleted => 'Completed';
+
+  @override
+  String get sortLabel => 'Sort';
+
+  @override
+  String get sortRecentlyAdded => 'Recently added';
+
+  @override
+  String get sortRecentlyOpened => 'Recently opened';
+
+  @override
+  String get sortTitle => 'Title (A–Z)';
+
+  @override
+  String get sortProgress => 'Progress';
+
+  @override
+  String get resourceFormCreateTitle => 'Add resource';
+
+  @override
+  String get resourceFormEditTitle => 'Edit resource';
+
+  @override
+  String get resourceFormUrl => 'Link';
+
+  @override
+  String get resourceFormUrlHint => 'https://…';
+
+  @override
+  String get resourceFormTitle => 'Title';
+
+  @override
+  String get resourceFormTitleHint => 'Leave empty to use the site name';
+
+  @override
+  String get resourceFormDescription => 'Description';
+
+  @override
+  String get resourceFormDescriptionHint => 'What is it, and why is it useful?';
+
+  @override
+  String get resourceFormType => 'Type';
+
+  @override
+  String get resourceFormCategory => 'Category';
+
+  @override
+  String get resourceFormNoCategory => 'No category';
+
+  @override
+  String get resourceFormTags => 'Tags';
+
+  @override
+  String get resourceFormTagsHint => 'Type a tag and press Enter';
+
+  @override
+  String resourceFormRemoveTag(String tag) {
+    return 'Remove tag $tag';
+  }
+
+  @override
+  String get resourceFormProgress => 'Progress';
+
+  @override
+  String get resourceFormFavorite => 'Add to favorites';
+
+  @override
+  String get resourceFormCreate => 'Add resource';
+
+  @override
+  String get resourceTitleRequired => 'Enter a title or a link';
+
+  @override
+  String get resourceUrlInvalid =>
+      'Enter a valid web address, like https://example.com';
+
+  @override
+  String resourceTooManyTags(int max) {
+    return 'Use up to $max tags';
+  }
+
+  @override
+  String get resourceCreated => 'Resource added';
+
+  @override
+  String get resourceUpdated => 'Resource updated';
+
+  @override
+  String get resourceDeleted => 'Resource deleted';
+
+  @override
+  String get resourceSaveError =>
+      'Couldn\'t save the resource. Please try again.';
+
+  @override
+  String get resourceDeleteError =>
+      'Couldn\'t delete the resource. Please try again.';
+
+  @override
+  String resourceDeleteTitle(String title) {
+    return 'Delete “$title”?';
+  }
+
+  @override
+  String get resourceDeleteMessage =>
+      'This resource will be removed. You can undo this right after.';
+
+  @override
+  String get resourceOpen => 'Open';
+
+  @override
+  String get resourceOpenLink => 'Open link in a new tab';
+
+  @override
+  String get resourceOpenBlocked =>
+      'The browser blocked the new tab. Allow pop-ups for this site and try again.';
+
+  @override
+  String get resourceNoLink => 'No link';
+
+  @override
+  String get resourceFavoriteAdd => 'Add to favorites';
+
+  @override
+  String get resourceFavoriteRemove => 'Remove from favorites';
+
+  @override
+  String get resourceUpdateError =>
+      'Couldn\'t update the resource. Please try again.';
+
+  @override
+  String progressPercent(int value) {
+    return '$value%';
+  }
+
+  @override
+  String progressComplete(int value) {
+    return '$value% complete';
+  }
+
+  @override
+  String resourceLastOpened(String date) {
+    return 'Last opened $date';
+  }
+
+  @override
+  String get resourceNeverOpened => 'Not opened yet';
+
+  @override
+  String get resourceNoDescription => 'No description';
+
+  @override
+  String get resourceNotFoundTitle => 'Resource not found';
+
+  @override
+  String get resourceNotFoundMessage =>
+      'It may have been deleted, or the link is incorrect.';
+
+  @override
+  String get resourceBackToList => 'All resources';
+
+  @override
+  String get resourceDetails => 'Details';
+
+  @override
+  String get resourceAbout => 'About';
+
+  @override
+  String get detailCreated => 'Created';
+
+  @override
+  String get detailUpdated => 'Updated';
+
+  @override
+  String get detailLastOpened => 'Last opened';
+
+  @override
+  String resourceMoreTags(int count) {
+    return '+$count';
+  }
+
+  @override
+  String categoryResourcesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count resources',
+      one: '1 resource',
+      zero: 'No resources yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String categoryDeleteKeepsResources(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          'Its $count resources will stay in your library without a category.',
+      one: 'Its resource will stay in your library without a category.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get categoryStatResources => 'Resources';
+
+  @override
+  String get categoryStatCompleted => 'Completed';
+
+  @override
+  String get categoryStatProgress => 'Progress';
+
+  @override
+  String get categoryResourcesSection => 'Resources';
+
+  @override
+  String categoryNoResourcesTitle(String name) {
+    return 'No resources in $name yet';
+  }
+
+  @override
+  String get categoryNoResourcesMessage =>
+      'Add the courses, videos, docs or articles you use to learn it.';
 }

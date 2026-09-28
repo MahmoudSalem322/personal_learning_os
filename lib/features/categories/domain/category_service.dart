@@ -2,21 +2,26 @@ import '../../../core/errors/app_exception.dart';
 import '../../../core/utils/id_generator.dart';
 import 'category.dart';
 import 'category_draft.dart';
+import 'category_links.dart';
 import 'category_repository.dart';
 
-/// Use cases for categories: validation, ids, timestamps.
+/// Use cases for categories: validation, ids, timestamps, and deleting a
+/// category without deleting what's inside it.
 ///
 /// The presentation layer calls this service; it never writes to the
 /// repository directly.
 class CategoryService {
   CategoryService(
     this._repository, {
+    List<CategoryLinks> links = const [],
     IdGenerator? ids,
     DateTime Function()? clock,
-  }) : _ids = ids ?? IdGenerator(),
+  }) : _links = List.unmodifiable(links),
+       _ids = ids ?? IdGenerator(),
        _clock = clock ?? DateTime.now;
 
   final CategoryRepository _repository;
+  final List<CategoryLinks> _links;
   final IdGenerator _ids;
   final DateTime Function() _clock;
 
@@ -84,16 +89,27 @@ class CategoryService {
     return updated;
   }
 
-  /// Deletes the category and returns it so the caller can offer Undo.
-  Future<Category> delete(String id) async {
+  /// Deletes the category. Items linked to it (resources, ...) are kept and
+  /// become uncategorized. Returns what's needed to Undo.
+  Future<DeletedCategory> delete(String id) async {
     final current = await _repository.getById(id);
     if (current == null) throw NotFoundException('Category $id not found');
+    // Unlink first: if that fails, the category is still there and nothing
+    // points at a missing category.
+    final detached = [for (final links in _links) await links.detach(id)];
     await _repository.delete(id);
-    return current;
+    return DeletedCategory(current, detached);
   }
 
-  /// Puts back a category removed by [delete] (Undo), unchanged.
-  Future<void> restore(Category category) => _repository.save(category);
+  /// Undo for [delete]: puts the category back unchanged and re-links the
+  /// items that were unlinked from it.
+  Future<void> restore(DeletedCategory deleted) async {
+    final category = deleted.category;
+    await _repository.save(category);
+    for (var i = 0; i < _links.length && i < deleted.detached.length; i++) {
+      await _links[i].reattach(category.id, deleted.detached[i]);
+    }
+  }
 
   Future<void> _ensureValid(CategoryDraft draft, {String? excludingId}) async {
     final errors = validate(

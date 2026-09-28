@@ -13,9 +13,14 @@ abstract final class AppStores {
   static final StoreRef<String, Map<String, Object?>> categories =
       stringMapStoreFactory.store('categories');
 
+  /// Learning resources, keyed by resource id.
+  static final StoreRef<String, Map<String, Object?>> resources =
+      stringMapStoreFactory.store('resources');
+
   static List<StoreRef<String, Map<String, Object?>>> get all => [
     settings,
     categories,
+    resources,
   ];
 }
 

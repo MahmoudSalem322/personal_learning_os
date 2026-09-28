@@ -1,7 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 
-import '../../../../core/extensions/context_extensions.dart';
-import '../../../../core/theme/app_motion.dart';
+import '../../../../core/widgets/accent_tile.dart';
 import '../category_appearance.dart';
 
 /// Rounded tile with the category icon on its identity gradient.
@@ -21,28 +20,11 @@ class CategoryAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final visual = CategoryVisual.resolve(
+    return AccentTile(
+      icon: CategoryIcons.resolve(icon),
       primaryColor: primaryColor,
       secondaryColor: secondaryColor,
-      brightness: Theme.of(context).brightness,
-      surface: context.colors.card,
-    );
-    return ExcludeSemantics(
-      child: AnimatedContainer(
-        duration: AppMotion.normal,
-        curve: AppMotion.standard,
-        width: size,
-        height: size,
-        decoration: BoxDecoration(
-          gradient: visual.gradient,
-          borderRadius: BorderRadius.circular(size * 0.28),
-        ),
-        child: Icon(
-          CategoryIcons.resolve(icon),
-          size: size * 0.5,
-          color: visual.foreground,
-        ),
-      ),
+      size: size,
     );
   }
 }

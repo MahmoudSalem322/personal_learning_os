@@ -12,10 +12,14 @@ import 'sample_data_providers.dart';
 abstract final class SampleDataActions {
   static Future<void> load(BuildContext context, WidgetRef ref) async {
     final l10n = context.l10n;
+    final now = DateTime.now();
     try {
       await ref
           .read(sampleDataServiceProvider)
-          .load(categories: sampleCategories(l10n, DateTime.now()));
+          .load(
+            categories: sampleCategories(l10n, now),
+            resources: sampleResources(l10n, now),
+          );
       if (context.mounted) AppToast.success(context, l10n.sampleDataLoaded);
     } on AppException {
       if (context.mounted) AppToast.error(context, l10n.sampleDataError);

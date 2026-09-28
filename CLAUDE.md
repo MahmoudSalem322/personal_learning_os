@@ -7,7 +7,7 @@ Only implement the phase the user asks for; never jump ahead.
 
 - [x] PHASE 01 — Architecture & Foundation
 - [x] PHASE 02 — Categories
-- [ ] PHASE 03 — Resources
+- [x] PHASE 03 — Resources
 - [ ] PHASE 04 — Notes
 - [ ] PHASE 05 — Tasks
 - [ ] PHASE 06 — Dashboard & Global Search
@@ -41,7 +41,24 @@ Only implement the phase the user asks for; never jump ahead.
   `Local<X>Repository` (sembast). Widgets never call repositories to write.
 - Sample data ids start with `sample-` (`SampleDataService.idPrefix`); later
   phases extend `SampleDataService.load/remove` for their own stores.
-- Deleting a category currently removes only the category. When resources,
-  notes and tasks arrive, decide how their `categoryId` is handled on delete.
+- Deleting a category keeps its items and makes them uncategorized (user's
+  decision, option B). Each feature that references categories implements
+  `CategoryLinks` (see `ResourceCategoryLinks`) and is added to
+  `categoryServiceProvider`'s `links`; Undo re-links the same items. Notes
+  and tasks must do the same.
+- Category progress rule: rounded mean of its resources' progress
+  (`LearningProgress`); no resources means no percentage (not 0%).
+- Tags: `TagRules` (normalize/parse) in `features/tags`, shared by resources,
+  notes and tasks. Stored lowercase without `#`.
+- Opening links: `UrlOpener` (`urlOpenerProvider`) must be called
+  synchronously inside the click handler (pop-up blockers). Tests override
+  it with `FakeUrlOpener` (see `test/helpers/test_app.dart`).
+- Storage helpers: `guardStorage`, `storageErrors`, `tryParseRecord` in
+  `core/storage/storage_guard.dart`. Forms use `AppFormDialog`; list filters
+  use `FilterMenuButton`.
+- Widget tests: use `tester.io(...)` / `tapAndSettleIo` for anything that
+  touches sembast, and `findTooltip` for material_ui tooltips.
+- Avoid `Container(alignment: ...)` inside `Wrap`/`Row` children: it expands
+  to the full available width.
 - Before finishing a phase: `flutter analyze` clean, `flutter test` green,
   `flutter build web` succeeds.

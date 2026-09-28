@@ -7,6 +7,7 @@ import '../../../core/errors/app_exception.dart';
 import '../../../core/extensions/context_extensions.dart';
 import '../../../core/widgets/app_confirm_dialog.dart';
 import '../../../core/widgets/app_toast.dart';
+import '../../resources/presentation/resources_providers.dart';
 import '../domain/category.dart';
 import 'categories_providers.dart';
 import 'widgets/category_form_dialog.dart';
@@ -43,10 +44,15 @@ abstract final class CategoryActions {
     VoidCallback? onDeleted,
   }) async {
     final l10n = context.l10n;
+    final resourceCount =
+        ref.read(categoryProgressProvider)[category.id]?.resourceCount ?? 0;
     final confirmed = await showConfirmDialog(
       context,
       title: l10n.categoryDeleteTitle(category.name),
-      message: l10n.categoryDeleteMessage,
+      message: resourceCount == 0
+          ? l10n.categoryDeleteMessage
+          : '${l10n.categoryDeleteMessage}\n\n'
+                '${l10n.categoryDeleteKeepsResources(resourceCount)}',
       confirmLabel: l10n.actionDelete,
       destructive: true,
     );

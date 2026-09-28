@@ -1,13 +1,12 @@
-import 'package:flutter/services.dart' show LogicalKeyboardKey;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
-import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/errors/app_exception.dart';
 import '../../../../core/extensions/context_extensions.dart';
 import '../../../../core/theme/app_radius.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../../../../core/theme/app_typography.dart';
+import '../../../../core/widgets/app_form_dialog.dart';
 import '../../../../core/widgets/app_toast.dart';
 import '../../domain/category.dart';
 import '../../domain/category_draft.dart';
@@ -136,19 +135,21 @@ class _CategoryFormDialogState extends ConsumerState<CategoryFormDialog> {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final isMobile = context.screenSize.isMobile;
-
-    final content = _FormBody(
+    return AppFormDialog(
       title: _isEditing
           ? l10n.categoryFormEditTitle
           : l10n.categoryFormCreateTitle,
-      preview: _Preview(
-        name: _name.text.trim(),
-        icon: _icon,
-        primary: _primary,
-        secondary: _secondary,
-      ),
-      fields: [
+      submitLabel: _isEditing ? l10n.actionSave : l10n.categoryFormCreate,
+      onSubmit: _submit,
+      saving: _saving,
+      children: [
+        _Preview(
+          name: _name.text.trim(),
+          icon: _icon,
+          primary: _primary,
+          secondary: _secondary,
+        ),
+        Gap.lg,
         TextField(
           controller: _name,
           autofocus: true,
@@ -177,123 +178,19 @@ class _CategoryFormDialogState extends ConsumerState<CategoryFormDialog> {
           ),
         ),
         Gap.md,
-        _SectionLabel(l10n.categoryFormIcon),
+        AppFormLabel(l10n.categoryFormIcon),
         CategoryIconPicker(
           selected: _icon,
           onChanged: (key) => setState(() => _icon = key),
         ),
         Gap.lg,
-        _SectionLabel(l10n.categoryFormColor),
+        AppFormLabel(l10n.categoryFormColor),
         CategoryColorPicker(
           selectedPrimary: _primary,
           onChanged: (preset) => setState(() {
             _primary = preset.primary.toARGB32();
             _secondary = preset.secondary.toARGB32();
           }),
-        ),
-      ],
-      actions: [
-        TextButton(
-          onPressed: _saving ? null : () => Navigator.of(context).pop(),
-          style: TextButton.styleFrom(foregroundColor: context.colors.text),
-          child: Text(l10n.actionCancel),
-        ),
-        FilledButton(
-          onPressed: _saving ? null : _submit,
-          child: _saving
-              ? const SizedBox.square(
-                  dimension: AppSizes.iconSm,
-                  child: CircularProgressIndicator(strokeWidth: 2),
-                )
-              : Text(_isEditing ? l10n.actionSave : l10n.categoryFormCreate),
-        ),
-      ],
-      onClose: () => Navigator.of(context).pop(),
-    );
-
-    // Ctrl/Cmd + Enter saves from anywhere in the form.
-    final form = CallbackShortcuts(
-      bindings: {
-        const SingleActivator(LogicalKeyboardKey.enter, control: true): _submit,
-        const SingleActivator(LogicalKeyboardKey.enter, meta: true): _submit,
-      },
-      child: content,
-    );
-
-    if (isMobile) return Dialog.fullscreen(child: SafeArea(child: form));
-    return Dialog(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 520, maxHeight: 760),
-        child: form,
-      ),
-    );
-  }
-}
-
-class _FormBody extends StatelessWidget {
-  const _FormBody({
-    required this.title,
-    required this.preview,
-    required this.fields,
-    required this.actions,
-    required this.onClose,
-  });
-
-  final String title;
-  final Widget preview;
-  final List<Widget> fields;
-  final List<Widget> actions;
-  final VoidCallback onClose;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(
-            AppSpacing.lg,
-            AppSpacing.md,
-            AppSpacing.sm,
-            0,
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Semantics(
-                  header: true,
-                  child: Text(title, style: context.textStyles.subheading),
-                ),
-              ),
-              IconButton(
-                tooltip: context.l10n.actionClose,
-                onPressed: onClose,
-                icon: const Icon(Icons.close_rounded, size: AppSizes.iconMd),
-              ),
-            ],
-          ),
-        ),
-        Flexible(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(AppSpacing.lg),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [preview, Gap.lg, ...fields],
-            ),
-          ),
-        ),
-        const Divider(),
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.lg,
-            vertical: AppSpacing.md,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            spacing: AppSpacing.xs,
-            children: actions,
-          ),
         ),
       ],
     );
@@ -344,20 +241,6 @@ class _Preview extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class _SectionLabel extends StatelessWidget {
-  const _SectionLabel(this.text);
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: AppSpacing.xs),
-      child: Text(text, style: context.textStyles.label),
     );
   }
 }

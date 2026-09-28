@@ -17,4 +17,6 @@ abstract final class AppRoutes {
   static const String idParam = 'id';
 
   static String category(String id) => '$categories/${Uri.encodeComponent(id)}';
+
+  static String resource(String id) => '$resources/${Uri.encodeComponent(id)}';
 }

@@ -26,6 +26,8 @@ dependencies:
   sembast_web: ^2.4.6
   # Localization (version pinned by flutter_localizations).
   intl: ^0.20.3
+  # Browser APIs (opening links in a new tab). Already used by sembast_web.
+  web: ^1.1.1
 
 dev_dependencies:
   flutter_test:

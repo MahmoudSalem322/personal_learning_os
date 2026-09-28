@@ -116,11 +116,6 @@
   "categoryNotFoundTitle": "Category not found",
   "categoryNotFoundMessage": "It may have been deleted, or the link is incorrect.",
   "categoryBackToList": "All categories",
-  "categoryDetailEmptyTitle": "Nothing here yet",
-  "categoryDetailEmptyMessage": "Resources, notes and tasks you add to {name} will appear here.",
-  "@categoryDetailEmptyMessage": {
-    "placeholders": { "name": { "type": "String" } }
-  },
 
   "categoryIconFolder": "Folder",
   "categoryIconCode": "Code",
@@ -162,11 +157,147 @@
   "sampleDataRemoved": "Sample data removed",
   "sampleDataError": "Couldn't update sample data. Please try again.",
   "sampleDataBannerTitle": "You're exploring sample data",
-  "sampleDataBannerMessage": "Sample categories show how Learning OS works. Remove them whenever you're ready.",
+  "sampleDataBannerMessage": "The sample categories and resources show how Learning OS works. Remove them whenever you're ready.",
   "sampleDataRemoveTitle": "Remove sample data?",
-  "sampleDataRemoveMessage": "All sample categories will be deleted. Categories you created yourself are not affected.",
+  "sampleDataRemoveMessage": "All sample categories and resources will be deleted. What you created yourself is kept.",
   "sampleFlutterDescription": "Cross-platform apps with widgets, layouts and state management.",
   "sampleDartDescription": "The language behind Flutter: types, async code and null safety.",
   "sampleUiUxDescription": "Interface design, usability and building design systems.",
-  "sampleGitDescription": "Version control, branching and collaborating on GitHub."
+  "sampleGitDescription": "Version control, branching and collaborating on GitHub.",
+
+  "sampleResourceFlutterDocs": "Official guides, cookbook recipes and API reference for Flutter.",
+  "sampleResourceRiverpod": "Reactive caching and state management for Flutter and Dart.",
+  "sampleResourceFlutterYoutube": "Talks, Widget of the Week and release updates from the Flutter team.",
+  "sampleResourceFlutterRepo": "Source code, issues and roadmap of the Flutter framework.",
+  "sampleResourceDartLanguage": "A tour of Dart's syntax, types, classes and async features.",
+  "sampleResourceEffectiveDart": "Guidelines for writing consistent, readable and idiomatic Dart.",
+  "sampleResourceMaterial": "Google's design system: components, color, type and motion.",
+  "sampleResourceProGit": "The free book on Git: basics, branching, workflows and internals.",
+
+  "resourceTypeWebsite": "Website",
+  "resourceTypeYoutube": "YouTube",
+  "resourceTypeCourse": "Course",
+  "resourceTypeBook": "Book",
+  "resourceTypePdf": "PDF",
+  "resourceTypeArticle": "Article",
+  "resourceTypeGithub": "GitHub",
+  "resourceTypeDocumentation": "Documentation",
+  "resourceTypeOther": "Other",
+
+  "resourcesNew": "Add resource",
+  "resourcesCount": "{count, plural, =0{No resources} =1{1 resource} other{{count} resources}}",
+  "@resourcesCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "resourcesSearchHint": "Search title, link or #tag",
+  "resourcesEmptyTitle": "Your learning library is empty",
+  "resourcesEmptyMessage": "Start building your knowledge base by adding your first resource.",
+  "resourcesNoResultsTitle": "No matching resources",
+  "resourcesNoResultsMessage": "Try a different search or clear the filters.",
+  "resourcesClearFilters": "Clear filters",
+
+  "filterAll": "All",
+  "filterType": "Type",
+  "filterCategory": "Category",
+  "filterProgress": "Progress",
+  "filterTag": "Tag",
+  "filterFavorites": "Favorites",
+  "filterUncategorized": "Uncategorized",
+  "progressNotStarted": "Not started",
+  "progressInProgress": "In progress",
+  "progressCompleted": "Completed",
+  "sortLabel": "Sort",
+  "sortRecentlyAdded": "Recently added",
+  "sortRecentlyOpened": "Recently opened",
+  "sortTitle": "Title (A–Z)",
+  "sortProgress": "Progress",
+
+  "resourceFormCreateTitle": "Add resource",
+  "resourceFormEditTitle": "Edit resource",
+  "resourceFormUrl": "Link",
+  "resourceFormUrlHint": "https://…",
+  "resourceFormTitle": "Title",
+  "resourceFormTitleHint": "Leave empty to use the site name",
+  "resourceFormDescription": "Description",
+  "resourceFormDescriptionHint": "What is it, and why is it useful?",
+  "resourceFormType": "Type",
+  "resourceFormCategory": "Category",
+  "resourceFormNoCategory": "No category",
+  "resourceFormTags": "Tags",
+  "resourceFormTagsHint": "Type a tag and press Enter",
+  "resourceFormRemoveTag": "Remove tag {tag}",
+  "@resourceFormRemoveTag": {
+    "placeholders": { "tag": { "type": "String" } }
+  },
+  "resourceFormProgress": "Progress",
+  "resourceFormFavorite": "Add to favorites",
+  "resourceFormCreate": "Add resource",
+  "resourceTitleRequired": "Enter a title or a link",
+  "resourceUrlInvalid": "Enter a valid web address, like https://example.com",
+  "resourceTooManyTags": "Use up to {max} tags",
+  "@resourceTooManyTags": {
+    "placeholders": { "max": { "type": "int" } }
+  },
+
+  "resourceCreated": "Resource added",
+  "resourceUpdated": "Resource updated",
+  "resourceDeleted": "Resource deleted",
+  "resourceSaveError": "Couldn't save the resource. Please try again.",
+  "resourceDeleteError": "Couldn't delete the resource. Please try again.",
+  "resourceDeleteTitle": "Delete “{title}”?",
+  "@resourceDeleteTitle": {
+    "placeholders": { "title": { "type": "String" } }
+  },
+  "resourceDeleteMessage": "This resource will be removed. You can undo this right after.",
+  "resourceOpen": "Open",
+  "resourceOpenLink": "Open link in a new tab",
+  "resourceOpenBlocked": "The browser blocked the new tab. Allow pop-ups for this site and try again.",
+  "resourceNoLink": "No link",
+  "resourceFavoriteAdd": "Add to favorites",
+  "resourceFavoriteRemove": "Remove from favorites",
+  "resourceUpdateError": "Couldn't update the resource. Please try again.",
+  "progressPercent": "{value}%",
+  "@progressPercent": {
+    "placeholders": { "value": { "type": "int" } }
+  },
+  "progressComplete": "{value}% complete",
+  "@progressComplete": {
+    "placeholders": { "value": { "type": "int" } }
+  },
+  "resourceLastOpened": "Last opened {date}",
+  "@resourceLastOpened": {
+    "placeholders": { "date": { "type": "String" } }
+  },
+  "resourceNeverOpened": "Not opened yet",
+  "resourceNoDescription": "No description",
+  "resourceNotFoundTitle": "Resource not found",
+  "resourceNotFoundMessage": "It may have been deleted, or the link is incorrect.",
+  "resourceBackToList": "All resources",
+  "resourceDetails": "Details",
+  "resourceAbout": "About",
+  "detailCreated": "Created",
+  "detailUpdated": "Updated",
+  "detailLastOpened": "Last opened",
+  "resourceMoreTags": "+{count}",
+  "@resourceMoreTags": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+
+  "categoryResourcesCount": "{count, plural, =0{No resources yet} =1{1 resource} other{{count} resources}}",
+  "@categoryResourcesCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "categoryDeleteKeepsResources": "{count, plural, =1{Its resource will stay in your library without a category.} other{Its {count} resources will stay in your library without a category.}}",
+  "@categoryDeleteKeepsResources": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "categoryStatResources": "Resources",
+  "categoryStatCompleted": "Completed",
+  "categoryStatProgress": "Progress",
+  "categoryResourcesSection": "Resources",
+  "categoryNoResourcesTitle": "No resources in {name} yet",
+  "@categoryNoResourcesTitle": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "categoryNoResourcesMessage": "Add the courses, videos, docs or articles you use to learn it."
 }

@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:personal_learning_os/core/theme/accent_visual.dart';
 import 'package:personal_learning_os/core/theme/app_colors.dart';
 import 'package:personal_learning_os/features/categories/presentation/category_appearance.dart';
 
@@ -12,14 +13,14 @@ double _contrast(Color a, Color b) {
 }
 
 void main() {
-  group('CategoryVisual', () {
+  group('AccentVisual', () {
     for (final (brightness, colors) in [
       (Brightness.light, AppColors.light),
       (Brightness.dark, AppColors.dark),
     ]) {
       test('icons stay legible on every preset in ${brightness.name} mode', () {
         for (final preset in CategoryColors.all) {
-          final visual = CategoryVisual.resolve(
+          final visual = AccentVisual.resolve(
             primaryColor: preset.primary.toARGB32(),
             secondaryColor: preset.secondary.toARGB32(),
             brightness: brightness,

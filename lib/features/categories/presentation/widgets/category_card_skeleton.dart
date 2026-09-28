@@ -35,7 +35,7 @@ abstract final class CategoryGridLayout {
   static const SliverGridDelegate delegate =
       SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 380,
-        mainAxisExtent: 184,
+        mainAxisExtent: 204,
         crossAxisSpacing: AppSpacing.md,
         mainAxisSpacing: AppSpacing.md,
       );

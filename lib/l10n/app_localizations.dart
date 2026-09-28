@@ -566,18 +566,6 @@ abstract class AppLocalizations {
   /// **'All categories'**
   String get categoryBackToList;
 
-  /// No description provided for @categoryDetailEmptyTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Nothing here yet'**
-  String get categoryDetailEmptyTitle;
-
-  /// No description provided for @categoryDetailEmptyMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Resources, notes and tasks you add to {name} will appear here.'**
-  String categoryDetailEmptyMessage(String name);
-
   /// No description provided for @categoryIconFolder.
   ///
   /// In en, this message translates to:
@@ -809,7 +797,7 @@ abstract class AppLocalizations {
   /// No description provided for @sampleDataBannerMessage.
   ///
   /// In en, this message translates to:
-  /// **'Sample categories show how Learning OS works. Remove them whenever you\'re ready.'**
+  /// **'The sample categories and resources show how Learning OS works. Remove them whenever you\'re ready.'**
   String get sampleDataBannerMessage;
 
   /// No description provided for @sampleDataRemoveTitle.
@@ -821,7 +809,7 @@ abstract class AppLocalizations {
   /// No description provided for @sampleDataRemoveMessage.
   ///
   /// In en, this message translates to:
-  /// **'All sample categories will be deleted. Categories you created yourself are not affected.'**
+  /// **'All sample categories and resources will be deleted. What you created yourself is kept.'**
   String get sampleDataRemoveMessage;
 
   /// No description provided for @sampleFlutterDescription.
@@ -847,6 +835,582 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Version control, branching and collaborating on GitHub.'**
   String get sampleGitDescription;
+
+  /// No description provided for @sampleResourceFlutterDocs.
+  ///
+  /// In en, this message translates to:
+  /// **'Official guides, cookbook recipes and API reference for Flutter.'**
+  String get sampleResourceFlutterDocs;
+
+  /// No description provided for @sampleResourceRiverpod.
+  ///
+  /// In en, this message translates to:
+  /// **'Reactive caching and state management for Flutter and Dart.'**
+  String get sampleResourceRiverpod;
+
+  /// No description provided for @sampleResourceFlutterYoutube.
+  ///
+  /// In en, this message translates to:
+  /// **'Talks, Widget of the Week and release updates from the Flutter team.'**
+  String get sampleResourceFlutterYoutube;
+
+  /// No description provided for @sampleResourceFlutterRepo.
+  ///
+  /// In en, this message translates to:
+  /// **'Source code, issues and roadmap of the Flutter framework.'**
+  String get sampleResourceFlutterRepo;
+
+  /// No description provided for @sampleResourceDartLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'A tour of Dart\'s syntax, types, classes and async features.'**
+  String get sampleResourceDartLanguage;
+
+  /// No description provided for @sampleResourceEffectiveDart.
+  ///
+  /// In en, this message translates to:
+  /// **'Guidelines for writing consistent, readable and idiomatic Dart.'**
+  String get sampleResourceEffectiveDart;
+
+  /// No description provided for @sampleResourceMaterial.
+  ///
+  /// In en, this message translates to:
+  /// **'Google\'s design system: components, color, type and motion.'**
+  String get sampleResourceMaterial;
+
+  /// No description provided for @sampleResourceProGit.
+  ///
+  /// In en, this message translates to:
+  /// **'The free book on Git: basics, branching, workflows and internals.'**
+  String get sampleResourceProGit;
+
+  /// No description provided for @resourceTypeWebsite.
+  ///
+  /// In en, this message translates to:
+  /// **'Website'**
+  String get resourceTypeWebsite;
+
+  /// No description provided for @resourceTypeYoutube.
+  ///
+  /// In en, this message translates to:
+  /// **'YouTube'**
+  String get resourceTypeYoutube;
+
+  /// No description provided for @resourceTypeCourse.
+  ///
+  /// In en, this message translates to:
+  /// **'Course'**
+  String get resourceTypeCourse;
+
+  /// No description provided for @resourceTypeBook.
+  ///
+  /// In en, this message translates to:
+  /// **'Book'**
+  String get resourceTypeBook;
+
+  /// No description provided for @resourceTypePdf.
+  ///
+  /// In en, this message translates to:
+  /// **'PDF'**
+  String get resourceTypePdf;
+
+  /// No description provided for @resourceTypeArticle.
+  ///
+  /// In en, this message translates to:
+  /// **'Article'**
+  String get resourceTypeArticle;
+
+  /// No description provided for @resourceTypeGithub.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub'**
+  String get resourceTypeGithub;
+
+  /// No description provided for @resourceTypeDocumentation.
+  ///
+  /// In en, this message translates to:
+  /// **'Documentation'**
+  String get resourceTypeDocumentation;
+
+  /// No description provided for @resourceTypeOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get resourceTypeOther;
+
+  /// No description provided for @resourcesNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Add resource'**
+  String get resourcesNew;
+
+  /// No description provided for @resourcesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No resources} =1{1 resource} other{{count} resources}}'**
+  String resourcesCount(int count);
+
+  /// No description provided for @resourcesSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search title, link or #tag'**
+  String get resourcesSearchHint;
+
+  /// No description provided for @resourcesEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your learning library is empty'**
+  String get resourcesEmptyTitle;
+
+  /// No description provided for @resourcesEmptyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Start building your knowledge base by adding your first resource.'**
+  String get resourcesEmptyMessage;
+
+  /// No description provided for @resourcesNoResultsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching resources'**
+  String get resourcesNoResultsTitle;
+
+  /// No description provided for @resourcesNoResultsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Try a different search or clear the filters.'**
+  String get resourcesNoResultsMessage;
+
+  /// No description provided for @resourcesClearFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear filters'**
+  String get resourcesClearFilters;
+
+  /// No description provided for @filterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get filterAll;
+
+  /// No description provided for @filterType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get filterType;
+
+  /// No description provided for @filterCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get filterCategory;
+
+  /// No description provided for @filterProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get filterProgress;
+
+  /// No description provided for @filterTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Tag'**
+  String get filterTag;
+
+  /// No description provided for @filterFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get filterFavorites;
+
+  /// No description provided for @filterUncategorized.
+  ///
+  /// In en, this message translates to:
+  /// **'Uncategorized'**
+  String get filterUncategorized;
+
+  /// No description provided for @progressNotStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Not started'**
+  String get progressNotStarted;
+
+  /// No description provided for @progressInProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'In progress'**
+  String get progressInProgress;
+
+  /// No description provided for @progressCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get progressCompleted;
+
+  /// No description provided for @sortLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort'**
+  String get sortLabel;
+
+  /// No description provided for @sortRecentlyAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Recently added'**
+  String get sortRecentlyAdded;
+
+  /// No description provided for @sortRecentlyOpened.
+  ///
+  /// In en, this message translates to:
+  /// **'Recently opened'**
+  String get sortRecentlyOpened;
+
+  /// No description provided for @sortTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Title (A–Z)'**
+  String get sortTitle;
+
+  /// No description provided for @sortProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get sortProgress;
+
+  /// No description provided for @resourceFormCreateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add resource'**
+  String get resourceFormCreateTitle;
+
+  /// No description provided for @resourceFormEditTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit resource'**
+  String get resourceFormEditTitle;
+
+  /// No description provided for @resourceFormUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Link'**
+  String get resourceFormUrl;
+
+  /// No description provided for @resourceFormUrlHint.
+  ///
+  /// In en, this message translates to:
+  /// **'https://…'**
+  String get resourceFormUrlHint;
+
+  /// No description provided for @resourceFormTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get resourceFormTitle;
+
+  /// No description provided for @resourceFormTitleHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave empty to use the site name'**
+  String get resourceFormTitleHint;
+
+  /// No description provided for @resourceFormDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get resourceFormDescription;
+
+  /// No description provided for @resourceFormDescriptionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'What is it, and why is it useful?'**
+  String get resourceFormDescriptionHint;
+
+  /// No description provided for @resourceFormType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get resourceFormType;
+
+  /// No description provided for @resourceFormCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get resourceFormCategory;
+
+  /// No description provided for @resourceFormNoCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'No category'**
+  String get resourceFormNoCategory;
+
+  /// No description provided for @resourceFormTags.
+  ///
+  /// In en, this message translates to:
+  /// **'Tags'**
+  String get resourceFormTags;
+
+  /// No description provided for @resourceFormTagsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Type a tag and press Enter'**
+  String get resourceFormTagsHint;
+
+  /// No description provided for @resourceFormRemoveTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove tag {tag}'**
+  String resourceFormRemoveTag(String tag);
+
+  /// No description provided for @resourceFormProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get resourceFormProgress;
+
+  /// No description provided for @resourceFormFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to favorites'**
+  String get resourceFormFavorite;
+
+  /// No description provided for @resourceFormCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Add resource'**
+  String get resourceFormCreate;
+
+  /// No description provided for @resourceTitleRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a title or a link'**
+  String get resourceTitleRequired;
+
+  /// No description provided for @resourceUrlInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid web address, like https://example.com'**
+  String get resourceUrlInvalid;
+
+  /// No description provided for @resourceTooManyTags.
+  ///
+  /// In en, this message translates to:
+  /// **'Use up to {max} tags'**
+  String resourceTooManyTags(int max);
+
+  /// No description provided for @resourceCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Resource added'**
+  String get resourceCreated;
+
+  /// No description provided for @resourceUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Resource updated'**
+  String get resourceUpdated;
+
+  /// No description provided for @resourceDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Resource deleted'**
+  String get resourceDeleted;
+
+  /// No description provided for @resourceSaveError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t save the resource. Please try again.'**
+  String get resourceSaveError;
+
+  /// No description provided for @resourceDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t delete the resource. Please try again.'**
+  String get resourceDeleteError;
+
+  /// No description provided for @resourceDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete “{title}”?'**
+  String resourceDeleteTitle(String title);
+
+  /// No description provided for @resourceDeleteMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This resource will be removed. You can undo this right after.'**
+  String get resourceDeleteMessage;
+
+  /// No description provided for @resourceOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get resourceOpen;
+
+  /// No description provided for @resourceOpenLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Open link in a new tab'**
+  String get resourceOpenLink;
+
+  /// No description provided for @resourceOpenBlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'The browser blocked the new tab. Allow pop-ups for this site and try again.'**
+  String get resourceOpenBlocked;
+
+  /// No description provided for @resourceNoLink.
+  ///
+  /// In en, this message translates to:
+  /// **'No link'**
+  String get resourceNoLink;
+
+  /// No description provided for @resourceFavoriteAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to favorites'**
+  String get resourceFavoriteAdd;
+
+  /// No description provided for @resourceFavoriteRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from favorites'**
+  String get resourceFavoriteRemove;
+
+  /// No description provided for @resourceUpdateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t update the resource. Please try again.'**
+  String get resourceUpdateError;
+
+  /// No description provided for @progressPercent.
+  ///
+  /// In en, this message translates to:
+  /// **'{value}%'**
+  String progressPercent(int value);
+
+  /// No description provided for @progressComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'{value}% complete'**
+  String progressComplete(int value);
+
+  /// No description provided for @resourceLastOpened.
+  ///
+  /// In en, this message translates to:
+  /// **'Last opened {date}'**
+  String resourceLastOpened(String date);
+
+  /// No description provided for @resourceNeverOpened.
+  ///
+  /// In en, this message translates to:
+  /// **'Not opened yet'**
+  String get resourceNeverOpened;
+
+  /// No description provided for @resourceNoDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'No description'**
+  String get resourceNoDescription;
+
+  /// No description provided for @resourceNotFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Resource not found'**
+  String get resourceNotFoundTitle;
+
+  /// No description provided for @resourceNotFoundMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'It may have been deleted, or the link is incorrect.'**
+  String get resourceNotFoundMessage;
+
+  /// No description provided for @resourceBackToList.
+  ///
+  /// In en, this message translates to:
+  /// **'All resources'**
+  String get resourceBackToList;
+
+  /// No description provided for @resourceDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get resourceDetails;
+
+  /// No description provided for @resourceAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get resourceAbout;
+
+  /// No description provided for @detailCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Created'**
+  String get detailCreated;
+
+  /// No description provided for @detailUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated'**
+  String get detailUpdated;
+
+  /// No description provided for @detailLastOpened.
+  ///
+  /// In en, this message translates to:
+  /// **'Last opened'**
+  String get detailLastOpened;
+
+  /// No description provided for @resourceMoreTags.
+  ///
+  /// In en, this message translates to:
+  /// **'+{count}'**
+  String resourceMoreTags(int count);
+
+  /// No description provided for @categoryResourcesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No resources yet} =1{1 resource} other{{count} resources}}'**
+  String categoryResourcesCount(int count);
+
+  /// No description provided for @categoryDeleteKeepsResources.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{Its resource will stay in your library without a category.} other{Its {count} resources will stay in your library without a category.}}'**
+  String categoryDeleteKeepsResources(int count);
+
+  /// No description provided for @categoryStatResources.
+  ///
+  /// In en, this message translates to:
+  /// **'Resources'**
+  String get categoryStatResources;
+
+  /// No description provided for @categoryStatCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get categoryStatCompleted;
+
+  /// No description provided for @categoryStatProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get categoryStatProgress;
+
+  /// No description provided for @categoryResourcesSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Resources'**
+  String get categoryResourcesSection;
+
+  /// No description provided for @categoryNoResourcesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No resources in {name} yet'**
+  String categoryNoResourcesTitle(String name);
+
+  /// No description provided for @categoryNoResourcesMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Add the courses, videos, docs or articles you use to learn it.'**
+  String get categoryNoResourcesMessage;
 }
 
 class _AppLocalizationsDelegate

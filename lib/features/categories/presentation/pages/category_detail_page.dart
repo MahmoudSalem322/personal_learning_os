@@ -11,8 +11,13 @@ import '../../../../core/theme/app_spacing.dart';
 import '../../../../core/theme/app_typography.dart';
 import '../../../../core/widgets/app_card.dart';
 import '../../../../core/widgets/app_page.dart';
+import '../../../../core/widgets/app_progress_bar.dart';
 import '../../../../core/widgets/app_skeleton.dart';
 import '../../../../core/widgets/app_state_view.dart';
+import '../../../resources/domain/learning_progress.dart';
+import '../../../resources/presentation/resource_actions.dart';
+import '../../../resources/presentation/resources_providers.dart';
+import '../../../resources/presentation/widgets/resource_grid.dart';
 import '../../domain/category.dart';
 import '../categories_providers.dart';
 import '../category_actions.dart';
@@ -97,39 +102,191 @@ class _CategoryView extends ConsumerWidget {
           ),
         ),
       ],
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Wrap(
-            spacing: AppSpacing.xs,
-            runSpacing: AppSpacing.xs,
-            children: [
-              _MetaChip(
-                icon: Icons.event_outlined,
-                label: l10n.dateCreatedOn(
-                  context.formatDate(category.createdAt),
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Wrap(
+              spacing: AppSpacing.xs,
+              runSpacing: AppSpacing.xs,
+              children: [
+                _MetaChip(
+                  icon: Icons.event_outlined,
+                  label: l10n.dateCreatedOn(
+                    context.formatDate(category.createdAt),
+                  ),
                 ),
-              ),
-              _MetaChip(
-                icon: Icons.update_rounded,
-                label: l10n.dateUpdatedOn(
-                  context.formatDate(category.updatedAt),
+                _MetaChip(
+                  icon: Icons.update_rounded,
+                  label: l10n.dateUpdatedOn(
+                    context.formatDate(category.updatedAt),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          Gap.lg,
+          const SliverToBoxAdapter(child: Gap.lg),
+          SliverToBoxAdapter(child: _Stats(categoryId: category.id)),
+          const SliverToBoxAdapter(child: Gap.xl),
+          SliverToBoxAdapter(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Semantics(
+                    header: true,
+                    child: Text(
+                      l10n.categoryResourcesSection,
+                      style: context.textStyles.subheading,
+                    ),
+                  ),
+                ),
+                OutlinedButton.icon(
+                  onPressed: () => ResourceActions.openForm(
+                    context,
+                    categoryId: category.id,
+                  ),
+                  icon: const Icon(Icons.add_rounded, size: AppSizes.iconMd),
+                  label: Text(l10n.resourcesNew),
+                ),
+              ],
+            ),
+          ),
+          const SliverToBoxAdapter(child: Gap.md),
+          _CategoryResources(category: category),
+          const SliverToBoxAdapter(child: Gap.lg),
+        ],
+      ),
+    );
+  }
+}
+
+/// Resource count, completed count and overall progress of a category.
+class _Stats extends ConsumerWidget {
+  const _Stats({required this.categoryId});
+
+  final String categoryId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
+    final progress = ref.watch(
+      categoryProgressProvider.select(
+        (all) => all[categoryId] ?? LearningProgress.empty,
+      ),
+    );
+    // Equal-height tiles even though only one has a progress bar.
+    return IntrinsicHeight(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        spacing: AppSpacing.md,
+        children: [
           Expanded(
-            child: AppCard(
-              child: AppStateView(
-                icon: Icons.inventory_2_outlined,
-                title: l10n.categoryDetailEmptyTitle,
-                message: l10n.categoryDetailEmptyMessage(category.name),
-              ),
+            child: _StatTile(
+              label: l10n.categoryStatResources,
+              value: '${progress.resourceCount}',
+            ),
+          ),
+          Expanded(
+            child: _StatTile(
+              label: l10n.categoryStatCompleted,
+              value: '${progress.completedCount}',
+            ),
+          ),
+          Expanded(
+            child: _StatTile(
+              label: l10n.categoryStatProgress,
+              value: progress.percent == null
+                  ? '—'
+                  : l10n.progressPercent(progress.percent!),
+              footer: AppProgressBar(percent: progress.percent ?? 0, height: 4),
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class _StatTile extends StatelessWidget {
+  const _StatTile({required this.label, required this.value, this.footer});
+
+  final String label;
+  final String value;
+  final Widget? footer;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = context.textStyles;
+    return AppCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: text.caption,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          Gap.xxs,
+          Text(
+            value,
+            style: text.subheading.copyWith(
+              fontFeatures: const [FontFeature.tabularFigures()],
+            ),
+          ),
+          if (footer != null) ...[Gap.xs, footer!],
+        ],
+      ),
+    );
+  }
+}
+
+class _CategoryResources extends ConsumerWidget {
+  const _CategoryResources({required this.category});
+
+  final Category category;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
+    final resources = ref.watch(resourcesByCategoryProvider(category.id));
+    return resources.when(
+      loading: () => const SliverToBoxAdapter(
+        child: SizedBox(height: 220, child: ResourceGridSkeleton(count: 2)),
+      ),
+      error: (_, _) => SliverToBoxAdapter(
+        child: SizedBox(
+          height: 280,
+          child: AppStateView.error(
+            context: context,
+            onRetry: () => ref.invalidate(resourcesProvider),
+          ),
+        ),
+      ),
+      data: (list) => list.isEmpty
+          ? SliverToBoxAdapter(
+              child: AppCard(
+                child: SizedBox(
+                  height: 280,
+                  child: AppStateView(
+                    icon: Icons.collections_bookmark_outlined,
+                    title: l10n.categoryNoResourcesTitle(category.name),
+                    message: l10n.categoryNoResourcesMessage,
+                    action: FilledButton.icon(
+                      onPressed: () => ResourceActions.openForm(
+                        context,
+                        categoryId: category.id,
+                      ),
+                      icon: const Icon(
+                        Icons.add_rounded,
+                        size: AppSizes.iconMd,
+                      ),
+                      label: Text(l10n.resourcesNew),
+                    ),
+                  ),
+                ),
+              ),
+            )
+          : SliverResourceGrid(resources: list, showCategory: false),
     );
   }
 }

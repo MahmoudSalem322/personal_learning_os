@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/routing/app_routes.dart';
 import '../../features/categories/presentation/categories_routes.dart';
+import '../../features/resources/presentation/resources_routes.dart';
 import '../shell/app_shell.dart';
 import 'app_destination.dart';
 import 'not_found_page.dart';
@@ -34,8 +35,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
 /// replaces its destination's placeholder with the feature's routes.
 GoRoute _routeFor(AppDestination destination) => switch (destination) {
   AppDestination.categories => categoriesRoute(),
+  AppDestination.resources => resourcesRoute(),
   AppDestination.dashboard ||
-  AppDestination.resources ||
   AppDestination.notes ||
   AppDestination.tasks ||
   AppDestination.favorites ||
