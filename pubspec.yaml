@@ -1,0 +1,37 @@
+name: personal_learning_os
+description: "Personal Learning OS - an offline-first workspace for organizing learning resources, notes, tasks and progress."
+publish_to: 'none'
+
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.13.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+
+  # Material 3 widgets (decoupled from the framework since Flutter 3.44).
+  material_ui: ^1.4.0
+  # State management.
+  flutter_riverpod: ^3.4.3
+  # Declarative routing with deep links and browser history.
+  go_router: ^18.0.1
+  # Local document database; IndexedDB-backed on the web.
+  sembast: ^3.8.11
+  sembast_web: ^2.4.6
+  # Localization (version pinned by flutter_localizations).
+  intl: ^0.20.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true

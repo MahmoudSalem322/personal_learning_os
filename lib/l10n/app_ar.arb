@@ -1,0 +1,49 @@
+{
+  "@@locale": "ar",
+
+  "appTitle": "Learning OS",
+  "appTagline": "مساحة التعلّم الشخصية",
+
+  "navDashboard": "لوحة التحكم",
+  "navCategories": "المجالات",
+  "navResources": "المصادر",
+  "navNotes": "الملاحظات",
+  "navTasks": "المهام",
+  "navFavorites": "المفضلة",
+  "navSettings": "الإعدادات",
+  "navOpenMenu": "فتح قائمة التنقل",
+  "navMainLabel": "التنقل الرئيسي",
+
+  "dashboardSubtitle": "نظرة سريعة على رحلة تعلّمك.",
+  "categoriesSubtitle": "نظّم تعلّمك في مجالات واضحة ومركّزة.",
+  "resourcesSubtitle": "الدورات والفيديوهات والتوثيقات والمقالات في مكتبة واحدة.",
+  "notesSubtitle": "دوّن ما تتعلّمه بأسلوبك الخاص.",
+  "tasksSubtitle": "خطّط وتابع خطواتك القادمة في التعلّم.",
+  "favoritesSubtitle": "كل ما أضفته إلى المفضلة في مكان واحد.",
+  "settingsSubtitle": "خصّص مظهر Learning OS وطريقة عمله.",
+
+  "comingSoonTitle": "قسم {section} قادم قريبًا",
+  "comingSoonMessage": "هذه المساحة جزء من مرحلة قادمة. الأساس جاهز، وستظهر هنا قريبًا.",
+
+  "themeLabel": "المظهر",
+  "themeLight": "فاتح",
+  "themeDark": "داكن",
+  "themeSystem": "النظام",
+
+  "languageLabel": "اللغة",
+  "languageSystem": "لغة النظام",
+  "languageEnglish": "English",
+  "languageArabic": "العربية",
+
+  "notFoundTitle": "الصفحة غير موجودة",
+  "notFoundMessage": "الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها.",
+  "notFoundAction": "العودة إلى لوحة التحكم",
+
+  "errorGenericTitle": "حدث خطأ ما",
+  "errorGenericMessage": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
+  "actionRetry": "إعادة المحاولة",
+  "actionDismiss": "إغلاق",
+
+  "storageVolatileWarning": "التخزين المحلي غير متاح في جلسة المتصفح هذه. لن يتم الاحتفاظ بتغييراتك بعد إغلاق التبويب.",
+  "settingsSaveError": "تعذّر حفظ التفضيل. يرجى المحاولة مرة أخرى."
+}

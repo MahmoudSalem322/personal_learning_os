@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    Replaced by the `--base-href` argument of `flutter build web`.
+    Must start and end with "/".
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learning OS - an offline-first workspace for your learning resources, notes, tasks and progress.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FAFAFB">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0D0D10">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Learning OS">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Learning OS</title>
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Matches the app background so there is no white flash while loading. -->
+  <style>
+    html, body { margin: 0; height: 100%; background: #FAFAFB; }
+    #splash {
+      position: fixed; inset: 0; display: flex;
+      align-items: center; justify-content: center;
+    }
+    #splash .mark {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, #5B57DB, #0E8C80);
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: .45; } 50% { opacity: 1; } }
+    @media (prefers-color-scheme: dark) {
+      html, body { background: #0D0D10; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #splash .mark { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="splash" aria-hidden="true"><div class="mark"></div></div>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var splash = document.getElementById('splash');
+      if (splash) splash.remove();
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

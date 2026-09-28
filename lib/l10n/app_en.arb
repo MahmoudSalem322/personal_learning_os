@@ -1,0 +1,53 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "Learning OS",
+  "@appTitle": { "description": "Product name shown in the sidebar and browser tab." },
+  "appTagline": "Personal learning workspace",
+
+  "navDashboard": "Dashboard",
+  "navCategories": "Categories",
+  "navResources": "Resources",
+  "navNotes": "Notes",
+  "navTasks": "Tasks",
+  "navFavorites": "Favorites",
+  "navSettings": "Settings",
+  "navOpenMenu": "Open navigation menu",
+  "navMainLabel": "Main navigation",
+
+  "dashboardSubtitle": "Your learning at a glance.",
+  "categoriesSubtitle": "Organize your learning into focused areas.",
+  "resourcesSubtitle": "Courses, videos, docs and articles in one library.",
+  "notesSubtitle": "Capture what you learn, in your own words.",
+  "tasksSubtitle": "Plan and track the next steps of your learning.",
+  "favoritesSubtitle": "Everything you starred, in one place.",
+  "settingsSubtitle": "Personalize how Learning OS looks and works.",
+
+  "comingSoonTitle": "{section} is on its way",
+  "@comingSoonTitle": {
+    "placeholders": { "section": { "type": "String", "example": "Resources" } }
+  },
+  "comingSoonMessage": "This space is part of an upcoming phase. The foundation is ready, and it will appear here soon.",
+
+  "themeLabel": "Theme",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "themeSystem": "System",
+
+  "languageLabel": "Language",
+  "languageSystem": "System default",
+  "languageEnglish": "English",
+  "languageArabic": "العربية",
+
+  "notFoundTitle": "Page not found",
+  "notFoundMessage": "The page you are looking for doesn't exist or may have been moved.",
+  "notFoundAction": "Back to dashboard",
+
+  "errorGenericTitle": "Something went wrong",
+  "errorGenericMessage": "An unexpected error occurred. Please try again.",
+  "actionRetry": "Try again",
+  "actionDismiss": "Dismiss",
+
+  "storageVolatileWarning": "Local storage is unavailable in this browser session. Your changes won't be kept after you close this tab.",
+  "settingsSaveError": "Couldn't save your preference. Please try again."
+}
