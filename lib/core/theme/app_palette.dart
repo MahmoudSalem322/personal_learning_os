@@ -57,6 +57,24 @@ abstract final class AppPalette {
 
   static const Color black = Color(0xFF000000);
 
+  // Category identity hues (mid-tones; light/dark variants are derived).
+  static const Color categoryBlue = Color(0xFF3B82F6);
+  static const Color categorySky = Color(0xFF0EA5E9);
+  static const Color categoryIndigo = Color(0xFF6366F1);
+  static const Color categoryPurple = Color(0xFF8B5CF6);
+  static const Color categoryPink = Color(0xFFEC4899);
+  static const Color categoryRose = Color(0xFFF43F5E);
+  static const Color categoryRed = Color(0xFFEF4444);
+  static const Color categoryOrange = Color(0xFFF97316);
+  static const Color categoryAmber = Color(0xFFF59E0B);
+  static const Color categoryYellow = Color(0xFFEAB308);
+  static const Color categoryGreen = Color(0xFF22C55E);
+  static const Color categoryEmerald = Color(0xFF10B981);
+  static const Color categoryTeal = Color(0xFF14B8A6);
+  static const Color categoryCyan = Color(0xFF06B6D4);
+  static const Color categorySlate = Color(0xFF64748B);
+  static const Color categoryGray = Color(0xFF94A3B8);
+
   // Translucent overlays
   static const Color lightHover = Color(0x0A18181C);
   static const Color lightPressed = Color(0x1418181C);

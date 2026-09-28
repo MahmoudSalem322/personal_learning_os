@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:material_ui/material_ui.dart';
 
 import '../../core/routing/app_routes.dart';
+import '../../features/categories/presentation/categories_routes.dart';
 import '../shell/app_shell.dart';
 import 'app_destination.dart';
 import 'not_found_page.dart';
@@ -21,18 +21,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state, shell) => AppShell(navigationShell: shell),
         branches: [
           for (final destination in AppDestination.values)
-            StatefulShellBranch(
-              routes: [
-                GoRoute(
-                  path: destination.path,
-                  name: destination.name,
-                  pageBuilder: (context, state) => NoTransitionPage(
-                    key: state.pageKey,
-                    child: _pageFor(destination),
-                  ),
-                ),
-              ],
-            ),
+            StatefulShellBranch(routes: [_routeFor(destination)]),
         ],
       ),
     ],
@@ -41,14 +30,21 @@ final appRouterProvider = Provider<GoRouter>((ref) {
   return router;
 });
 
-/// Root page of each section. Phases replace their placeholder here and add
-/// nested routes (e.g. `:id`) to the matching branch.
-Widget _pageFor(AppDestination destination) => switch (destination) {
+/// Root route (with nested detail routes) of each section. Each phase
+/// replaces its destination's placeholder with the feature's routes.
+GoRoute _routeFor(AppDestination destination) => switch (destination) {
+  AppDestination.categories => categoriesRoute(),
   AppDestination.dashboard ||
-  AppDestination.categories ||
   AppDestination.resources ||
   AppDestination.notes ||
   AppDestination.tasks ||
   AppDestination.favorites ||
-  AppDestination.settings => PlaceholderPage(destination: destination),
+  AppDestination.settings => GoRoute(
+    path: destination.path,
+    name: destination.name,
+    pageBuilder: (context, state) => NoTransitionPage(
+      key: state.pageKey,
+      child: PlaceholderPage(destination: destination),
+    ),
+  ),
 };

@@ -319,6 +319,534 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Couldn\'t save your preference. Please try again.'**
   String get settingsSaveError;
+
+  /// No description provided for @actionCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get actionCancel;
+
+  /// No description provided for @actionSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save changes'**
+  String get actionSave;
+
+  /// No description provided for @actionEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get actionEdit;
+
+  /// No description provided for @actionDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get actionDelete;
+
+  /// No description provided for @actionUndo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get actionUndo;
+
+  /// No description provided for @actionClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get actionClose;
+
+  /// No description provided for @actionMore.
+  ///
+  /// In en, this message translates to:
+  /// **'More actions'**
+  String get actionMore;
+
+  /// No description provided for @actionClearSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear search'**
+  String get actionClearSearch;
+
+  /// No description provided for @validationTooLong.
+  ///
+  /// In en, this message translates to:
+  /// **'Use {max} characters or fewer'**
+  String validationTooLong(int max);
+
+  /// No description provided for @dateCreatedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Created {date}'**
+  String dateCreatedOn(String date);
+
+  /// No description provided for @dateUpdatedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated {date}'**
+  String dateUpdatedOn(String date);
+
+  /// No description provided for @categoriesNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New category'**
+  String get categoriesNew;
+
+  /// No description provided for @categoriesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No categories} =1{1 category} other{{count} categories}}'**
+  String categoriesCount(int count);
+
+  /// No description provided for @categoriesSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter categories'**
+  String get categoriesSearchHint;
+
+  /// No description provided for @categoriesEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Organize your learning'**
+  String get categoriesEmptyTitle;
+
+  /// No description provided for @categoriesEmptyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories are the areas you\'re learning, like Flutter, Dart or UI/UX. Create your first one to get started.'**
+  String get categoriesEmptyMessage;
+
+  /// No description provided for @categoriesNoResultsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching categories'**
+  String get categoriesNoResultsTitle;
+
+  /// No description provided for @categoriesNoResultsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing matches “{query}”. Try a different name.'**
+  String categoriesNoResultsMessage(String query);
+
+  /// No description provided for @categoryFormCreateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New category'**
+  String get categoryFormCreateTitle;
+
+  /// No description provided for @categoryFormEditTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit category'**
+  String get categoryFormEditTitle;
+
+  /// No description provided for @categoryFormName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get categoryFormName;
+
+  /// No description provided for @categoryFormNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Flutter'**
+  String get categoryFormNameHint;
+
+  /// No description provided for @categoryFormDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get categoryFormDescription;
+
+  /// No description provided for @categoryFormDescriptionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'What are you learning in this area?'**
+  String get categoryFormDescriptionHint;
+
+  /// No description provided for @categoryFormIcon.
+  ///
+  /// In en, this message translates to:
+  /// **'Icon'**
+  String get categoryFormIcon;
+
+  /// No description provided for @categoryFormColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Color'**
+  String get categoryFormColor;
+
+  /// No description provided for @categoryFormPreviewName.
+  ///
+  /// In en, this message translates to:
+  /// **'Category name'**
+  String get categoryFormPreviewName;
+
+  /// No description provided for @categoryFormCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create category'**
+  String get categoryFormCreate;
+
+  /// No description provided for @categoryNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a name'**
+  String get categoryNameRequired;
+
+  /// No description provided for @categoryNameTaken.
+  ///
+  /// In en, this message translates to:
+  /// **'A category with this name already exists'**
+  String get categoryNameTaken;
+
+  /// No description provided for @categoryNoDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'No description'**
+  String get categoryNoDescription;
+
+  /// No description provided for @categoryCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Category created'**
+  String get categoryCreated;
+
+  /// No description provided for @categoryUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Category updated'**
+  String get categoryUpdated;
+
+  /// No description provided for @categoryDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Category deleted'**
+  String get categoryDeleted;
+
+  /// No description provided for @categorySaveError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t save the category. Please try again.'**
+  String get categorySaveError;
+
+  /// No description provided for @categoryDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t delete the category. Please try again.'**
+  String get categoryDeleteError;
+
+  /// No description provided for @categoryDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete “{name}”?'**
+  String categoryDeleteTitle(String name);
+
+  /// No description provided for @categoryDeleteMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This category will be removed. You can undo this right after.'**
+  String get categoryDeleteMessage;
+
+  /// No description provided for @categoryNotFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Category not found'**
+  String get categoryNotFoundTitle;
+
+  /// No description provided for @categoryNotFoundMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'It may have been deleted, or the link is incorrect.'**
+  String get categoryNotFoundMessage;
+
+  /// No description provided for @categoryBackToList.
+  ///
+  /// In en, this message translates to:
+  /// **'All categories'**
+  String get categoryBackToList;
+
+  /// No description provided for @categoryDetailEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing here yet'**
+  String get categoryDetailEmptyTitle;
+
+  /// No description provided for @categoryDetailEmptyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Resources, notes and tasks you add to {name} will appear here.'**
+  String categoryDetailEmptyMessage(String name);
+
+  /// No description provided for @categoryIconFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Folder'**
+  String get categoryIconFolder;
+
+  /// No description provided for @categoryIconCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Code'**
+  String get categoryIconCode;
+
+  /// No description provided for @categoryIconMobile.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile'**
+  String get categoryIconMobile;
+
+  /// No description provided for @categoryIconWeb.
+  ///
+  /// In en, this message translates to:
+  /// **'Web'**
+  String get categoryIconWeb;
+
+  /// No description provided for @categoryIconDesign.
+  ///
+  /// In en, this message translates to:
+  /// **'Design'**
+  String get categoryIconDesign;
+
+  /// No description provided for @categoryIconTerminal.
+  ///
+  /// In en, this message translates to:
+  /// **'Terminal'**
+  String get categoryIconTerminal;
+
+  /// No description provided for @categoryIconDatabase.
+  ///
+  /// In en, this message translates to:
+  /// **'Database'**
+  String get categoryIconDatabase;
+
+  /// No description provided for @categoryIconCloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud'**
+  String get categoryIconCloud;
+
+  /// No description provided for @categoryIconVersionControl.
+  ///
+  /// In en, this message translates to:
+  /// **'Version control'**
+  String get categoryIconVersionControl;
+
+  /// No description provided for @categoryIconData.
+  ///
+  /// In en, this message translates to:
+  /// **'Data'**
+  String get categoryIconData;
+
+  /// No description provided for @categoryIconMath.
+  ///
+  /// In en, this message translates to:
+  /// **'Math'**
+  String get categoryIconMath;
+
+  /// No description provided for @categoryIconAi.
+  ///
+  /// In en, this message translates to:
+  /// **'AI'**
+  String get categoryIconAi;
+
+  /// No description provided for @categoryIconLanguages.
+  ///
+  /// In en, this message translates to:
+  /// **'Languages'**
+  String get categoryIconLanguages;
+
+  /// No description provided for @categoryIconReading.
+  ///
+  /// In en, this message translates to:
+  /// **'Reading'**
+  String get categoryIconReading;
+
+  /// No description provided for @categoryIconCourse.
+  ///
+  /// In en, this message translates to:
+  /// **'Course'**
+  String get categoryIconCourse;
+
+  /// No description provided for @categoryIconScience.
+  ///
+  /// In en, this message translates to:
+  /// **'Science'**
+  String get categoryIconScience;
+
+  /// No description provided for @categoryIconIdeas.
+  ///
+  /// In en, this message translates to:
+  /// **'Ideas'**
+  String get categoryIconIdeas;
+
+  /// No description provided for @categoryIconProjects.
+  ///
+  /// In en, this message translates to:
+  /// **'Projects'**
+  String get categoryIconProjects;
+
+  /// No description provided for @categoryIconDebugging.
+  ///
+  /// In en, this message translates to:
+  /// **'Debugging'**
+  String get categoryIconDebugging;
+
+  /// No description provided for @categoryIconSecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Security'**
+  String get categoryIconSecurity;
+
+  /// No description provided for @categoryIconAnalytics.
+  ///
+  /// In en, this message translates to:
+  /// **'Analytics'**
+  String get categoryIconAnalytics;
+
+  /// No description provided for @categoryIconMusic.
+  ///
+  /// In en, this message translates to:
+  /// **'Music'**
+  String get categoryIconMusic;
+
+  /// No description provided for @colorBlue.
+  ///
+  /// In en, this message translates to:
+  /// **'Blue'**
+  String get colorBlue;
+
+  /// No description provided for @colorIndigo.
+  ///
+  /// In en, this message translates to:
+  /// **'Indigo'**
+  String get colorIndigo;
+
+  /// No description provided for @colorPurple.
+  ///
+  /// In en, this message translates to:
+  /// **'Purple'**
+  String get colorPurple;
+
+  /// No description provided for @colorPink.
+  ///
+  /// In en, this message translates to:
+  /// **'Pink'**
+  String get colorPink;
+
+  /// No description provided for @colorRed.
+  ///
+  /// In en, this message translates to:
+  /// **'Red'**
+  String get colorRed;
+
+  /// No description provided for @colorOrange.
+  ///
+  /// In en, this message translates to:
+  /// **'Orange'**
+  String get colorOrange;
+
+  /// No description provided for @colorAmber.
+  ///
+  /// In en, this message translates to:
+  /// **'Amber'**
+  String get colorAmber;
+
+  /// No description provided for @colorGreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Green'**
+  String get colorGreen;
+
+  /// No description provided for @colorTeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Teal'**
+  String get colorTeal;
+
+  /// No description provided for @colorSlate.
+  ///
+  /// In en, this message translates to:
+  /// **'Slate'**
+  String get colorSlate;
+
+  /// No description provided for @sampleDataLoad.
+  ///
+  /// In en, this message translates to:
+  /// **'Load sample data'**
+  String get sampleDataLoad;
+
+  /// No description provided for @sampleDataLoaded.
+  ///
+  /// In en, this message translates to:
+  /// **'Sample data added'**
+  String get sampleDataLoaded;
+
+  /// No description provided for @sampleDataRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove sample data'**
+  String get sampleDataRemove;
+
+  /// No description provided for @sampleDataRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Sample data removed'**
+  String get sampleDataRemoved;
+
+  /// No description provided for @sampleDataError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t update sample data. Please try again.'**
+  String get sampleDataError;
+
+  /// No description provided for @sampleDataBannerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re exploring sample data'**
+  String get sampleDataBannerTitle;
+
+  /// No description provided for @sampleDataBannerMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Sample categories show how Learning OS works. Remove them whenever you\'re ready.'**
+  String get sampleDataBannerMessage;
+
+  /// No description provided for @sampleDataRemoveTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove sample data?'**
+  String get sampleDataRemoveTitle;
+
+  /// No description provided for @sampleDataRemoveMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'All sample categories will be deleted. Categories you created yourself are not affected.'**
+  String get sampleDataRemoveMessage;
+
+  /// No description provided for @sampleFlutterDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Cross-platform apps with widgets, layouts and state management.'**
+  String get sampleFlutterDescription;
+
+  /// No description provided for @sampleDartDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'The language behind Flutter: types, async code and null safety.'**
+  String get sampleDartDescription;
+
+  /// No description provided for @sampleUiUxDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Interface design, usability and building design systems.'**
+  String get sampleUiUxDescription;
+
+  /// No description provided for @sampleGitDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Version control, branching and collaborating on GitHub.'**
+  String get sampleGitDescription;
 }
 
 class _AppLocalizationsDelegate

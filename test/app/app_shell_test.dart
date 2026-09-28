@@ -26,7 +26,7 @@ void main() {
 
       expect(find.byType(AppSidebar), findsOneWidget);
       expect(find.text('Personal learning workspace'), findsNothing);
-      expect(find.byTooltip('Resources'), findsOneWidget);
+      expect(findTooltip('Resources'), findsOneWidget);
     });
 
     testWidgets('mobile uses a top bar and navigation drawer', (tester) async {
@@ -147,7 +147,7 @@ void main() {
     testWidgets('theme selector switches to dark mode', (tester) async {
       final container = await tester.pumpLearningOs();
 
-      await tester.tap(find.byTooltip('Dark'));
+      await tester.tap(findTooltip('Dark'));
       await tester.pumpAndSettle();
 
       final context = tester.element(find.byType(AppSidebar));
@@ -182,7 +182,7 @@ void main() {
 
       await tester.tap(find.text('Categories'));
       await tester.pumpAndSettle();
-      await tester.tap(find.byTooltip('Dark'));
+      await tester.tap(findTooltip('Dark'));
       await tester.pumpAndSettle();
 
       expect(router.state.uri.path, '/categories');

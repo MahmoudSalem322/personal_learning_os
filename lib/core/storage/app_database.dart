@@ -9,7 +9,14 @@ abstract final class AppStores {
   static final StoreRef<String, Map<String, Object?>> settings =
       stringMapStoreFactory.store('settings');
 
-  static List<StoreRef<String, Map<String, Object?>>> get all => [settings];
+  /// Learning areas, keyed by category id.
+  static final StoreRef<String, Map<String, Object?>> categories =
+      stringMapStoreFactory.store('categories');
+
+  static List<StoreRef<String, Map<String, Object?>>> get all => [
+    settings,
+    categories,
+  ];
 }
 
 /// Opens the local database and runs schema migrations.

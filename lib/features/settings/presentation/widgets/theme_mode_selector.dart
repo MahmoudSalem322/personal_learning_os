@@ -78,6 +78,7 @@ class _Segment extends StatelessWidget {
     final label = preference.label(context.l10n);
     return Tooltip(
       message: label,
+      excludeFromSemantics: true,
       child: Semantics(
         inMutuallyExclusiveGroup: true,
         selected: selected,

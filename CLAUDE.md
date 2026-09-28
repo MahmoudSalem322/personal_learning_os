@@ -6,7 +6,7 @@ Only implement the phase the user asks for; never jump ahead.
 ## Phase status
 
 - [x] PHASE 01 — Architecture & Foundation
-- [ ] PHASE 02 — Categories
+- [x] PHASE 02 — Categories
 - [ ] PHASE 03 — Resources
 - [ ] PHASE 04 — Notes
 - [ ] PHASE 05 — Tasks
@@ -30,8 +30,18 @@ Only implement the phase the user asks for; never jump ahead.
 - New persisted collections: add a store to `AppStores`, a repository
   interface in `features/<x>/domain`, a local implementation in
   `features/<x>/data`, and wrap storage errors in `StorageException`.
-- A phase replaces its placeholder in `app/navigation/app_router.dart`
-  (`_pageFor`) and adds nested routes to its branch; path constants go in
-  `core/routing/app_routes.dart`.
+- A phase adds `features/<x>/presentation/<x>_routes.dart` and plugs it into
+  `_routeFor` in `app/navigation/app_router.dart`; path constants go in
+  `core/routing/app_routes.dart`. Detail routes use `AppTransitionPage`.
+- `package:flutter/foundation.dart` also exports a `Category` annotation.
+  Domain files import it with `show immutable` to avoid clashing with the
+  `Category` model.
+- Layering per feature: widgets → `<X>Actions` (dialogs, toasts, undo) →
+  `<X>Service` (validation, ids, timestamps) → `<X>Repository` interface →
+  `Local<X>Repository` (sembast). Widgets never call repositories to write.
+- Sample data ids start with `sample-` (`SampleDataService.idPrefix`); later
+  phases extend `SampleDataService.load/remove` for their own stores.
+- Deleting a category currently removes only the category. When resources,
+  notes and tasks arrive, decide how their `categoryId` is handled on delete.
 - Before finishing a phase: `flutter analyze` clean, `flutter test` green,
   `flutter build web` succeeds.

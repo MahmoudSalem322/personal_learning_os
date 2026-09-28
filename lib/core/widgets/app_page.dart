@@ -6,8 +6,9 @@ import '../theme/app_spacing.dart';
 import '../theme/app_typography.dart';
 import '../utils/screen_size.dart';
 
-/// Standard page layout: a header (title, subtitle, actions) above a body,
-/// centered and width-constrained, with responsive padding.
+/// Standard page layout: a header (optional back link, leading visual,
+/// title, subtitle, actions) above a body, centered and width-constrained,
+/// with responsive padding.
 ///
 /// Also sets the browser tab title. The [body] owns its own scrolling so
 /// long lists can be virtualized.
@@ -18,12 +19,25 @@ class AppPage extends StatelessWidget {
     super.key,
     this.subtitle,
     this.actions = const [],
-  });
+    this.leading,
+    this.backLabel,
+    this.onBack,
+  }) : assert(
+         (backLabel == null) == (onBack == null),
+         'backLabel and onBack go together',
+       );
 
   final String title;
   final String? subtitle;
   final List<Widget> actions;
   final Widget body;
+
+  /// Visual shown before the title, e.g. a category avatar.
+  final Widget? leading;
+
+  /// Adds a "← label" link above the title for detail pages.
+  final String? backLabel;
+  final VoidCallback? onBack;
 
   static EdgeInsets paddingFor(ScreenSize size) => switch (size) {
     ScreenSize.mobile => const EdgeInsets.all(AppSpacing.md),
@@ -40,6 +54,18 @@ class AppPage extends StatelessWidget {
     final text = context.textStyles;
     final padding = paddingFor(context.screenSize);
 
+    final titleBlock = Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Semantics(header: true, child: Text(title, style: text.heading)),
+        if (subtitle != null && subtitle!.isNotEmpty) ...[
+          Gap.xxs,
+          Text(subtitle!, style: text.body.copyWith(color: colors.mutedText)),
+        ],
+      ],
+    );
+
     final page = Align(
       alignment: AlignmentDirectional.topCenter,
       child: ConstrainedBox(
@@ -49,29 +75,43 @@ class AppPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              if (onBack != null) ...[
+                Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: TextButton.icon(
+                    onPressed: onBack,
+                    icon: const Icon(
+                      Icons.arrow_back_rounded,
+                      size: AppSizes.iconSm,
+                    ),
+                    label: Text(backLabel!),
+                    style: TextButton.styleFrom(
+                      foregroundColor: colors.mutedText,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: AppSpacing.xs,
+                      ),
+                    ),
+                  ),
+                ),
+                Gap.xs,
+              ],
               Wrap(
                 spacing: AppSpacing.md,
                 runSpacing: AppSpacing.sm,
                 alignment: WrapAlignment.spaceBetween,
-                crossAxisAlignment: WrapCrossAlignment.end,
+                crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Semantics(
-                        header: true,
-                        child: Text(title, style: text.heading),
-                      ),
-                      if (subtitle != null) ...[
-                        Gap.xxs,
-                        Text(
-                          subtitle!,
-                          style: text.body.copyWith(color: colors.mutedText),
-                        ),
+                  if (leading == null)
+                    titleBlock
+                  else
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        leading!,
+                        Gap.md,
+                        Flexible(child: titleBlock),
                       ],
-                    ],
-                  ),
+                    ),
                   if (actions.isNotEmpty)
                     Row(
                       mainAxisSize: MainAxisSize.min,

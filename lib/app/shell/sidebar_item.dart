@@ -107,6 +107,10 @@ class _SidebarItemState extends State<SidebarItem> {
     );
 
     if (widget.expanded) return item;
-    return Tooltip(message: widget.label, child: item);
+    return Tooltip(
+      message: widget.label,
+      excludeFromSemantics: true,
+      child: item,
+    );
   }
 }

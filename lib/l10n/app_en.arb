@@ -49,5 +49,124 @@
   "actionDismiss": "Dismiss",
 
   "storageVolatileWarning": "Local storage is unavailable in this browser session. Your changes won't be kept after you close this tab.",
-  "settingsSaveError": "Couldn't save your preference. Please try again."
+  "settingsSaveError": "Couldn't save your preference. Please try again.",
+
+  "actionCancel": "Cancel",
+  "actionSave": "Save changes",
+  "actionEdit": "Edit",
+  "actionDelete": "Delete",
+  "actionUndo": "Undo",
+  "actionClose": "Close",
+  "actionMore": "More actions",
+  "actionClearSearch": "Clear search",
+
+  "validationTooLong": "Use {max} characters or fewer",
+  "@validationTooLong": {
+    "placeholders": { "max": { "type": "int" } }
+  },
+
+  "dateCreatedOn": "Created {date}",
+  "@dateCreatedOn": {
+    "placeholders": { "date": { "type": "String" } }
+  },
+  "dateUpdatedOn": "Updated {date}",
+  "@dateUpdatedOn": {
+    "placeholders": { "date": { "type": "String" } }
+  },
+
+  "categoriesNew": "New category",
+  "categoriesCount": "{count, plural, =0{No categories} =1{1 category} other{{count} categories}}",
+  "@categoriesCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "categoriesSearchHint": "Filter categories",
+  "categoriesEmptyTitle": "Organize your learning",
+  "categoriesEmptyMessage": "Categories are the areas you're learning, like Flutter, Dart or UI/UX. Create your first one to get started.",
+  "categoriesNoResultsTitle": "No matching categories",
+  "categoriesNoResultsMessage": "Nothing matches “{query}”. Try a different name.",
+  "@categoriesNoResultsMessage": {
+    "placeholders": { "query": { "type": "String" } }
+  },
+
+  "categoryFormCreateTitle": "New category",
+  "categoryFormEditTitle": "Edit category",
+  "categoryFormName": "Name",
+  "categoryFormNameHint": "e.g. Flutter",
+  "categoryFormDescription": "Description",
+  "categoryFormDescriptionHint": "What are you learning in this area?",
+  "categoryFormIcon": "Icon",
+  "categoryFormColor": "Color",
+  "categoryFormPreviewName": "Category name",
+  "categoryFormCreate": "Create category",
+  "categoryNameRequired": "Enter a name",
+  "categoryNameTaken": "A category with this name already exists",
+  "categoryNoDescription": "No description",
+
+  "categoryCreated": "Category created",
+  "categoryUpdated": "Category updated",
+  "categoryDeleted": "Category deleted",
+  "categorySaveError": "Couldn't save the category. Please try again.",
+  "categoryDeleteError": "Couldn't delete the category. Please try again.",
+  "categoryDeleteTitle": "Delete “{name}”?",
+  "@categoryDeleteTitle": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "categoryDeleteMessage": "This category will be removed. You can undo this right after.",
+
+  "categoryNotFoundTitle": "Category not found",
+  "categoryNotFoundMessage": "It may have been deleted, or the link is incorrect.",
+  "categoryBackToList": "All categories",
+  "categoryDetailEmptyTitle": "Nothing here yet",
+  "categoryDetailEmptyMessage": "Resources, notes and tasks you add to {name} will appear here.",
+  "@categoryDetailEmptyMessage": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+
+  "categoryIconFolder": "Folder",
+  "categoryIconCode": "Code",
+  "categoryIconMobile": "Mobile",
+  "categoryIconWeb": "Web",
+  "categoryIconDesign": "Design",
+  "categoryIconTerminal": "Terminal",
+  "categoryIconDatabase": "Database",
+  "categoryIconCloud": "Cloud",
+  "categoryIconVersionControl": "Version control",
+  "categoryIconData": "Data",
+  "categoryIconMath": "Math",
+  "categoryIconAi": "AI",
+  "categoryIconLanguages": "Languages",
+  "categoryIconReading": "Reading",
+  "categoryIconCourse": "Course",
+  "categoryIconScience": "Science",
+  "categoryIconIdeas": "Ideas",
+  "categoryIconProjects": "Projects",
+  "categoryIconDebugging": "Debugging",
+  "categoryIconSecurity": "Security",
+  "categoryIconAnalytics": "Analytics",
+  "categoryIconMusic": "Music",
+
+  "colorBlue": "Blue",
+  "colorIndigo": "Indigo",
+  "colorPurple": "Purple",
+  "colorPink": "Pink",
+  "colorRed": "Red",
+  "colorOrange": "Orange",
+  "colorAmber": "Amber",
+  "colorGreen": "Green",
+  "colorTeal": "Teal",
+  "colorSlate": "Slate",
+
+  "sampleDataLoad": "Load sample data",
+  "sampleDataLoaded": "Sample data added",
+  "sampleDataRemove": "Remove sample data",
+  "sampleDataRemoved": "Sample data removed",
+  "sampleDataError": "Couldn't update sample data. Please try again.",
+  "sampleDataBannerTitle": "You're exploring sample data",
+  "sampleDataBannerMessage": "Sample categories show how Learning OS works. Remove them whenever you're ready.",
+  "sampleDataRemoveTitle": "Remove sample data?",
+  "sampleDataRemoveMessage": "All sample categories will be deleted. Categories you created yourself are not affected.",
+  "sampleFlutterDescription": "Cross-platform apps with widgets, layouts and state management.",
+  "sampleDartDescription": "The language behind Flutter: types, async code and null safety.",
+  "sampleUiUxDescription": "Interface design, usability and building design systems.",
+  "sampleGitDescription": "Version control, branching and collaborating on GitHub."
 }
