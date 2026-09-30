@@ -21,11 +21,16 @@ abstract final class AppStores {
   static final StoreRef<String, Map<String, Object?>> notes =
       stringMapStoreFactory.store('notes');
 
+  /// Learning tasks, keyed by task id.
+  static final StoreRef<String, Map<String, Object?>> tasks =
+      stringMapStoreFactory.store('tasks');
+
   static List<StoreRef<String, Map<String, Object?>>> get all => [
     settings,
     categories,
     resources,
     notes,
+    tasks,
   ];
 }
 

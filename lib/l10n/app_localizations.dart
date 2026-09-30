@@ -797,7 +797,7 @@ abstract class AppLocalizations {
   /// No description provided for @sampleDataBannerMessage.
   ///
   /// In en, this message translates to:
-  /// **'The sample categories, resources and notes show how Learning OS works. Remove them whenever you\'re ready.'**
+  /// **'The sample categories, resources, notes and tasks show how Learning OS works. Remove them whenever you\'re ready.'**
   String get sampleDataBannerMessage;
 
   /// No description provided for @sampleDataRemoveTitle.
@@ -809,7 +809,7 @@ abstract class AppLocalizations {
   /// No description provided for @sampleDataRemoveMessage.
   ///
   /// In en, this message translates to:
-  /// **'All sample categories, resources and notes will be deleted. What you created yourself is kept.'**
+  /// **'All sample categories, resources, notes and tasks will be deleted. What you created yourself is kept.'**
   String get sampleDataRemoveMessage;
 
   /// No description provided for @sampleFlutterDescription.
@@ -1628,6 +1628,150 @@ abstract class AppLocalizations {
   /// **'This note is too long to save. Split it into smaller notes.'**
   String get noteTooLong;
 
+  /// No description provided for @tasksNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Add task'**
+  String get tasksNew;
+
+  /// No description provided for @tasksCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No tasks} =1{1 task} other{{count} tasks}}'**
+  String tasksCount(int count);
+
+  /// No description provided for @tasksSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search tasks or #tag'**
+  String get tasksSearchHint;
+
+  /// No description provided for @tasksEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan your next steps'**
+  String get tasksEmptyTitle;
+
+  /// No description provided for @tasksEmptyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Break your learning into tasks, set priorities and track what\'s done.'**
+  String get tasksEmptyMessage;
+
+  /// No description provided for @tasksNoResultsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching tasks'**
+  String get tasksNoResultsTitle;
+
+  /// No description provided for @tasksNoResultsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Try a different search or clear the filters.'**
+  String get tasksNoResultsMessage;
+
+  /// No description provided for @tasksSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Tasks'**
+  String get tasksSection;
+
+  /// No description provided for @tasksNoneForResource.
+  ///
+  /// In en, this message translates to:
+  /// **'No tasks for this resource yet'**
+  String get tasksNoneForResource;
+
+  /// No description provided for @tasksNoneForCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'No tasks in {name} yet'**
+  String tasksNoneForCategory(String name);
+
+  /// No description provided for @tasksNoneMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn what you\'re learning into doable steps.'**
+  String get tasksNoneMessage;
+
+  /// No description provided for @taskViewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get taskViewAll;
+
+  /// No description provided for @taskViewToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get taskViewToday;
+
+  /// No description provided for @taskViewUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get taskViewUpcoming;
+
+  /// No description provided for @taskViewOverdue.
+  ///
+  /// In en, this message translates to:
+  /// **'Overdue'**
+  String get taskViewOverdue;
+
+  /// No description provided for @taskViewCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get taskViewCompleted;
+
+  /// No description provided for @taskPriorityLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get taskPriorityLow;
+
+  /// No description provided for @taskPriorityMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get taskPriorityMedium;
+
+  /// No description provided for @taskPriorityHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get taskPriorityHigh;
+
+  /// No description provided for @taskStatusTodo.
+  ///
+  /// In en, this message translates to:
+  /// **'To do'**
+  String get taskStatusTodo;
+
+  /// No description provided for @taskStatusInProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'In progress'**
+  String get taskStatusInProgress;
+
+  /// No description provided for @taskStatusCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get taskStatusCompleted;
+
+  /// No description provided for @taskComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as completed'**
+  String get taskComplete;
+
+  /// No description provided for @taskReopen.
+  ///
+  /// In en, this message translates to:
+  /// **'Reopen task'**
+  String get taskReopen;
+
   /// No description provided for @filterStatus.
   ///
   /// In en, this message translates to:
@@ -1651,6 +1795,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Priority'**
   String get sortPriority;
+
+  /// No description provided for @taskFormCreateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add task'**
+  String get taskFormCreateTitle;
+
+  /// No description provided for @taskFormEditTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit task'**
+  String get taskFormEditTitle;
+
+  /// No description provided for @taskFormTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get taskFormTitle;
+
+  /// No description provided for @taskFormTitleHint.
+  ///
+  /// In en, this message translates to:
+  /// **'What needs to be done?'**
+  String get taskFormTitleHint;
+
+  /// No description provided for @taskFormDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get taskFormDescription;
+
+  /// No description provided for @taskFormDescriptionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Any details, steps or links (optional)'**
+  String get taskFormDescriptionHint;
+
+  /// No description provided for @taskFormDueDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Due date'**
+  String get taskFormDueDate;
+
+  /// No description provided for @taskFormNoDueDate.
+  ///
+  /// In en, this message translates to:
+  /// **'No due date'**
+  String get taskFormNoDueDate;
+
+  /// No description provided for @taskFormClearDueDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear due date'**
+  String get taskFormClearDueDate;
+
+  /// No description provided for @taskFormCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Add task'**
+  String get taskFormCreate;
+
+  /// No description provided for @taskTitleRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a title'**
+  String get taskTitleRequired;
+
+  /// No description provided for @taskTooManyTags.
+  ///
+  /// In en, this message translates to:
+  /// **'Use up to {max} tags'**
+  String taskTooManyTags(int max);
+
+  /// No description provided for @taskCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Task added'**
+  String get taskCreated;
+
+  /// No description provided for @taskUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Task updated'**
+  String get taskUpdated;
+
+  /// No description provided for @taskDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Task deleted'**
+  String get taskDeleted;
+
+  /// No description provided for @taskSaveError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t save the task. Please try again.'**
+  String get taskSaveError;
+
+  /// No description provided for @taskDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t delete the task. Please try again.'**
+  String get taskDeleteError;
+
+  /// No description provided for @taskDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete \"{title}\"?'**
+  String taskDeleteTitle(String title);
+
+  /// No description provided for @taskDeleteMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This task will be removed. You can undo this right after.'**
+  String get taskDeleteMessage;
+
+  /// No description provided for @taskUpdateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t update the task. Please try again.'**
+  String get taskUpdateError;
+
+  /// No description provided for @taskNotFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Task not found'**
+  String get taskNotFoundTitle;
+
+  /// No description provided for @taskNotFoundMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'It may have been deleted, or the link is incorrect.'**
+  String get taskNotFoundMessage;
+
+  /// No description provided for @taskBackToList.
+  ///
+  /// In en, this message translates to:
+  /// **'All tasks'**
+  String get taskBackToList;
+
+  /// No description provided for @taskCompletedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get taskCompletedOn;
+
+  /// No description provided for @taskDueToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Due today'**
+  String get taskDueToday;
+
+  /// No description provided for @taskDueOverdue.
+  ///
+  /// In en, this message translates to:
+  /// **'Overdue'**
+  String get taskDueOverdue;
+
+  /// No description provided for @taskDueOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Due {date}'**
+  String taskDueOn(String date);
+
+  /// No description provided for @sampleTaskRiverpod.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn Riverpod providers'**
+  String get sampleTaskRiverpod;
+
+  /// No description provided for @sampleTaskDartTour.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish the Dart language tour'**
+  String get sampleTaskDartTour;
+
+  /// No description provided for @sampleTaskBuildProject.
+  ///
+  /// In en, this message translates to:
+  /// **'Build a first Flutter project'**
+  String get sampleTaskBuildProject;
+
+  /// No description provided for @sampleTaskGit.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up Git and GitHub'**
+  String get sampleTaskGit;
 
   /// No description provided for @mdHeading.
   ///

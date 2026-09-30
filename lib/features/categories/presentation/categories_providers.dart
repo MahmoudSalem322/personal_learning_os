@@ -5,6 +5,8 @@ import '../../notes/data/note_links.dart';
 import '../../notes/presentation/notes_providers.dart';
 import '../../resources/data/resource_category_links.dart';
 import '../../resources/presentation/resources_providers.dart';
+import '../../tasks/data/task_links.dart';
+import '../../tasks/presentation/tasks_providers.dart';
 import '../data/local_category_repository.dart';
 import '../domain/category.dart';
 import '../domain/category_repository.dart';
@@ -22,6 +24,7 @@ final categoryServiceProvider = Provider<CategoryService>(
     links: [
       ResourceCategoryLinks(ref.watch(resourceRepositoryProvider)),
       NoteCategoryLinks(ref.watch(noteRepositoryProvider)),
+      TaskCategoryLinks(ref.watch(taskRepositoryProvider)),
     ],
   ),
 );

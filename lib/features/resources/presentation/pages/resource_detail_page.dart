@@ -19,6 +19,9 @@ import '../../../notes/presentation/note_actions.dart';
 import '../../../notes/presentation/notes_providers.dart';
 import '../../../notes/presentation/widgets/note_card.dart';
 import '../../../tags/presentation/tag_chip.dart';
+import '../../../tasks/presentation/task_actions.dart';
+import '../../../tasks/presentation/tasks_providers.dart';
+import '../../../tasks/presentation/widgets/task_card.dart';
 import '../../domain/resource.dart';
 import '../resource_actions.dart';
 import '../resource_type_appearance.dart';
@@ -190,6 +193,16 @@ class _ResourceView extends ConsumerWidget {
       child: _ResourceNotes(resourceId: r.id),
     );
 
+    final tasks = _Panel(
+      title: l10n.tasksSection,
+      trailing: TextButton.icon(
+        onPressed: () => TaskActions.openForm(context, resourceId: r.id),
+        icon: const Icon(Icons.add_rounded, size: AppSizes.iconSm),
+        label: Text(l10n.tasksNew),
+      ),
+      child: _ResourceTasks(resourceId: r.id),
+    );
+
     return AppPage(
       title: r.title,
       subtitle: r.hasUrl ? UrlUtils.displayHost(r.url) : r.type.label(l10n),
@@ -234,7 +247,9 @@ class _ResourceView extends ConsumerWidget {
                     children: [
                       Expanded(
                         flex: 3,
-                        child: Column(children: [about, Gap.md, notes]),
+                        child: Column(
+                          children: [about, Gap.md, notes, Gap.md, tasks],
+                        ),
                       ),
                       Gap.md,
                       Expanded(
@@ -250,6 +265,8 @@ class _ResourceView extends ConsumerWidget {
                       about,
                       Gap.md,
                       notes,
+                      Gap.md,
+                      tasks,
                       Gap.md,
                       details,
                     ],
@@ -315,6 +332,32 @@ class _ResourceNotes extends ConsumerWidget {
       spacing: AppSpacing.xs,
       children: [
         for (final note in notes) NoteTile(key: ValueKey(note.id), note: note),
+      ],
+    );
+  }
+}
+
+/// Tasks linked to the resource, most recently updated first.
+class _ResourceTasks extends ConsumerWidget {
+  const _ResourceTasks({required this.resourceId});
+
+  final String resourceId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final tasks = ref.watch(tasksByResourceProvider(resourceId)).value;
+    if (tasks == null) return const AppSkeleton(height: 48);
+    if (tasks.isEmpty) {
+      return Text(
+        context.l10n.tasksNoneForResource,
+        style: context.textStyles.caption,
+      );
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: AppSpacing.xs,
+      children: [
+        for (final task in tasks) TaskCard(key: ValueKey(task.id), task: task),
       ],
     );
   }

@@ -4,6 +4,8 @@ import '../../notes/domain/note.dart';
 import '../../notes/domain/note_repository.dart';
 import '../../resources/domain/resource.dart';
 import '../../resources/domain/resource_repository.dart';
+import '../../tasks/domain/task.dart';
+import '../../tasks/domain/task_repository.dart';
 
 /// Optional demo content that shows how the app works.
 ///
@@ -15,6 +17,7 @@ class SampleDataService {
     required this._categories,
     required this._resources,
     required this._notes,
+    required this._tasks,
   });
 
   static const String idPrefix = 'sample-';
@@ -24,6 +27,7 @@ class SampleDataService {
   final CategoryRepository _categories;
   final ResourceRepository _resources;
   final NoteRepository _notes;
+  final TaskRepository _tasks;
 
   /// Adds the samples that don't clash with existing data, so loading twice
   /// or after creating "Flutter" yourself is safe. Samples whose category or
@@ -34,12 +38,14 @@ class SampleDataService {
     required List<Category> categories,
     required List<Resource> resources,
     List<Note> notes = const [],
+    List<Task> tasks = const [],
   }) async {
     assert(
       [
         ...categories.map((c) => c.id),
         ...resources.map((r) => r.id),
         ...notes.map((n) => n.id),
+        ...tasks.map((t) => t.id),
       ].every(isSampleId),
     );
 
@@ -85,10 +91,28 @@ class SampleDataService {
           ),
     ];
 
+    final taskIds = (await _tasks.getAll()).map((t) => t.id).toSet();
+    final newTasks = [
+      for (final t in tasks)
+        if (!taskIds.contains(t.id))
+          t.copyWith(
+            categoryId: availableCategories.contains(t.categoryId)
+                ? t.categoryId
+                : null,
+            resourceId: availableResources.contains(t.resourceId)
+                ? t.resourceId
+                : null,
+          ),
+    ];
+
     if (newCategories.isNotEmpty) await _categories.saveAll(newCategories);
     if (newResources.isNotEmpty) await _resources.saveAll(newResources);
     if (newNotes.isNotEmpty) await _notes.saveAll(newNotes);
-    return newCategories.length + newResources.length + newNotes.length;
+    if (newTasks.isNotEmpty) await _tasks.saveAll(newTasks);
+    return newCategories.length +
+        newResources.length +
+        newNotes.length +
+        newTasks.length;
   }
 
   /// Deletes every sample record. The user's own items that were linked to
@@ -97,11 +121,13 @@ class SampleDataService {
     List<String> sampleIds(Iterable<String> ids) =>
         ids.where(isSampleId).toList();
 
+    await _tasks.deleteAll(sampleIds((await _tasks.getAll()).map((t) => t.id)));
     await _notes.deleteAll(sampleIds((await _notes.getAll()).map((n) => n.id)));
 
     final resources = sampleIds((await _resources.getAll()).map((r) => r.id));
     for (final id in resources) {
       await _notes.clearResource(id);
+      await _tasks.clearResource(id);
     }
     await _resources.deleteAll(resources);
 
@@ -109,6 +135,7 @@ class SampleDataService {
     for (final id in categories) {
       await _resources.clearCategory(id);
       await _notes.clearCategory(id);
+      await _tasks.clearCategory(id);
     }
     await _categories.deleteAll(categories);
   }

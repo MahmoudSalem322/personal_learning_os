@@ -21,6 +21,9 @@ import '../../../resources/domain/learning_progress.dart';
 import '../../../resources/presentation/resource_actions.dart';
 import '../../../resources/presentation/resources_providers.dart';
 import '../../../resources/presentation/widgets/resource_grid.dart';
+import '../../../tasks/presentation/task_actions.dart';
+import '../../../tasks/presentation/tasks_providers.dart';
+import '../../../tasks/presentation/widgets/task_card.dart';
 import '../../domain/category.dart';
 import '../categories_providers.dart';
 import '../category_actions.dart';
@@ -182,6 +185,30 @@ class _CategoryView extends ConsumerWidget {
           ),
           const SliverToBoxAdapter(child: Gap.md),
           _CategoryNotes(category: category),
+          const SliverToBoxAdapter(child: Gap.xl),
+          SliverToBoxAdapter(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Semantics(
+                    header: true,
+                    child: Text(
+                      l10n.tasksSection,
+                      style: context.textStyles.subheading,
+                    ),
+                  ),
+                ),
+                OutlinedButton.icon(
+                  onPressed: () =>
+                      TaskActions.openForm(context, categoryId: category.id),
+                  icon: const Icon(Icons.add_rounded, size: AppSizes.iconMd),
+                  label: Text(l10n.tasksNew),
+                ),
+              ],
+            ),
+          ),
+          const SliverToBoxAdapter(child: Gap.md),
+          _CategoryTasks(category: category),
           const SliverToBoxAdapter(child: Gap.lg),
         ],
       ),
@@ -266,6 +293,58 @@ class _StatTile extends StatelessWidget {
           if (footer != null) ...[Gap.xs, footer!],
         ],
       ),
+    );
+  }
+}
+
+class _CategoryTasks extends ConsumerWidget {
+  const _CategoryTasks({required this.category});
+
+  final Category category;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
+    final tasks = ref.watch(tasksByCategoryProvider(category.id)).value;
+    if (tasks == null) {
+      return const SliverToBoxAdapter(child: AppSkeleton(height: 56));
+    }
+    if (tasks.isEmpty) {
+      return SliverToBoxAdapter(
+        child: AppCard(
+          child: Row(
+            children: [
+              Icon(
+                Icons.check_circle_outline_rounded,
+                size: AppSizes.iconMd,
+                color: context.colors.mutedText,
+              ),
+              Gap.sm,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l10n.tasksNoneForCategory(category.name),
+                      style: context.textStyles.bodyStrong,
+                    ),
+                    Text(
+                      l10n.tasksNoneMessage,
+                      style: context.textStyles.caption,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+    return SliverList.separated(
+      itemCount: tasks.length,
+      separatorBuilder: (_, _) => Gap.xs,
+      itemBuilder: (context, index) =>
+          TaskCard(key: ValueKey(tasks[index].id), task: tasks[index]),
     );
   }
 }

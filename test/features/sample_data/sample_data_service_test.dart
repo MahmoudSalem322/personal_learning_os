@@ -8,6 +8,8 @@ import 'package:personal_learning_os/features/resources/data/local_resource_repo
 import 'package:personal_learning_os/features/resources/domain/resource.dart';
 import 'package:personal_learning_os/features/sample_data/domain/sample_data_service.dart';
 import 'package:personal_learning_os/features/sample_data/presentation/sample_catalog.dart';
+import 'package:personal_learning_os/features/tasks/data/local_task_repository.dart';
+import 'package:personal_learning_os/features/tasks/domain/task.dart';
 import 'package:personal_learning_os/l10n/app_localizations_en.dart';
 import 'package:sembast/sembast_memory.dart';
 
@@ -16,17 +18,20 @@ void main() {
   late LocalCategoryRepository categories;
   late LocalResourceRepository resources;
   late LocalNoteRepository notes;
+  late LocalTaskRepository tasks;
   late SampleDataService service;
   final now = DateTime.utc(2026, 9, 28);
   final l10n = AppLocalizationsEn();
   final sampleCats = sampleCategories(l10n, now);
   final sampleRes = sampleResources(l10n, now);
   final sampleNts = sampleNotes(l10n, now);
+  final sampleTsks = sampleTasks(l10n, now);
 
   Future<int> loadAll() => service.load(
     categories: sampleCats,
     resources: sampleRes,
     notes: sampleNts,
+    tasks: sampleTsks,
   );
 
   Category ownCategory(String id, String name) => Category(
@@ -53,10 +58,12 @@ void main() {
     categories = LocalCategoryRepository(db);
     resources = LocalResourceRepository(db);
     notes = LocalNoteRepository(db);
+    tasks = LocalTaskRepository(db);
     service = SampleDataService(
       categories: categories,
       resources: resources,
       notes: notes,
+      tasks: tasks,
     );
   });
 
@@ -84,12 +91,15 @@ void main() {
   test('load adds everything once', () async {
     expect(
       await loadAll(),
-      sampleCats.length + sampleRes.length + sampleNts.length,
+      sampleCats.length +
+          sampleRes.length +
+          sampleNts.length +
+          sampleTsks.length,
     );
     expect(await loadAll(), 0);
     expect(await categories.getAll(), hasLength(sampleCats.length));
     expect(await resources.getAll(), hasLength(sampleRes.length));
-    expect(await notes.getAll(), hasLength(sampleNts.length));
+    expect(await tasks.getAll(), hasLength(sampleTsks.length));
   });
 
   test('skips categories whose name the user already uses', () async {
@@ -111,6 +121,22 @@ void main() {
     expect(sampleNts.every((n) => n.content.isNotEmpty), isTrue);
   });
 
+  test('sample tasks cover every view and link to sample data', () {
+    final categoryIds = sampleCats.map((c) => c.id).toSet();
+    final resourceIds = sampleRes.map((r) => r.id).toSet();
+    expect(sampleTsks, isNotEmpty);
+    expect(sampleTsks.every((t) => categoryIds.contains(t.categoryId)), isTrue);
+    expect(
+      sampleTsks
+          .where((t) => t.resourceId != null)
+          .every((t) => resourceIds.contains(t.resourceId)),
+      isTrue,
+    );
+    expect(sampleTsks.any((t) => t.isCompleted), isTrue);
+    expect(sampleTsks.any((t) => t.isOverdue(now)), isTrue);
+    expect(sampleTsks.any((t) => !t.isCompleted && t.dueDate != null), isTrue);
+  });
+
   test('remove keeps user notes and drops their sample links', () async {
     await loadAll();
     await notes.save(
@@ -128,6 +154,27 @@ void main() {
 
     final remaining = await notes.getAll();
     expect(remaining.map((n) => n.id), ['my-note']);
+    expect(remaining.single.categoryId, isNull);
+    expect(remaining.single.resourceId, isNull);
+  });
+
+  test('remove deletes sample tasks and unlinks user tasks', () async {
+    await loadAll();
+    await tasks.save(
+      Task(
+        id: 'my-task',
+        title: 'Mine',
+        categoryId: 'sample-category-flutter',
+        resourceId: 'sample-resource-riverpod',
+        createdAt: now,
+        updatedAt: now,
+      ),
+    );
+
+    await service.remove();
+
+    final remaining = await tasks.getAll();
+    expect(remaining.map((t) => t.id), ['my-task']);
     expect(remaining.single.categoryId, isNull);
     expect(remaining.single.resourceId, isNull);
   });

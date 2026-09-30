@@ -106,11 +106,11 @@ void main() {
       final container = await tester.pumpLearningOs();
       final router = container.read(appRouterProvider);
 
-      await tester.tap(find.text('Tasks'));
+      await tester.tap(find.text('Favorites'));
       await tester.pumpAndSettle();
 
-      expect(router.state.uri.path, '/tasks');
-      expect(find.text('Tasks is on its way'), findsOneWidget);
+      expect(router.state.uri.path, '/favorites');
+      expect(find.text('Favorites is on its way'), findsOneWidget);
     });
 
     testWidgets('deep links open the matching section', (tester) async {

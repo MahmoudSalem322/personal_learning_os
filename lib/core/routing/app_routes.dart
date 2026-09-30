@@ -21,4 +21,6 @@ abstract final class AppRoutes {
   static String resource(String id) => '$resources/${Uri.encodeComponent(id)}';
 
   static String note(String id) => '$notes/${Uri.encodeComponent(id)}';
+
+  static String task(String id) => '$tasks/${Uri.encodeComponent(id)}';
 }

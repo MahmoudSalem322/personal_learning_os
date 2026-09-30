@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/storage/storage_providers.dart';
 import '../../notes/data/note_links.dart';
 import '../../notes/presentation/notes_providers.dart';
+import '../../tasks/data/task_links.dart';
+import '../../tasks/presentation/tasks_providers.dart';
 import '../data/local_resource_repository.dart';
 import '../domain/learning_progress.dart';
 import '../domain/resource.dart';
@@ -14,11 +16,14 @@ final resourceRepositoryProvider = Provider<ResourceRepository>(
   (ref) => LocalResourceRepository(ref.watch(appDatabaseProvider)),
 );
 
-/// Notes linked to a resource are kept when it is deleted.
+/// Notes and tasks linked to a resource are kept when it is deleted.
 final resourceServiceProvider = Provider<ResourceService>(
   (ref) => ResourceService(
     ref.watch(resourceRepositoryProvider),
-    links: [NoteResourceLinks(ref.watch(noteRepositoryProvider))],
+    links: [
+      NoteResourceLinks(ref.watch(noteRepositoryProvider)),
+      TaskResourceLinks(ref.watch(taskRepositoryProvider)),
+    ],
   ),
 );
 

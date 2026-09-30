@@ -20,6 +20,7 @@ abstract final class SampleDataActions {
             categories: sampleCategories(l10n, now),
             resources: sampleResources(l10n, now),
             notes: sampleNotes(l10n, now),
+            tasks: sampleTasks(l10n, now),
           );
       if (context.mounted) AppToast.success(context, l10n.sampleDataLoaded);
     } on AppException {

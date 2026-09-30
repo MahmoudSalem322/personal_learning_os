@@ -9,7 +9,7 @@ Only implement the phase the user asks for; never jump ahead.
 - [x] PHASE 02 — Categories
 - [x] PHASE 03 — Resources
 - [x] PHASE 04 — Notes
-- [ ] PHASE 05 — Tasks
+- [x] PHASE 05 — Tasks
 - [ ] PHASE 06 — Dashboard & Global Search
 - [ ] PHASE 07 — Notifications & Reminders
 - [ ] PHASE 08 — Backup / Import / Export
@@ -49,8 +49,8 @@ Only implement the phase the user asks for; never jump ahead.
   `CategoryLinks` (see `ResourceCategoryLinks`) and is added to
   `categoryServiceProvider`'s `links`; Undo re-links the same items. Notes
   and tasks must do the same.
-- Deleting a resource keeps its notes (and later tasks) and unlinks them:
-  implement `ResourceLinks` (see `NoteResourceLinks`) and add it to
+- Deleting a resource keeps its notes and tasks and unlinks them:
+  implement `ResourceLinks` (see `NoteResourceLinks`, `TaskResourceLinks`) and add it to
   `resourceServiceProvider`'s `links`; `DeletedResource` carries the Undo.
 - Notes: Markdown via `package:markdown` (GFM). The editor autosaves with a
   600 ms debounce, flushes on dispose and discards blank new notes. Widget

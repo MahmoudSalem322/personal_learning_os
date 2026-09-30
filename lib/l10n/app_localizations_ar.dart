@@ -399,14 +399,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sampleDataBannerMessage =>
-      'توضّح المجالات والمصادر والملاحظات التجريبية طريقة عمل Learning OS. احذفها متى شئت.';
+      'توضّح المجالات والمصادر والملاحظات والمهام التجريبية طريقة عمل Learning OS. احذفها متى شئت.';
 
   @override
   String get sampleDataRemoveTitle => 'حذف البيانات التجريبية؟';
 
   @override
   String get sampleDataRemoveMessage =>
-      'سيتم حذف جميع المجالات والمصادر والملاحظات التجريبية. ما أنشأته بنفسك سيبقى كما هو.';
+      'سيتم حذف جميع المجالات والمصادر والملاحظات والمهام التجريبية. ما أنشأته بنفسك سيبقى كما هو.';
 
   @override
   String get sampleFlutterDescription =>
@@ -915,6 +915,94 @@ class AppLocalizationsAr extends AppLocalizations {
       'الملاحظة أطول من أن تُحفظ. قسّمها إلى ملاحظات أصغر.';
 
   @override
+  String get tasksNew => 'إضافة مهمة';
+
+  @override
+  String tasksCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count مهمة',
+      many: '$count مهمة',
+      few: '$count مهام',
+      two: 'مهمتان',
+      one: 'مهمة واحدة',
+      zero: 'لا مهام',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get tasksSearchHint => 'ابحث في المهام أو #وسم';
+
+  @override
+  String get tasksEmptyTitle => 'خطّط خطواتك القادمة';
+
+  @override
+  String get tasksEmptyMessage =>
+      'قسّم تعلّمك إلى مهام، حدّد الأولويات وتابع ما أتممته.';
+
+  @override
+  String get tasksNoResultsTitle => 'لا مهام مطابقة';
+
+  @override
+  String get tasksNoResultsMessage =>
+      'جرّب بحثًا مختلفًا أو أزل عوامل التصفية.';
+
+  @override
+  String get tasksSection => 'المهام';
+
+  @override
+  String get tasksNoneForResource => 'لا مهام لهذا المصدر بعد';
+
+  @override
+  String tasksNoneForCategory(String name) {
+    return 'لا مهام في $name بعد';
+  }
+
+  @override
+  String get tasksNoneMessage => 'حوّل ما تتعلمه إلى خطوات قابلة للتنفيذ.';
+
+  @override
+  String get taskViewAll => 'الكل';
+
+  @override
+  String get taskViewToday => 'اليوم';
+
+  @override
+  String get taskViewUpcoming => 'القادمة';
+
+  @override
+  String get taskViewOverdue => 'متأخرة';
+
+  @override
+  String get taskViewCompleted => 'المكتملة';
+
+  @override
+  String get taskPriorityLow => 'منخفضة';
+
+  @override
+  String get taskPriorityMedium => 'متوسطة';
+
+  @override
+  String get taskPriorityHigh => 'عالية';
+
+  @override
+  String get taskStatusTodo => 'للتنفيذ';
+
+  @override
+  String get taskStatusInProgress => 'قيد التنفيذ';
+
+  @override
+  String get taskStatusCompleted => 'مكتملة';
+
+  @override
+  String get taskComplete => 'تحديد كمكتملة';
+
+  @override
+  String get taskReopen => 'إعادة فتح المهمة';
+
+  @override
   String get filterStatus => 'الحالة';
 
   @override
@@ -925,6 +1013,106 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sortPriority => 'الأولوية';
+
+  @override
+  String get taskFormCreateTitle => 'إضافة مهمة';
+
+  @override
+  String get taskFormEditTitle => 'تعديل المهمة';
+
+  @override
+  String get taskFormTitle => 'العنوان';
+
+  @override
+  String get taskFormTitleHint => 'ما المطلوب تنفيذه؟';
+
+  @override
+  String get taskFormDescription => 'الوصف';
+
+  @override
+  String get taskFormDescriptionHint => 'أي تفاصيل أو خطوات أو روابط (اختياري)';
+
+  @override
+  String get taskFormDueDate => 'تاريخ الاستحقاق';
+
+  @override
+  String get taskFormNoDueDate => 'بدون تاريخ استحقاق';
+
+  @override
+  String get taskFormClearDueDate => 'إزالة تاريخ الاستحقاق';
+
+  @override
+  String get taskFormCreate => 'إضافة مهمة';
+
+  @override
+  String get taskTitleRequired => 'أدخل عنوانًا';
+
+  @override
+  String taskTooManyTags(int max) {
+    return 'استخدم حتى $max وسوم';
+  }
+
+  @override
+  String get taskCreated => 'تمت إضافة المهمة';
+
+  @override
+  String get taskUpdated => 'تم تحديث المهمة';
+
+  @override
+  String get taskDeleted => 'تم حذف المهمة';
+
+  @override
+  String get taskSaveError => 'تعذّر حفظ المهمة. حاول مجددًا.';
+
+  @override
+  String get taskDeleteError => 'تعذّر حذف المهمة. حاول مجددًا.';
+
+  @override
+  String taskDeleteTitle(String title) {
+    return 'حذف \"$title\"؟';
+  }
+
+  @override
+  String get taskDeleteMessage =>
+      'ستُحذف هذه المهمة. يمكنك التراجع فورًا بعد ذلك.';
+
+  @override
+  String get taskUpdateError => 'تعذّر تحديث المهمة. حاول مجددًا.';
+
+  @override
+  String get taskNotFoundTitle => 'المهمة غير موجودة';
+
+  @override
+  String get taskNotFoundMessage => 'ربما حُذفت، أو أن الرابط غير صحيح.';
+
+  @override
+  String get taskBackToList => 'كل المهام';
+
+  @override
+  String get taskCompletedOn => 'اكتملت';
+
+  @override
+  String get taskDueToday => 'تستحق اليوم';
+
+  @override
+  String get taskDueOverdue => 'متأخرة';
+
+  @override
+  String taskDueOn(String date) {
+    return 'تستحق في $date';
+  }
+
+  @override
+  String get sampleTaskRiverpod => 'تعلّم الـ Providers في Riverpod';
+
+  @override
+  String get sampleTaskDartTour => 'إكمال جولة لغة Dart';
+
+  @override
+  String get sampleTaskBuildProject => 'بناء أول مشروع Flutter';
+
+  @override
+  String get sampleTaskGit => 'تجهيز Git و GitHub';
 
   @override
   String get mdHeading => 'عنوان';

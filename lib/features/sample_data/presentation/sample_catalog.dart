@@ -3,6 +3,7 @@ import '../../categories/domain/category.dart';
 import '../../categories/presentation/category_appearance.dart';
 import '../../notes/domain/note.dart';
 import '../../resources/domain/resource.dart';
+import '../../tasks/domain/task.dart';
 import '../domain/sample_data_service.dart';
 
 String _resourceId(String slug) =>
@@ -66,6 +67,80 @@ List<Note> sampleNotes(AppLocalizations l10n, DateTime now) {
 
 String _categoryId(String slug) =>
     '${SampleDataService.idPrefix}category-$slug';
+
+/// Builds the sample tasks, linked to [sampleCategories] and
+/// [sampleResources].
+List<Task> sampleTasks(AppLocalizations l10n, DateTime now) {
+  var order = 0;
+  Task build({
+    required String slug,
+    required String title,
+    required String category,
+    String? resource,
+    TaskPriority priority = TaskPriority.medium,
+    TaskStatus status = TaskStatus.todo,
+    int dueInDays = 0,
+    bool completed = false,
+    List<String> tags = const [],
+  }) {
+    final created = now.subtract(Duration(minutes: order++));
+    final due = dueInDays == 0
+        ? null
+        : DateTime(now.year, now.month, now.day).add(Duration(days: dueInDays));
+    return Task(
+      id: '${SampleDataService.idPrefix}task-$slug',
+      title: title,
+      categoryId: _categoryId(category),
+      resourceId: resource == null ? null : _resourceId(resource),
+      priority: priority,
+      status: status,
+      dueDate: due,
+      completedAt: completed ? created : null,
+      tags: tags,
+      createdAt: created,
+      updatedAt: created,
+    );
+  }
+
+  return [
+    build(
+      slug: 'learn-riverpod',
+      title: l10n.sampleTaskRiverpod,
+      category: 'flutter',
+      resource: 'riverpod',
+      priority: TaskPriority.high,
+      dueInDays: 1,
+      tags: ['flutter', 'state-management'],
+    ),
+    build(
+      slug: 'read-dart-tour',
+      title: l10n.sampleTaskDartTour,
+      category: 'dart',
+      resource: 'dart-language',
+      priority: TaskPriority.medium,
+      dueInDays: -1,
+      tags: ['dart'],
+    ),
+    build(
+      slug: 'build-project',
+      title: l10n.sampleTaskBuildProject,
+      category: 'flutter',
+      priority: TaskPriority.medium,
+      dueInDays: 6,
+      tags: ['flutter', 'practice'],
+    ),
+    build(
+      slug: 'install-git',
+      title: l10n.sampleTaskGit,
+      category: 'git',
+      resource: 'pro-git',
+      priority: TaskPriority.low,
+      status: TaskStatus.completed,
+      completed: true,
+      tags: ['git'],
+    ),
+  ];
+}
 
 /// Builds the sample categories in the current language.
 List<Category> sampleCategories(AppLocalizations l10n, DateTime now) {

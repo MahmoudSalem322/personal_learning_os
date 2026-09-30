@@ -393,14 +393,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sampleDataBannerMessage =>
-      'The sample categories, resources and notes show how Learning OS works. Remove them whenever you\'re ready.';
+      'The sample categories, resources, notes and tasks show how Learning OS works. Remove them whenever you\'re ready.';
 
   @override
   String get sampleDataRemoveTitle => 'Remove sample data?';
 
   @override
   String get sampleDataRemoveMessage =>
-      'All sample categories, resources and notes will be deleted. What you created yourself is kept.';
+      'All sample categories, resources, notes and tasks will be deleted. What you created yourself is kept.';
 
   @override
   String get sampleFlutterDescription =>
@@ -896,6 +896,92 @@ class AppLocalizationsEn extends AppLocalizations {
       'This note is too long to save. Split it into smaller notes.';
 
   @override
+  String get tasksNew => 'Add task';
+
+  @override
+  String tasksCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tasks',
+      one: '1 task',
+      zero: 'No tasks',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get tasksSearchHint => 'Search tasks or #tag';
+
+  @override
+  String get tasksEmptyTitle => 'Plan your next steps';
+
+  @override
+  String get tasksEmptyMessage =>
+      'Break your learning into tasks, set priorities and track what\'s done.';
+
+  @override
+  String get tasksNoResultsTitle => 'No matching tasks';
+
+  @override
+  String get tasksNoResultsMessage =>
+      'Try a different search or clear the filters.';
+
+  @override
+  String get tasksSection => 'Tasks';
+
+  @override
+  String get tasksNoneForResource => 'No tasks for this resource yet';
+
+  @override
+  String tasksNoneForCategory(String name) {
+    return 'No tasks in $name yet';
+  }
+
+  @override
+  String get tasksNoneMessage =>
+      'Turn what you\'re learning into doable steps.';
+
+  @override
+  String get taskViewAll => 'All';
+
+  @override
+  String get taskViewToday => 'Today';
+
+  @override
+  String get taskViewUpcoming => 'Upcoming';
+
+  @override
+  String get taskViewOverdue => 'Overdue';
+
+  @override
+  String get taskViewCompleted => 'Completed';
+
+  @override
+  String get taskPriorityLow => 'Low';
+
+  @override
+  String get taskPriorityMedium => 'Medium';
+
+  @override
+  String get taskPriorityHigh => 'High';
+
+  @override
+  String get taskStatusTodo => 'To do';
+
+  @override
+  String get taskStatusInProgress => 'In progress';
+
+  @override
+  String get taskStatusCompleted => 'Completed';
+
+  @override
+  String get taskComplete => 'Mark as completed';
+
+  @override
+  String get taskReopen => 'Reopen task';
+
+  @override
   String get filterStatus => 'Status';
 
   @override
@@ -906,6 +992,108 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sortPriority => 'Priority';
+
+  @override
+  String get taskFormCreateTitle => 'Add task';
+
+  @override
+  String get taskFormEditTitle => 'Edit task';
+
+  @override
+  String get taskFormTitle => 'Title';
+
+  @override
+  String get taskFormTitleHint => 'What needs to be done?';
+
+  @override
+  String get taskFormDescription => 'Description';
+
+  @override
+  String get taskFormDescriptionHint =>
+      'Any details, steps or links (optional)';
+
+  @override
+  String get taskFormDueDate => 'Due date';
+
+  @override
+  String get taskFormNoDueDate => 'No due date';
+
+  @override
+  String get taskFormClearDueDate => 'Clear due date';
+
+  @override
+  String get taskFormCreate => 'Add task';
+
+  @override
+  String get taskTitleRequired => 'Enter a title';
+
+  @override
+  String taskTooManyTags(int max) {
+    return 'Use up to $max tags';
+  }
+
+  @override
+  String get taskCreated => 'Task added';
+
+  @override
+  String get taskUpdated => 'Task updated';
+
+  @override
+  String get taskDeleted => 'Task deleted';
+
+  @override
+  String get taskSaveError => 'Couldn\'t save the task. Please try again.';
+
+  @override
+  String get taskDeleteError => 'Couldn\'t delete the task. Please try again.';
+
+  @override
+  String taskDeleteTitle(String title) {
+    return 'Delete \"$title\"?';
+  }
+
+  @override
+  String get taskDeleteMessage =>
+      'This task will be removed. You can undo this right after.';
+
+  @override
+  String get taskUpdateError => 'Couldn\'t update the task. Please try again.';
+
+  @override
+  String get taskNotFoundTitle => 'Task not found';
+
+  @override
+  String get taskNotFoundMessage =>
+      'It may have been deleted, or the link is incorrect.';
+
+  @override
+  String get taskBackToList => 'All tasks';
+
+  @override
+  String get taskCompletedOn => 'Completed';
+
+  @override
+  String get taskDueToday => 'Due today';
+
+  @override
+  String get taskDueOverdue => 'Overdue';
+
+  @override
+  String taskDueOn(String date) {
+    return 'Due $date';
+  }
+
+  @override
+  String get sampleTaskRiverpod => 'Learn Riverpod providers';
+
+  @override
+  String get sampleTaskDartTour => 'Finish the Dart language tour';
+
+  @override
+  String get sampleTaskBuildProject => 'Build a first Flutter project';
+
+  @override
+  String get sampleTaskGit => 'Set up Git and GitHub';
 
   @override
   String get mdHeading => 'Heading';
