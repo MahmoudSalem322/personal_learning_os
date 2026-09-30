@@ -14,6 +14,9 @@ import '../../../../core/widgets/app_page.dart';
 import '../../../../core/widgets/app_progress_bar.dart';
 import '../../../../core/widgets/app_skeleton.dart';
 import '../../../../core/widgets/app_state_view.dart';
+import '../../../notes/presentation/note_actions.dart';
+import '../../../notes/presentation/notes_providers.dart';
+import '../../../notes/presentation/widgets/note_card.dart';
 import '../../../resources/domain/learning_progress.dart';
 import '../../../resources/presentation/resource_actions.dart';
 import '../../../resources/presentation/resources_providers.dart';
@@ -152,6 +155,33 @@ class _CategoryView extends ConsumerWidget {
           ),
           const SliverToBoxAdapter(child: Gap.md),
           _CategoryResources(category: category),
+          const SliverToBoxAdapter(child: Gap.xl),
+          SliverToBoxAdapter(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Semantics(
+                    header: true,
+                    child: Text(
+                      l10n.notesSection,
+                      style: context.textStyles.subheading,
+                    ),
+                  ),
+                ),
+                OutlinedButton.icon(
+                  onPressed: () => NoteActions.createAndOpen(
+                    context,
+                    ref,
+                    categoryId: category.id,
+                  ),
+                  icon: const Icon(Icons.add_rounded, size: AppSizes.iconMd),
+                  label: Text(l10n.notesNew),
+                ),
+              ],
+            ),
+          ),
+          const SliverToBoxAdapter(child: Gap.md),
+          _CategoryNotes(category: category),
           const SliverToBoxAdapter(child: Gap.lg),
         ],
       ),
@@ -236,6 +266,58 @@ class _StatTile extends StatelessWidget {
           if (footer != null) ...[Gap.xs, footer!],
         ],
       ),
+    );
+  }
+}
+
+class _CategoryNotes extends ConsumerWidget {
+  const _CategoryNotes({required this.category});
+
+  final Category category;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
+    final notes = ref.watch(notesByCategoryProvider(category.id)).value;
+    if (notes == null) {
+      return const SliverToBoxAdapter(child: AppSkeleton(height: 56));
+    }
+    if (notes.isEmpty) {
+      return SliverToBoxAdapter(
+        child: AppCard(
+          child: Row(
+            children: [
+              Icon(
+                Icons.sticky_note_2_outlined,
+                size: AppSizes.iconMd,
+                color: context.colors.mutedText,
+              ),
+              Gap.sm,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l10n.notesNoneForCategory(category.name),
+                      style: context.textStyles.bodyStrong,
+                    ),
+                    Text(
+                      l10n.notesNoneMessage,
+                      style: context.textStyles.caption,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+    return SliverList.separated(
+      itemCount: notes.length,
+      separatorBuilder: (_, _) => Gap.xs,
+      itemBuilder: (context, index) =>
+          NoteTile(key: ValueKey(notes[index].id), note: notes[index]),
     );
   }
 }

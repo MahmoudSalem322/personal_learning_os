@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/storage/storage_providers.dart';
+import '../../notes/data/note_links.dart';
+import '../../notes/presentation/notes_providers.dart';
 import '../data/local_resource_repository.dart';
 import '../domain/learning_progress.dart';
 import '../domain/resource.dart';
@@ -12,8 +14,12 @@ final resourceRepositoryProvider = Provider<ResourceRepository>(
   (ref) => LocalResourceRepository(ref.watch(appDatabaseProvider)),
 );
 
+/// Notes linked to a resource are kept when it is deleted.
 final resourceServiceProvider = Provider<ResourceService>(
-  (ref) => ResourceService(ref.watch(resourceRepositoryProvider)),
+  (ref) => ResourceService(
+    ref.watch(resourceRepositoryProvider),
+    links: [NoteResourceLinks(ref.watch(noteRepositoryProvider))],
+  ),
 );
 
 /// All resources, newest first; updates live after every change.

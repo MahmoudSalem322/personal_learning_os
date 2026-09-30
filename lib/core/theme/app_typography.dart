@@ -9,6 +9,17 @@ abstract final class AppTypography {
   /// Single place to switch the app font. `null` uses the platform default.
   static const String? fontFamily = null;
 
+  /// Font for code. Resolved by the platform; bundle a monospace font here
+  /// to guarantee fixed-width rendering everywhere.
+  static const String monoFamily = 'monospace';
+  static const List<String> monoFallback = ['Menlo', 'Consolas', 'Courier New'];
+
+  static TextStyle mono(TextStyle base) => base.copyWith(
+    fontFamily: monoFamily,
+    fontFamilyFallback: monoFallback,
+    letterSpacing: 0,
+  );
+
   static TextTheme textTheme({required Color text, required Color muted}) {
     TextStyle style(
       double size,

@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/storage/storage_providers.dart';
+import '../../notes/data/note_links.dart';
+import '../../notes/presentation/notes_providers.dart';
 import '../../resources/data/resource_category_links.dart';
 import '../../resources/presentation/resources_providers.dart';
 import '../data/local_category_repository.dart';
@@ -13,12 +15,14 @@ final categoryRepositoryProvider = Provider<CategoryRepository>(
 );
 
 /// Features whose items reference categories. Deleting a category unlinks
-/// their items instead of deleting them. Notes and tasks join in later
-/// phases.
+/// their items instead of deleting them.
 final categoryServiceProvider = Provider<CategoryService>(
   (ref) => CategoryService(
     ref.watch(categoryRepositoryProvider),
-    links: [ResourceCategoryLinks(ref.watch(resourceRepositoryProvider))],
+    links: [
+      ResourceCategoryLinks(ref.watch(resourceRepositoryProvider)),
+      NoteCategoryLinks(ref.watch(noteRepositoryProvider)),
+    ],
   ),
 );
 

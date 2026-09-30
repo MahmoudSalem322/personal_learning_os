@@ -393,14 +393,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sampleDataBannerMessage =>
-      'The sample categories and resources show how Learning OS works. Remove them whenever you\'re ready.';
+      'The sample categories, resources and notes show how Learning OS works. Remove them whenever you\'re ready.';
 
   @override
   String get sampleDataRemoveTitle => 'Remove sample data?';
 
   @override
   String get sampleDataRemoveMessage =>
-      'All sample categories and resources will be deleted. What you created yourself is kept.';
+      'All sample categories, resources and notes will be deleted. What you created yourself is kept.';
 
   @override
   String get sampleFlutterDescription =>
@@ -766,4 +766,210 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get categoryNoResourcesMessage =>
       'Add the courses, videos, docs or articles you use to learn it.';
+
+  @override
+  String get notesNew => 'New note';
+
+  @override
+  String notesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count notes',
+      one: '1 note',
+      zero: 'No notes',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get notesSearchHint => 'Search notes or #tag';
+
+  @override
+  String get notesEmptyTitle => 'No notes yet';
+
+  @override
+  String get notesEmptyMessage =>
+      'Capture ideas, summaries and code snippets as you learn. Notes support Markdown.';
+
+  @override
+  String get notesNoResultsTitle => 'No matching notes';
+
+  @override
+  String get notesNoResultsMessage =>
+      'Try a different search or clear the filters.';
+
+  @override
+  String get notesSection => 'Notes';
+
+  @override
+  String get notesNoneForResource => 'No notes for this resource yet';
+
+  @override
+  String notesNoneForCategory(String name) {
+    return 'No notes in $name yet';
+  }
+
+  @override
+  String get notesNoneMessage => 'Write down what you learn while it\'s fresh.';
+
+  @override
+  String get sortRecentlyUpdated => 'Recently updated';
+
+  @override
+  String get sortRecentlyCreated => 'Recently created';
+
+  @override
+  String get noteUntitled => 'Untitled';
+
+  @override
+  String get noteTitleLabel => 'Title';
+
+  @override
+  String get noteContentLabel => 'Note content';
+
+  @override
+  String get noteContentHint => 'Start writing… Markdown is supported.';
+
+  @override
+  String get noteBackToList => 'All notes';
+
+  @override
+  String get noteModeWrite => 'Write';
+
+  @override
+  String get noteModePreview => 'Preview';
+
+  @override
+  String get noteSaving => 'Saving…';
+
+  @override
+  String get noteSaved => 'Saved';
+
+  @override
+  String get noteSaveFailed => 'Not saved. Retrying on your next change.';
+
+  @override
+  String get noteEmptyPreview => 'Nothing to preview yet.';
+
+  @override
+  String get noteResource => 'Resource';
+
+  @override
+  String get noteNoResource => 'No resource';
+
+  @override
+  String noteTasks(int done, int total) {
+    return '$done/$total done';
+  }
+
+  @override
+  String get noteCreateError => 'Couldn\'t create the note. Please try again.';
+
+  @override
+  String get noteUpdateError => 'Couldn\'t update the note. Please try again.';
+
+  @override
+  String get noteDeleted => 'Note deleted';
+
+  @override
+  String get noteDeleteError => 'Couldn\'t delete the note. Please try again.';
+
+  @override
+  String noteDeleteTitle(String title) {
+    return 'Delete “$title”?';
+  }
+
+  @override
+  String get noteDeleteMessage =>
+      'This note will be removed. You can undo this right after.';
+
+  @override
+  String get noteNotFoundTitle => 'Note not found';
+
+  @override
+  String get noteNotFoundMessage =>
+      'It may have been deleted, or the link is incorrect.';
+
+  @override
+  String get noteTooLong =>
+      'This note is too long to save. Split it into smaller notes.';
+
+  @override
+  String get filterStatus => 'Status';
+
+  @override
+  String get filterPriority => 'Priority';
+
+  @override
+  String get sortDueDate => 'Due date';
+
+  @override
+  String get sortPriority => 'Priority';
+
+  @override
+  String get mdHeading => 'Heading';
+
+  @override
+  String get mdHeading1 => 'Heading 1';
+
+  @override
+  String get mdHeading2 => 'Heading 2';
+
+  @override
+  String get mdHeading3 => 'Heading 3';
+
+  @override
+  String get mdBold => 'Bold (Ctrl+B)';
+
+  @override
+  String get mdItalic => 'Italic (Ctrl+I)';
+
+  @override
+  String get mdInlineCode => 'Inline code';
+
+  @override
+  String get mdBulletList => 'Bulleted list';
+
+  @override
+  String get mdNumberedList => 'Numbered list';
+
+  @override
+  String get mdChecklist => 'Checklist';
+
+  @override
+  String get mdQuote => 'Quote';
+
+  @override
+  String get mdCodeBlock => 'Code block';
+
+  @override
+  String get mdLink => 'Link';
+
+  @override
+  String get mdCopyCode => 'Copy code';
+
+  @override
+  String get mdCodeCopied => 'Code copied';
+
+  @override
+  String get sampleNoteLayoutTitle => 'Flutter layout cheatsheet';
+
+  @override
+  String get sampleNoteLayoutContent =>
+      '## Core layout widgets\n\n- **Row** / **Column**: lay children out on one axis\n- **Expanded**: fill the remaining space in a Row or Column\n- **Stack**: overlap children\n\n> Constraints go down. Sizes go up. Parent sets position.\n\n```dart\nRow(\n  children: [\n    const Icon(Icons.star),\n    Expanded(child: Text(title)),\n  ],\n)\n```\n\n## To practice\n\n- [x] Build a profile card with Row and Column\n- [ ] Rebuild it responsively with LayoutBuilder\n- [ ] Read about [box constraints](https://docs.flutter.dev/ui/layout/constraints)';
+
+  @override
+  String get sampleNoteRiverpodTitle => 'Riverpod in one page';
+
+  @override
+  String get sampleNoteRiverpodContent =>
+      '## Providers\n\n1. `Provider` for values that never change\n2. `NotifierProvider` for state with methods\n3. `StreamProvider` for live data, like database queries\n\nUse `ref.watch` in `build`, and `ref.read` inside callbacks.\n\n- [ ] Try `select` to rebuild less often';
+
+  @override
+  String get sampleNoteGitTitle => 'Git commands I use daily';
+
+  @override
+  String get sampleNoteGitContent =>
+      '## Everyday\n\n```bash\ngit status\ngit add -p\ngit commit -m \"message\"\ngit push\n```\n\n## Branches\n\n- `git switch -c feature/x` creates and switches\n- `git rebase main` updates a branch\n\n- [x] Configure my name and email\n- [ ] Learn interactive rebase';
 }

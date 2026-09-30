@@ -17,10 +17,15 @@ abstract final class AppStores {
   static final StoreRef<String, Map<String, Object?>> resources =
       stringMapStoreFactory.store('resources');
 
+  /// Markdown notes, keyed by note id.
+  static final StoreRef<String, Map<String, Object?>> notes =
+      stringMapStoreFactory.store('notes');
+
   static List<StoreRef<String, Map<String, Object?>>> get all => [
     settings,
     categories,
     resources,
+    notes,
   ];
 }
 

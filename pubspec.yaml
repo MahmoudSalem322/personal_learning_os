@@ -28,6 +28,8 @@ dependencies:
   intl: ^0.20.3
   # Browser APIs (opening links in a new tab). Already used by sembast_web.
   web: ^1.1.1
+  # Markdown parsing for notes (official Dart package, pure Dart).
+  markdown: ^7.3.1
 
 dev_dependencies:
   flutter_test:

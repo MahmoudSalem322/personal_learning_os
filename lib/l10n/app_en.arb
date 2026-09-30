@@ -157,9 +157,9 @@
   "sampleDataRemoved": "Sample data removed",
   "sampleDataError": "Couldn't update sample data. Please try again.",
   "sampleDataBannerTitle": "You're exploring sample data",
-  "sampleDataBannerMessage": "The sample categories and resources show how Learning OS works. Remove them whenever you're ready.",
+  "sampleDataBannerMessage": "The sample categories, resources and notes show how Learning OS works. Remove them whenever you're ready.",
   "sampleDataRemoveTitle": "Remove sample data?",
-  "sampleDataRemoveMessage": "All sample categories and resources will be deleted. What you created yourself is kept.",
+  "sampleDataRemoveMessage": "All sample categories, resources and notes will be deleted. What you created yourself is kept.",
   "sampleFlutterDescription": "Cross-platform apps with widgets, layouts and state management.",
   "sampleDartDescription": "The language behind Flutter: types, async code and null safety.",
   "sampleUiUxDescription": "Interface design, usability and building design systems.",
@@ -299,5 +299,86 @@
   "@categoryNoResourcesTitle": {
     "placeholders": { "name": { "type": "String" } }
   },
-  "categoryNoResourcesMessage": "Add the courses, videos, docs or articles you use to learn it."
+  "categoryNoResourcesMessage": "Add the courses, videos, docs or articles you use to learn it.",
+
+  "notesNew": "New note",
+  "notesCount": "{count, plural, =0{No notes} =1{1 note} other{{count} notes}}",
+  "@notesCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "notesSearchHint": "Search notes or #tag",
+  "notesEmptyTitle": "No notes yet",
+  "notesEmptyMessage": "Capture ideas, summaries and code snippets as you learn. Notes support Markdown.",
+  "notesNoResultsTitle": "No matching notes",
+  "notesNoResultsMessage": "Try a different search or clear the filters.",
+  "notesSection": "Notes",
+  "notesNoneForResource": "No notes for this resource yet",
+  "notesNoneForCategory": "No notes in {name} yet",
+  "@notesNoneForCategory": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "notesNoneMessage": "Write down what you learn while it's fresh.",
+  "sortRecentlyUpdated": "Recently updated",
+  "sortRecentlyCreated": "Recently created",
+
+  "noteUntitled": "Untitled",
+  "noteTitleLabel": "Title",
+  "noteContentLabel": "Note content",
+  "noteContentHint": "Start writing… Markdown is supported.",
+  "noteBackToList": "All notes",
+  "noteModeWrite": "Write",
+  "noteModePreview": "Preview",
+  "noteSaving": "Saving…",
+  "noteSaved": "Saved",
+  "noteSaveFailed": "Not saved. Retrying on your next change.",
+  "noteEmptyPreview": "Nothing to preview yet.",
+  "noteResource": "Resource",
+  "noteNoResource": "No resource",
+  "noteTasks": "{done}/{total} done",
+  "@noteTasks": {
+    "placeholders": {
+      "done": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "noteCreateError": "Couldn't create the note. Please try again.",
+  "noteUpdateError": "Couldn't update the note. Please try again.",
+  "noteDeleted": "Note deleted",
+  "noteDeleteError": "Couldn't delete the note. Please try again.",
+  "noteDeleteTitle": "Delete “{title}”?",
+  "@noteDeleteTitle": {
+    "placeholders": { "title": { "type": "String" } }
+  },
+  "noteDeleteMessage": "This note will be removed. You can undo this right after.",
+  "noteNotFoundTitle": "Note not found",
+  "noteNotFoundMessage": "It may have been deleted, or the link is incorrect.",
+  "noteTooLong": "This note is too long to save. Split it into smaller notes.",
+
+  "filterStatus": "Status",
+  "filterPriority": "Priority",
+  "sortDueDate": "Due date",
+  "sortPriority": "Priority",
+
+  "mdHeading": "Heading",
+  "mdHeading1": "Heading 1",
+  "mdHeading2": "Heading 2",
+  "mdHeading3": "Heading 3",
+  "mdBold": "Bold (Ctrl+B)",
+  "mdItalic": "Italic (Ctrl+I)",
+  "mdInlineCode": "Inline code",
+  "mdBulletList": "Bulleted list",
+  "mdNumberedList": "Numbered list",
+  "mdChecklist": "Checklist",
+  "mdQuote": "Quote",
+  "mdCodeBlock": "Code block",
+  "mdLink": "Link",
+  "mdCopyCode": "Copy code",
+  "mdCodeCopied": "Code copied",
+
+  "sampleNoteLayoutTitle": "Flutter layout cheatsheet",
+  "sampleNoteLayoutContent": "## Core layout widgets\n\n- **Row** / **Column**: lay children out on one axis\n- **Expanded**: fill the remaining space in a Row or Column\n- **Stack**: overlap children\n\n> Constraints go down. Sizes go up. Parent sets position.\n\n```dart\nRow(\n  children: [\n    const Icon(Icons.star),\n    Expanded(child: Text(title)),\n  ],\n)\n```\n\n## To practice\n\n- [x] Build a profile card with Row and Column\n- [ ] Rebuild it responsively with LayoutBuilder\n- [ ] Read about [box constraints](https://docs.flutter.dev/ui/layout/constraints)",
+  "sampleNoteRiverpodTitle": "Riverpod in one page",
+  "sampleNoteRiverpodContent": "## Providers\n\n1. `Provider` for values that never change\n2. `NotifierProvider` for state with methods\n3. `StreamProvider` for live data, like database queries\n\nUse `ref.watch` in `build`, and `ref.read` inside callbacks.\n\n- [ ] Try `select` to rebuild less often",
+  "sampleNoteGitTitle": "Git commands I use daily",
+  "sampleNoteGitContent": "## Everyday\n\n```bash\ngit status\ngit add -p\ngit commit -m \"message\"\ngit push\n```\n\n## Branches\n\n- `git switch -c feature/x` creates and switches\n- `git rebase main` updates a branch\n\n- [x] Configure my name and email\n- [ ] Learn interactive rebase"
 }

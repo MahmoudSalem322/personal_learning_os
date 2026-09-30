@@ -797,7 +797,7 @@ abstract class AppLocalizations {
   /// No description provided for @sampleDataBannerMessage.
   ///
   /// In en, this message translates to:
-  /// **'The sample categories and resources show how Learning OS works. Remove them whenever you\'re ready.'**
+  /// **'The sample categories, resources and notes show how Learning OS works. Remove them whenever you\'re ready.'**
   String get sampleDataBannerMessage;
 
   /// No description provided for @sampleDataRemoveTitle.
@@ -809,7 +809,7 @@ abstract class AppLocalizations {
   /// No description provided for @sampleDataRemoveMessage.
   ///
   /// In en, this message translates to:
-  /// **'All sample categories and resources will be deleted. What you created yourself is kept.'**
+  /// **'All sample categories, resources and notes will be deleted. What you created yourself is kept.'**
   String get sampleDataRemoveMessage;
 
   /// No description provided for @sampleFlutterDescription.
@@ -1411,6 +1411,372 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add the courses, videos, docs or articles you use to learn it.'**
   String get categoryNoResourcesMessage;
+
+  /// No description provided for @notesNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New note'**
+  String get notesNew;
+
+  /// No description provided for @notesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No notes} =1{1 note} other{{count} notes}}'**
+  String notesCount(int count);
+
+  /// No description provided for @notesSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search notes or #tag'**
+  String get notesSearchHint;
+
+  /// No description provided for @notesEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No notes yet'**
+  String get notesEmptyTitle;
+
+  /// No description provided for @notesEmptyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture ideas, summaries and code snippets as you learn. Notes support Markdown.'**
+  String get notesEmptyMessage;
+
+  /// No description provided for @notesNoResultsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching notes'**
+  String get notesNoResultsTitle;
+
+  /// No description provided for @notesNoResultsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Try a different search or clear the filters.'**
+  String get notesNoResultsMessage;
+
+  /// No description provided for @notesSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get notesSection;
+
+  /// No description provided for @notesNoneForResource.
+  ///
+  /// In en, this message translates to:
+  /// **'No notes for this resource yet'**
+  String get notesNoneForResource;
+
+  /// No description provided for @notesNoneForCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'No notes in {name} yet'**
+  String notesNoneForCategory(String name);
+
+  /// No description provided for @notesNoneMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Write down what you learn while it\'s fresh.'**
+  String get notesNoneMessage;
+
+  /// No description provided for @sortRecentlyUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Recently updated'**
+  String get sortRecentlyUpdated;
+
+  /// No description provided for @sortRecentlyCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Recently created'**
+  String get sortRecentlyCreated;
+
+  /// No description provided for @noteUntitled.
+  ///
+  /// In en, this message translates to:
+  /// **'Untitled'**
+  String get noteUntitled;
+
+  /// No description provided for @noteTitleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get noteTitleLabel;
+
+  /// No description provided for @noteContentLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Note content'**
+  String get noteContentLabel;
+
+  /// No description provided for @noteContentHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Start writing… Markdown is supported.'**
+  String get noteContentHint;
+
+  /// No description provided for @noteBackToList.
+  ///
+  /// In en, this message translates to:
+  /// **'All notes'**
+  String get noteBackToList;
+
+  /// No description provided for @noteModeWrite.
+  ///
+  /// In en, this message translates to:
+  /// **'Write'**
+  String get noteModeWrite;
+
+  /// No description provided for @noteModePreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview'**
+  String get noteModePreview;
+
+  /// No description provided for @noteSaving.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving…'**
+  String get noteSaving;
+
+  /// No description provided for @noteSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved'**
+  String get noteSaved;
+
+  /// No description provided for @noteSaveFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Not saved. Retrying on your next change.'**
+  String get noteSaveFailed;
+
+  /// No description provided for @noteEmptyPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing to preview yet.'**
+  String get noteEmptyPreview;
+
+  /// No description provided for @noteResource.
+  ///
+  /// In en, this message translates to:
+  /// **'Resource'**
+  String get noteResource;
+
+  /// No description provided for @noteNoResource.
+  ///
+  /// In en, this message translates to:
+  /// **'No resource'**
+  String get noteNoResource;
+
+  /// No description provided for @noteTasks.
+  ///
+  /// In en, this message translates to:
+  /// **'{done}/{total} done'**
+  String noteTasks(int done, int total);
+
+  /// No description provided for @noteCreateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t create the note. Please try again.'**
+  String get noteCreateError;
+
+  /// No description provided for @noteUpdateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t update the note. Please try again.'**
+  String get noteUpdateError;
+
+  /// No description provided for @noteDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Note deleted'**
+  String get noteDeleted;
+
+  /// No description provided for @noteDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t delete the note. Please try again.'**
+  String get noteDeleteError;
+
+  /// No description provided for @noteDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete “{title}”?'**
+  String noteDeleteTitle(String title);
+
+  /// No description provided for @noteDeleteMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This note will be removed. You can undo this right after.'**
+  String get noteDeleteMessage;
+
+  /// No description provided for @noteNotFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Note not found'**
+  String get noteNotFoundTitle;
+
+  /// No description provided for @noteNotFoundMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'It may have been deleted, or the link is incorrect.'**
+  String get noteNotFoundMessage;
+
+  /// No description provided for @noteTooLong.
+  ///
+  /// In en, this message translates to:
+  /// **'This note is too long to save. Split it into smaller notes.'**
+  String get noteTooLong;
+
+  /// No description provided for @filterStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get filterStatus;
+
+  /// No description provided for @filterPriority.
+  ///
+  /// In en, this message translates to:
+  /// **'Priority'**
+  String get filterPriority;
+
+  /// No description provided for @sortDueDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Due date'**
+  String get sortDueDate;
+
+  /// No description provided for @sortPriority.
+  ///
+  /// In en, this message translates to:
+  /// **'Priority'**
+  String get sortPriority;
+
+  /// No description provided for @mdHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Heading'**
+  String get mdHeading;
+
+  /// No description provided for @mdHeading1.
+  ///
+  /// In en, this message translates to:
+  /// **'Heading 1'**
+  String get mdHeading1;
+
+  /// No description provided for @mdHeading2.
+  ///
+  /// In en, this message translates to:
+  /// **'Heading 2'**
+  String get mdHeading2;
+
+  /// No description provided for @mdHeading3.
+  ///
+  /// In en, this message translates to:
+  /// **'Heading 3'**
+  String get mdHeading3;
+
+  /// No description provided for @mdBold.
+  ///
+  /// In en, this message translates to:
+  /// **'Bold (Ctrl+B)'**
+  String get mdBold;
+
+  /// No description provided for @mdItalic.
+  ///
+  /// In en, this message translates to:
+  /// **'Italic (Ctrl+I)'**
+  String get mdItalic;
+
+  /// No description provided for @mdInlineCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Inline code'**
+  String get mdInlineCode;
+
+  /// No description provided for @mdBulletList.
+  ///
+  /// In en, this message translates to:
+  /// **'Bulleted list'**
+  String get mdBulletList;
+
+  /// No description provided for @mdNumberedList.
+  ///
+  /// In en, this message translates to:
+  /// **'Numbered list'**
+  String get mdNumberedList;
+
+  /// No description provided for @mdChecklist.
+  ///
+  /// In en, this message translates to:
+  /// **'Checklist'**
+  String get mdChecklist;
+
+  /// No description provided for @mdQuote.
+  ///
+  /// In en, this message translates to:
+  /// **'Quote'**
+  String get mdQuote;
+
+  /// No description provided for @mdCodeBlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Code block'**
+  String get mdCodeBlock;
+
+  /// No description provided for @mdLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Link'**
+  String get mdLink;
+
+  /// No description provided for @mdCopyCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy code'**
+  String get mdCopyCode;
+
+  /// No description provided for @mdCodeCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Code copied'**
+  String get mdCodeCopied;
+
+  /// No description provided for @sampleNoteLayoutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Flutter layout cheatsheet'**
+  String get sampleNoteLayoutTitle;
+
+  /// No description provided for @sampleNoteLayoutContent.
+  ///
+  /// In en, this message translates to:
+  /// **'## Core layout widgets\n\n- **Row** / **Column**: lay children out on one axis\n- **Expanded**: fill the remaining space in a Row or Column\n- **Stack**: overlap children\n\n> Constraints go down. Sizes go up. Parent sets position.\n\n```dart\nRow(\n  children: [\n    const Icon(Icons.star),\n    Expanded(child: Text(title)),\n  ],\n)\n```\n\n## To practice\n\n- [x] Build a profile card with Row and Column\n- [ ] Rebuild it responsively with LayoutBuilder\n- [ ] Read about [box constraints](https://docs.flutter.dev/ui/layout/constraints)'**
+  String get sampleNoteLayoutContent;
+
+  /// No description provided for @sampleNoteRiverpodTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Riverpod in one page'**
+  String get sampleNoteRiverpodTitle;
+
+  /// No description provided for @sampleNoteRiverpodContent.
+  ///
+  /// In en, this message translates to:
+  /// **'## Providers\n\n1. `Provider` for values that never change\n2. `NotifierProvider` for state with methods\n3. `StreamProvider` for live data, like database queries\n\nUse `ref.watch` in `build`, and `ref.read` inside callbacks.\n\n- [ ] Try `select` to rebuild less often'**
+  String get sampleNoteRiverpodContent;
+
+  /// No description provided for @sampleNoteGitTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Git commands I use daily'**
+  String get sampleNoteGitTitle;
+
+  /// No description provided for @sampleNoteGitContent.
+  ///
+  /// In en, this message translates to:
+  /// **'## Everyday\n\n```bash\ngit status\ngit add -p\ngit commit -m \"message\"\ngit push\n```\n\n## Branches\n\n- `git switch -c feature/x` creates and switches\n- `git rebase main` updates a branch\n\n- [x] Configure my name and email\n- [ ] Learn interactive rebase'**
+  String get sampleNoteGitContent;
 }
 
 class _AppLocalizationsDelegate

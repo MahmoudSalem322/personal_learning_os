@@ -1,8 +1,68 @@
 import '../../../l10n/app_localizations.dart';
 import '../../categories/domain/category.dart';
 import '../../categories/presentation/category_appearance.dart';
+import '../../notes/domain/note.dart';
 import '../../resources/domain/resource.dart';
 import '../domain/sample_data_service.dart';
+
+String _resourceId(String slug) =>
+    '${SampleDataService.idPrefix}resource-$slug';
+
+/// Builds the sample notes, linked to [sampleCategories] and
+/// [sampleResources].
+List<Note> sampleNotes(AppLocalizations l10n, DateTime now) {
+  var order = 0;
+  Note build({
+    required String slug,
+    required String title,
+    required String content,
+    required String category,
+    String? resource,
+    List<String> tags = const [],
+    bool favorite = false,
+  }) {
+    final at = now.subtract(Duration(hours: order++));
+    return Note(
+      id: '${SampleDataService.idPrefix}note-$slug',
+      title: title,
+      content: content,
+      categoryId: _categoryId(category),
+      resourceId: resource == null ? null : _resourceId(resource),
+      tags: tags,
+      isFavorite: favorite,
+      createdAt: at,
+      updatedAt: at,
+    );
+  }
+
+  return [
+    build(
+      slug: 'flutter-layout',
+      title: l10n.sampleNoteLayoutTitle,
+      content: l10n.sampleNoteLayoutContent,
+      category: 'flutter',
+      resource: 'flutter-docs',
+      tags: ['flutter', 'layout'],
+      favorite: true,
+    ),
+    build(
+      slug: 'riverpod',
+      title: l10n.sampleNoteRiverpodTitle,
+      content: l10n.sampleNoteRiverpodContent,
+      category: 'flutter',
+      resource: 'riverpod',
+      tags: ['flutter', 'state-management'],
+    ),
+    build(
+      slug: 'git-commands',
+      title: l10n.sampleNoteGitTitle,
+      content: l10n.sampleNoteGitContent,
+      category: 'git',
+      resource: 'pro-git',
+      tags: ['git', 'cheatsheet'],
+    ),
+  ];
+}
 
 String _categoryId(String slug) =>
     '${SampleDataService.idPrefix}category-$slug';
@@ -67,7 +127,7 @@ List<Resource> sampleResources(AppLocalizations l10n, DateTime now) {
     // Spread creation times so "Recently added" has a stable order.
     final created = now.subtract(Duration(minutes: order++));
     return Resource(
-      id: '${SampleDataService.idPrefix}resource-$slug',
+      id: _resourceId(slug),
       title: title,
       description: description,
       url: url,

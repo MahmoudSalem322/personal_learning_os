@@ -15,6 +15,9 @@ import '../../../../core/widgets/app_page.dart';
 import '../../../../core/widgets/app_skeleton.dart';
 import '../../../../core/widgets/app_state_view.dart';
 import '../../../categories/presentation/widgets/category_chip.dart';
+import '../../../notes/presentation/note_actions.dart';
+import '../../../notes/presentation/notes_providers.dart';
+import '../../../notes/presentation/widgets/note_card.dart';
 import '../../../tags/presentation/tag_chip.dart';
 import '../../domain/resource.dart';
 import '../resource_actions.dart';
@@ -176,6 +179,17 @@ class _ResourceView extends ConsumerWidget {
       ),
     );
 
+    final notes = _Panel(
+      title: l10n.notesSection,
+      trailing: TextButton.icon(
+        onPressed: () =>
+            NoteActions.createAndOpen(context, ref, resourceId: r.id),
+        icon: const Icon(Icons.add_rounded, size: AppSizes.iconSm),
+        label: Text(l10n.notesNew),
+      ),
+      child: _ResourceNotes(resourceId: r.id),
+    );
+
     return AppPage(
       title: r.title,
       subtitle: r.hasUrl ? UrlUtils.displayHost(r.url) : r.type.label(l10n),
@@ -218,7 +232,10 @@ class _ResourceView extends ConsumerWidget {
                 ? Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(flex: 3, child: about),
+                      Expanded(
+                        flex: 3,
+                        child: Column(children: [about, Gap.md, notes]),
+                      ),
                       Gap.md,
                       Expanded(
                         flex: 2,
@@ -226,7 +243,17 @@ class _ResourceView extends ConsumerWidget {
                       ),
                     ],
                   )
-                : Column(children: [progress, Gap.md, about, Gap.md, details]),
+                : Column(
+                    children: [
+                      progress,
+                      Gap.md,
+                      about,
+                      Gap.md,
+                      notes,
+                      Gap.md,
+                      details,
+                    ],
+                  ),
           );
         },
       ),
@@ -235,10 +262,11 @@ class _ResourceView extends ConsumerWidget {
 }
 
 class _Panel extends StatelessWidget {
-  const _Panel({required this.title, required this.child});
+  const _Panel({required this.title, required this.child, this.trailing});
 
   final String title;
   final Widget child;
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
@@ -247,14 +275,47 @@ class _Panel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Semantics(
-            header: true,
-            child: Text(title, style: context.textStyles.overline),
+          Row(
+            children: [
+              Expanded(
+                child: Semantics(
+                  header: true,
+                  child: Text(title, style: context.textStyles.overline),
+                ),
+              ),
+              ?trailing,
+            ],
           ),
           Gap.sm,
           child,
         ],
       ),
+    );
+  }
+}
+
+/// Notes linked to the resource, newest first.
+class _ResourceNotes extends ConsumerWidget {
+  const _ResourceNotes({required this.resourceId});
+
+  final String resourceId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final notes = ref.watch(notesByResourceProvider(resourceId)).value;
+    if (notes == null) return const AppSkeleton(height: 48);
+    if (notes.isEmpty) {
+      return Text(
+        context.l10n.notesNoneForResource,
+        style: context.textStyles.caption,
+      );
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: AppSpacing.xs,
+      children: [
+        for (final note in notes) NoteTile(key: ValueKey(note.id), note: note),
+      ],
     );
   }
 }

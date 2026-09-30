@@ -19,6 +19,7 @@ abstract final class SampleDataActions {
           .load(
             categories: sampleCategories(l10n, now),
             resources: sampleResources(l10n, now),
+            notes: sampleNotes(l10n, now),
           );
       if (context.mounted) AppToast.success(context, l10n.sampleDataLoaded);
     } on AppException {

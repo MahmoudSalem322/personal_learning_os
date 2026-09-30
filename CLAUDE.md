@@ -8,7 +8,7 @@ Only implement the phase the user asks for; never jump ahead.
 - [x] PHASE 01 — Architecture & Foundation
 - [x] PHASE 02 — Categories
 - [x] PHASE 03 — Resources
-- [ ] PHASE 04 — Notes
+- [x] PHASE 04 — Notes
 - [ ] PHASE 05 — Tasks
 - [ ] PHASE 06 — Dashboard & Global Search
 - [ ] PHASE 07 — Notifications & Reminders
@@ -39,6 +39,9 @@ Only implement the phase the user asks for; never jump ahead.
 - Layering per feature: widgets → `<X>Actions` (dialogs, toasts, undo) →
   `<X>Service` (validation, ids, timestamps) → `<X>Repository` interface →
   `Local<X>Repository` (sembast). Widgets never call repositories to write.
+- Local repositories delegate to `LocalDocumentStore<T>`
+  (`core/storage/local_document_store.dart`): watch/get/save/delete plus
+  `clearField`/`setField` for unlinking and re-linking.
 - Sample data ids start with `sample-` (`SampleDataService.idPrefix`); later
   phases extend `SampleDataService.load/remove` for their own stores.
 - Deleting a category keeps its items and makes them uncategorized (user's
@@ -46,6 +49,14 @@ Only implement the phase the user asks for; never jump ahead.
   `CategoryLinks` (see `ResourceCategoryLinks`) and is added to
   `categoryServiceProvider`'s `links`; Undo re-links the same items. Notes
   and tasks must do the same.
+- Deleting a resource keeps its notes (and later tasks) and unlinks them:
+  implement `ResourceLinks` (see `NoteResourceLinks`) and add it to
+  `resourceServiceProvider`'s `links`; `DeletedResource` carries the Undo.
+- Notes: Markdown via `package:markdown` (GFM). The editor autosaves with a
+  600 ms debounce, flushes on dispose and discards blank new notes. Widget
+  tests that open the editor must end with `leaveEditor`/`unmountApp`
+  (see `test/features/notes/notes_page_test.dart`) or sembast leaves
+  pending timers.
 - Category progress rule: rounded mean of its resources' progress
   (`LearningProgress`); no resources means no percentage (not 0%).
 - Tags: `TagRules` (normalize/parse) in `features/tags`, shared by resources,

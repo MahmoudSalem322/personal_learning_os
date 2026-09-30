@@ -4,6 +4,7 @@ import '../../../core/utils/url_utils.dart';
 import '../../tags/domain/tags.dart';
 import 'resource.dart';
 import 'resource_draft.dart';
+import 'resource_links.dart';
 import 'resource_repository.dart';
 
 /// Use cases for resources: validation, ids, timestamps, progress,
@@ -11,12 +12,15 @@ import 'resource_repository.dart';
 class ResourceService {
   ResourceService(
     this._repository, {
+    List<ResourceLinks> links = const [],
     IdGenerator? ids,
     DateTime Function()? clock,
-  }) : _ids = ids ?? IdGenerator(),
+  }) : _links = List.unmodifiable(links),
+       _ids = ids ?? IdGenerator(),
        _clock = clock ?? DateTime.now;
 
   final ResourceRepository _repository;
+  final List<ResourceLinks> _links;
   final IdGenerator _ids;
   final DateTime Function() _clock;
 
@@ -82,15 +86,24 @@ class ResourceService {
     return updated;
   }
 
-  /// Deletes the resource and returns it so the caller can offer Undo.
-  Future<Resource> delete(String id) async {
+  /// Deletes the resource. Items linked to it (notes, ...) are kept and
+  /// lose the link. Returns what's needed to Undo.
+  Future<DeletedResource> delete(String id) async {
     final current = await _require(id);
+    final detached = [for (final links in _links) await links.detach(id)];
     await _repository.delete(id);
-    return current;
+    return DeletedResource(current, detached);
   }
 
-  /// Puts back a resource removed by [delete] (Undo), unchanged.
-  Future<void> restore(Resource resource) => _repository.save(resource);
+  /// Undo for [delete]: puts the resource back unchanged and re-links the
+  /// items that were unlinked from it.
+  Future<void> restore(DeletedResource deleted) async {
+    final resource = deleted.resource;
+    await _repository.save(resource);
+    for (var i = 0; i < _links.length && i < deleted.detached.length; i++) {
+      await _links[i].reattach(resource.id, deleted.detached[i]);
+    }
+  }
 
   Future<Resource> setProgress(String id, int progress) async {
     final current = await _require(id);

@@ -37,11 +37,11 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byType(AppSidebar), findsOneWidget);
 
-      await tester.tap(find.text('Notes'));
+      await tester.tap(find.text('Favorites'));
       await tester.pumpAndSettle();
 
       expect(find.byType(AppSidebar), findsNothing, reason: 'drawer closes');
-      expect(find.text('Notes is on its way'), findsOneWidget);
+      expect(find.text('Favorites is on its way'), findsOneWidget);
     });
 
     testWidgets('no layout overflows at any breakpoint', (tester) async {

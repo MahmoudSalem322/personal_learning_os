@@ -1,7 +1,7 @@
 import 'package:sembast/sembast.dart';
 
 import '../../../core/storage/app_database.dart';
-import '../../../core/storage/storage_guard.dart';
+import '../../../core/storage/local_document_store.dart';
 import '../domain/category.dart';
 import '../domain/category_repository.dart';
 
@@ -10,73 +10,43 @@ import '../domain/category_repository.dart';
 /// Records that can't be parsed (e.g. corrupted by an older build) are
 /// skipped and logged instead of breaking the whole list.
 class LocalCategoryRepository implements CategoryRepository {
-  LocalCategoryRepository(this._db);
+  LocalCategoryRepository(Database db)
+    : _docs = LocalDocumentStore(
+        db: db,
+        store: AppStores.categories,
+        kind: 'category',
+        fromJson: Category.fromJson,
+        toJson: (c) => c.toJson(),
+        idOf: (c) => c.id,
+        compare: _byName,
+      );
 
-  final Database _db;
-
-  StoreRef<String, Map<String, Object?>> get _store => AppStores.categories;
-
-  @override
-  Stream<List<Category>> watchAll() => _store
-      .query()
-      .onSnapshots(_db)
-      .map(_parseAll)
-      .transform(storageErrors('watch categories'));
-
-  @override
-  Stream<Category?> watchById(String id) => _store
-      .record(id)
-      .onSnapshot(_db)
-      .map((snapshot) => snapshot == null ? null : _parse(snapshot.value))
-      .transform(storageErrors('watch category $id'));
+  final LocalDocumentStore<Category> _docs;
 
   @override
-  Future<List<Category>> getAll() => guardStorage(
-    'load categories',
-    () async => _parseAll(await _store.find(_db)),
-  );
+  Stream<List<Category>> watchAll() => _docs.watchAll();
 
   @override
-  Future<Category?> getById(String id) =>
-      guardStorage('load category $id', () async {
-        final json = await _store.record(id).get(_db);
-        return json == null ? null : _parse(json);
-      });
+  Stream<Category?> watchById(String id) => _docs.watchById(id);
 
   @override
-  Future<void> save(Category category) => guardStorage(
-    'save category ${category.id}',
-    () => _store.record(category.id).put(_db, category.toJson()),
-  );
+  Future<List<Category>> getAll() => _docs.getAll();
 
   @override
-  Future<void> saveAll(Iterable<Category> categories) => guardStorage(
-    'save categories',
-    () => _db.transaction((txn) async {
-      for (final category in categories) {
-        await _store.record(category.id).put(txn, category.toJson());
-      }
-    }),
-  );
+  Future<Category?> getById(String id) => _docs.getById(id);
 
   @override
-  Future<void> delete(String id) =>
-      guardStorage('delete category $id', () => _store.record(id).delete(_db));
+  Future<void> save(Category category) => _docs.save(category);
 
   @override
-  Future<void> deleteAll(Iterable<String> ids) =>
-      guardStorage('delete categories', () => _store.records(ids).delete(_db));
+  Future<void> saveAll(Iterable<Category> categories) =>
+      _docs.saveAll(categories);
 
-  static Category? _parse(Map<String, Object?> json) =>
-      tryParseRecord('category', json, Category.fromJson);
+  @override
+  Future<void> delete(String id) => _docs.delete(id);
 
-  List<Category> _parseAll(
-    List<RecordSnapshot<String, Map<String, Object?>>> records,
-  ) {
-    final categories = [for (final record in records) ?_parse(record.value)];
-    categories.sort(_byName);
-    return List.unmodifiable(categories);
-  }
+  @override
+  Future<void> deleteAll(Iterable<String> ids) => _docs.deleteAll(ids);
 
   static int _byName(Category a, Category b) {
     final byName = a.name.toLowerCase().compareTo(b.name.toLowerCase());

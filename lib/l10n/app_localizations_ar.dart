@@ -399,14 +399,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sampleDataBannerMessage =>
-      'توضّح المجالات والمصادر التجريبية طريقة عمل Learning OS. احذفها متى شئت.';
+      'توضّح المجالات والمصادر والملاحظات التجريبية طريقة عمل Learning OS. احذفها متى شئت.';
 
   @override
   String get sampleDataRemoveTitle => 'حذف البيانات التجريبية؟';
 
   @override
   String get sampleDataRemoveMessage =>
-      'سيتم حذف جميع المجالات والمصادر التجريبية. ما أنشأته بنفسك سيبقى كما هو.';
+      'سيتم حذف جميع المجالات والمصادر والملاحظات التجريبية. ما أنشأته بنفسك سيبقى كما هو.';
 
   @override
   String get sampleFlutterDescription =>
@@ -783,4 +783,212 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get categoryNoResourcesMessage =>
       'أضف الدورات والفيديوهات والتوثيقات والمقالات التي تتعلّم منها.';
+
+  @override
+  String get notesNew => 'ملاحظة جديدة';
+
+  @override
+  String notesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ملاحظة',
+      many: '$count ملاحظة',
+      few: '$count ملاحظات',
+      two: 'ملاحظتان',
+      one: 'ملاحظة واحدة',
+      zero: 'لا توجد ملاحظات',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get notesSearchHint => 'ابحث في الملاحظات أو #الوسم';
+
+  @override
+  String get notesEmptyTitle => 'لا توجد ملاحظات بعد';
+
+  @override
+  String get notesEmptyMessage =>
+      'دوّن الأفكار والملخصات ومقتطفات الكود أثناء تعلّمك. الملاحظات تدعم Markdown.';
+
+  @override
+  String get notesNoResultsTitle => 'لا توجد ملاحظات مطابقة';
+
+  @override
+  String get notesNoResultsMessage => 'جرّب بحثًا مختلفًا أو امسح الفلاتر.';
+
+  @override
+  String get notesSection => 'الملاحظات';
+
+  @override
+  String get notesNoneForResource => 'لا توجد ملاحظات لهذا المصدر بعد';
+
+  @override
+  String notesNoneForCategory(String name) {
+    return 'لا توجد ملاحظات في $name بعد';
+  }
+
+  @override
+  String get notesNoneMessage => 'دوّن ما تتعلّمه وهو ما زال حاضرًا في ذهنك.';
+
+  @override
+  String get sortRecentlyUpdated => 'المُحدّث مؤخرًا';
+
+  @override
+  String get sortRecentlyCreated => 'المُنشأ مؤخرًا';
+
+  @override
+  String get noteUntitled => 'بدون عنوان';
+
+  @override
+  String get noteTitleLabel => 'العنوان';
+
+  @override
+  String get noteContentLabel => 'محتوى الملاحظة';
+
+  @override
+  String get noteContentHint => 'ابدأ الكتابة… يدعم Markdown.';
+
+  @override
+  String get noteBackToList => 'كل الملاحظات';
+
+  @override
+  String get noteModeWrite => 'كتابة';
+
+  @override
+  String get noteModePreview => 'معاينة';
+
+  @override
+  String get noteSaving => 'جارٍ الحفظ…';
+
+  @override
+  String get noteSaved => 'تم الحفظ';
+
+  @override
+  String get noteSaveFailed =>
+      'لم يتم الحفظ. ستتم إعادة المحاولة عند تعديلك التالي.';
+
+  @override
+  String get noteEmptyPreview => 'لا يوجد ما يُعرض بعد.';
+
+  @override
+  String get noteResource => 'المصدر';
+
+  @override
+  String get noteNoResource => 'بدون مصدر';
+
+  @override
+  String noteTasks(int done, int total) {
+    return '$done من $total مكتملة';
+  }
+
+  @override
+  String get noteCreateError => 'تعذّر إنشاء الملاحظة. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get noteUpdateError => 'تعذّر تحديث الملاحظة. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get noteDeleted => 'تم حذف الملاحظة';
+
+  @override
+  String get noteDeleteError => 'تعذّر حذف الملاحظة. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String noteDeleteTitle(String title) {
+    return 'حذف «$title»؟';
+  }
+
+  @override
+  String get noteDeleteMessage =>
+      'سيتم حذف هذه الملاحظة. يمكنك التراجع مباشرةً بعد الحذف.';
+
+  @override
+  String get noteNotFoundTitle => 'الملاحظة غير موجودة';
+
+  @override
+  String get noteNotFoundMessage => 'ربما تم حذفها، أو أن الرابط غير صحيح.';
+
+  @override
+  String get noteTooLong =>
+      'الملاحظة أطول من أن تُحفظ. قسّمها إلى ملاحظات أصغر.';
+
+  @override
+  String get filterStatus => 'الحالة';
+
+  @override
+  String get filterPriority => 'الأولوية';
+
+  @override
+  String get sortDueDate => 'تاريخ الاستحقاق';
+
+  @override
+  String get sortPriority => 'الأولوية';
+
+  @override
+  String get mdHeading => 'عنوان';
+
+  @override
+  String get mdHeading1 => 'عنوان 1';
+
+  @override
+  String get mdHeading2 => 'عنوان 2';
+
+  @override
+  String get mdHeading3 => 'عنوان 3';
+
+  @override
+  String get mdBold => 'عريض (Ctrl+B)';
+
+  @override
+  String get mdItalic => 'مائل (Ctrl+I)';
+
+  @override
+  String get mdInlineCode => 'كود داخل السطر';
+
+  @override
+  String get mdBulletList => 'قائمة نقطية';
+
+  @override
+  String get mdNumberedList => 'قائمة مرقّمة';
+
+  @override
+  String get mdChecklist => 'قائمة مهام';
+
+  @override
+  String get mdQuote => 'اقتباس';
+
+  @override
+  String get mdCodeBlock => 'كتلة كود';
+
+  @override
+  String get mdLink => 'رابط';
+
+  @override
+  String get mdCopyCode => 'نسخ الكود';
+
+  @override
+  String get mdCodeCopied => 'تم نسخ الكود';
+
+  @override
+  String get sampleNoteLayoutTitle => 'ملخص تخطيطات Flutter';
+
+  @override
+  String get sampleNoteLayoutContent =>
+      '## أهم Widgets التخطيط\n\n- **Row** / **Column**: ترتيب العناصر على محور واحد\n- **Expanded**: ملء المساحة المتبقية داخل Row أو Column\n- **Stack**: تراكب العناصر فوق بعضها\n\n> القيود تنزل للأسفل، والأحجام تصعد للأعلى، والأب يحدد الموضع.\n\n```dart\nRow(\n  children: [\n    const Icon(Icons.star),\n    Expanded(child: Text(title)),\n  ],\n)\n```\n\n## للتدريب\n\n- [x] بناء بطاقة ملف شخصي باستخدام Row و Column\n- [ ] إعادة بنائها بشكل متجاوب باستخدام LayoutBuilder\n- [ ] القراءة عن [القيود](https://docs.flutter.dev/ui/layout/constraints)';
+
+  @override
+  String get sampleNoteRiverpodTitle => 'Riverpod في صفحة واحدة';
+
+  @override
+  String get sampleNoteRiverpodContent =>
+      '## الـ Providers\n\n1. `Provider` للقيم التي لا تتغير\n2. `NotifierProvider` للحالة التي لها دوال\n3. `StreamProvider` للبيانات الحية مثل استعلامات قاعدة البيانات\n\nاستخدم `ref.watch` داخل `build`، و `ref.read` داخل الـ callbacks.\n\n- [ ] تجربة `select` لتقليل إعادة البناء';
+
+  @override
+  String get sampleNoteGitTitle => 'أوامر Git التي أستخدمها يوميًا';
+
+  @override
+  String get sampleNoteGitContent =>
+      '## يوميًا\n\n```bash\ngit status\ngit add -p\ngit commit -m \"message\"\ngit push\n```\n\n## الفروع\n\n- `git switch -c feature/x` ينشئ فرعًا وينتقل إليه\n- `git rebase main` يحدّث الفرع\n\n- [x] ضبط الاسم والبريد\n- [ ] تعلّم الـ rebase التفاعلي';
 }

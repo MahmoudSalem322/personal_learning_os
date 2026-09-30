@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/routing/app_routes.dart';
 import '../../features/categories/presentation/categories_routes.dart';
+import '../../features/notes/presentation/notes_routes.dart';
 import '../../features/resources/presentation/resources_routes.dart';
 import '../shell/app_shell.dart';
 import 'app_destination.dart';
@@ -36,8 +37,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
 GoRoute _routeFor(AppDestination destination) => switch (destination) {
   AppDestination.categories => categoriesRoute(),
   AppDestination.resources => resourcesRoute(),
+  AppDestination.notes => notesRoute(),
   AppDestination.dashboard ||
-  AppDestination.notes ||
   AppDestination.tasks ||
   AppDestination.favorites ||
   AppDestination.settings => GoRoute(

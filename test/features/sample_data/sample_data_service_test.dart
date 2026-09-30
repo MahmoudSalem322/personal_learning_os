@@ -2,6 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:personal_learning_os/core/storage/app_database.dart';
 import 'package:personal_learning_os/features/categories/data/local_category_repository.dart';
 import 'package:personal_learning_os/features/categories/domain/category.dart';
+import 'package:personal_learning_os/features/notes/data/local_note_repository.dart';
+import 'package:personal_learning_os/features/notes/domain/note.dart';
 import 'package:personal_learning_os/features/resources/data/local_resource_repository.dart';
 import 'package:personal_learning_os/features/resources/domain/resource.dart';
 import 'package:personal_learning_os/features/sample_data/domain/sample_data_service.dart';
@@ -13,14 +15,19 @@ void main() {
   late Database db;
   late LocalCategoryRepository categories;
   late LocalResourceRepository resources;
+  late LocalNoteRepository notes;
   late SampleDataService service;
   final now = DateTime.utc(2026, 9, 28);
   final l10n = AppLocalizationsEn();
   final sampleCats = sampleCategories(l10n, now);
   final sampleRes = sampleResources(l10n, now);
+  final sampleNts = sampleNotes(l10n, now);
 
-  Future<int> loadAll() =>
-      service.load(categories: sampleCats, resources: sampleRes);
+  Future<int> loadAll() => service.load(
+    categories: sampleCats,
+    resources: sampleRes,
+    notes: sampleNts,
+  );
 
   Category ownCategory(String id, String name) => Category(
     id: id,
@@ -45,7 +52,12 @@ void main() {
     db = await AppDatabase.open(newDatabaseFactoryMemory());
     categories = LocalCategoryRepository(db);
     resources = LocalResourceRepository(db);
-    service = SampleDataService(categories: categories, resources: resources);
+    notes = LocalNoteRepository(db);
+    service = SampleDataService(
+      categories: categories,
+      resources: resources,
+      notes: notes,
+    );
   });
 
   tearDown(() => db.close());
@@ -70,10 +82,14 @@ void main() {
   });
 
   test('load adds everything once', () async {
-    expect(await loadAll(), sampleCats.length + sampleRes.length);
+    expect(
+      await loadAll(),
+      sampleCats.length + sampleRes.length + sampleNts.length,
+    );
     expect(await loadAll(), 0);
     expect(await categories.getAll(), hasLength(sampleCats.length));
     expect(await resources.getAll(), hasLength(sampleRes.length));
+    expect(await notes.getAll(), hasLength(sampleNts.length));
   });
 
   test('skips categories whose name the user already uses', () async {
@@ -86,6 +102,34 @@ void main() {
     final flutterDocs = await resources.getById('sample-resource-flutter-docs');
     expect(flutterDocs, isNotNull);
     expect(flutterDocs!.categoryId, isNull);
+  });
+
+  test('sample notes link to sample categories and resources', () {
+    final resourceIds = sampleRes.map((r) => r.id).toSet();
+    expect(sampleNts, isNotEmpty);
+    expect(sampleNts.every((n) => resourceIds.contains(n.resourceId)), isTrue);
+    expect(sampleNts.every((n) => n.content.isNotEmpty), isTrue);
+  });
+
+  test('remove keeps user notes and drops their sample links', () async {
+    await loadAll();
+    await notes.save(
+      Note(
+        id: 'my-note',
+        title: 'Mine',
+        categoryId: 'sample-category-flutter',
+        resourceId: 'sample-resource-riverpod',
+        createdAt: now,
+        updatedAt: now,
+      ),
+    );
+
+    await service.remove();
+
+    final remaining = await notes.getAll();
+    expect(remaining.map((n) => n.id), ['my-note']);
+    expect(remaining.single.categoryId, isNull);
+    expect(remaining.single.resourceId, isNull);
   });
 
   test('remove deletes only sample data and keeps user resources', () async {
