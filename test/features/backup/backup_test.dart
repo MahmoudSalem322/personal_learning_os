@@ -300,7 +300,7 @@ void main() {
         expect(restored.tasks, original.tasks);
         expect(restored.reminders, original.reminders);
         expect(restored.notes, original.notes);
-        expect(service.fileName(), 'learning-os-backup-2026-09-30.json');
+        expect(service.fileName(), 'qabas-backup-2026-09-30.json');
       },
     );
 

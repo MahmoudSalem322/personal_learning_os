@@ -1,11 +1,11 @@
 {
-    "name": "Learning OS",
-    "short_name": "Learning OS",
+    "name": "Qabas",
+    "short_name": "Qabas",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#FAFAFB",
-    "theme_color": "#5B57DB",
-    "description": "An offline-first workspace for your learning resources, notes, tasks and progress.",
+    "theme_color": "#0F1E3D",
+    "description": "Qabas (قبس): an offline-first workspace for your learning resources, notes, tasks and progress.",
     "orientation": "any",
     "prefer_related_applications": false,
     "icons": [

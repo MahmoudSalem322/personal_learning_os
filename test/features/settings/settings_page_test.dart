@@ -89,7 +89,7 @@ void main() {
     await tester.tapAndSettleIo(find.widgetWithText(FilledButton, 'Export'));
 
     final file = files.saved.single;
-    expect(file.name, startsWith('learning-os-backup-'));
+    expect(file.name, startsWith('qabas-backup-'));
     expect(file.name, endsWith('.json'));
     final json = jsonDecode(file.content) as Map<String, Object?>;
     expect(json['app'], 'learning-os');
@@ -178,7 +178,7 @@ void main() {
 
     expect(find.text("Can't import this file"), findsOneWidget);
     expect(
-      find.textContaining("This isn't a Learning OS backup file."),
+      find.textContaining("This isn't a Qabas backup file."),
       findsOneWidget,
     );
     await tester.tap(find.text('Close'));

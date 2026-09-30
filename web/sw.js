@@ -1,4 +1,4 @@
-// Offline support for Learning OS.
+// Offline support for Qabas.
 //
 // - App files (same origin): network first, so a new version is picked up
 //   as soon as you're online; the cached copy is used when offline.
@@ -8,7 +8,7 @@
 //
 // User data never goes through here: it lives in IndexedDB.
 
-const CACHE = 'learning-os-v1';
+const CACHE = 'qabas-v1';
 const CDN_HOSTS = ['www.gstatic.com', 'fonts.gstatic.com', 'fonts.googleapis.com'];
 
 self.addEventListener('install', () => self.skipWaiting());

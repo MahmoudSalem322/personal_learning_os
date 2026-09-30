@@ -1,7 +1,7 @@
 {
   "@@locale": "en",
 
-  "appTitle": "Learning OS",
+  "appTitle": "Qabas",
   "@appTitle": { "description": "Product name shown in the sidebar and browser tab." },
   "appTagline": "Personal learning workspace",
 
@@ -23,7 +23,7 @@
   "favoritesEmptyTitle": "No favorites yet",
   "favoritesEmptyMessage": "Star resources, notes and tasks you come back to often. They'll all be here.",
   "favoritesNoneOfKind": "Nothing starred here yet",
-  "settingsSubtitle": "Personalize how Learning OS looks and works.",
+  "settingsSubtitle": "Personalize how Qabas looks and works.",
 
   "themeLabel": "Theme",
   "themeLight": "Light",
@@ -153,7 +153,7 @@
   "sampleDataRemoved": "Sample data removed",
   "sampleDataError": "Couldn't update sample data. Please try again.",
   "sampleDataBannerTitle": "You're exploring sample data",
-  "sampleDataBannerMessage": "The sample categories, resources, notes and tasks show how Learning OS works. Remove them whenever you're ready.",
+  "sampleDataBannerMessage": "The sample categories, resources, notes and tasks show how Qabas works. Remove them whenever you're ready.",
   "sampleDataRemoveTitle": "Remove sample data?",
   "sampleDataRemoveMessage": "All sample categories, resources, notes and tasks will be deleted. What you created yourself is kept.",
   "sampleFlutterDescription": "Cross-platform apps with widgets, layouts and state management.",
@@ -506,7 +506,7 @@
   "dashboardProgressEmpty": "Add resources to a category to track its progress.",
   "dashboardFavorites": "Favorites",
   "dashboardFavoritesEmpty": "Star resources, notes or tasks to keep them here.",
-  "dashboardWelcomeTitle": "Welcome to your Learning OS",
+  "dashboardWelcomeTitle": "Welcome to Qabas",
   "dashboardWelcomeMessage": "Add a category and a few resources to get started, or load sample data to look around.",
 
   "navNotifications": "Notifications",
@@ -547,7 +547,7 @@
   "notificationUpcomingTask": "Due soon",
   "notificationOverdueTask": "Overdue task",
   "notificationLearningReminder": "Time to learn",
-  "notificationWelcomeTitle": "Welcome to Learning OS",
+  "notificationWelcomeTitle": "Welcome to Qabas",
   "notificationWelcomeMessage": "Reminders and due-date alerts will show up here. Set reminders on tasks, resources or learning sessions.",
   "notificationDueToday": "\"{title}\" is due today",
   "@notificationDueToday": {
@@ -685,10 +685,10 @@
   "backupCleared": "All data cleared",
   "backupInvalidTitle": "Can't import this file",
   "backupNothingChanged": "Nothing was changed.",
-  "backupErrorTooLarge": "The file is too large to be a Learning OS backup.",
+  "backupErrorTooLarge": "The file is too large to be a Qabas backup.",
   "backupErrorNotJson": "The file isn't valid JSON.",
-  "backupErrorNotBackup": "This isn't a Learning OS backup file.",
-  "backupErrorNewer": "This backup was made by a newer version of Learning OS. Update the app and try again.",
+  "backupErrorNotBackup": "This isn't a Qabas backup file.",
+  "backupErrorNewer": "This backup was made by a newer version of Qabas. Update the app and try again.",
   "backupErrorInvalid": "{count, plural, =1{1 item in {kind} is damaged.} other{{count} items in {kind} are damaged.}}",
   "@backupErrorInvalid": {
     "placeholders": { "count": { "type": "int" }, "kind": { "type": "String" } }
@@ -699,7 +699,7 @@
   },
   "errorWidgetFailed": "This part couldn't be shown.",
   "notificationPrefBrowser": "Browser notifications",
-  "notificationPrefBrowserHint": "Also alert you while Learning OS is in the background. Your browser will ask for permission.",
+  "notificationPrefBrowserHint": "Also alert you while Qabas is in the background. Your browser will ask for permission.",
   "notificationBrowserBlocked": "The browser blocked notifications. Allow them in the site settings, then try again.",
   "settingsShortcuts": "Keyboard shortcuts",
   "shortcutSearch": "Search everything",

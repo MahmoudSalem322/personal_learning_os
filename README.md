@@ -1,8 +1,11 @@
-# Learning OS
+<img src="branding/qabas-icon-1024.png" width="96" alt="Qabas logo">
 
-A personal, offline-first workspace for organizing learning resources, notes,
-tasks and progress. Built with Flutter (web and Android), Material 3,
-Riverpod and go_router.
+# Qabas · قبس
+
+*Qabas* (قَبَس) means a spark of light: every lesson, note and task you keep
+here is one. A personal, offline-first workspace for organizing learning
+resources, notes, tasks and progress. Built with Flutter (web and Android),
+Material 3, Riverpod and go_router.
 
 All data stays on the device: IndexedDB in the browser, a private file on
 Android. No backend, no account. Backups are plain JSON files you export
@@ -63,6 +66,17 @@ to Google Play, create an upload keystore and a release `signingConfig` in
 
 `android-arm64` covers practically every phone sold since 2017. Drop the flag
 to also build 32-bit ARM and x86_64 (larger APK).
+
+## Brand & icons
+
+The logo is one white spark on navy, drawn in code by `QabasMarkPainter`
+(`lib/core/widgets/app_logo.dart`); the in-app logo and every icon come from
+it. After changing it, regenerate the web icons, favicon, Android launcher
+icons (legacy, adaptive and themed) and `branding/qabas-icon-1024.png`:
+
+```bash
+flutter test tool/generate_icons_test.dart
+```
 
 ## Quality gates
 

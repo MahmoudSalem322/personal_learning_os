@@ -99,7 +99,7 @@ void main() {
       final router = container.read(appRouterProvider);
 
       expect(router.state.uri.path, '/dashboard');
-      expect(find.text('Welcome to your Learning OS'), findsOneWidget);
+      expect(find.text('Welcome to Qabas'), findsOneWidget);
     });
 
     testWidgets('sidebar navigation updates the URL', (tester) async {
@@ -139,7 +139,7 @@ void main() {
       expect(find.byType(NotFoundPage), findsOneWidget);
       await tester.tap(find.text('Back to dashboard'));
       await tester.pumpAndSettle();
-      expect(find.text('Welcome to your Learning OS'), findsOneWidget);
+      expect(find.text('Welcome to Qabas'), findsOneWidget);
     });
   });
 

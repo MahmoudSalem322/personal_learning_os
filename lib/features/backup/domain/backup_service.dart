@@ -24,11 +24,11 @@ class BackupService {
   Future<String> exportJson() async =>
       BackupCodec.encode(await _store.read(), now: _clock());
 
-  /// e.g. `learning-os-backup-2026-09-30.json`.
+  /// e.g. `qabas-backup-2026-09-30.json`.
   String fileName() {
     final now = _clock();
     String two(int n) => n.toString().padLeft(2, '0');
-    return 'learning-os-backup-${now.year}-${two(now.month)}-${two(now.day)}'
+    return 'qabas-backup-${now.year}-${two(now.month)}-${two(now.day)}'
         '.json';
   }
 

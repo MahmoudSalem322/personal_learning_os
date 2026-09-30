@@ -1,7 +1,7 @@
 {
   "@@locale": "ar",
 
-  "appTitle": "Learning OS",
+  "appTitle": "قبس",
   "appTagline": "مساحة التعلّم الشخصية",
 
   "navDashboard": "لوحة التحكم",
@@ -22,7 +22,7 @@
   "favoritesEmptyTitle": "لا توجد مفضلة بعد",
   "favoritesEmptyMessage": "ضع نجمة على المصادر والملاحظات والمهام التي تعود إليها كثيرًا، وستجدها كلها هنا.",
   "favoritesNoneOfKind": "لا شيء في المفضلة هنا بعد",
-  "settingsSubtitle": "خصّص مظهر Learning OS وطريقة عمله.",
+  "settingsSubtitle": "خصّص مظهر قبس وطريقة عمله.",
 
   "themeLabel": "المظهر",
   "themeLight": "فاتح",
@@ -134,7 +134,7 @@
   "sampleDataRemoved": "تم حذف البيانات التجريبية",
   "sampleDataError": "تعذّر تحديث البيانات التجريبية. يرجى المحاولة مرة أخرى.",
   "sampleDataBannerTitle": "أنت تستعرض بيانات تجريبية",
-  "sampleDataBannerMessage": "توضّح المجالات والمصادر والملاحظات والمهام التجريبية طريقة عمل Learning OS. احذفها متى شئت.",
+  "sampleDataBannerMessage": "توضّح المجالات والمصادر والملاحظات والمهام التجريبية طريقة عمل قبس. احذفها متى شئت.",
   "sampleDataRemoveTitle": "حذف البيانات التجريبية؟",
   "sampleDataRemoveMessage": "سيتم حذف جميع المجالات والمصادر والملاحظات والمهام التجريبية. ما أنشأته بنفسك سيبقى كما هو.",
   "sampleFlutterDescription": "تطبيقات متعددة المنصات باستخدام الـ Widgets والتخطيطات وإدارة الحالة.",
@@ -439,7 +439,7 @@
   "dashboardProgressEmpty": "أضف مصادر إلى مجال لتتابع تقدّمه.",
   "dashboardFavorites": "المفضلة",
   "dashboardFavoritesEmpty": "ضع نجمة على المصادر أو الملاحظات أو المهام لتبقى هنا.",
-  "dashboardWelcomeTitle": "أهلًا بك في Learning OS",
+  "dashboardWelcomeTitle": "أهلًا بك في قبس",
   "dashboardWelcomeMessage": "أضف مجالًا وبعض المصادر لتبدأ، أو حمّل البيانات التجريبية لتستكشف التطبيق.",
 
   "navNotifications": "الإشعارات",
@@ -480,7 +480,7 @@
   "notificationUpcomingTask": "مستحقة قريبًا",
   "notificationOverdueTask": "مهمة متأخرة",
   "notificationLearningReminder": "حان وقت التعلّم",
-  "notificationWelcomeTitle": "أهلًا بك في Learning OS",
+  "notificationWelcomeTitle": "أهلًا بك في قبس",
   "notificationWelcomeMessage": "ستظهر هنا التذكيرات وتنبيهات مواعيد الاستحقاق. اضبط تذكيرات على المهام أو المصادر أو جلسات التعلّم.",
   "notificationDueToday": "\"{title}\" مستحقة اليوم",
   "@notificationDueToday": {
@@ -618,10 +618,10 @@
   "backupCleared": "تم مسح كل البيانات",
   "backupInvalidTitle": "لا يمكن استيراد هذا الملف",
   "backupNothingChanged": "لم يتغيّر أي شيء.",
-  "backupErrorTooLarge": "الملف أكبر من أن يكون نسخة احتياطية من Learning OS.",
+  "backupErrorTooLarge": "الملف أكبر من أن يكون نسخة احتياطية من قبس.",
   "backupErrorNotJson": "الملف ليس JSON صالحًا.",
-  "backupErrorNotBackup": "هذا ليس ملف نسخة احتياطية من Learning OS.",
-  "backupErrorNewer": "أُنشئت هذه النسخة بإصدار أحدث من Learning OS. حدّث التطبيق ثم حاول مجددًا.",
+  "backupErrorNotBackup": "هذا ليس ملف نسخة احتياطية من قبس.",
+  "backupErrorNewer": "أُنشئت هذه النسخة بإصدار أحدث من قبس. حدّث التطبيق ثم حاول مجددًا.",
   "backupErrorInvalid": "{count, plural, =1{عنصر واحد في {kind} تالف.} =2{عنصران في {kind} تالفان.} few{{count} عناصر في {kind} تالفة.} many{{count} عنصرًا في {kind} تالفًا.} other{{count} عنصر في {kind} تالف.}}",
   "@backupErrorInvalid": {
     "placeholders": { "count": { "type": "int" }, "kind": { "type": "String" } }
@@ -632,7 +632,7 @@
   },
   "errorWidgetFailed": "تعذّر عرض هذا الجزء.",
   "notificationPrefBrowser": "إشعارات المتصفح",
-  "notificationPrefBrowserHint": "نبّهني أيضًا عندما يكون Learning OS في الخلفية. سيطلب المتصفح إذنك.",
+  "notificationPrefBrowserHint": "نبّهني أيضًا عندما يكون قبس في الخلفية. سيطلب المتصفح إذنك.",
   "notificationBrowserBlocked": "حظر المتصفح الإشعارات. اسمح بها من إعدادات الموقع ثم حاول مجددًا.",
   "settingsShortcuts": "اختصارات لوحة المفاتيح",
   "shortcutSearch": "البحث في كل شيء",

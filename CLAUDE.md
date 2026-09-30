@@ -1,4 +1,4 @@
-# Learning OS — working notes
+# Qabas (قبس) — working notes
 
 Offline-first Flutter Web app built in phases. See README.md for architecture.
 Only implement the phase the user asks for; never jump ahead.
@@ -131,5 +131,11 @@ Only implement the phase the user asks for; never jump ahead.
 - Android APK: `flutter build apk --release --target-platform
   android-arm64` (this machine's Application Control policy blocks the
   32-bit ARM `gen_snapshot`). Signed with the debug key.
+- Brand: the app is called Qabas (قبس). The logo (white spark on navy,
+  `AppPalette.logoNavy`) is drawn by `QabasMarkPainter`; after changing it
+  run `flutter test tool/generate_icons_test.dart` to regenerate every web
+  and Android icon. The Android label comes from `values/strings.xml` and
+  `values-ar/strings.xml`. The backup marker stays `learning-os` so older
+  backups import.
 - Before finishing a phase: `flutter analyze` clean, `flutter test` green,
   `flutter build web` succeeds (and the APK for Android changes).

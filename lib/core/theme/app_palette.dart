@@ -59,6 +59,11 @@ abstract final class AppPalette {
 
   static const Color black = Color(0xFF000000);
 
+  // Brand mark (logo and app icon). Fixed in both themes, like a launcher
+  // icon, so the logo painter reads these directly.
+  static const Color logoNavy = Color(0xFF0F1E3D);
+  static const Color logoMark = Color(0xFFFFFFFF);
+
   // Category identity hues (mid-tones; light/dark variants are derived).
   static const Color categoryBlue = Color(0xFF3B82F6);
   static const Color categorySky = Color(0xFF0EA5E9);

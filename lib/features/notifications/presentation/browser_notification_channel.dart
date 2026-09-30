@@ -37,7 +37,7 @@ class BrowserNotificationChannel implements NotificationChannel {
       notifier.show(
         title: l10n.appTitle,
         body: l10n.notificationsNewCount(notifications.length),
-        tag: 'learning-os-summary',
+        tag: 'qabas-summary',
       );
       return;
     }

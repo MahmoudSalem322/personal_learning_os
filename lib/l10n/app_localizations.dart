@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// Product name shown in the sidebar and browser tab.
   ///
   /// In en, this message translates to:
-  /// **'Learning OS'**
+  /// **'Qabas'**
   String get appTitle;
 
   /// No description provided for @appTagline.
@@ -215,7 +215,7 @@ abstract class AppLocalizations {
   /// No description provided for @settingsSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Personalize how Learning OS looks and works.'**
+  /// **'Personalize how Qabas looks and works.'**
   String get settingsSubtitle;
 
   /// No description provided for @themeLabel.
@@ -797,7 +797,7 @@ abstract class AppLocalizations {
   /// No description provided for @sampleDataBannerMessage.
   ///
   /// In en, this message translates to:
-  /// **'The sample categories, resources, notes and tasks show how Learning OS works. Remove them whenever you\'re ready.'**
+  /// **'The sample categories, resources, notes and tasks show how Qabas works. Remove them whenever you\'re ready.'**
   String get sampleDataBannerMessage;
 
   /// No description provided for @sampleDataRemoveTitle.
@@ -2363,7 +2363,7 @@ abstract class AppLocalizations {
   /// No description provided for @dashboardWelcomeTitle.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to your Learning OS'**
+  /// **'Welcome to Qabas'**
   String get dashboardWelcomeTitle;
 
   /// No description provided for @dashboardWelcomeMessage.
@@ -2567,7 +2567,7 @@ abstract class AppLocalizations {
   /// No description provided for @notificationWelcomeTitle.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to Learning OS'**
+  /// **'Welcome to Qabas'**
   String get notificationWelcomeTitle;
 
   /// No description provided for @notificationWelcomeMessage.
@@ -3137,7 +3137,7 @@ abstract class AppLocalizations {
   /// No description provided for @backupErrorTooLarge.
   ///
   /// In en, this message translates to:
-  /// **'The file is too large to be a Learning OS backup.'**
+  /// **'The file is too large to be a Qabas backup.'**
   String get backupErrorTooLarge;
 
   /// No description provided for @backupErrorNotJson.
@@ -3149,13 +3149,13 @@ abstract class AppLocalizations {
   /// No description provided for @backupErrorNotBackup.
   ///
   /// In en, this message translates to:
-  /// **'This isn\'t a Learning OS backup file.'**
+  /// **'This isn\'t a Qabas backup file.'**
   String get backupErrorNotBackup;
 
   /// No description provided for @backupErrorNewer.
   ///
   /// In en, this message translates to:
-  /// **'This backup was made by a newer version of Learning OS. Update the app and try again.'**
+  /// **'This backup was made by a newer version of Qabas. Update the app and try again.'**
   String get backupErrorNewer;
 
   /// No description provided for @backupErrorInvalid.
@@ -3185,7 +3185,7 @@ abstract class AppLocalizations {
   /// No description provided for @notificationPrefBrowserHint.
   ///
   /// In en, this message translates to:
-  /// **'Also alert you while Learning OS is in the background. Your browser will ask for permission.'**
+  /// **'Also alert you while Qabas is in the background. Your browser will ask for permission.'**
   String get notificationPrefBrowserHint;
 
   /// No description provided for @notificationBrowserBlocked.

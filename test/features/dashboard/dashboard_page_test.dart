@@ -26,7 +26,7 @@ Future<ProviderContainer> openWithSamples(
 void main() {
   testWidgets('first run shows a welcome with ways to start', (tester) async {
     await tester.pumpLearningOs();
-    expect(find.text('Welcome to your Learning OS'), findsOneWidget);
+    expect(find.text('Welcome to Qabas'), findsOneWidget);
     expect(find.text('New category'), findsOneWidget);
     expect(find.text('Add resource'), findsOneWidget);
     expect(find.text('Load sample data'), findsOneWidget);

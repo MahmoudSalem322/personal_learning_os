@@ -10,7 +10,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Learning OS';
+  String get appTitle => 'Qabas';
 
   @override
   String get appTagline => 'Personal learning workspace';
@@ -69,7 +69,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get favoritesNoneOfKind => 'Nothing starred here yet';
 
   @override
-  String get settingsSubtitle => 'Personalize how Learning OS looks and works.';
+  String get settingsSubtitle => 'Personalize how Qabas looks and works.';
 
   @override
   String get themeLabel => 'Theme';
@@ -391,7 +391,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sampleDataBannerMessage =>
-      'The sample categories, resources, notes and tasks show how Learning OS works. Remove them whenever you\'re ready.';
+      'The sample categories, resources, notes and tasks show how Qabas works. Remove them whenever you\'re ready.';
 
   @override
   String get sampleDataRemoveTitle => 'Remove sample data?';
@@ -1306,7 +1306,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Star resources, notes or tasks to keep them here.';
 
   @override
-  String get dashboardWelcomeTitle => 'Welcome to your Learning OS';
+  String get dashboardWelcomeTitle => 'Welcome to Qabas';
 
   @override
   String get dashboardWelcomeMessage =>
@@ -1429,7 +1429,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get notificationLearningReminder => 'Time to learn';
 
   @override
-  String get notificationWelcomeTitle => 'Welcome to Learning OS';
+  String get notificationWelcomeTitle => 'Welcome to Qabas';
 
   @override
   String get notificationWelcomeMessage =>
@@ -1763,17 +1763,17 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get backupErrorTooLarge =>
-      'The file is too large to be a Learning OS backup.';
+      'The file is too large to be a Qabas backup.';
 
   @override
   String get backupErrorNotJson => 'The file isn\'t valid JSON.';
 
   @override
-  String get backupErrorNotBackup => 'This isn\'t a Learning OS backup file.';
+  String get backupErrorNotBackup => 'This isn\'t a Qabas backup file.';
 
   @override
   String get backupErrorNewer =>
-      'This backup was made by a newer version of Learning OS. Update the app and try again.';
+      'This backup was made by a newer version of Qabas. Update the app and try again.';
 
   @override
   String backupErrorInvalid(int count, String kind) {
@@ -1799,7 +1799,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notificationPrefBrowserHint =>
-      'Also alert you while Learning OS is in the background. Your browser will ask for permission.';
+      'Also alert you while Qabas is in the background. Your browser will ask for permission.';
 
   @override
   String get notificationBrowserBlocked =>

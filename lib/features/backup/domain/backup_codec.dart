@@ -15,7 +15,7 @@ enum BackupProblem {
   /// Not valid JSON.
   notJson,
 
-  /// JSON, but not a Learning OS backup.
+  /// JSON, but not a Qabas backup.
   notBackup,
 
   /// Made by a newer version of the app.
@@ -56,6 +56,7 @@ final class BackupFormatException extends AppException {
 /// Records use the same JSON as local storage. Missing collections are
 /// read as empty, so older files still import.
 abstract final class BackupCodec {
+  /// Kept from the app's working name so older backups still import.
   static const String appId = 'learning-os';
   static const int format = 1;
 

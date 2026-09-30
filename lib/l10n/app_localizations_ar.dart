@@ -10,7 +10,7 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get appTitle => 'Learning OS';
+  String get appTitle => 'قبس';
 
   @override
   String get appTagline => 'مساحة التعلّم الشخصية';
@@ -69,7 +69,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get favoritesNoneOfKind => 'لا شيء في المفضلة هنا بعد';
 
   @override
-  String get settingsSubtitle => 'خصّص مظهر Learning OS وطريقة عمله.';
+  String get settingsSubtitle => 'خصّص مظهر قبس وطريقة عمله.';
 
   @override
   String get themeLabel => 'المظهر';
@@ -397,7 +397,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sampleDataBannerMessage =>
-      'توضّح المجالات والمصادر والملاحظات والمهام التجريبية طريقة عمل Learning OS. احذفها متى شئت.';
+      'توضّح المجالات والمصادر والملاحظات والمهام التجريبية طريقة عمل قبس. احذفها متى شئت.';
 
   @override
   String get sampleDataRemoveTitle => 'حذف البيانات التجريبية؟';
@@ -1326,7 +1326,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'ضع نجمة على المصادر أو الملاحظات أو المهام لتبقى هنا.';
 
   @override
-  String get dashboardWelcomeTitle => 'أهلًا بك في Learning OS';
+  String get dashboardWelcomeTitle => 'أهلًا بك في قبس';
 
   @override
   String get dashboardWelcomeMessage =>
@@ -1453,7 +1453,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get notificationLearningReminder => 'حان وقت التعلّم';
 
   @override
-  String get notificationWelcomeTitle => 'أهلًا بك في Learning OS';
+  String get notificationWelcomeTitle => 'أهلًا بك في قبس';
 
   @override
   String get notificationWelcomeMessage =>
@@ -1804,18 +1804,17 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backupErrorTooLarge =>
-      'الملف أكبر من أن يكون نسخة احتياطية من Learning OS.';
+      'الملف أكبر من أن يكون نسخة احتياطية من قبس.';
 
   @override
   String get backupErrorNotJson => 'الملف ليس JSON صالحًا.';
 
   @override
-  String get backupErrorNotBackup =>
-      'هذا ليس ملف نسخة احتياطية من Learning OS.';
+  String get backupErrorNotBackup => 'هذا ليس ملف نسخة احتياطية من قبس.';
 
   @override
   String get backupErrorNewer =>
-      'أُنشئت هذه النسخة بإصدار أحدث من Learning OS. حدّث التطبيق ثم حاول مجددًا.';
+      'أُنشئت هذه النسخة بإصدار أحدث من قبس. حدّث التطبيق ثم حاول مجددًا.';
 
   @override
   String backupErrorInvalid(int count, String kind) {
@@ -1844,7 +1843,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get notificationPrefBrowserHint =>
-      'نبّهني أيضًا عندما يكون Learning OS في الخلفية. سيطلب المتصفح إذنك.';
+      'نبّهني أيضًا عندما يكون قبس في الخلفية. سيطلب المتصفح إذنك.';
 
   @override
   String get notificationBrowserBlocked =>

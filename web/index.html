@@ -10,18 +10,18 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Learning OS - an offline-first workspace for your learning resources, notes, tasks and progress.">
+  <meta name="description" content="Qabas (قبس) - an offline-first workspace for your learning resources, notes, tasks and progress.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FAFAFB">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0D0D10">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Learning OS">
+  <meta name="apple-mobile-web-app-title" content="Qabas">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>Learning OS</title>
+  <title>Qabas</title>
   <link rel="manifest" href="manifest.json">
 
   <!-- Matches the app background so there is no white flash while loading. -->
@@ -32,8 +32,7 @@
       align-items: center; justify-content: center;
     }
     #splash .mark {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: linear-gradient(135deg, #5B57DB, #0E8C80);
+      width: 48px; height: 48px;
       animation: pulse 1.2s ease-in-out infinite;
     }
     @keyframes pulse { 0%, 100% { opacity: .45; } 50% { opacity: 1; } }
@@ -46,7 +45,7 @@
   </style>
 </head>
 <body>
-  <div id="splash" aria-hidden="true"><div class="mark"></div></div>
+  <div id="splash" aria-hidden="true"><img class="mark" src="icons/Icon-192.png" alt=""></div>
   <script>
     window.addEventListener('flutter-first-frame', function () {
       var splash = document.getElementById('splash');
