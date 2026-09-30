@@ -2353,6 +2353,540 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add a category and a few resources to get started, or load sample data to look around.'**
   String get dashboardWelcomeMessage;
+
+  /// No description provided for @navNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get navNotifications;
+
+  /// No description provided for @notificationsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders and alerts about what\'s due.'**
+  String get notificationsSubtitle;
+
+  /// No description provided for @notificationsInbox.
+  ///
+  /// In en, this message translates to:
+  /// **'Inbox'**
+  String get notificationsInbox;
+
+  /// No description provided for @notificationsReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get notificationsReminders;
+
+  /// No description provided for @notificationsFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get notificationsFilterAll;
+
+  /// No description provided for @notificationsFilterUnread.
+  ///
+  /// In en, this message translates to:
+  /// **'Unread'**
+  String get notificationsFilterUnread;
+
+  /// No description provided for @notificationsToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get notificationsToday;
+
+  /// No description provided for @notificationsEarlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Earlier'**
+  String get notificationsEarlier;
+
+  /// No description provided for @notificationsMarkAllRead.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark all as read'**
+  String get notificationsMarkAllRead;
+
+  /// No description provided for @notificationsClearAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear all'**
+  String get notificationsClearAll;
+
+  /// No description provided for @notificationsClearTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear all notifications?'**
+  String get notificationsClearTitle;
+
+  /// No description provided for @notificationsClearMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your inbox will be emptied. You can undo this right after.'**
+  String get notificationsClearMessage;
+
+  /// No description provided for @notificationsCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications cleared'**
+  String get notificationsCleared;
+
+  /// No description provided for @notificationsError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t update notifications. Please try again.'**
+  String get notificationsError;
+
+  /// No description provided for @notificationsEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re all caught up'**
+  String get notificationsEmptyTitle;
+
+  /// No description provided for @notificationsEmptyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders and due-date alerts will show up here.'**
+  String get notificationsEmptyMessage;
+
+  /// No description provided for @notificationsAllReadTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing unread'**
+  String get notificationsAllReadTitle;
+
+  /// No description provided for @notificationsAllReadMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ve read every notification.'**
+  String get notificationsAllReadMessage;
+
+  /// No description provided for @notificationsOffMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are turned off. Nothing new will be added.'**
+  String get notificationsOffMessage;
+
+  /// No description provided for @notificationsView.
+  ///
+  /// In en, this message translates to:
+  /// **'View'**
+  String get notificationsView;
+
+  /// No description provided for @notificationsNewCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 new notification} other{{count} new notifications}}'**
+  String notificationsNewCount(int count);
+
+  /// No description provided for @notificationsUnreadCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{Notifications, 1 unread} other{Notifications, {count} unread}}'**
+  String notificationsUnreadCount(int count);
+
+  /// No description provided for @notificationUnread.
+  ///
+  /// In en, this message translates to:
+  /// **'Unread'**
+  String get notificationUnread;
+
+  /// No description provided for @notificationMarkRead.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as read'**
+  String get notificationMarkRead;
+
+  /// No description provided for @notificationMarkUnread.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as unread'**
+  String get notificationMarkUnread;
+
+  /// No description provided for @notificationRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get notificationRemove;
+
+  /// No description provided for @notificationRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification removed'**
+  String get notificationRemoved;
+
+  /// No description provided for @notificationItemMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'This item no longer exists.'**
+  String get notificationItemMissing;
+
+  /// No description provided for @notificationTaskReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Task reminder'**
+  String get notificationTaskReminder;
+
+  /// No description provided for @notificationUpcomingTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Due soon'**
+  String get notificationUpcomingTask;
+
+  /// No description provided for @notificationOverdueTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Overdue task'**
+  String get notificationOverdueTask;
+
+  /// No description provided for @notificationLearningReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Time to learn'**
+  String get notificationLearningReminder;
+
+  /// No description provided for @notificationWelcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to Learning OS'**
+  String get notificationWelcomeTitle;
+
+  /// No description provided for @notificationWelcomeMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders and due-date alerts will show up here. Set reminders on tasks, resources or learning sessions.'**
+  String get notificationWelcomeMessage;
+
+  /// No description provided for @notificationDueToday.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{title}\" is due today'**
+  String notificationDueToday(String title);
+
+  /// No description provided for @notificationDueTomorrow.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{title}\" is due tomorrow'**
+  String notificationDueTomorrow(String title);
+
+  /// No description provided for @notificationDueOn.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{title}\" is due {date}'**
+  String notificationDueOn(String title, String date);
+
+  /// No description provided for @notificationWasDue.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{title}\" was due {date}'**
+  String notificationWasDue(String title, String date);
+
+  /// No description provided for @notificationPreferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification preferences'**
+  String get notificationPreferences;
+
+  /// No description provided for @notificationPrefEnabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow notifications'**
+  String get notificationPrefEnabled;
+
+  /// No description provided for @notificationPrefEnabledHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off to stop all new notifications.'**
+  String get notificationPrefEnabledHint;
+
+  /// No description provided for @notificationPrefReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get notificationPrefReminders;
+
+  /// No description provided for @notificationPrefRemindersHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders you set on tasks, resources and learning sessions.'**
+  String get notificationPrefRemindersHint;
+
+  /// No description provided for @notificationPrefUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming tasks'**
+  String get notificationPrefUpcoming;
+
+  /// No description provided for @notificationPrefUpcomingHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Open tasks due today or tomorrow.'**
+  String get notificationPrefUpcomingHint;
+
+  /// No description provided for @notificationPrefOverdue.
+  ///
+  /// In en, this message translates to:
+  /// **'Overdue tasks'**
+  String get notificationPrefOverdue;
+
+  /// No description provided for @notificationPrefOverdueHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Open tasks past their due date.'**
+  String get notificationPrefOverdueHint;
+
+  /// No description provided for @remindersSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get remindersSection;
+
+  /// No description provided for @remindersNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New reminder'**
+  String get remindersNew;
+
+  /// No description provided for @remindersUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get remindersUpcoming;
+
+  /// No description provided for @remindersPast.
+  ///
+  /// In en, this message translates to:
+  /// **'Past'**
+  String get remindersPast;
+
+  /// No description provided for @remindersEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No reminders yet'**
+  String get remindersEmptyTitle;
+
+  /// No description provided for @remindersEmptyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule a learning session, or set a reminder from any task or resource.'**
+  String get remindersEmptyMessage;
+
+  /// No description provided for @remindersNoneForItem.
+  ///
+  /// In en, this message translates to:
+  /// **'No reminders yet.'**
+  String get remindersNoneForItem;
+
+  /// No description provided for @reminderRemindMe.
+  ///
+  /// In en, this message translates to:
+  /// **'Remind me'**
+  String get reminderRemindMe;
+
+  /// No description provided for @reminderFormTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New reminder'**
+  String get reminderFormTitle;
+
+  /// No description provided for @reminderFormEditTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit reminder'**
+  String get reminderFormEditTitle;
+
+  /// No description provided for @reminderFormCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Set reminder'**
+  String get reminderFormCreate;
+
+  /// No description provided for @reminderLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'What do you want to learn?'**
+  String get reminderLabel;
+
+  /// No description provided for @reminderLabelHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Practice Flutter layouts for 30 minutes'**
+  String get reminderLabelHint;
+
+  /// No description provided for @reminderLabelRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Describe the learning session'**
+  String get reminderLabelRequired;
+
+  /// No description provided for @reminderNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Note (optional)'**
+  String get reminderNote;
+
+  /// No description provided for @reminderNoteHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Anything to remember when it fires'**
+  String get reminderNoteHint;
+
+  /// No description provided for @reminderWhen.
+  ///
+  /// In en, this message translates to:
+  /// **'When'**
+  String get reminderWhen;
+
+  /// No description provided for @reminderRepeat.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat'**
+  String get reminderRepeat;
+
+  /// No description provided for @reminderRepeatNone.
+  ///
+  /// In en, this message translates to:
+  /// **'Once'**
+  String get reminderRepeatNone;
+
+  /// No description provided for @reminderRepeatDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Every day'**
+  String get reminderRepeatDaily;
+
+  /// No description provided for @reminderRepeatWeekly.
+  ///
+  /// In en, this message translates to:
+  /// **'Every week'**
+  String get reminderRepeatWeekly;
+
+  /// No description provided for @reminderPresetInAnHour.
+  ///
+  /// In en, this message translates to:
+  /// **'In an hour'**
+  String get reminderPresetInAnHour;
+
+  /// No description provided for @reminderPresetTonight.
+  ///
+  /// In en, this message translates to:
+  /// **'This evening'**
+  String get reminderPresetTonight;
+
+  /// No description provided for @reminderPresetTomorrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Tomorrow morning'**
+  String get reminderPresetTomorrow;
+
+  /// No description provided for @reminderTimeInPast.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a time in the future'**
+  String get reminderTimeInPast;
+
+  /// No description provided for @reminderSetFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder set for {when}'**
+  String reminderSetFor(String when);
+
+  /// No description provided for @reminderSaveError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t save the reminder. Please try again.'**
+  String get reminderSaveError;
+
+  /// No description provided for @reminderDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder deleted'**
+  String get reminderDeleted;
+
+  /// No description provided for @reminderDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t delete the reminder. Please try again.'**
+  String get reminderDeleteError;
+
+  /// No description provided for @reminderPaused.
+  ///
+  /// In en, this message translates to:
+  /// **'Paused'**
+  String get reminderPaused;
+
+  /// No description provided for @reminderPause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause reminder'**
+  String get reminderPause;
+
+  /// No description provided for @reminderResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume reminder'**
+  String get reminderResume;
+
+  /// No description provided for @reminderDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done {when}'**
+  String reminderDone(String when);
+
+  /// No description provided for @reminderItemDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted item (kept in case you undo)'**
+  String get reminderItemDeleted;
+
+  /// No description provided for @timeJustNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Just now'**
+  String get timeJustNow;
+
+  /// No description provided for @timeMinutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min ago'**
+  String timeMinutesAgo(int count);
+
+  /// No description provided for @timeHoursAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} h ago'**
+  String timeHoursAgo(int count);
+
+  /// No description provided for @timeYesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday'**
+  String get timeYesterday;
+
+  /// No description provided for @timeTodayAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Today at {time}'**
+  String timeTodayAt(String time);
+
+  /// No description provided for @timeTomorrowAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Tomorrow at {time}'**
+  String timeTomorrowAt(String time);
+
+  /// No description provided for @timeYesterdayAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday at {time}'**
+  String timeYesterdayAt(String time);
+
+  /// No description provided for @timeDateAt.
+  ///
+  /// In en, this message translates to:
+  /// **'{date} at {time}'**
+  String timeDateAt(String date, String time);
 }
 
 class _AppLocalizationsDelegate

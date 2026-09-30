@@ -2,6 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../categories/presentation/categories_providers.dart';
 import '../../notes/presentation/notes_providers.dart';
+import '../../notifications/presentation/notifications_providers.dart';
+import '../../reminders/presentation/reminders_providers.dart';
 import '../../resources/presentation/resources_providers.dart';
 import '../../tasks/presentation/tasks_providers.dart';
 import '../domain/sample_data_service.dart';
@@ -12,6 +14,8 @@ final sampleDataServiceProvider = Provider<SampleDataService>(
     resources: ref.watch(resourceRepositoryProvider),
     notes: ref.watch(noteRepositoryProvider),
     tasks: ref.watch(taskRepositoryProvider),
+    reminders: ref.watch(reminderRepositoryProvider),
+    notifications: ref.watch(notificationRepositoryProvider),
   ),
 );
 

@@ -11,7 +11,7 @@ Only implement the phase the user asks for; never jump ahead.
 - [x] PHASE 04 — Notes
 - [x] PHASE 05 — Tasks
 - [x] PHASE 06 — Dashboard & Global Search
-- [ ] PHASE 07 — Notifications & Reminders
+- [x] PHASE 07 — Notifications & Reminders
 - [ ] PHASE 08 — Backup / Import / Export
 - [ ] PHASE 09 — Polish / Performance / Accessibility / Production
 
@@ -89,5 +89,18 @@ Only implement the phase the user asks for; never jump ahead.
   `DashboardSelectors` feed small providers; overall progress uses the
   category rule over all resources. `AppPage` actions wrap on narrow
   screens; `AppPage.documentTitle` overrides the browser tab title.
+- Notifications (`features/notifications`, model `AppNotification` to avoid
+  Flutter's `Notification`): the pure `NotificationEngine.run(now)` creates
+  them from reminders and task due dates, deduplicated by `key` (dismissed
+  ones are soft-deleted and purged after 60 days). Text is built at render
+  time from the type, so it follows the language. `NotificationScheduler`
+  runs the engine in the app (start, every minute, after changes); widget
+  tests disable it (`pumpLearningOs(notificationScheduling: false)` is the
+  default) and call the engine through `tester.io`. New delivery methods
+  (e.g. Web Notifications) implement `NotificationChannel`.
+- Reminders (`features/reminders`) target a task, a resource or a learning
+  session. Missed occurrences fire once when the app reopens; reminders
+  whose item was deleted wait (Undo brings it back). Preferences live in
+  `AppSettings.notifications`.
 - Before finishing a phase: `flutter analyze` clean, `flutter test` green,
   `flutter build web` succeeds.

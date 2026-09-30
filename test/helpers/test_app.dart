@@ -4,6 +4,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:personal_learning_os/app/app.dart';
 import 'package:personal_learning_os/app/bootstrap.dart';
 import 'package:personal_learning_os/core/services/url_opener.dart';
+import 'package:personal_learning_os/features/notifications/presentation/notifications_providers.dart';
 import 'package:sembast/sembast_memory.dart'
     show DatabaseFactory, newDatabaseFactoryMemory;
 
@@ -45,6 +46,7 @@ extension PumpApp on WidgetTester {
     Size size = TestViewports.desktop,
     DatabaseFactory? factory,
     UrlOpener? urlOpener,
+    bool notificationScheduling = false,
   }) async {
     view.physicalSize = size;
     view.devicePixelRatio = 1;
@@ -61,6 +63,11 @@ extension PumpApp on WidgetTester {
         overrides: [
           ...overrides!,
           urlOpenerProvider.overrideWithValue(urlOpener ?? FakeUrlOpener()),
+          // The background scheduler runs timers and storage work outside
+          // the test's control; notification tests drive the engine.
+          notificationSchedulingEnabledProvider.overrideWithValue(
+            notificationScheduling,
+          ),
         ],
         child: const LearningOsApp(),
       ),

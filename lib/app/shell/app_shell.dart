@@ -7,6 +7,8 @@ import '../../core/theme/app_motion.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../core/utils/screen_size.dart';
 import '../../core/widgets/app_logo.dart';
+import '../../features/notifications/presentation/widgets/notification_bell.dart';
+import '../../features/notifications/presentation/widgets/notification_toaster.dart';
 import '../../features/search/presentation/global_search_dialog.dart';
 import '../../features/search/presentation/search_launcher.dart';
 import '../navigation/app_destination.dart';
@@ -40,13 +42,15 @@ class AppShell extends StatelessWidget {
     // The branch navigators contain a modal barrier with BlockSemantics,
     // which would hide the sidebar from screen readers unless the content
     // lives in its own semantics container.
-    final content = Semantics(
-      container: true,
-      child: Column(
-        children: [
-          const StorageWarningBanner(),
-          Expanded(child: navigationShell),
-        ],
+    final content = NotificationToaster(
+      child: Semantics(
+        container: true,
+        child: Column(
+          children: [
+            const StorageWarningBanner(),
+            Expanded(child: navigationShell),
+          ],
+        ),
       ),
     );
 
@@ -69,6 +73,7 @@ class AppShell extends StatelessWidget {
               ],
             ),
             actions: [
+              const NotificationBell(),
               Builder(
                 builder: (context) => IconButton(
                   tooltip: context.l10n.searchTooltip(searchShortcutLabel()),

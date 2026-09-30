@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/storage/storage_providers.dart';
+import '../../notifications/domain/notification_preferences.dart';
 import '../data/local_settings_repository.dart';
 import '../domain/app_settings.dart';
 import '../domain/settings_repository.dart';
@@ -32,6 +33,9 @@ class SettingsController extends Notifier<AppSettings> {
 
   Future<void> setLanguage(AppLanguage value) =>
       _update(state.copyWith(language: value));
+
+  Future<void> setNotificationPreferences(NotificationPreferences value) =>
+      _update(state.copyWith(notifications: value));
 
   Future<void> _update(AppSettings next) async {
     if (next == state) return;

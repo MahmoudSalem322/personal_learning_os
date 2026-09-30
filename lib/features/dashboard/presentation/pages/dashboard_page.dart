@@ -14,6 +14,7 @@ import '../../../../core/widgets/app_state_view.dart';
 import '../../../categories/presentation/categories_providers.dart';
 import '../../../categories/presentation/category_actions.dart';
 import '../../../notes/presentation/notes_providers.dart';
+import '../../../notifications/presentation/widgets/notification_bell.dart';
 import '../../../resources/presentation/resource_actions.dart';
 import '../../../resources/presentation/resources_providers.dart';
 import '../../../sample_data/presentation/sample_data_actions.dart';
@@ -56,6 +57,8 @@ class DashboardPage extends ConsumerWidget {
         if (!isMobile)
           const SizedBox(width: 220, child: SearchLauncher(expanded: true)),
         const QuickAddButton(),
+        // Phones have the bell in the top bar.
+        if (!isMobile) const NotificationBell(),
         const ThemeModeMenuButton(),
         IconButton(
           tooltip: l10n.navSettings,

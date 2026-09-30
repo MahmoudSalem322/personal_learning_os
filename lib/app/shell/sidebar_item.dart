@@ -6,6 +6,7 @@ import '../../core/theme/app_motion.dart';
 import '../../core/theme/app_radius.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../core/theme/app_typography.dart';
+import '../../features/notifications/presentation/widgets/notification_bell.dart';
 
 /// One navigation row in the sidebar. Icon-only (with tooltip) when
 /// [expanded] is false.
@@ -18,6 +19,7 @@ class SidebarItem extends StatefulWidget {
     required this.expanded,
     required this.onTap,
     super.key,
+    this.badgeCount = 0,
   });
 
   final IconData icon;
@@ -26,6 +28,9 @@ class SidebarItem extends StatefulWidget {
   final bool selected;
   final bool expanded;
   final VoidCallback onTap;
+
+  /// Unread count shown on the icon; hidden when zero.
+  final int badgeCount;
 
   @override
   State<SidebarItem> createState() => _SidebarItemState();
@@ -66,10 +71,13 @@ class _SidebarItemState extends State<SidebarItem> {
             ? MainAxisAlignment.start
             : MainAxisAlignment.center,
         children: [
-          Icon(
-            selected ? widget.selectedIcon : widget.icon,
-            size: AppSizes.iconMd,
-            color: foreground,
+          UnreadBadge(
+            count: widget.badgeCount,
+            child: Icon(
+              selected ? widget.selectedIcon : widget.icon,
+              size: AppSizes.iconMd,
+              color: foreground,
+            ),
           ),
           if (widget.expanded) ...[
             Gap.sm,
@@ -92,7 +100,9 @@ class _SidebarItemState extends State<SidebarItem> {
     final item = Semantics(
       button: true,
       selected: selected,
-      label: widget.label,
+      label: widget.badgeCount == 0
+          ? widget.label
+          : '${widget.label}, ${widget.badgeCount}',
       excludeSemantics: true,
       onTap: widget.onTap,
       child: InkWell(

@@ -25,12 +25,22 @@ abstract final class AppStores {
   static final StoreRef<String, Map<String, Object?>> tasks =
       stringMapStoreFactory.store('tasks');
 
+  /// In-app notifications, keyed by notification id.
+  static final StoreRef<String, Map<String, Object?>> notifications =
+      stringMapStoreFactory.store('notifications');
+
+  /// Scheduled reminders, keyed by reminder id.
+  static final StoreRef<String, Map<String, Object?>> reminders =
+      stringMapStoreFactory.store('reminders');
+
   static List<StoreRef<String, Map<String, Object?>>> get all => [
     settings,
     categories,
     resources,
     notes,
     tasks,
+    notifications,
+    reminders,
   ];
 }
 

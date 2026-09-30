@@ -508,5 +508,137 @@
   "dashboardFavorites": "Favorites",
   "dashboardFavoritesEmpty": "Star resources, notes or tasks to keep them here.",
   "dashboardWelcomeTitle": "Welcome to your Learning OS",
-  "dashboardWelcomeMessage": "Add a category and a few resources to get started, or load sample data to look around."
+  "dashboardWelcomeMessage": "Add a category and a few resources to get started, or load sample data to look around.",
+
+  "navNotifications": "Notifications",
+  "notificationsSubtitle": "Reminders and alerts about what's due.",
+  "notificationsInbox": "Inbox",
+  "notificationsReminders": "Reminders",
+  "notificationsFilterAll": "All",
+  "notificationsFilterUnread": "Unread",
+  "notificationsToday": "Today",
+  "notificationsEarlier": "Earlier",
+  "notificationsMarkAllRead": "Mark all as read",
+  "notificationsClearAll": "Clear all",
+  "notificationsClearTitle": "Clear all notifications?",
+  "notificationsClearMessage": "Your inbox will be emptied. You can undo this right after.",
+  "notificationsCleared": "Notifications cleared",
+  "notificationsError": "Couldn't update notifications. Please try again.",
+  "notificationsEmptyTitle": "You're all caught up",
+  "notificationsEmptyMessage": "Reminders and due-date alerts will show up here.",
+  "notificationsAllReadTitle": "Nothing unread",
+  "notificationsAllReadMessage": "You've read every notification.",
+  "notificationsOffMessage": "Notifications are turned off. Nothing new will be added.",
+  "notificationsView": "View",
+  "notificationsNewCount": "{count, plural, =1{1 new notification} other{{count} new notifications}}",
+  "@notificationsNewCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "notificationsUnreadCount": "{count, plural, =1{Notifications, 1 unread} other{Notifications, {count} unread}}",
+  "@notificationsUnreadCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "notificationUnread": "Unread",
+  "notificationMarkRead": "Mark as read",
+  "notificationMarkUnread": "Mark as unread",
+  "notificationRemove": "Remove",
+  "notificationRemoved": "Notification removed",
+  "notificationItemMissing": "This item no longer exists.",
+  "notificationTaskReminder": "Task reminder",
+  "notificationUpcomingTask": "Due soon",
+  "notificationOverdueTask": "Overdue task",
+  "notificationLearningReminder": "Time to learn",
+  "notificationWelcomeTitle": "Welcome to Learning OS",
+  "notificationWelcomeMessage": "Reminders and due-date alerts will show up here. Set reminders on tasks, resources or learning sessions.",
+  "notificationDueToday": "\"{title}\" is due today",
+  "@notificationDueToday": {
+    "placeholders": { "title": { "type": "String" } }
+  },
+  "notificationDueTomorrow": "\"{title}\" is due tomorrow",
+  "@notificationDueTomorrow": {
+    "placeholders": { "title": { "type": "String" } }
+  },
+  "notificationDueOn": "\"{title}\" is due {date}",
+  "@notificationDueOn": {
+    "placeholders": { "title": { "type": "String" }, "date": { "type": "String" } }
+  },
+  "notificationWasDue": "\"{title}\" was due {date}",
+  "@notificationWasDue": {
+    "placeholders": { "title": { "type": "String" }, "date": { "type": "String" } }
+  },
+  "notificationPreferences": "Notification preferences",
+  "notificationPrefEnabled": "Allow notifications",
+  "notificationPrefEnabledHint": "Turn off to stop all new notifications.",
+  "notificationPrefReminders": "Reminders",
+  "notificationPrefRemindersHint": "Reminders you set on tasks, resources and learning sessions.",
+  "notificationPrefUpcoming": "Upcoming tasks",
+  "notificationPrefUpcomingHint": "Open tasks due today or tomorrow.",
+  "notificationPrefOverdue": "Overdue tasks",
+  "notificationPrefOverdueHint": "Open tasks past their due date.",
+  "remindersSection": "Reminders",
+  "remindersNew": "New reminder",
+  "remindersUpcoming": "Upcoming",
+  "remindersPast": "Past",
+  "remindersEmptyTitle": "No reminders yet",
+  "remindersEmptyMessage": "Schedule a learning session, or set a reminder from any task or resource.",
+  "remindersNoneForItem": "No reminders yet.",
+  "reminderRemindMe": "Remind me",
+  "reminderFormTitle": "New reminder",
+  "reminderFormEditTitle": "Edit reminder",
+  "reminderFormCreate": "Set reminder",
+  "reminderLabel": "What do you want to learn?",
+  "reminderLabelHint": "e.g. Practice Flutter layouts for 30 minutes",
+  "reminderLabelRequired": "Describe the learning session",
+  "reminderNote": "Note (optional)",
+  "reminderNoteHint": "Anything to remember when it fires",
+  "reminderWhen": "When",
+  "reminderRepeat": "Repeat",
+  "reminderRepeatNone": "Once",
+  "reminderRepeatDaily": "Every day",
+  "reminderRepeatWeekly": "Every week",
+  "reminderPresetInAnHour": "In an hour",
+  "reminderPresetTonight": "This evening",
+  "reminderPresetTomorrow": "Tomorrow morning",
+  "reminderTimeInPast": "Pick a time in the future",
+  "reminderSetFor": "Reminder set for {when}",
+  "@reminderSetFor": {
+    "placeholders": { "when": { "type": "String" } }
+  },
+  "reminderSaveError": "Couldn't save the reminder. Please try again.",
+  "reminderDeleted": "Reminder deleted",
+  "reminderDeleteError": "Couldn't delete the reminder. Please try again.",
+  "reminderPaused": "Paused",
+  "reminderPause": "Pause reminder",
+  "reminderResume": "Resume reminder",
+  "reminderDone": "Done {when}",
+  "@reminderDone": {
+    "placeholders": { "when": { "type": "String" } }
+  },
+  "reminderItemDeleted": "Deleted item (kept in case you undo)",
+  "timeJustNow": "Just now",
+  "timeMinutesAgo": "{count} min ago",
+  "@timeMinutesAgo": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "timeHoursAgo": "{count} h ago",
+  "@timeHoursAgo": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "timeYesterday": "Yesterday",
+  "timeTodayAt": "Today at {time}",
+  "@timeTodayAt": {
+    "placeholders": { "time": { "type": "String" } }
+  },
+  "timeTomorrowAt": "Tomorrow at {time}",
+  "@timeTomorrowAt": {
+    "placeholders": { "time": { "type": "String" } }
+  },
+  "timeYesterdayAt": "Yesterday at {time}",
+  "@timeYesterdayAt": {
+    "placeholders": { "time": { "type": "String" } }
+  },
+  "timeDateAt": "{date} at {time}",
+  "@timeDateAt": {
+    "placeholders": { "date": { "type": "String" }, "time": { "type": "String" } }
+  }
 }

@@ -2,6 +2,8 @@ import '../../categories/domain/category.dart';
 import '../../categories/domain/category_repository.dart';
 import '../../notes/domain/note.dart';
 import '../../notes/domain/note_repository.dart';
+import '../../notifications/domain/notification_repository.dart';
+import '../../reminders/domain/reminder_repository.dart';
 import '../../resources/domain/resource.dart';
 import '../../resources/domain/resource_repository.dart';
 import '../../tasks/domain/task.dart';
@@ -10,14 +12,16 @@ import '../../tasks/domain/task_repository.dart';
 /// Optional demo content that shows how the app works.
 ///
 /// Sample records are recognized by their id prefix, so they can be removed
-/// later without touching anything the user created. Later phases add
-/// sample tasks the same way.
+/// later without touching anything the user created. Reminders and
+/// notifications about sample items go with them.
 class SampleDataService {
   SampleDataService({
     required this._categories,
     required this._resources,
     required this._notes,
     required this._tasks,
+    required this._reminders,
+    required this._notifications,
   });
 
   static const String idPrefix = 'sample-';
@@ -28,6 +32,8 @@ class SampleDataService {
   final ResourceRepository _resources;
   final NoteRepository _notes;
   final TaskRepository _tasks;
+  final ReminderRepository _reminders;
+  final NotificationRepository _notifications;
 
   /// Adds the samples that don't clash with existing data, so loading twice
   /// or after creating "Flutter" yourself is safe. Samples whose category or
@@ -120,6 +126,16 @@ class SampleDataService {
   Future<void> remove() async {
     List<String> sampleIds(Iterable<String> ids) =>
         ids.where(isSampleId).toList();
+
+    bool aboutSample(String? id) => id != null && isSampleId(id);
+    await _reminders.deleteAll([
+      for (final r in await _reminders.getAll())
+        if (aboutSample(r.targetId)) r.id,
+    ]);
+    await _notifications.deleteAll([
+      for (final n in await _notifications.getAll())
+        if (aboutSample(n.targetId)) n.id,
+    ]);
 
     await _tasks.deleteAll(sampleIds((await _tasks.getAll()).map((t) => t.id)));
     await _notes.deleteAll(sampleIds((await _notes.getAll()).map((n) => n.id)));

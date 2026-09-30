@@ -13,6 +13,11 @@ enum AppDestination {
     Icons.space_dashboard_outlined,
     Icons.space_dashboard_rounded,
   ),
+  notifications(
+    AppRoutes.notifications,
+    Icons.notifications_none_rounded,
+    Icons.notifications_rounded,
+  ),
   categories(
     AppRoutes.categories,
     Icons.category_outlined,
@@ -54,6 +59,7 @@ enum AppDestination {
 
   String label(AppLocalizations l10n) => switch (this) {
     AppDestination.dashboard => l10n.navDashboard,
+    AppDestination.notifications => l10n.navNotifications,
     AppDestination.categories => l10n.navCategories,
     AppDestination.resources => l10n.navResources,
     AppDestination.notes => l10n.navNotes,
@@ -64,6 +70,7 @@ enum AppDestination {
 
   String subtitle(AppLocalizations l10n) => switch (this) {
     AppDestination.dashboard => l10n.dashboardSubtitle,
+    AppDestination.notifications => l10n.notificationsSubtitle,
     AppDestination.categories => l10n.categoriesSubtitle,
     AppDestination.resources => l10n.resourcesSubtitle,
     AppDestination.notes => l10n.notesSubtitle,

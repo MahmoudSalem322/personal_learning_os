@@ -1324,4 +1324,344 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get dashboardWelcomeMessage =>
       'أضف مجالًا وبعض المصادر لتبدأ، أو حمّل البيانات التجريبية لتستكشف التطبيق.';
+
+  @override
+  String get navNotifications => 'الإشعارات';
+
+  @override
+  String get notificationsSubtitle => 'التذكيرات والتنبيهات حول ما هو مستحق.';
+
+  @override
+  String get notificationsInbox => 'الوارد';
+
+  @override
+  String get notificationsReminders => 'التذكيرات';
+
+  @override
+  String get notificationsFilterAll => 'الكل';
+
+  @override
+  String get notificationsFilterUnread => 'غير المقروءة';
+
+  @override
+  String get notificationsToday => 'اليوم';
+
+  @override
+  String get notificationsEarlier => 'سابقًا';
+
+  @override
+  String get notificationsMarkAllRead => 'تعليم الكل كمقروء';
+
+  @override
+  String get notificationsClearAll => 'مسح الكل';
+
+  @override
+  String get notificationsClearTitle => 'مسح كل الإشعارات؟';
+
+  @override
+  String get notificationsClearMessage =>
+      'سيُفرَّغ صندوق الوارد. يمكنك التراجع مباشرةً بعد ذلك.';
+
+  @override
+  String get notificationsCleared => 'تم مسح الإشعارات';
+
+  @override
+  String get notificationsError => 'تعذّر تحديث الإشعارات. حاول مرة أخرى.';
+
+  @override
+  String get notificationsEmptyTitle => 'لا جديد لديك';
+
+  @override
+  String get notificationsEmptyMessage =>
+      'ستظهر هنا التذكيرات وتنبيهات مواعيد الاستحقاق.';
+
+  @override
+  String get notificationsAllReadTitle => 'لا شيء غير مقروء';
+
+  @override
+  String get notificationsAllReadMessage => 'قرأت كل الإشعارات.';
+
+  @override
+  String get notificationsOffMessage => 'الإشعارات متوقفة. لن يُضاف شيء جديد.';
+
+  @override
+  String get notificationsView => 'عرض';
+
+  @override
+  String notificationsNewCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count إشعار جديد',
+      many: '$count إشعارًا جديدًا',
+      few: '$count إشعارات جديدة',
+      two: 'إشعاران جديدان',
+      one: 'إشعار جديد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String notificationsUnreadCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'الإشعارات، $count غير مقروء',
+      many: 'الإشعارات، $count غير مقروء',
+      few: 'الإشعارات، $count غير مقروءة',
+      two: 'الإشعارات، اثنان غير مقروءين',
+      one: 'الإشعارات، واحد غير مقروء',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get notificationUnread => 'غير مقروء';
+
+  @override
+  String get notificationMarkRead => 'تعليم كمقروء';
+
+  @override
+  String get notificationMarkUnread => 'تعليم كغير مقروء';
+
+  @override
+  String get notificationRemove => 'إزالة';
+
+  @override
+  String get notificationRemoved => 'تمت إزالة الإشعار';
+
+  @override
+  String get notificationItemMissing => 'هذا العنصر لم يعد موجودًا.';
+
+  @override
+  String get notificationTaskReminder => 'تذكير بمهمة';
+
+  @override
+  String get notificationUpcomingTask => 'مستحقة قريبًا';
+
+  @override
+  String get notificationOverdueTask => 'مهمة متأخرة';
+
+  @override
+  String get notificationLearningReminder => 'حان وقت التعلّم';
+
+  @override
+  String get notificationWelcomeTitle => 'أهلًا بك في Learning OS';
+
+  @override
+  String get notificationWelcomeMessage =>
+      'ستظهر هنا التذكيرات وتنبيهات مواعيد الاستحقاق. اضبط تذكيرات على المهام أو المصادر أو جلسات التعلّم.';
+
+  @override
+  String notificationDueToday(String title) {
+    return '\"$title\" مستحقة اليوم';
+  }
+
+  @override
+  String notificationDueTomorrow(String title) {
+    return '\"$title\" مستحقة غدًا';
+  }
+
+  @override
+  String notificationDueOn(String title, String date) {
+    return '\"$title\" مستحقة في $date';
+  }
+
+  @override
+  String notificationWasDue(String title, String date) {
+    return '\"$title\" كانت مستحقة في $date';
+  }
+
+  @override
+  String get notificationPreferences => 'تفضيلات الإشعارات';
+
+  @override
+  String get notificationPrefEnabled => 'السماح بالإشعارات';
+
+  @override
+  String get notificationPrefEnabledHint =>
+      'أوقفها لإيقاف كل الإشعارات الجديدة.';
+
+  @override
+  String get notificationPrefReminders => 'التذكيرات';
+
+  @override
+  String get notificationPrefRemindersHint =>
+      'التذكيرات التي تضبطها على المهام والمصادر وجلسات التعلّم.';
+
+  @override
+  String get notificationPrefUpcoming => 'المهام القادمة';
+
+  @override
+  String get notificationPrefUpcomingHint =>
+      'المهام المفتوحة المستحقة اليوم أو غدًا.';
+
+  @override
+  String get notificationPrefOverdue => 'المهام المتأخرة';
+
+  @override
+  String get notificationPrefOverdueHint =>
+      'المهام المفتوحة التي تجاوزت موعد استحقاقها.';
+
+  @override
+  String get remindersSection => 'التذكيرات';
+
+  @override
+  String get remindersNew => 'تذكير جديد';
+
+  @override
+  String get remindersUpcoming => 'القادمة';
+
+  @override
+  String get remindersPast => 'السابقة';
+
+  @override
+  String get remindersEmptyTitle => 'لا توجد تذكيرات بعد';
+
+  @override
+  String get remindersEmptyMessage =>
+      'حدّد موعدًا لجلسة تعلّم، أو اضبط تذكيرًا من أي مهمة أو مصدر.';
+
+  @override
+  String get remindersNoneForItem => 'لا توجد تذكيرات بعد.';
+
+  @override
+  String get reminderRemindMe => 'ذكّرني';
+
+  @override
+  String get reminderFormTitle => 'تذكير جديد';
+
+  @override
+  String get reminderFormEditTitle => 'تعديل التذكير';
+
+  @override
+  String get reminderFormCreate => 'ضبط التذكير';
+
+  @override
+  String get reminderLabel => 'ماذا تريد أن تتعلّم؟';
+
+  @override
+  String get reminderLabelHint =>
+      'مثلًا: التدرّب على تخطيطات Flutter لمدة 30 دقيقة';
+
+  @override
+  String get reminderLabelRequired => 'صِف جلسة التعلّم';
+
+  @override
+  String get reminderNote => 'ملاحظة (اختيارية)';
+
+  @override
+  String get reminderNoteHint => 'أي شيء تريد تذكّره عند التنبيه';
+
+  @override
+  String get reminderWhen => 'الموعد';
+
+  @override
+  String get reminderRepeat => 'التكرار';
+
+  @override
+  String get reminderRepeatNone => 'مرة واحدة';
+
+  @override
+  String get reminderRepeatDaily => 'كل يوم';
+
+  @override
+  String get reminderRepeatWeekly => 'كل أسبوع';
+
+  @override
+  String get reminderPresetInAnHour => 'بعد ساعة';
+
+  @override
+  String get reminderPresetTonight => 'هذا المساء';
+
+  @override
+  String get reminderPresetTomorrow => 'صباح الغد';
+
+  @override
+  String get reminderTimeInPast => 'اختر وقتًا في المستقبل';
+
+  @override
+  String reminderSetFor(String when) {
+    return 'تم ضبط التذكير: $when';
+  }
+
+  @override
+  String get reminderSaveError => 'تعذّر حفظ التذكير. حاول مرة أخرى.';
+
+  @override
+  String get reminderDeleted => 'تم حذف التذكير';
+
+  @override
+  String get reminderDeleteError => 'تعذّر حذف التذكير. حاول مرة أخرى.';
+
+  @override
+  String get reminderPaused => 'متوقف مؤقتًا';
+
+  @override
+  String get reminderPause => 'إيقاف التذكير مؤقتًا';
+
+  @override
+  String get reminderResume => 'استئناف التذكير';
+
+  @override
+  String reminderDone(String when) {
+    return 'تم $when';
+  }
+
+  @override
+  String get reminderItemDeleted => 'عنصر محذوف (محفوظ في حال تراجعت)';
+
+  @override
+  String get timeJustNow => 'الآن';
+
+  @override
+  String timeMinutesAgo(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'قبل $count دقيقة',
+      many: 'قبل $count دقيقة',
+      few: 'قبل $count دقائق',
+      two: 'قبل دقيقتين',
+      one: 'قبل دقيقة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String timeHoursAgo(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'قبل $count ساعة',
+      many: 'قبل $count ساعة',
+      few: 'قبل $count ساعات',
+      two: 'قبل ساعتين',
+      one: 'قبل ساعة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get timeYesterday => 'أمس';
+
+  @override
+  String timeTodayAt(String time) {
+    return 'اليوم الساعة $time';
+  }
+
+  @override
+  String timeTomorrowAt(String time) {
+    return 'غدًا الساعة $time';
+  }
+
+  @override
+  String timeYesterdayAt(String time) {
+    return 'أمس الساعة $time';
+  }
+
+  @override
+  String timeDateAt(String date, String time) {
+    return '$date الساعة $time';
+  }
 }

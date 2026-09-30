@@ -11,6 +11,7 @@ abstract final class AppRoutes {
   static const String notes = '/notes';
   static const String tasks = '/tasks';
   static const String favorites = '/favorites';
+  static const String notifications = '/notifications';
   static const String settings = '/settings';
 
   /// Path parameter name of detail routes.

@@ -4,6 +4,10 @@ import 'package:personal_learning_os/features/categories/data/local_category_rep
 import 'package:personal_learning_os/features/categories/domain/category.dart';
 import 'package:personal_learning_os/features/notes/data/local_note_repository.dart';
 import 'package:personal_learning_os/features/notes/domain/note.dart';
+import 'package:personal_learning_os/features/notifications/data/local_notification_repository.dart';
+import 'package:personal_learning_os/features/notifications/domain/app_notification.dart';
+import 'package:personal_learning_os/features/reminders/data/local_reminder_repository.dart';
+import 'package:personal_learning_os/features/reminders/domain/reminder.dart';
 import 'package:personal_learning_os/features/resources/data/local_resource_repository.dart';
 import 'package:personal_learning_os/features/resources/domain/resource.dart';
 import 'package:personal_learning_os/features/sample_data/domain/sample_data_service.dart';
@@ -19,6 +23,8 @@ void main() {
   late LocalResourceRepository resources;
   late LocalNoteRepository notes;
   late LocalTaskRepository tasks;
+  late LocalReminderRepository reminders;
+  late LocalNotificationRepository notifications;
   late SampleDataService service;
   final now = DateTime.utc(2026, 9, 28);
   final l10n = AppLocalizationsEn();
@@ -59,11 +65,15 @@ void main() {
     resources = LocalResourceRepository(db);
     notes = LocalNoteRepository(db);
     tasks = LocalTaskRepository(db);
+    reminders = LocalReminderRepository(db);
+    notifications = LocalNotificationRepository(db);
     service = SampleDataService(
       categories: categories,
       resources: resources,
       notes: notes,
       tasks: tasks,
+      reminders: reminders,
+      notifications: notifications,
     );
   });
 
@@ -193,5 +203,42 @@ void main() {
     final remaining = await resources.getAll();
     expect(remaining.map((r) => r.id), ['my-resource']);
     expect(remaining.single.categoryId, isNull);
+  });
+
+  test('remove deletes reminders and notifications about samples', () async {
+    await loadAll();
+    Reminder reminder(String id, String? targetId) => Reminder(
+      id: id,
+      target: targetId == null ? ReminderTarget.session : ReminderTarget.task,
+      targetId: targetId,
+      title: 'Study',
+      remindAt: now,
+      createdAt: now,
+      updatedAt: now,
+    );
+    await reminders.saveAll([
+      reminder('on-sample', 'sample-task-learn-riverpod'),
+      reminder('session', null),
+    ]);
+    AppNotification notification(String id, String? targetId) =>
+        AppNotification(
+          id: id,
+          type: NotificationType.overdueTask,
+          key: id,
+          target: targetId == null
+              ? NotificationTarget.none
+              : NotificationTarget.task,
+          targetId: targetId,
+          createdAt: now,
+        );
+    await notifications.saveAll([
+      notification('about-sample', 'sample-task-learn-riverpod'),
+      notification('welcome', null),
+    ]);
+
+    await service.remove();
+
+    expect((await reminders.getAll()).map((r) => r.id), ['session']);
+    expect((await notifications.getAll()).map((n) => n.id), ['welcome']);
   });
 }

@@ -1304,4 +1304,323 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get dashboardWelcomeMessage =>
       'Add a category and a few resources to get started, or load sample data to look around.';
+
+  @override
+  String get navNotifications => 'Notifications';
+
+  @override
+  String get notificationsSubtitle => 'Reminders and alerts about what\'s due.';
+
+  @override
+  String get notificationsInbox => 'Inbox';
+
+  @override
+  String get notificationsReminders => 'Reminders';
+
+  @override
+  String get notificationsFilterAll => 'All';
+
+  @override
+  String get notificationsFilterUnread => 'Unread';
+
+  @override
+  String get notificationsToday => 'Today';
+
+  @override
+  String get notificationsEarlier => 'Earlier';
+
+  @override
+  String get notificationsMarkAllRead => 'Mark all as read';
+
+  @override
+  String get notificationsClearAll => 'Clear all';
+
+  @override
+  String get notificationsClearTitle => 'Clear all notifications?';
+
+  @override
+  String get notificationsClearMessage =>
+      'Your inbox will be emptied. You can undo this right after.';
+
+  @override
+  String get notificationsCleared => 'Notifications cleared';
+
+  @override
+  String get notificationsError =>
+      'Couldn\'t update notifications. Please try again.';
+
+  @override
+  String get notificationsEmptyTitle => 'You\'re all caught up';
+
+  @override
+  String get notificationsEmptyMessage =>
+      'Reminders and due-date alerts will show up here.';
+
+  @override
+  String get notificationsAllReadTitle => 'Nothing unread';
+
+  @override
+  String get notificationsAllReadMessage => 'You\'ve read every notification.';
+
+  @override
+  String get notificationsOffMessage =>
+      'Notifications are turned off. Nothing new will be added.';
+
+  @override
+  String get notificationsView => 'View';
+
+  @override
+  String notificationsNewCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count new notifications',
+      one: '1 new notification',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String notificationsUnreadCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Notifications, $count unread',
+      one: 'Notifications, 1 unread',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get notificationUnread => 'Unread';
+
+  @override
+  String get notificationMarkRead => 'Mark as read';
+
+  @override
+  String get notificationMarkUnread => 'Mark as unread';
+
+  @override
+  String get notificationRemove => 'Remove';
+
+  @override
+  String get notificationRemoved => 'Notification removed';
+
+  @override
+  String get notificationItemMissing => 'This item no longer exists.';
+
+  @override
+  String get notificationTaskReminder => 'Task reminder';
+
+  @override
+  String get notificationUpcomingTask => 'Due soon';
+
+  @override
+  String get notificationOverdueTask => 'Overdue task';
+
+  @override
+  String get notificationLearningReminder => 'Time to learn';
+
+  @override
+  String get notificationWelcomeTitle => 'Welcome to Learning OS';
+
+  @override
+  String get notificationWelcomeMessage =>
+      'Reminders and due-date alerts will show up here. Set reminders on tasks, resources or learning sessions.';
+
+  @override
+  String notificationDueToday(String title) {
+    return '\"$title\" is due today';
+  }
+
+  @override
+  String notificationDueTomorrow(String title) {
+    return '\"$title\" is due tomorrow';
+  }
+
+  @override
+  String notificationDueOn(String title, String date) {
+    return '\"$title\" is due $date';
+  }
+
+  @override
+  String notificationWasDue(String title, String date) {
+    return '\"$title\" was due $date';
+  }
+
+  @override
+  String get notificationPreferences => 'Notification preferences';
+
+  @override
+  String get notificationPrefEnabled => 'Allow notifications';
+
+  @override
+  String get notificationPrefEnabledHint =>
+      'Turn off to stop all new notifications.';
+
+  @override
+  String get notificationPrefReminders => 'Reminders';
+
+  @override
+  String get notificationPrefRemindersHint =>
+      'Reminders you set on tasks, resources and learning sessions.';
+
+  @override
+  String get notificationPrefUpcoming => 'Upcoming tasks';
+
+  @override
+  String get notificationPrefUpcomingHint =>
+      'Open tasks due today or tomorrow.';
+
+  @override
+  String get notificationPrefOverdue => 'Overdue tasks';
+
+  @override
+  String get notificationPrefOverdueHint => 'Open tasks past their due date.';
+
+  @override
+  String get remindersSection => 'Reminders';
+
+  @override
+  String get remindersNew => 'New reminder';
+
+  @override
+  String get remindersUpcoming => 'Upcoming';
+
+  @override
+  String get remindersPast => 'Past';
+
+  @override
+  String get remindersEmptyTitle => 'No reminders yet';
+
+  @override
+  String get remindersEmptyMessage =>
+      'Schedule a learning session, or set a reminder from any task or resource.';
+
+  @override
+  String get remindersNoneForItem => 'No reminders yet.';
+
+  @override
+  String get reminderRemindMe => 'Remind me';
+
+  @override
+  String get reminderFormTitle => 'New reminder';
+
+  @override
+  String get reminderFormEditTitle => 'Edit reminder';
+
+  @override
+  String get reminderFormCreate => 'Set reminder';
+
+  @override
+  String get reminderLabel => 'What do you want to learn?';
+
+  @override
+  String get reminderLabelHint =>
+      'e.g. Practice Flutter layouts for 30 minutes';
+
+  @override
+  String get reminderLabelRequired => 'Describe the learning session';
+
+  @override
+  String get reminderNote => 'Note (optional)';
+
+  @override
+  String get reminderNoteHint => 'Anything to remember when it fires';
+
+  @override
+  String get reminderWhen => 'When';
+
+  @override
+  String get reminderRepeat => 'Repeat';
+
+  @override
+  String get reminderRepeatNone => 'Once';
+
+  @override
+  String get reminderRepeatDaily => 'Every day';
+
+  @override
+  String get reminderRepeatWeekly => 'Every week';
+
+  @override
+  String get reminderPresetInAnHour => 'In an hour';
+
+  @override
+  String get reminderPresetTonight => 'This evening';
+
+  @override
+  String get reminderPresetTomorrow => 'Tomorrow morning';
+
+  @override
+  String get reminderTimeInPast => 'Pick a time in the future';
+
+  @override
+  String reminderSetFor(String when) {
+    return 'Reminder set for $when';
+  }
+
+  @override
+  String get reminderSaveError =>
+      'Couldn\'t save the reminder. Please try again.';
+
+  @override
+  String get reminderDeleted => 'Reminder deleted';
+
+  @override
+  String get reminderDeleteError =>
+      'Couldn\'t delete the reminder. Please try again.';
+
+  @override
+  String get reminderPaused => 'Paused';
+
+  @override
+  String get reminderPause => 'Pause reminder';
+
+  @override
+  String get reminderResume => 'Resume reminder';
+
+  @override
+  String reminderDone(String when) {
+    return 'Done $when';
+  }
+
+  @override
+  String get reminderItemDeleted => 'Deleted item (kept in case you undo)';
+
+  @override
+  String get timeJustNow => 'Just now';
+
+  @override
+  String timeMinutesAgo(int count) {
+    return '$count min ago';
+  }
+
+  @override
+  String timeHoursAgo(int count) {
+    return '$count h ago';
+  }
+
+  @override
+  String get timeYesterday => 'Yesterday';
+
+  @override
+  String timeTodayAt(String time) {
+    return 'Today at $time';
+  }
+
+  @override
+  String timeTomorrowAt(String time) {
+    return 'Tomorrow at $time';
+  }
+
+  @override
+  String timeYesterdayAt(String time) {
+    return 'Yesterday at $time';
+  }
+
+  @override
+  String timeDateAt(String date, String time) {
+    return '$date at $time';
+  }
 }

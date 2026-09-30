@@ -14,6 +14,9 @@ import '../../../../core/widgets/app_page.dart';
 import '../../../../core/widgets/app_skeleton.dart';
 import '../../../../core/widgets/app_state_view.dart';
 import '../../../categories/presentation/widgets/category_chip.dart';
+import '../../../reminders/domain/reminder.dart';
+import '../../../reminders/presentation/reminder_actions.dart';
+import '../../../reminders/presentation/widgets/reminder_tile.dart';
 import '../../../resources/presentation/widgets/favorite_button.dart';
 import '../../../resources/presentation/widgets/resource_chip.dart';
 import '../../domain/task.dart';
@@ -192,6 +195,46 @@ class _TaskView extends ConsumerWidget {
                   Gap.md,
                 ],
                 details,
+                Gap.md,
+                AppCard(
+                  padding: const EdgeInsets.all(AppSpacing.lg),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Semantics(
+                              header: true,
+                              child: Text(
+                                l10n.remindersSection,
+                                style: text.overline,
+                              ),
+                            ),
+                          ),
+                          TextButton.icon(
+                            onPressed: () => ReminderActions.openForm(
+                              context,
+                              target: ReminderTarget.task,
+                              targetId: t.id,
+                              targetTitle: t.title,
+                            ),
+                            icon: const Icon(
+                              Icons.add_alarm_rounded,
+                              size: AppSizes.iconSm,
+                            ),
+                            label: Text(l10n.reminderRemindMe),
+                          ),
+                        ],
+                      ),
+                      Gap.xs,
+                      ItemReminders(
+                        target: ReminderTarget.task,
+                        targetId: t.id,
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

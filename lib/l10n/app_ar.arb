@@ -438,5 +438,137 @@
   "dashboardFavorites": "المفضلة",
   "dashboardFavoritesEmpty": "ضع نجمة على المصادر أو الملاحظات أو المهام لتبقى هنا.",
   "dashboardWelcomeTitle": "أهلًا بك في Learning OS",
-  "dashboardWelcomeMessage": "أضف مجالًا وبعض المصادر لتبدأ، أو حمّل البيانات التجريبية لتستكشف التطبيق."
+  "dashboardWelcomeMessage": "أضف مجالًا وبعض المصادر لتبدأ، أو حمّل البيانات التجريبية لتستكشف التطبيق.",
+
+  "navNotifications": "الإشعارات",
+  "notificationsSubtitle": "التذكيرات والتنبيهات حول ما هو مستحق.",
+  "notificationsInbox": "الوارد",
+  "notificationsReminders": "التذكيرات",
+  "notificationsFilterAll": "الكل",
+  "notificationsFilterUnread": "غير المقروءة",
+  "notificationsToday": "اليوم",
+  "notificationsEarlier": "سابقًا",
+  "notificationsMarkAllRead": "تعليم الكل كمقروء",
+  "notificationsClearAll": "مسح الكل",
+  "notificationsClearTitle": "مسح كل الإشعارات؟",
+  "notificationsClearMessage": "سيُفرَّغ صندوق الوارد. يمكنك التراجع مباشرةً بعد ذلك.",
+  "notificationsCleared": "تم مسح الإشعارات",
+  "notificationsError": "تعذّر تحديث الإشعارات. حاول مرة أخرى.",
+  "notificationsEmptyTitle": "لا جديد لديك",
+  "notificationsEmptyMessage": "ستظهر هنا التذكيرات وتنبيهات مواعيد الاستحقاق.",
+  "notificationsAllReadTitle": "لا شيء غير مقروء",
+  "notificationsAllReadMessage": "قرأت كل الإشعارات.",
+  "notificationsOffMessage": "الإشعارات متوقفة. لن يُضاف شيء جديد.",
+  "notificationsView": "عرض",
+  "notificationsNewCount": "{count, plural, =1{إشعار جديد} =2{إشعاران جديدان} few{{count} إشعارات جديدة} many{{count} إشعارًا جديدًا} other{{count} إشعار جديد}}",
+  "@notificationsNewCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "notificationsUnreadCount": "{count, plural, =1{الإشعارات، واحد غير مقروء} =2{الإشعارات، اثنان غير مقروءين} few{الإشعارات، {count} غير مقروءة} many{الإشعارات، {count} غير مقروء} other{الإشعارات، {count} غير مقروء}}",
+  "@notificationsUnreadCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "notificationUnread": "غير مقروء",
+  "notificationMarkRead": "تعليم كمقروء",
+  "notificationMarkUnread": "تعليم كغير مقروء",
+  "notificationRemove": "إزالة",
+  "notificationRemoved": "تمت إزالة الإشعار",
+  "notificationItemMissing": "هذا العنصر لم يعد موجودًا.",
+  "notificationTaskReminder": "تذكير بمهمة",
+  "notificationUpcomingTask": "مستحقة قريبًا",
+  "notificationOverdueTask": "مهمة متأخرة",
+  "notificationLearningReminder": "حان وقت التعلّم",
+  "notificationWelcomeTitle": "أهلًا بك في Learning OS",
+  "notificationWelcomeMessage": "ستظهر هنا التذكيرات وتنبيهات مواعيد الاستحقاق. اضبط تذكيرات على المهام أو المصادر أو جلسات التعلّم.",
+  "notificationDueToday": "\"{title}\" مستحقة اليوم",
+  "@notificationDueToday": {
+    "placeholders": { "title": { "type": "String" } }
+  },
+  "notificationDueTomorrow": "\"{title}\" مستحقة غدًا",
+  "@notificationDueTomorrow": {
+    "placeholders": { "title": { "type": "String" } }
+  },
+  "notificationDueOn": "\"{title}\" مستحقة في {date}",
+  "@notificationDueOn": {
+    "placeholders": { "title": { "type": "String" }, "date": { "type": "String" } }
+  },
+  "notificationWasDue": "\"{title}\" كانت مستحقة في {date}",
+  "@notificationWasDue": {
+    "placeholders": { "title": { "type": "String" }, "date": { "type": "String" } }
+  },
+  "notificationPreferences": "تفضيلات الإشعارات",
+  "notificationPrefEnabled": "السماح بالإشعارات",
+  "notificationPrefEnabledHint": "أوقفها لإيقاف كل الإشعارات الجديدة.",
+  "notificationPrefReminders": "التذكيرات",
+  "notificationPrefRemindersHint": "التذكيرات التي تضبطها على المهام والمصادر وجلسات التعلّم.",
+  "notificationPrefUpcoming": "المهام القادمة",
+  "notificationPrefUpcomingHint": "المهام المفتوحة المستحقة اليوم أو غدًا.",
+  "notificationPrefOverdue": "المهام المتأخرة",
+  "notificationPrefOverdueHint": "المهام المفتوحة التي تجاوزت موعد استحقاقها.",
+  "remindersSection": "التذكيرات",
+  "remindersNew": "تذكير جديد",
+  "remindersUpcoming": "القادمة",
+  "remindersPast": "السابقة",
+  "remindersEmptyTitle": "لا توجد تذكيرات بعد",
+  "remindersEmptyMessage": "حدّد موعدًا لجلسة تعلّم، أو اضبط تذكيرًا من أي مهمة أو مصدر.",
+  "remindersNoneForItem": "لا توجد تذكيرات بعد.",
+  "reminderRemindMe": "ذكّرني",
+  "reminderFormTitle": "تذكير جديد",
+  "reminderFormEditTitle": "تعديل التذكير",
+  "reminderFormCreate": "ضبط التذكير",
+  "reminderLabel": "ماذا تريد أن تتعلّم؟",
+  "reminderLabelHint": "مثلًا: التدرّب على تخطيطات Flutter لمدة 30 دقيقة",
+  "reminderLabelRequired": "صِف جلسة التعلّم",
+  "reminderNote": "ملاحظة (اختيارية)",
+  "reminderNoteHint": "أي شيء تريد تذكّره عند التنبيه",
+  "reminderWhen": "الموعد",
+  "reminderRepeat": "التكرار",
+  "reminderRepeatNone": "مرة واحدة",
+  "reminderRepeatDaily": "كل يوم",
+  "reminderRepeatWeekly": "كل أسبوع",
+  "reminderPresetInAnHour": "بعد ساعة",
+  "reminderPresetTonight": "هذا المساء",
+  "reminderPresetTomorrow": "صباح الغد",
+  "reminderTimeInPast": "اختر وقتًا في المستقبل",
+  "reminderSetFor": "تم ضبط التذكير: {when}",
+  "@reminderSetFor": {
+    "placeholders": { "when": { "type": "String" } }
+  },
+  "reminderSaveError": "تعذّر حفظ التذكير. حاول مرة أخرى.",
+  "reminderDeleted": "تم حذف التذكير",
+  "reminderDeleteError": "تعذّر حذف التذكير. حاول مرة أخرى.",
+  "reminderPaused": "متوقف مؤقتًا",
+  "reminderPause": "إيقاف التذكير مؤقتًا",
+  "reminderResume": "استئناف التذكير",
+  "reminderDone": "تم {when}",
+  "@reminderDone": {
+    "placeholders": { "when": { "type": "String" } }
+  },
+  "reminderItemDeleted": "عنصر محذوف (محفوظ في حال تراجعت)",
+  "timeJustNow": "الآن",
+  "timeMinutesAgo": "{count, plural, =1{قبل دقيقة} =2{قبل دقيقتين} few{قبل {count} دقائق} many{قبل {count} دقيقة} other{قبل {count} دقيقة}}",
+  "@timeMinutesAgo": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "timeHoursAgo": "{count, plural, =1{قبل ساعة} =2{قبل ساعتين} few{قبل {count} ساعات} many{قبل {count} ساعة} other{قبل {count} ساعة}}",
+  "@timeHoursAgo": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "timeYesterday": "أمس",
+  "timeTodayAt": "اليوم الساعة {time}",
+  "@timeTodayAt": {
+    "placeholders": { "time": { "type": "String" } }
+  },
+  "timeTomorrowAt": "غدًا الساعة {time}",
+  "@timeTomorrowAt": {
+    "placeholders": { "time": { "type": "String" } }
+  },
+  "timeYesterdayAt": "أمس الساعة {time}",
+  "@timeYesterdayAt": {
+    "placeholders": { "time": { "type": "String" } }
+  },
+  "timeDateAt": "{date} الساعة {time}",
+  "@timeDateAt": {
+    "placeholders": { "date": { "type": "String" }, "time": { "type": "String" } }
+  }
 }

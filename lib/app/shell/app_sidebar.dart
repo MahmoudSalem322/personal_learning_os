@@ -1,9 +1,11 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../core/extensions/context_extensions.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../core/theme/app_typography.dart';
 import '../../core/widgets/app_logo.dart';
+import '../../features/notifications/presentation/notifications_providers.dart';
 import '../../features/search/presentation/search_launcher.dart';
 import '../../features/settings/presentation/widgets/language_selector.dart';
 import '../../features/settings/presentation/widgets/theme_mode_selector.dart';
@@ -35,14 +37,21 @@ class AppSidebar extends StatelessWidget {
     final l10n = context.l10n;
     final horizontal = expanded ? AppSpacing.sm : AppSpacing.xs;
 
-    Widget itemFor(AppDestination d) => SidebarItem(
-      icon: d.icon,
-      selectedIcon: d.selectedIcon,
-      label: d.label(l10n),
-      selected: d == selected,
-      expanded: expanded,
-      onTap: () => onSelect(d),
-    );
+    Widget itemFor(AppDestination d) {
+      Widget item(int badge) => SidebarItem(
+        icon: d.icon,
+        selectedIcon: d.selectedIcon,
+        label: d.label(l10n),
+        selected: d == selected,
+        expanded: expanded,
+        badgeCount: badge,
+        onTap: () => onSelect(d),
+      );
+      if (d != AppDestination.notifications) return item(0);
+      return Consumer(
+        builder: (context, ref, _) => item(ref.watch(unreadCountProvider)),
+      );
+    }
 
     return Semantics(
       container: true,

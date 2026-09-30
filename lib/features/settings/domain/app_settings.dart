@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart' show immutable;
 
+import '../../notifications/domain/notification_preferences.dart';
+
 /// Preferred color scheme.
 enum ThemePreference { system, light, dark }
 
@@ -21,6 +23,7 @@ class AppSettings {
   const AppSettings({
     this.themePreference = ThemePreference.system,
     this.language = AppLanguage.system,
+    this.notifications = NotificationPreferences.defaults,
   });
 
   /// Rebuilds settings from stored JSON. Unknown or missing values fall back
@@ -37,6 +40,9 @@ class AppSettings {
         json[_Keys.language],
         defaults.language,
       ),
+      notifications: NotificationPreferences.fromJson(
+        json[_Keys.notifications],
+      ),
     );
   }
 
@@ -44,30 +50,35 @@ class AppSettings {
 
   final ThemePreference themePreference;
   final AppLanguage language;
+  final NotificationPreferences notifications;
 
   AppSettings copyWith({
     ThemePreference? themePreference,
     AppLanguage? language,
+    NotificationPreferences? notifications,
   }) {
     return AppSettings(
       themePreference: themePreference ?? this.themePreference,
       language: language ?? this.language,
+      notifications: notifications ?? this.notifications,
     );
   }
 
   Map<String, Object?> toJson() => {
     _Keys.themePreference: themePreference.name,
     _Keys.language: language.name,
+    _Keys.notifications: notifications.toJson(),
   };
 
   @override
   bool operator ==(Object other) =>
       other is AppSettings &&
       other.themePreference == themePreference &&
-      other.language == language;
+      other.language == language &&
+      other.notifications == notifications;
 
   @override
-  int get hashCode => Object.hash(themePreference, language);
+  int get hashCode => Object.hash(themePreference, language, notifications);
 
   @override
   String toString() =>
@@ -90,4 +101,5 @@ class AppSettings {
 abstract final class _Keys {
   static const themePreference = 'themePreference';
   static const language = 'language';
+  static const notifications = 'notifications';
 }

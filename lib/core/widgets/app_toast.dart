@@ -17,12 +17,22 @@ abstract final class AppToast {
     VoidCallback? onAction,
   }) => _show(context, message, ToastType.success, actionLabel, onAction);
 
+  /// With [replaceCurrent] false the toast waits for the current one to
+  /// close instead of replacing it.
   static void info(
     BuildContext context,
     String message, {
     String? actionLabel,
     VoidCallback? onAction,
-  }) => _show(context, message, ToastType.info, actionLabel, onAction);
+    bool replaceCurrent = true,
+  }) => _show(
+    context,
+    message,
+    ToastType.info,
+    actionLabel,
+    onAction,
+    replaceCurrent: replaceCurrent,
+  );
 
   static void error(BuildContext context, String message) =>
       _show(context, message, ToastType.error, null, null);
@@ -32,8 +42,9 @@ abstract final class AppToast {
     String message,
     ToastType type,
     String? actionLabel,
-    VoidCallback? onAction,
-  ) {
+    VoidCallback? onAction, {
+    bool replaceCurrent = true,
+  }) {
     final colors = context.colors;
     final icon = switch (type) {
       ToastType.success => Icons.check_circle_rounded,
@@ -47,24 +58,24 @@ abstract final class AppToast {
     };
     final isMobile = context.screenSize.isMobile;
 
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(
-        SnackBar(
-          width: isMobile ? null : 420,
-          margin: isMobile ? const EdgeInsets.all(AppSpacing.md) : null,
-          duration: Duration(seconds: type == ToastType.error ? 6 : 4),
-          content: Row(
-            children: [
-              Icon(icon, color: iconColor, size: AppSizes.iconMd),
-              Gap.sm,
-              Expanded(child: Text(message)),
-            ],
-          ),
-          action: actionLabel != null && onAction != null
-              ? SnackBarAction(label: actionLabel, onPressed: onAction)
-              : null,
+    final messenger = ScaffoldMessenger.of(context);
+    if (replaceCurrent) messenger.hideCurrentSnackBar();
+    messenger.showSnackBar(
+      SnackBar(
+        width: isMobile ? null : 420,
+        margin: isMobile ? const EdgeInsets.all(AppSpacing.md) : null,
+        duration: Duration(seconds: type == ToastType.error ? 6 : 4),
+        content: Row(
+          children: [
+            Icon(icon, color: iconColor, size: AppSizes.iconMd),
+            Gap.sm,
+            Expanded(child: Text(message)),
+          ],
         ),
-      );
+        action: actionLabel != null && onAction != null
+            ? SnackBarAction(label: actionLabel, onPressed: onAction)
+            : null,
+      ),
+    );
   }
 }

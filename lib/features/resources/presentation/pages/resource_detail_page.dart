@@ -18,6 +18,9 @@ import '../../../categories/presentation/widgets/category_chip.dart';
 import '../../../notes/presentation/note_actions.dart';
 import '../../../notes/presentation/notes_providers.dart';
 import '../../../notes/presentation/widgets/note_card.dart';
+import '../../../reminders/domain/reminder.dart';
+import '../../../reminders/presentation/reminder_actions.dart';
+import '../../../reminders/presentation/widgets/reminder_tile.dart';
 import '../../../tags/presentation/tag_chip.dart';
 import '../../../tasks/presentation/task_actions.dart';
 import '../../../tasks/presentation/tasks_providers.dart';
@@ -203,6 +206,21 @@ class _ResourceView extends ConsumerWidget {
       child: _ResourceTasks(resourceId: r.id),
     );
 
+    final reminders = _Panel(
+      title: l10n.remindersSection,
+      trailing: TextButton.icon(
+        onPressed: () => ReminderActions.openForm(
+          context,
+          target: ReminderTarget.resource,
+          targetId: r.id,
+          targetTitle: r.title,
+        ),
+        icon: const Icon(Icons.add_alarm_rounded, size: AppSizes.iconSm),
+        label: Text(l10n.reminderRemindMe),
+      ),
+      child: ItemReminders(target: ReminderTarget.resource, targetId: r.id),
+    );
+
     return AppPage(
       title: r.title,
       subtitle: r.hasUrl ? UrlUtils.displayHost(r.url) : r.type.label(l10n),
@@ -254,13 +272,23 @@ class _ResourceView extends ConsumerWidget {
                       Gap.md,
                       Expanded(
                         flex: 2,
-                        child: Column(children: [progress, Gap.md, details]),
+                        child: Column(
+                          children: [
+                            progress,
+                            Gap.md,
+                            reminders,
+                            Gap.md,
+                            details,
+                          ],
+                        ),
                       ),
                     ],
                   )
                 : Column(
                     children: [
                       progress,
+                      Gap.md,
+                      reminders,
                       Gap.md,
                       about,
                       Gap.md,

@@ -5,6 +5,7 @@ import '../../core/routing/app_routes.dart';
 import '../../features/categories/presentation/categories_routes.dart';
 import '../../features/dashboard/presentation/dashboard_routes.dart';
 import '../../features/notes/presentation/notes_routes.dart';
+import '../../features/notifications/presentation/notifications_routes.dart';
 import '../../features/resources/presentation/resources_routes.dart';
 import '../../features/tasks/presentation/tasks_routes.dart';
 import '../shell/app_shell.dart';
@@ -38,6 +39,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
 /// replaces its destination's placeholder with the feature's routes.
 GoRoute _routeFor(AppDestination destination) => switch (destination) {
   AppDestination.dashboard => dashboardRoute(),
+  AppDestination.notifications => notificationsRoute(),
   AppDestination.categories => categoriesRoute(),
   AppDestination.resources => resourcesRoute(),
   AppDestination.notes => notesRoute(),
