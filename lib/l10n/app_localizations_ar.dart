@@ -1179,4 +1179,149 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get sampleNoteGitContent =>
       '## يوميًا\n\n```bash\ngit status\ngit add -p\ngit commit -m \"message\"\ngit push\n```\n\n## الفروع\n\n- `git switch -c feature/x` ينشئ فرعًا وينتقل إليه\n- `git rebase main` يحدّث الفرع\n\n- [x] ضبط الاسم والبريد\n- [ ] تعلّم الـ rebase التفاعلي';
+
+  @override
+  String get searchTitle => 'البحث';
+
+  @override
+  String get searchButton => 'بحث…';
+
+  @override
+  String searchTooltip(String shortcut) {
+    return 'بحث ($shortcut)';
+  }
+
+  @override
+  String get searchHint =>
+      'ابحث في المجالات والمصادر والملاحظات والمهام أو #الوسوم';
+
+  @override
+  String get searchEmptyTitle => 'ابحث في كل شيء';
+
+  @override
+  String get searchEmptyMessage =>
+      'اعثر على المجالات والمصادر والملاحظات والمهام. ابدأ بـ # للبحث في الوسوم.';
+
+  @override
+  String searchNoResultsTitle(String query) {
+    return 'لا توجد نتائج لـ \"$query\"';
+  }
+
+  @override
+  String get searchNoResultsMessage => 'جرّب كلمة أخرى أو تحقّق من الإملاء.';
+
+  @override
+  String searchShowAll(int count) {
+    return 'عرض الكل ($count)';
+  }
+
+  @override
+  String get searchKindTags => 'الوسوم';
+
+  @override
+  String searchTagItems(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count عنصر',
+      many: '$count عنصرًا',
+      few: '$count عناصر',
+      two: 'عنصران',
+      one: 'عنصر واحد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get searchHintNavigate => 'للتنقّل';
+
+  @override
+  String get searchHintOpen => 'للفتح';
+
+  @override
+  String get searchHintClose => 'للإغلاق';
+
+  @override
+  String get dashboardGreetingMorning => 'صباح الخير';
+
+  @override
+  String get dashboardGreetingAfternoon => 'نهارك سعيد';
+
+  @override
+  String get dashboardGreetingEvening => 'مساء الخير';
+
+  @override
+  String get dashboardQuickAdd => 'إضافة سريعة';
+
+  @override
+  String get quickAddCategory => 'مجال';
+
+  @override
+  String get quickAddResource => 'مصدر';
+
+  @override
+  String get quickAddNote => 'ملاحظة';
+
+  @override
+  String get quickAddTask => 'مهمة';
+
+  @override
+  String get dashboardStatResources => 'المصادر';
+
+  @override
+  String get dashboardStatNotes => 'الملاحظات';
+
+  @override
+  String get dashboardStatPendingTasks => 'مهام قيد الانتظار';
+
+  @override
+  String get dashboardStatCompletedTasks => 'مهام مكتملة';
+
+  @override
+  String get dashboardStatCategories => 'المجالات';
+
+  @override
+  String get dashboardStatProgress => 'التقدّم العام';
+
+  @override
+  String get dashboardViewAll => 'عرض الكل';
+
+  @override
+  String get dashboardContinueLearning => 'تابع التعلّم';
+
+  @override
+  String get dashboardContinueEmpty =>
+      'تظهر هنا المصادر التي بدأتها ولم تُنهِها بعد.';
+
+  @override
+  String get dashboardRecentResources => 'أحدث المصادر';
+
+  @override
+  String get dashboardRecentEmpty => 'تظهر هنا المصادر التي تضيفها.';
+
+  @override
+  String get dashboardTodayTasks => 'مهام اليوم';
+
+  @override
+  String get dashboardTodayEmpty => 'لا شيء مستحق اليوم. استمتع بالهدوء.';
+
+  @override
+  String get dashboardProgress => 'تقدّم التعلّم';
+
+  @override
+  String get dashboardProgressEmpty => 'أضف مصادر إلى مجال لتتابع تقدّمه.';
+
+  @override
+  String get dashboardFavorites => 'المفضلة';
+
+  @override
+  String get dashboardFavoritesEmpty =>
+      'ضع نجمة على المصادر أو الملاحظات أو المهام لتبقى هنا.';
+
+  @override
+  String get dashboardWelcomeTitle => 'أهلًا بك في Learning OS';
+
+  @override
+  String get dashboardWelcomeMessage =>
+      'أضف مجالًا وبعض المصادر لتبدأ، أو حمّل البيانات التجريبية لتستكشف التطبيق.';
 }

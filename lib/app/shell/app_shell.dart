@@ -7,6 +7,8 @@ import '../../core/theme/app_motion.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../core/utils/screen_size.dart';
 import '../../core/widgets/app_logo.dart';
+import '../../features/search/presentation/global_search_dialog.dart';
+import '../../features/search/presentation/search_launcher.dart';
 import '../navigation/app_destination.dart';
 import 'app_sidebar.dart';
 import 'storage_warning_banner.dart';
@@ -49,62 +51,79 @@ class AppShell extends StatelessWidget {
     );
 
     if (size.isMobile) {
-      return Scaffold(
-        appBar: AppBar(
-          toolbarHeight: AppSizes.mobileTopBarHeight,
-          titleSpacing: 0,
-          title: Row(
-            children: [
-              const AppLogo(size: 28),
-              Gap.sm,
-              Flexible(
-                child: Text(
-                  context.l10n.appTitle,
-                  overflow: TextOverflow.ellipsis,
+      return GlobalSearchShortcut(
+        child: Scaffold(
+          appBar: AppBar(
+            toolbarHeight: AppSizes.mobileTopBarHeight,
+            titleSpacing: 0,
+            title: Row(
+              children: [
+                const AppLogo(size: 28),
+                Gap.sm,
+                Flexible(
+                  child: Text(
+                    context.l10n.appTitle,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
+            ),
+            actions: [
+              Builder(
+                builder: (context) => IconButton(
+                  tooltip: context.l10n.searchTooltip(searchShortcutLabel()),
+                  onPressed: () => showGlobalSearch(context),
+                  icon: const Icon(Icons.search_rounded),
                 ),
               ),
+              Gap.xs,
             ],
           ),
-        ),
-        drawer: Drawer(
-          width: AppSizes.drawerWidth,
-          child: Builder(
-            builder: (drawerContext) => AppSidebar(
-              selected: _current,
-              expanded: true,
-              onSelect: (d) {
-                Navigator.of(drawerContext).pop();
-                _select(d);
-              },
+          drawer: Drawer(
+            width: AppSizes.drawerWidth,
+            child: Builder(
+              builder: (drawerContext) => AppSidebar(
+                selected: _current,
+                expanded: true,
+                showSearch: false,
+                onSelect: (d) {
+                  Navigator.of(drawerContext).pop();
+                  _select(d);
+                },
+              ),
             ),
           ),
+          body: content,
         ),
-        body: content,
       );
     }
 
     final expanded = size == ScreenSize.desktop;
     final colors = context.colors;
-    return Scaffold(
-      body: Row(
-        children: [
-          AnimatedContainer(
-            duration: AppMotion.normal,
-            curve: AppMotion.standard,
-            width: expanded
-                ? AppSizes.sidebarExpandedWidth
-                : AppSizes.sidebarCollapsedWidth,
-            decoration: BoxDecoration(
-              border: BorderDirectional(end: BorderSide(color: colors.border)),
+    return GlobalSearchShortcut(
+      child: Scaffold(
+        body: Row(
+          children: [
+            AnimatedContainer(
+              duration: AppMotion.normal,
+              curve: AppMotion.standard,
+              width: expanded
+                  ? AppSizes.sidebarExpandedWidth
+                  : AppSizes.sidebarCollapsedWidth,
+              decoration: BoxDecoration(
+                border: BorderDirectional(
+                  end: BorderSide(color: colors.border),
+                ),
+              ),
+              child: AppSidebar(
+                selected: _current,
+                expanded: expanded,
+                onSelect: _select,
+              ),
             ),
-            child: AppSidebar(
-              selected: _current,
-              expanded: expanded,
-              onSelect: _select,
-            ),
-          ),
-          Expanded(child: content),
-        ],
+            Expanded(child: content),
+          ],
+        ),
       ),
     );
   }

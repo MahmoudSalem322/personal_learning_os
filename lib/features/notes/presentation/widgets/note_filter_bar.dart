@@ -39,6 +39,10 @@ class _NoteFilterBarState extends ConsumerState<NoteFilterBar> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final filter = ref.watch(noteFilterProvider);
+    // Global search can set the query from outside this page.
+    ref.listen(noteFilterProvider.select((f) => f.query), (_, query) {
+      if (_search.text != query) _search.text = query;
+    });
     final categories = ref.watch(categoriesProvider).value ?? const [];
     final tags = ref.watch(noteTagsProvider);
 

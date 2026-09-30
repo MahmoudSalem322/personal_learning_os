@@ -4,7 +4,6 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/extensions/context_extensions.dart';
-import '../../../../core/extensions/date_extensions.dart';
 import '../../../../core/routing/app_routes.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../../../../core/theme/app_typography.dart';
@@ -32,19 +31,6 @@ class TaskCard extends ConsumerWidget {
         .read(taskFilterProvider.notifier)
         .update((f) => f.cleared().copyWith(tag: tag));
     context.go(AppRoutes.tasks);
-  }
-
-  /// "Due today", "Overdue · 12 Sep" or the plain date.
-  static String _dueLabel(
-    BuildContext context,
-    Task task,
-    DateTime due,
-    DateTime now,
-  ) {
-    final l10n = context.l10n;
-    if (task.isDueOn(now)) return l10n.taskDueToday;
-    final date = context.formatDate(due);
-    return task.isOverdue(now) ? '${l10n.taskDueOverdue} · $date' : date;
   }
 
   @override
@@ -135,7 +121,7 @@ class TaskCard extends ConsumerWidget {
                     ),
                     Gap.xxs,
                     Text(
-                      _dueLabel(context, t, due, now),
+                      t.dueLabel(context, now),
                       style: text.caption.copyWith(
                         color: overdue ? colors.error : colors.mutedText,
                         fontWeight: overdue ? FontWeight.w600 : null,

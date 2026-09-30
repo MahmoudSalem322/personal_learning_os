@@ -42,6 +42,10 @@ class _TaskFilterBarState extends ConsumerState<TaskFilterBar> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final filter = ref.watch(taskFilterProvider);
+    // Global search can set the query from outside this page.
+    ref.listen(taskFilterProvider.select((f) => f.query), (_, query) {
+      if (_search.text != query) _search.text = query;
+    });
     final categories = ref.watch(categoriesProvider).value ?? const [];
     final tags = ref.watch(taskTagsProvider);
 

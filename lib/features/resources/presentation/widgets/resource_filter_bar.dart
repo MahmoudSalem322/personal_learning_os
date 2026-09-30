@@ -41,6 +41,10 @@ class _ResourceFilterBarState extends ConsumerState<ResourceFilterBar> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final filter = ref.watch(resourceFilterProvider);
+    // Global search can set the query from outside this page.
+    ref.listen(resourceFilterProvider.select((f) => f.query), (_, query) {
+      if (_search.text != query) _search.text = query;
+    });
     final categories = ref.watch(categoriesProvider).value ?? const [];
     final tags = ref.watch(allTagsProvider);
 

@@ -10,7 +10,7 @@ Only implement the phase the user asks for; never jump ahead.
 - [x] PHASE 03 — Resources
 - [x] PHASE 04 — Notes
 - [x] PHASE 05 — Tasks
-- [ ] PHASE 06 — Dashboard & Global Search
+- [x] PHASE 06 — Dashboard & Global Search
 - [ ] PHASE 07 — Notifications & Reminders
 - [ ] PHASE 08 — Backup / Import / Export
 - [ ] PHASE 09 — Polish / Performance / Accessibility / Production
@@ -77,5 +77,17 @@ Only implement the phase the user asks for; never jump ahead.
   touches sembast, and `findTooltip` for material_ui tooltips.
 - Avoid `Container(alignment: ...)` inside `Wrap`/`Row` children: it expands
   to the full available width.
+- Global search (`features/search`): `SearchIndex` is pure and ranks
+  exact > prefix > word > contains > all words > body; a leading `#`
+  searches tags. The index provider is autoDispose (alive only while the
+  dialog is open). Ctrl/⌘+K is handled by `GlobalSearchShortcut` in the
+  shell; `web/index.html` blocks the browser's own Ctrl+K. New searchable
+  kinds add an entry list to `SearchIndex` and a `SearchHit` subclass.
+- Filter bars keep their search field in sync with the filter provider
+  (search's "Show all" sets the query from outside the page).
+- Dashboard (`features/dashboard`): pure `DashboardStats` /
+  `DashboardSelectors` feed small providers; overall progress uses the
+  category rule over all resources. `AppPage` actions wrap on narrow
+  screens; `AppPage.documentTitle` overrides the browser tab title.
 - Before finishing a phase: `flutter analyze` clean, `flutter test` green,
   `flutter build web` succeeds.

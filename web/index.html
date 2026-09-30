@@ -52,6 +52,14 @@
       var splash = document.getElementById('splash');
       if (splash) splash.remove();
     });
+    // Ctrl/⌘+K opens the app's search. Stop the browser's own shortcut
+    // (address-bar search); Flutter still receives the key.
+    window.addEventListener('keydown', function (e) {
+      if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey &&
+          (e.key === 'k' || e.key === 'K')) {
+        e.preventDefault();
+      }
+    }, true);
   </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>

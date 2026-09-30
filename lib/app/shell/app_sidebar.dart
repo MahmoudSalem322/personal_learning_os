@@ -4,6 +4,7 @@ import '../../core/extensions/context_extensions.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../core/theme/app_typography.dart';
 import '../../core/widgets/app_logo.dart';
+import '../../features/search/presentation/search_launcher.dart';
 import '../../features/settings/presentation/widgets/language_selector.dart';
 import '../../features/settings/presentation/widgets/theme_mode_selector.dart';
 import '../navigation/app_destination.dart';
@@ -19,11 +20,15 @@ class AppSidebar extends StatelessWidget {
     required this.expanded,
     required this.onSelect,
     super.key,
+    this.showSearch = true,
   });
 
   final AppDestination selected;
   final bool expanded;
   final ValueChanged<AppDestination> onSelect;
+
+  /// Hidden in the mobile drawer, where the top bar has a search button.
+  final bool showSearch;
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +55,16 @@ class AppSidebar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               _Brand(expanded: expanded),
+              if (showSearch)
+                Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    horizontal,
+                    AppSpacing.xs,
+                    horizontal,
+                    AppSpacing.xxs,
+                  ),
+                  child: SearchLauncher(expanded: expanded),
+                ),
               Expanded(
                 child: FocusTraversalGroup(
                   child: ListView(

@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/routing/app_routes.dart';
 import '../../features/categories/presentation/categories_routes.dart';
+import '../../features/dashboard/presentation/dashboard_routes.dart';
 import '../../features/notes/presentation/notes_routes.dart';
 import '../../features/resources/presentation/resources_routes.dart';
 import '../../features/tasks/presentation/tasks_routes.dart';
@@ -36,13 +37,12 @@ final appRouterProvider = Provider<GoRouter>((ref) {
 /// Root route (with nested detail routes) of each section. Each phase
 /// replaces its destination's placeholder with the feature's routes.
 GoRoute _routeFor(AppDestination destination) => switch (destination) {
+  AppDestination.dashboard => dashboardRoute(),
   AppDestination.categories => categoriesRoute(),
   AppDestination.resources => resourcesRoute(),
   AppDestination.notes => notesRoute(),
   AppDestination.tasks => tasksRoute(),
-  AppDestination.dashboard ||
-  AppDestination.favorites ||
-  AppDestination.settings => GoRoute(
+  AppDestination.favorites || AppDestination.settings => GoRoute(
     path: destination.path,
     name: destination.name,
     pageBuilder: (context, state) => NoTransitionPage(

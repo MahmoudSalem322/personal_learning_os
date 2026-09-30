@@ -2,6 +2,7 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../../core/constants/app_sizes.dart';
 import '../../../core/extensions/context_extensions.dart';
+import '../../../core/extensions/date_extensions.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../l10n/app_localizations.dart';
 import '../domain/task.dart';
@@ -134,5 +135,19 @@ class TaskStatusBadge extends StatelessWidget {
       foreground: foreground,
       background: background,
     );
+  }
+}
+
+/// Due-date wording shared by task lists.
+extension TaskDueLabel on Task {
+  /// "Due today", "Overdue · Sep 12, 2026" or the plain date; empty when the
+  /// task has no due date.
+  String dueLabel(BuildContext context, DateTime now) {
+    final due = dueDate;
+    if (due == null) return '';
+    final l10n = context.l10n;
+    if (isDueOn(now)) return l10n.taskDueToday;
+    final date = context.formatDate(due);
+    return isOverdue(now) ? '${l10n.taskDueOverdue} · $date' : date;
   }
 }

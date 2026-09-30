@@ -21,6 +21,7 @@ class AppPage extends StatelessWidget {
     this.actions = const [],
     this.leading,
     this.backLabel,
+    this.documentTitle,
     this.onBack,
   }) : assert(
          (backLabel == null) == (onBack == null),
@@ -38,6 +39,10 @@ class AppPage extends StatelessWidget {
   /// Adds a "← label" link above the title for detail pages.
   final String? backLabel;
   final VoidCallback? onBack;
+
+  /// Browser tab title when it should differ from [title] (e.g. a greeting
+  /// as the heading, "Dashboard" in the tab).
+  final String? documentTitle;
 
   static EdgeInsets paddingFor(ScreenSize size) => switch (size) {
     ScreenSize.mobile => const EdgeInsets.all(AppSpacing.md),
@@ -113,9 +118,11 @@ class AppPage extends StatelessWidget {
                       ],
                     ),
                   if (actions.isNotEmpty)
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
+                    // Wraps on narrow phones instead of overflowing.
+                    Wrap(
                       spacing: AppSpacing.xs,
+                      runSpacing: AppSpacing.xs,
+                      crossAxisAlignment: WrapCrossAlignment.center,
                       children: actions,
                     ),
                 ],
@@ -132,7 +139,7 @@ class AppPage extends StatelessWidget {
     // disabled; only the visible page may set the browser tab title.
     if (!TickerMode.valuesOf(context).enabled) return page;
     return Title(
-      title: '$title · ${context.l10n.appTitle}',
+      title: '${documentTitle ?? title} · ${context.l10n.appTitle}',
       color: colors.primary,
       child: page,
     );

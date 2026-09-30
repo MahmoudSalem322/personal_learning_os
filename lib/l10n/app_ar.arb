@@ -383,5 +383,60 @@
   "sampleNoteRiverpodTitle": "Riverpod في صفحة واحدة",
   "sampleNoteRiverpodContent": "## الـ Providers\n\n1. `Provider` للقيم التي لا تتغير\n2. `NotifierProvider` للحالة التي لها دوال\n3. `StreamProvider` للبيانات الحية مثل استعلامات قاعدة البيانات\n\nاستخدم `ref.watch` داخل `build`، و `ref.read` داخل الـ callbacks.\n\n- [ ] تجربة `select` لتقليل إعادة البناء",
   "sampleNoteGitTitle": "أوامر Git التي أستخدمها يوميًا",
-  "sampleNoteGitContent": "## يوميًا\n\n```bash\ngit status\ngit add -p\ngit commit -m \"message\"\ngit push\n```\n\n## الفروع\n\n- `git switch -c feature/x` ينشئ فرعًا وينتقل إليه\n- `git rebase main` يحدّث الفرع\n\n- [x] ضبط الاسم والبريد\n- [ ] تعلّم الـ rebase التفاعلي"
+  "sampleNoteGitContent": "## يوميًا\n\n```bash\ngit status\ngit add -p\ngit commit -m \"message\"\ngit push\n```\n\n## الفروع\n\n- `git switch -c feature/x` ينشئ فرعًا وينتقل إليه\n- `git rebase main` يحدّث الفرع\n\n- [x] ضبط الاسم والبريد\n- [ ] تعلّم الـ rebase التفاعلي",
+
+  "searchTitle": "البحث",
+  "searchButton": "بحث…",
+  "searchTooltip": "بحث ({shortcut})",
+  "@searchTooltip": {
+    "placeholders": { "shortcut": { "type": "String" } }
+  },
+  "searchHint": "ابحث في المجالات والمصادر والملاحظات والمهام أو #الوسوم",
+  "searchEmptyTitle": "ابحث في كل شيء",
+  "searchEmptyMessage": "اعثر على المجالات والمصادر والملاحظات والمهام. ابدأ بـ # للبحث في الوسوم.",
+  "searchNoResultsTitle": "لا توجد نتائج لـ \"{query}\"",
+  "@searchNoResultsTitle": {
+    "placeholders": { "query": { "type": "String" } }
+  },
+  "searchNoResultsMessage": "جرّب كلمة أخرى أو تحقّق من الإملاء.",
+  "searchShowAll": "عرض الكل ({count})",
+  "@searchShowAll": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "searchKindTags": "الوسوم",
+  "searchTagItems": "{count, plural, =1{عنصر واحد} =2{عنصران} few{{count} عناصر} many{{count} عنصرًا} other{{count} عنصر}}",
+  "@searchTagItems": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "searchHintNavigate": "للتنقّل",
+  "searchHintOpen": "للفتح",
+  "searchHintClose": "للإغلاق",
+
+  "dashboardGreetingMorning": "صباح الخير",
+  "dashboardGreetingAfternoon": "نهارك سعيد",
+  "dashboardGreetingEvening": "مساء الخير",
+  "dashboardQuickAdd": "إضافة سريعة",
+  "quickAddCategory": "مجال",
+  "quickAddResource": "مصدر",
+  "quickAddNote": "ملاحظة",
+  "quickAddTask": "مهمة",
+  "dashboardStatResources": "المصادر",
+  "dashboardStatNotes": "الملاحظات",
+  "dashboardStatPendingTasks": "مهام قيد الانتظار",
+  "dashboardStatCompletedTasks": "مهام مكتملة",
+  "dashboardStatCategories": "المجالات",
+  "dashboardStatProgress": "التقدّم العام",
+  "dashboardViewAll": "عرض الكل",
+  "dashboardContinueLearning": "تابع التعلّم",
+  "dashboardContinueEmpty": "تظهر هنا المصادر التي بدأتها ولم تُنهِها بعد.",
+  "dashboardRecentResources": "أحدث المصادر",
+  "dashboardRecentEmpty": "تظهر هنا المصادر التي تضيفها.",
+  "dashboardTodayTasks": "مهام اليوم",
+  "dashboardTodayEmpty": "لا شيء مستحق اليوم. استمتع بالهدوء.",
+  "dashboardProgress": "تقدّم التعلّم",
+  "dashboardProgressEmpty": "أضف مصادر إلى مجال لتتابع تقدّمه.",
+  "dashboardFavorites": "المفضلة",
+  "dashboardFavoritesEmpty": "ضع نجمة على المصادر أو الملاحظات أو المهام لتبقى هنا.",
+  "dashboardWelcomeTitle": "أهلًا بك في Learning OS",
+  "dashboardWelcomeMessage": "أضف مجالًا وبعض المصادر لتبدأ، أو حمّل البيانات التجريبية لتستكشف التطبيق."
 }

@@ -2107,6 +2107,252 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'## Everyday\n\n```bash\ngit status\ngit add -p\ngit commit -m \"message\"\ngit push\n```\n\n## Branches\n\n- `git switch -c feature/x` creates and switches\n- `git rebase main` updates a branch\n\n- [x] Configure my name and email\n- [ ] Learn interactive rebase'**
   String get sampleNoteGitContent;
+
+  /// No description provided for @searchTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get searchTitle;
+
+  /// No description provided for @searchButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Search…'**
+  String get searchButton;
+
+  /// No description provided for @searchTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Search ({shortcut})'**
+  String searchTooltip(String shortcut);
+
+  /// No description provided for @searchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search categories, resources, notes, tasks or #tags'**
+  String get searchHint;
+
+  /// No description provided for @searchEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Search everything'**
+  String get searchEmptyTitle;
+
+  /// No description provided for @searchEmptyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Find categories, resources, notes and tasks. Start with # to search tags.'**
+  String get searchEmptyMessage;
+
+  /// No description provided for @searchNoResultsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No results for \"{query}\"'**
+  String searchNoResultsTitle(String query);
+
+  /// No description provided for @searchNoResultsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Try another word or check the spelling.'**
+  String get searchNoResultsMessage;
+
+  /// No description provided for @searchShowAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Show all {count}'**
+  String searchShowAll(int count);
+
+  /// No description provided for @searchKindTags.
+  ///
+  /// In en, this message translates to:
+  /// **'Tags'**
+  String get searchKindTags;
+
+  /// No description provided for @searchTagItems.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 item} other{{count} items}}'**
+  String searchTagItems(int count);
+
+  /// No description provided for @searchHintNavigate.
+  ///
+  /// In en, this message translates to:
+  /// **'to navigate'**
+  String get searchHintNavigate;
+
+  /// No description provided for @searchHintOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'to open'**
+  String get searchHintOpen;
+
+  /// No description provided for @searchHintClose.
+  ///
+  /// In en, this message translates to:
+  /// **'to close'**
+  String get searchHintClose;
+
+  /// No description provided for @dashboardGreetingMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Good morning'**
+  String get dashboardGreetingMorning;
+
+  /// No description provided for @dashboardGreetingAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Good afternoon'**
+  String get dashboardGreetingAfternoon;
+
+  /// No description provided for @dashboardGreetingEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Good evening'**
+  String get dashboardGreetingEvening;
+
+  /// No description provided for @dashboardQuickAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick add'**
+  String get dashboardQuickAdd;
+
+  /// No description provided for @quickAddCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get quickAddCategory;
+
+  /// No description provided for @quickAddResource.
+  ///
+  /// In en, this message translates to:
+  /// **'Resource'**
+  String get quickAddResource;
+
+  /// No description provided for @quickAddNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get quickAddNote;
+
+  /// No description provided for @quickAddTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Task'**
+  String get quickAddTask;
+
+  /// No description provided for @dashboardStatResources.
+  ///
+  /// In en, this message translates to:
+  /// **'Resources'**
+  String get dashboardStatResources;
+
+  /// No description provided for @dashboardStatNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get dashboardStatNotes;
+
+  /// No description provided for @dashboardStatPendingTasks.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending tasks'**
+  String get dashboardStatPendingTasks;
+
+  /// No description provided for @dashboardStatCompletedTasks.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed tasks'**
+  String get dashboardStatCompletedTasks;
+
+  /// No description provided for @dashboardStatCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get dashboardStatCategories;
+
+  /// No description provided for @dashboardStatProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Overall progress'**
+  String get dashboardStatProgress;
+
+  /// No description provided for @dashboardViewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'View all'**
+  String get dashboardViewAll;
+
+  /// No description provided for @dashboardContinueLearning.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue learning'**
+  String get dashboardContinueLearning;
+
+  /// No description provided for @dashboardContinueEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Resources you\'ve started but not finished show up here.'**
+  String get dashboardContinueEmpty;
+
+  /// No description provided for @dashboardRecentResources.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent resources'**
+  String get dashboardRecentResources;
+
+  /// No description provided for @dashboardRecentEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Resources you add show up here.'**
+  String get dashboardRecentEmpty;
+
+  /// No description provided for @dashboardTodayTasks.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s tasks'**
+  String get dashboardTodayTasks;
+
+  /// No description provided for @dashboardTodayEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing due today. Enjoy the calm.'**
+  String get dashboardTodayEmpty;
+
+  /// No description provided for @dashboardProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning progress'**
+  String get dashboardProgress;
+
+  /// No description provided for @dashboardProgressEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add resources to a category to track its progress.'**
+  String get dashboardProgressEmpty;
+
+  /// No description provided for @dashboardFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get dashboardFavorites;
+
+  /// No description provided for @dashboardFavoritesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Star resources, notes or tasks to keep them here.'**
+  String get dashboardFavoritesEmpty;
+
+  /// No description provided for @dashboardWelcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to your Learning OS'**
+  String get dashboardWelcomeTitle;
+
+  /// No description provided for @dashboardWelcomeMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a category and a few resources to get started, or load sample data to look around.'**
+  String get dashboardWelcomeMessage;
 }
 
 class _AppLocalizationsDelegate

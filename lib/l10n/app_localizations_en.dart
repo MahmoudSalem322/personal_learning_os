@@ -1160,4 +1160,148 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get sampleNoteGitContent =>
       '## Everyday\n\n```bash\ngit status\ngit add -p\ngit commit -m \"message\"\ngit push\n```\n\n## Branches\n\n- `git switch -c feature/x` creates and switches\n- `git rebase main` updates a branch\n\n- [x] Configure my name and email\n- [ ] Learn interactive rebase';
+
+  @override
+  String get searchTitle => 'Search';
+
+  @override
+  String get searchButton => 'Search…';
+
+  @override
+  String searchTooltip(String shortcut) {
+    return 'Search ($shortcut)';
+  }
+
+  @override
+  String get searchHint =>
+      'Search categories, resources, notes, tasks or #tags';
+
+  @override
+  String get searchEmptyTitle => 'Search everything';
+
+  @override
+  String get searchEmptyMessage =>
+      'Find categories, resources, notes and tasks. Start with # to search tags.';
+
+  @override
+  String searchNoResultsTitle(String query) {
+    return 'No results for \"$query\"';
+  }
+
+  @override
+  String get searchNoResultsMessage =>
+      'Try another word or check the spelling.';
+
+  @override
+  String searchShowAll(int count) {
+    return 'Show all $count';
+  }
+
+  @override
+  String get searchKindTags => 'Tags';
+
+  @override
+  String searchTagItems(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items',
+      one: '1 item',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get searchHintNavigate => 'to navigate';
+
+  @override
+  String get searchHintOpen => 'to open';
+
+  @override
+  String get searchHintClose => 'to close';
+
+  @override
+  String get dashboardGreetingMorning => 'Good morning';
+
+  @override
+  String get dashboardGreetingAfternoon => 'Good afternoon';
+
+  @override
+  String get dashboardGreetingEvening => 'Good evening';
+
+  @override
+  String get dashboardQuickAdd => 'Quick add';
+
+  @override
+  String get quickAddCategory => 'Category';
+
+  @override
+  String get quickAddResource => 'Resource';
+
+  @override
+  String get quickAddNote => 'Note';
+
+  @override
+  String get quickAddTask => 'Task';
+
+  @override
+  String get dashboardStatResources => 'Resources';
+
+  @override
+  String get dashboardStatNotes => 'Notes';
+
+  @override
+  String get dashboardStatPendingTasks => 'Pending tasks';
+
+  @override
+  String get dashboardStatCompletedTasks => 'Completed tasks';
+
+  @override
+  String get dashboardStatCategories => 'Categories';
+
+  @override
+  String get dashboardStatProgress => 'Overall progress';
+
+  @override
+  String get dashboardViewAll => 'View all';
+
+  @override
+  String get dashboardContinueLearning => 'Continue learning';
+
+  @override
+  String get dashboardContinueEmpty =>
+      'Resources you\'ve started but not finished show up here.';
+
+  @override
+  String get dashboardRecentResources => 'Recent resources';
+
+  @override
+  String get dashboardRecentEmpty => 'Resources you add show up here.';
+
+  @override
+  String get dashboardTodayTasks => 'Today\'s tasks';
+
+  @override
+  String get dashboardTodayEmpty => 'Nothing due today. Enjoy the calm.';
+
+  @override
+  String get dashboardProgress => 'Learning progress';
+
+  @override
+  String get dashboardProgressEmpty =>
+      'Add resources to a category to track its progress.';
+
+  @override
+  String get dashboardFavorites => 'Favorites';
+
+  @override
+  String get dashboardFavoritesEmpty =>
+      'Star resources, notes or tasks to keep them here.';
+
+  @override
+  String get dashboardWelcomeTitle => 'Welcome to your Learning OS';
+
+  @override
+  String get dashboardWelcomeMessage =>
+      'Add a category and a few resources to get started, or load sample data to look around.';
 }

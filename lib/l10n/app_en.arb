@@ -453,5 +453,60 @@
   "sampleNoteRiverpodTitle": "Riverpod in one page",
   "sampleNoteRiverpodContent": "## Providers\n\n1. `Provider` for values that never change\n2. `NotifierProvider` for state with methods\n3. `StreamProvider` for live data, like database queries\n\nUse `ref.watch` in `build`, and `ref.read` inside callbacks.\n\n- [ ] Try `select` to rebuild less often",
   "sampleNoteGitTitle": "Git commands I use daily",
-  "sampleNoteGitContent": "## Everyday\n\n```bash\ngit status\ngit add -p\ngit commit -m \"message\"\ngit push\n```\n\n## Branches\n\n- `git switch -c feature/x` creates and switches\n- `git rebase main` updates a branch\n\n- [x] Configure my name and email\n- [ ] Learn interactive rebase"
+  "sampleNoteGitContent": "## Everyday\n\n```bash\ngit status\ngit add -p\ngit commit -m \"message\"\ngit push\n```\n\n## Branches\n\n- `git switch -c feature/x` creates and switches\n- `git rebase main` updates a branch\n\n- [x] Configure my name and email\n- [ ] Learn interactive rebase",
+
+  "searchTitle": "Search",
+  "searchButton": "Search…",
+  "searchTooltip": "Search ({shortcut})",
+  "@searchTooltip": {
+    "placeholders": { "shortcut": { "type": "String" } }
+  },
+  "searchHint": "Search categories, resources, notes, tasks or #tags",
+  "searchEmptyTitle": "Search everything",
+  "searchEmptyMessage": "Find categories, resources, notes and tasks. Start with # to search tags.",
+  "searchNoResultsTitle": "No results for \"{query}\"",
+  "@searchNoResultsTitle": {
+    "placeholders": { "query": { "type": "String" } }
+  },
+  "searchNoResultsMessage": "Try another word or check the spelling.",
+  "searchShowAll": "Show all {count}",
+  "@searchShowAll": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "searchKindTags": "Tags",
+  "searchTagItems": "{count, plural, =1{1 item} other{{count} items}}",
+  "@searchTagItems": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "searchHintNavigate": "to navigate",
+  "searchHintOpen": "to open",
+  "searchHintClose": "to close",
+
+  "dashboardGreetingMorning": "Good morning",
+  "dashboardGreetingAfternoon": "Good afternoon",
+  "dashboardGreetingEvening": "Good evening",
+  "dashboardQuickAdd": "Quick add",
+  "quickAddCategory": "Category",
+  "quickAddResource": "Resource",
+  "quickAddNote": "Note",
+  "quickAddTask": "Task",
+  "dashboardStatResources": "Resources",
+  "dashboardStatNotes": "Notes",
+  "dashboardStatPendingTasks": "Pending tasks",
+  "dashboardStatCompletedTasks": "Completed tasks",
+  "dashboardStatCategories": "Categories",
+  "dashboardStatProgress": "Overall progress",
+  "dashboardViewAll": "View all",
+  "dashboardContinueLearning": "Continue learning",
+  "dashboardContinueEmpty": "Resources you've started but not finished show up here.",
+  "dashboardRecentResources": "Recent resources",
+  "dashboardRecentEmpty": "Resources you add show up here.",
+  "dashboardTodayTasks": "Today's tasks",
+  "dashboardTodayEmpty": "Nothing due today. Enjoy the calm.",
+  "dashboardProgress": "Learning progress",
+  "dashboardProgressEmpty": "Add resources to a category to track its progress.",
+  "dashboardFavorites": "Favorites",
+  "dashboardFavoritesEmpty": "Star resources, notes or tasks to keep them here.",
+  "dashboardWelcomeTitle": "Welcome to your Learning OS",
+  "dashboardWelcomeMessage": "Add a category and a few resources to get started, or load sample data to look around."
 }
