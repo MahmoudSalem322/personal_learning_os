@@ -52,9 +52,11 @@ abstract final class AppDatabase {
   /// reshaped. Never edit a migration that has already shipped.
   static const int schemaVersion = 1;
 
-  static Future<Database> open(DatabaseFactory factory) {
+  /// Opens the database at [path] (defaults to [name]; native platforms
+  /// pass an absolute file path).
+  static Future<Database> open(DatabaseFactory factory, {String path = name}) {
     return factory.openDatabase(
-      name,
+      path,
       version: schemaVersion,
       onVersionChanged: _migrate,
     );

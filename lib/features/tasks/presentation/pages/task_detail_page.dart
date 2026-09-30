@@ -14,6 +14,9 @@ import '../../../../core/widgets/app_page.dart';
 import '../../../../core/widgets/app_skeleton.dart';
 import '../../../../core/widgets/app_state_view.dart';
 import '../../../categories/presentation/widgets/category_chip.dart';
+import '../../../notes/presentation/note_actions.dart';
+import '../../../notes/presentation/notes_providers.dart';
+import '../../../notes/presentation/widgets/note_card.dart';
 import '../../../reminders/domain/reminder.dart';
 import '../../../reminders/presentation/reminder_actions.dart';
 import '../../../reminders/presentation/widgets/reminder_tile.dart';
@@ -196,43 +199,35 @@ class _TaskView extends ConsumerWidget {
                 ],
                 details,
                 Gap.md,
-                AppCard(
-                  padding: const EdgeInsets.all(AppSpacing.lg),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Semantics(
-                              header: true,
-                              child: Text(
-                                l10n.remindersSection,
-                                style: text.overline,
-                              ),
-                            ),
-                          ),
-                          TextButton.icon(
-                            onPressed: () => ReminderActions.openForm(
-                              context,
-                              target: ReminderTarget.task,
-                              targetId: t.id,
-                              targetTitle: t.title,
-                            ),
-                            icon: const Icon(
-                              Icons.add_alarm_rounded,
-                              size: AppSizes.iconSm,
-                            ),
-                            label: Text(l10n.reminderRemindMe),
-                          ),
-                        ],
-                      ),
-                      Gap.xs,
-                      ItemReminders(
-                        target: ReminderTarget.task,
-                        targetId: t.id,
-                      ),
-                    ],
+                _Panel(
+                  title: l10n.notesSection,
+                  action: TextButton.icon(
+                    onPressed: () =>
+                        NoteActions.createAndOpen(context, ref, taskId: t.id),
+                    icon: const Icon(Icons.add_rounded, size: AppSizes.iconSm),
+                    label: Text(l10n.notesNew),
+                  ),
+                  child: _TaskNotes(taskId: t.id),
+                ),
+                Gap.md,
+                _Panel(
+                  title: l10n.remindersSection,
+                  action: TextButton.icon(
+                    onPressed: () => ReminderActions.openForm(
+                      context,
+                      target: ReminderTarget.task,
+                      targetId: t.id,
+                      targetTitle: t.title,
+                    ),
+                    icon: const Icon(
+                      Icons.add_alarm_rounded,
+                      size: AppSizes.iconSm,
+                    ),
+                    label: Text(l10n.reminderRemindMe),
+                  ),
+                  child: ItemReminders(
+                    target: ReminderTarget.task,
+                    targetId: t.id,
                   ),
                 ),
               ],
@@ -240,6 +235,70 @@ class _TaskView extends ConsumerWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// A titled card with an action, for the sections under the details.
+class _Panel extends StatelessWidget {
+  const _Panel({
+    required this.title,
+    required this.action,
+    required this.child,
+  });
+
+  final String title;
+  final Widget action;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return AppCard(
+      padding: const EdgeInsets.all(AppSpacing.lg),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Semantics(
+                  header: true,
+                  child: Text(title, style: context.textStyles.overline),
+                ),
+              ),
+              action,
+            ],
+          ),
+          Gap.xs,
+          child,
+        ],
+      ),
+    );
+  }
+}
+
+/// Notes written for the task.
+class _TaskNotes extends ConsumerWidget {
+  const _TaskNotes({required this.taskId});
+
+  final String taskId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final notes = ref.watch(notesByTaskProvider(taskId)).value;
+    if (notes == null) return const AppSkeleton(height: 48);
+    if (notes.isEmpty) {
+      return Text(
+        context.l10n.notesNoneForTask,
+        style: context.textStyles.caption,
+      );
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: AppSpacing.xs,
+      children: [
+        for (final note in notes) NoteTile(key: ValueKey(note.id), note: note),
+      ],
     );
   }
 }

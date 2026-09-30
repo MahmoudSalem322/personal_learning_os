@@ -4,9 +4,11 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 
 import 'app/app.dart';
 import 'app/bootstrap.dart';
+import 'app/error_handling.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  installErrorHandlers();
   // Clean URLs (/notes instead of /#/notes). Static hosting must rewrite
   // unknown paths to index.html so deep links survive a refresh.
   usePathUrlStrategy();

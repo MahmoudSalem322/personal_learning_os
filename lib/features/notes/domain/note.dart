@@ -12,6 +12,7 @@ class Note {
     this.content = '',
     this.categoryId,
     this.resourceId,
+    this.taskId,
     List<String> tags = const [],
     this.isFavorite = false,
   }) : tags = List.unmodifiable(tags);
@@ -46,6 +47,7 @@ class Note {
       content: optional(_Keys.content),
       categoryId: optionalId(_Keys.categoryId),
       resourceId: optionalId(_Keys.resourceId),
+      taskId: optionalId(_Keys.taskId),
       tags: rawTags is List ? rawTags.whereType<String>().toList() : const [],
       isFavorite: json[_Keys.isFavorite] == true,
       createdAt: readDate(_Keys.createdAt),
@@ -62,6 +64,9 @@ class Note {
   final String content;
   final String? categoryId;
   final String? resourceId;
+
+  /// The task this note belongs to, if any.
+  final String? taskId;
   final List<String> tags;
   final bool isFavorite;
   final DateTime createdAt;
@@ -72,12 +77,14 @@ class Note {
 
   static const Object _unset = Object();
 
-  /// Pass `null` for [categoryId] or [resourceId] to remove the link.
+  /// Pass `null` for [categoryId], [resourceId] or [taskId] to remove the
+  /// link.
   Note copyWith({
     String? title,
     String? content,
     Object? categoryId = _unset,
     Object? resourceId = _unset,
+    Object? taskId = _unset,
     List<String>? tags,
     bool? isFavorite,
     DateTime? updatedAt,
@@ -92,6 +99,7 @@ class Note {
       resourceId: identical(resourceId, _unset)
           ? this.resourceId
           : resourceId as String?,
+      taskId: identical(taskId, _unset) ? this.taskId : taskId as String?,
       tags: tags ?? this.tags,
       isFavorite: isFavorite ?? this.isFavorite,
       createdAt: createdAt,
@@ -105,6 +113,7 @@ class Note {
     _Keys.content: content,
     _Keys.categoryId: categoryId,
     _Keys.resourceId: resourceId,
+    _Keys.taskId: taskId,
     _Keys.tags: tags,
     _Keys.isFavorite: isFavorite,
     _Keys.createdAt: createdAt.toUtc().toIso8601String(),
@@ -119,6 +128,7 @@ class Note {
       other.content == content &&
       other.categoryId == categoryId &&
       other.resourceId == resourceId &&
+      other.taskId == taskId &&
       listEquals(other.tags, tags) &&
       other.isFavorite == isFavorite &&
       other.createdAt.isAtSameMomentAs(createdAt) &&
@@ -131,6 +141,7 @@ class Note {
     content,
     categoryId,
     resourceId,
+    taskId,
     Object.hashAll(tags),
     isFavorite,
     createdAt.millisecondsSinceEpoch,
@@ -147,6 +158,7 @@ abstract final class _Keys {
   static const content = 'content';
   static const categoryId = 'categoryId';
   static const resourceId = 'resourceId';
+  static const taskId = 'taskId';
   static const tags = 'tags';
   static const isFavorite = 'isFavorite';
   static const createdAt = 'createdAt';

@@ -11,23 +11,32 @@ import '../../../categories/presentation/widgets/category_chip.dart';
 import '../../../resources/domain/resource.dart';
 import '../../../resources/presentation/widgets/resource_chip.dart';
 import '../../../resources/presentation/widgets/resource_picker_dialog.dart';
+import '../../../tasks/domain/task.dart';
+import '../../../tasks/presentation/widgets/task_chip.dart';
+import '../../../tasks/presentation/widgets/task_picker_dialog.dart';
 
-/// Category and resource pickers shown under the note title.
+/// Category, resource and task pickers shown under the note title.
 class NoteLinksBar extends ConsumerWidget {
   const NoteLinksBar({
     required this.categoryId,
     required this.resourceId,
+    required this.taskId,
     required this.onCategoryChanged,
     required this.onResourceChanged,
+    required this.onTaskChanged,
     super.key,
   });
 
   final String? categoryId;
   final String? resourceId;
+  final String? taskId;
   final ValueChanged<String?> onCategoryChanged;
 
   /// Receives the new resource (or `null` to unlink).
   final ValueChanged<Resource?> onResourceChanged;
+
+  /// Receives the new task (or `null` to unlink).
+  final ValueChanged<Task?> onTaskChanged;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -84,6 +93,18 @@ class NoteLinksBar extends ConsumerWidget {
           child: resourceId == null
               ? Text(l10n.noteResource)
               : ResourceChip(resourceId: resourceId),
+        ),
+        _LinkButton(
+          icon: Icons.check_circle_outline_rounded,
+          tooltip: l10n.noteTask,
+          onPressed: () async {
+            final pick = await showTaskPicker(context, selectedId: taskId);
+            if (pick == null) return;
+            onTaskChanged(pick.cleared ? null : pick.task);
+          },
+          child: taskId == null
+              ? Text(l10n.noteTask)
+              : TaskChip(taskId: taskId),
         ),
       ],
     );

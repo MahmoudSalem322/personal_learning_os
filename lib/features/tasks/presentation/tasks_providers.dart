@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/storage/storage_providers.dart';
+import '../../notes/data/note_links.dart';
+import '../../notes/presentation/notes_providers.dart';
 import '../data/local_task_repository.dart';
 import '../domain/task.dart';
 import '../domain/task_filter.dart';
@@ -11,8 +13,12 @@ final taskRepositoryProvider = Provider<TaskRepository>(
   (ref) => LocalTaskRepository(ref.watch(appDatabaseProvider)),
 );
 
+/// Notes linked to a task are kept when it is deleted.
 final taskServiceProvider = Provider<TaskService>(
-  (ref) => TaskService(ref.watch(taskRepositoryProvider)),
+  (ref) => TaskService(
+    ref.watch(taskRepositoryProvider),
+    links: [NoteTaskLinks(ref.watch(noteRepositoryProvider))],
+  ),
 );
 
 /// All tasks, most recently updated first; updates live.

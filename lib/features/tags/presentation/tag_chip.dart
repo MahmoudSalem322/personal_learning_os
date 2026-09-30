@@ -34,8 +34,9 @@ class TagChip extends StatelessWidget {
       padding: EdgeInsetsDirectional.only(
         start: AppSpacing.xs,
         end: onRemove == null ? AppSpacing.xs : 2,
-        top: 2,
-        bottom: 2,
+        // 3 + 3: 24 px tall, the WCAG 2.2 minimum target size.
+        top: 3,
+        bottom: 3,
       ),
       decoration: BoxDecoration(
         color: selected ? colors.primarySoft : colors.surfaceMuted,

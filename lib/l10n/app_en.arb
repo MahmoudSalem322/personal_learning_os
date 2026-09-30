@@ -15,19 +15,15 @@
   "navOpenMenu": "Open navigation menu",
   "navMainLabel": "Main navigation",
 
-  "dashboardSubtitle": "Your learning at a glance.",
   "categoriesSubtitle": "Organize your learning into focused areas.",
   "resourcesSubtitle": "Courses, videos, docs and articles in one library.",
   "notesSubtitle": "Capture what you learn, in your own words.",
   "tasksSubtitle": "Plan and track the next steps of your learning.",
   "favoritesSubtitle": "Everything you starred, in one place.",
+  "favoritesEmptyTitle": "No favorites yet",
+  "favoritesEmptyMessage": "Star resources, notes and tasks you come back to often. They'll all be here.",
+  "favoritesNoneOfKind": "Nothing starred here yet",
   "settingsSubtitle": "Personalize how Learning OS looks and works.",
-
-  "comingSoonTitle": "{section} is on its way",
-  "@comingSoonTitle": {
-    "placeholders": { "section": { "type": "String", "example": "Resources" } }
-  },
-  "comingSoonMessage": "This space is part of an upcoming phase. The foundation is ready, and it will appear here soon.",
 
   "themeLabel": "Theme",
   "themeLight": "Light",
@@ -313,6 +309,7 @@
   "notesNoResultsMessage": "Try a different search or clear the filters.",
   "notesSection": "Notes",
   "notesNoneForResource": "No notes for this resource yet",
+  "notesNoneForTask": "No notes for this task yet",
   "notesNoneForCategory": "No notes in {name} yet",
   "@notesNoneForCategory": {
     "placeholders": { "name": { "type": "String" } }
@@ -334,6 +331,8 @@
   "noteEmptyPreview": "Nothing to preview yet.",
   "noteResource": "Resource",
   "noteNoResource": "No resource",
+  "noteTask": "Task",
+  "noteNoTask": "No task",
   "noteTasks": "{done}/{total} done",
   "@noteTasks": {
     "placeholders": {
@@ -697,5 +696,13 @@
   "backupErrorDuplicates": "The same item appears more than once in {kind}.",
   "@backupErrorDuplicates": {
     "placeholders": { "kind": { "type": "String" } }
-  }
+  },
+  "errorWidgetFailed": "This part couldn't be shown.",
+  "notificationPrefBrowser": "Browser notifications",
+  "notificationPrefBrowserHint": "Also alert you while Learning OS is in the background. Your browser will ask for permission.",
+  "notificationBrowserBlocked": "The browser blocked notifications. Allow them in the site settings, then try again.",
+  "settingsShortcuts": "Keyboard shortcuts",
+  "shortcutSearch": "Search everything",
+  "shortcutNewItem": "New item on the current page (or Ctrl/⌘ + N outside the browser)",
+  "shortcutClose": "Close a dialog or search"
 }

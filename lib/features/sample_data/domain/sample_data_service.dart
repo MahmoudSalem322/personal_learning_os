@@ -137,7 +137,11 @@ class SampleDataService {
         if (aboutSample(n.targetId)) n.id,
     ]);
 
-    await _tasks.deleteAll(sampleIds((await _tasks.getAll()).map((t) => t.id)));
+    final tasks = sampleIds((await _tasks.getAll()).map((t) => t.id));
+    for (final id in tasks) {
+      await _notes.clearTask(id);
+    }
+    await _tasks.deleteAll(tasks);
     await _notes.deleteAll(sampleIds((await _notes.getAll()).map((n) => n.id)));
 
     final resources = sampleIds((await _resources.getAll()).map((r) => r.id));

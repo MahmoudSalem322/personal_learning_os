@@ -13,6 +13,7 @@ import '../../../../core/widgets/app_logo.dart';
 import '../../../../core/widgets/app_page.dart';
 import '../../../backup/presentation/backup_actions.dart';
 import '../../../notifications/presentation/widgets/notification_preferences_dialog.dart';
+import '../../../search/presentation/global_search_dialog.dart';
 import '../settings_controller.dart';
 import '../widgets/language_selector.dart';
 import '../widgets/theme_mode_selector.dart';
@@ -116,6 +117,19 @@ class SettingsPage extends ConsumerWidget {
                   ),
                 ],
               ),
+              // Phones rarely have a keyboard.
+              if (!context.screenSize.isMobile)
+                _Section(
+                  title: l10n.settingsShortcuts,
+                  children: [
+                    _Shortcut(
+                      keys: [searchShortcutLabel()],
+                      label: l10n.shortcutSearch,
+                    ),
+                    _Shortcut(keys: const ['N'], label: l10n.shortcutNewItem),
+                    _Shortcut(keys: const ['Esc'], label: l10n.shortcutClose),
+                  ],
+                ),
               _Section(title: l10n.settingsAbout, children: const [_About()]),
             ],
           ),
@@ -242,6 +256,31 @@ class _Row extends StatelessWidget {
             ],
           );
         },
+      ),
+    );
+  }
+}
+
+/// One keyboard shortcut: its keys and what it does.
+class _Shortcut extends StatelessWidget {
+  const _Shortcut({required this.keys, required this.label});
+
+  final List<String> keys;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
+      child: Row(
+        children: [
+          Expanded(child: Text(label, style: context.textStyles.body)),
+          Gap.md,
+          Wrap(
+            spacing: AppSpacing.xxs,
+            children: [for (final key in keys) KeyCap(label: key)],
+          ),
+        ],
       ),
     );
   }

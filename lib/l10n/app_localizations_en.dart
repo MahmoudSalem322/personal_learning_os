@@ -43,9 +43,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navMainLabel => 'Main navigation';
 
   @override
-  String get dashboardSubtitle => 'Your learning at a glance.';
-
-  @override
   String get categoriesSubtitle => 'Organize your learning into focused areas.';
 
   @override
@@ -62,16 +59,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get favoritesSubtitle => 'Everything you starred, in one place.';
 
   @override
+  String get favoritesEmptyTitle => 'No favorites yet';
+
+  @override
+  String get favoritesEmptyMessage =>
+      'Star resources, notes and tasks you come back to often. They\'ll all be here.';
+
+  @override
+  String get favoritesNoneOfKind => 'Nothing starred here yet';
+
+  @override
   String get settingsSubtitle => 'Personalize how Learning OS looks and works.';
-
-  @override
-  String comingSoonTitle(String section) {
-    return '$section is on its way';
-  }
-
-  @override
-  String get comingSoonMessage =>
-      'This space is part of an upcoming phase. The foundation is ready, and it will appear here soon.';
 
   @override
   String get themeLabel => 'Theme';
@@ -806,6 +804,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get notesNoneForResource => 'No notes for this resource yet';
 
   @override
+  String get notesNoneForTask => 'No notes for this task yet';
+
+  @override
   String notesNoneForCategory(String name) {
     return 'No notes in $name yet';
   }
@@ -857,6 +858,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noteNoResource => 'No resource';
+
+  @override
+  String get noteTask => 'Task';
+
+  @override
+  String get noteNoTask => 'No task';
 
   @override
   String noteTasks(int done, int total) {
@@ -1783,4 +1790,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String backupErrorDuplicates(String kind) {
     return 'The same item appears more than once in $kind.';
   }
+
+  @override
+  String get errorWidgetFailed => 'This part couldn\'t be shown.';
+
+  @override
+  String get notificationPrefBrowser => 'Browser notifications';
+
+  @override
+  String get notificationPrefBrowserHint =>
+      'Also alert you while Learning OS is in the background. Your browser will ask for permission.';
+
+  @override
+  String get notificationBrowserBlocked =>
+      'The browser blocked notifications. Allow them in the site settings, then try again.';
+
+  @override
+  String get settingsShortcuts => 'Keyboard shortcuts';
+
+  @override
+  String get shortcutSearch => 'Search everything';
+
+  @override
+  String get shortcutNewItem =>
+      'New item on the current page (or Ctrl/⌘ + N outside the browser)';
+
+  @override
+  String get shortcutClose => 'Close a dialog or search';
 }

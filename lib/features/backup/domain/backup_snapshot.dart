@@ -102,11 +102,13 @@ class BackupSnapshot {
       notes: [
         for (final n in notes)
           n.categoryId == keep(n.categoryId, categoryIds) &&
-                  n.resourceId == keep(n.resourceId, resourceIds)
+                  n.resourceId == keep(n.resourceId, resourceIds) &&
+                  n.taskId == keep(n.taskId, taskIds)
               ? n
               : n.copyWith(
                   categoryId: keep(n.categoryId, categoryIds),
                   resourceId: keep(n.resourceId, resourceIds),
+                  taskId: keep(n.taskId, taskIds),
                 ),
       ],
       tasks: [

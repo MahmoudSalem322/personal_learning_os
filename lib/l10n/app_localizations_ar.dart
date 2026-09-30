@@ -43,9 +43,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get navMainLabel => 'التنقل الرئيسي';
 
   @override
-  String get dashboardSubtitle => 'نظرة سريعة على رحلة تعلّمك.';
-
-  @override
   String get categoriesSubtitle => 'نظّم تعلّمك في مجالات واضحة ومركّزة.';
 
   @override
@@ -62,16 +59,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get favoritesSubtitle => 'كل ما أضفته إلى المفضلة في مكان واحد.';
 
   @override
+  String get favoritesEmptyTitle => 'لا توجد مفضلة بعد';
+
+  @override
+  String get favoritesEmptyMessage =>
+      'ضع نجمة على المصادر والملاحظات والمهام التي تعود إليها كثيرًا، وستجدها كلها هنا.';
+
+  @override
+  String get favoritesNoneOfKind => 'لا شيء في المفضلة هنا بعد';
+
+  @override
   String get settingsSubtitle => 'خصّص مظهر Learning OS وطريقة عمله.';
-
-  @override
-  String comingSoonTitle(String section) {
-    return 'قسم $section قادم قريبًا';
-  }
-
-  @override
-  String get comingSoonMessage =>
-      'هذه المساحة جزء من مرحلة قادمة. الأساس جاهز، وستظهر هنا قريبًا.';
 
   @override
   String get themeLabel => 'المظهر';
@@ -825,6 +823,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get notesNoneForResource => 'لا توجد ملاحظات لهذا المصدر بعد';
 
   @override
+  String get notesNoneForTask => 'لا توجد ملاحظات لهذه المهمة بعد';
+
+  @override
   String notesNoneForCategory(String name) {
     return 'لا توجد ملاحظات في $name بعد';
   }
@@ -877,6 +878,12 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noteNoResource => 'بدون مصدر';
+
+  @override
+  String get noteTask => 'المهمة';
+
+  @override
+  String get noteNoTask => 'بدون مهمة';
 
   @override
   String noteTasks(int done, int total) {
@@ -1828,4 +1835,31 @@ class AppLocalizationsAr extends AppLocalizations {
   String backupErrorDuplicates(String kind) {
     return 'يتكرّر العنصر نفسه أكثر من مرة في $kind.';
   }
+
+  @override
+  String get errorWidgetFailed => 'تعذّر عرض هذا الجزء.';
+
+  @override
+  String get notificationPrefBrowser => 'إشعارات المتصفح';
+
+  @override
+  String get notificationPrefBrowserHint =>
+      'نبّهني أيضًا عندما يكون Learning OS في الخلفية. سيطلب المتصفح إذنك.';
+
+  @override
+  String get notificationBrowserBlocked =>
+      'حظر المتصفح الإشعارات. اسمح بها من إعدادات الموقع ثم حاول مجددًا.';
+
+  @override
+  String get settingsShortcuts => 'اختصارات لوحة المفاتيح';
+
+  @override
+  String get shortcutSearch => 'البحث في كل شيء';
+
+  @override
+  String get shortcutNewItem =>
+      'عنصر جديد في الصفحة الحالية (أو Ctrl/⌘ + N خارج المتصفح)';
+
+  @override
+  String get shortcutClose => 'إغلاق نافذة أو البحث';
 }

@@ -103,6 +103,7 @@ class _NoteEditorState extends ConsumerState<_NoteEditor> {
   final FocusNode _contentFocus = FocusNode();
   late String? _categoryId = widget.note.categoryId;
   late String? _resourceId = widget.note.resourceId;
+  late String? _taskId = widget.note.taskId;
   late List<String> _tags = widget.note.tags;
   late _Mode _mode = widget.note.isBlank ? _Mode.write : _Mode.preview;
 
@@ -117,6 +118,7 @@ class _NoteEditorState extends ConsumerState<_NoteEditor> {
     content: _content.text,
     categoryId: _categoryId,
     resourceId: _resourceId,
+    taskId: _taskId,
     tags: _tags,
   );
 
@@ -315,6 +317,7 @@ class _NoteEditorState extends ConsumerState<_NoteEditor> {
         NoteLinksBar(
           categoryId: _categoryId,
           resourceId: _resourceId,
+          taskId: _taskId,
           onCategoryChanged: (id) {
             setState(() => _categoryId = id);
             _changed();
@@ -326,6 +329,18 @@ class _NoteEditorState extends ConsumerState<_NoteEditor> {
               // resource's category, unless it already has one.
               if (resource != null && _categoryId == null) {
                 _categoryId = resource.categoryId;
+              }
+            });
+            _changed();
+          },
+          onTaskChanged: (task) {
+            setState(() {
+              _taskId = task?.id;
+              // Same for a task: take its category and resource if the
+              // note has none yet.
+              if (task != null) {
+                _categoryId ??= task.categoryId;
+                _resourceId ??= task.resourceId;
               }
             });
             _changed();

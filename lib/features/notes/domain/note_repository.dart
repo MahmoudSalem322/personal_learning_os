@@ -31,4 +31,9 @@ abstract interface class NoteRepository {
   Future<List<String>> clearResource(String resourceId);
 
   Future<void> assignResource(String resourceId, Iterable<String> ids);
+
+  /// Unlinks [taskId] from every note; returns the changed ids.
+  Future<List<String>> clearTask(String taskId);
+
+  Future<void> assignTask(String taskId, Iterable<String> ids);
 }

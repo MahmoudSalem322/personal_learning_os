@@ -61,6 +61,7 @@ class TaskCard extends ConsumerWidget {
                 width: AppSizes.iconLg,
                 child: Checkbox(
                   value: t.isCompleted,
+                  semanticLabel: t.title,
                   // Tapping the card opens the page; the checkbox stops here.
                   onChanged: (_) =>
                       TaskActions.toggleCompleted(context, ref, t),

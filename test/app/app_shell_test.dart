@@ -41,7 +41,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(AppSidebar), findsNothing, reason: 'drawer closes');
-      expect(find.text('Favorites is on its way'), findsOneWidget);
+      expect(find.text('No favorites yet'), findsOneWidget);
     });
 
     testWidgets('no layout overflows at any breakpoint', (tester) async {
@@ -110,7 +110,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(router.state.uri.path, '/favorites');
-      expect(find.text('Favorites is on its way'), findsOneWidget);
+      expect(find.text('No favorites yet'), findsOneWidget);
     });
 
     testWidgets('deep links open the matching section', (tester) async {
@@ -118,7 +118,7 @@ void main() {
       container.read(appRouterProvider).go('/favorites');
       await tester.pumpAndSettle();
 
-      expect(find.text('Favorites is on its way'), findsOneWidget);
+      expect(find.text('No favorites yet'), findsOneWidget);
     });
 
     testWidgets('root redirects to the dashboard', (tester) async {

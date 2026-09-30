@@ -38,6 +38,7 @@ class NoteService {
       content: d.content,
       categoryId: d.categoryId,
       resourceId: d.resourceId,
+      taskId: d.taskId,
       tags: d.tags,
       createdAt: now,
       updatedAt: now,
@@ -56,6 +57,7 @@ class NoteService {
       content: d.content,
       categoryId: d.categoryId,
       resourceId: d.resourceId,
+      taskId: d.taskId,
       tags: d.tags,
       updatedAt: _clock(),
     );

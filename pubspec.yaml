@@ -2,7 +2,7 @@ name: personal_learning_os
 description: "Personal Learning OS - an offline-first workspace for organizing learning resources, notes, tasks and progress."
 publish_to: 'none'
 
-version: 0.1.0+1
+version: 1.0.0+1
 
 environment:
   sdk: ^3.13.2
@@ -30,6 +30,9 @@ dependencies:
   web: ^1.1.1
   # Markdown parsing for notes (official Dart package, pure Dart).
   markdown: ^7.3.1
+  path_provider: ^2.1.6
+  url_launcher: ^6.3.2
+  file_picker: ^13.1.0
 
 dev_dependencies:
   flutter_test:

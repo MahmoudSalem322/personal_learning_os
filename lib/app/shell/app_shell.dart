@@ -13,6 +13,7 @@ import '../../features/search/presentation/global_search_dialog.dart';
 import '../../features/search/presentation/search_launcher.dart';
 import '../navigation/app_destination.dart';
 import 'app_sidebar.dart';
+import 'new_item_shortcut.dart';
 import 'storage_warning_banner.dart';
 
 /// Responsive frame around every top-level page.
@@ -43,13 +44,16 @@ class AppShell extends StatelessWidget {
     // which would hide the sidebar from screen readers unless the content
     // lives in its own semantics container.
     final content = NotificationToaster(
-      child: Semantics(
-        container: true,
-        child: Column(
-          children: [
-            const StorageWarningBanner(),
-            Expanded(child: navigationShell),
-          ],
+      child: NewItemShortcut(
+        destination: _current,
+        child: Semantics(
+          container: true,
+          child: Column(
+            children: [
+              const StorageWarningBanner(),
+              Expanded(child: navigationShell),
+            ],
+          ),
         ),
       ),
     );

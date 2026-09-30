@@ -137,7 +137,13 @@ class _ResourceView extends ConsumerWidget {
               children: [
                 Icon(r.type.icon, size: AppSizes.iconSm),
                 Gap.xs,
-                Text(r.type.label(l10n)),
+                Flexible(
+                  child: Text(
+                    r.type.label(l10n),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
               ],
             ),
           ),

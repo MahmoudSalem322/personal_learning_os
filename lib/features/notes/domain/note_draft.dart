@@ -15,6 +15,7 @@ class NoteDraft {
     this.content = '',
     this.categoryId,
     this.resourceId,
+    this.taskId,
     this.tags = const [],
   });
 
@@ -23,6 +24,7 @@ class NoteDraft {
     content: note.content,
     categoryId: note.categoryId,
     resourceId: note.resourceId,
+    taskId: note.taskId,
     tags: note.tags,
   );
 
@@ -30,6 +32,7 @@ class NoteDraft {
   final String content;
   final String? categoryId;
   final String? resourceId;
+  final String? taskId;
   final List<String> tags;
 
   /// Title trimmed (content is kept as typed: whitespace matters in
@@ -39,6 +42,7 @@ class NoteDraft {
     content: content,
     categoryId: categoryId,
     resourceId: resourceId,
+    taskId: taskId,
     tags: TagRules.normalizeAll(tags),
   );
 }

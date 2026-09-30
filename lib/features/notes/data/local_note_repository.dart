@@ -22,6 +22,7 @@ class LocalNoteRepository implements NoteRepository {
 
   static const String _categoryField = 'categoryId';
   static const String _resourceField = 'resourceId';
+  static const String _taskField = 'taskId';
 
   @override
   Stream<List<Note>> watchAll() => _docs.watchAll();
@@ -62,4 +63,12 @@ class LocalNoteRepository implements NoteRepository {
   @override
   Future<void> assignResource(String resourceId, Iterable<String> ids) =>
       _docs.setField(_resourceField, resourceId, ids);
+
+  @override
+  Future<List<String>> clearTask(String taskId) =>
+      _docs.clearField(_taskField, taskId);
+
+  @override
+  Future<void> assignTask(String taskId, Iterable<String> ids) =>
+      _docs.setField(_taskField, taskId, ids);
 }

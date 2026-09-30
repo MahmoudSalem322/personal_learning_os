@@ -67,15 +67,4 @@ enum AppDestination {
     AppDestination.favorites => l10n.navFavorites,
     AppDestination.settings => l10n.navSettings,
   };
-
-  String subtitle(AppLocalizations l10n) => switch (this) {
-    AppDestination.dashboard => l10n.dashboardSubtitle,
-    AppDestination.notifications => l10n.notificationsSubtitle,
-    AppDestination.categories => l10n.categoriesSubtitle,
-    AppDestination.resources => l10n.resourcesSubtitle,
-    AppDestination.notes => l10n.notesSubtitle,
-    AppDestination.tasks => l10n.tasksSubtitle,
-    AppDestination.favorites => l10n.favoritesSubtitle,
-    AppDestination.settings => l10n.settingsSubtitle,
-  };
 }

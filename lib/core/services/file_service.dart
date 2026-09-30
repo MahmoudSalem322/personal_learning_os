@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'file_service_stub.dart'
     if (dart.library.js_interop) 'file_service_web.dart'
+    if (dart.library.io) 'file_service_io.dart'
     as platform;
 
 /// A text file the user picked.

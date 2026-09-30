@@ -6,3 +6,6 @@ DatabaseFactory get platformDatabaseFactory => databaseFactoryWeb;
 
 /// Whether [platformDatabaseFactory] keeps data across sessions.
 const bool platformStorageIsPersistent = true;
+
+/// Where [platformDatabaseFactory] opens the database called [name].
+Future<String> platformDatabasePath(String name) async => name;

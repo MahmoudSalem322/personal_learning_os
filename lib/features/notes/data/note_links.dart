@@ -1,5 +1,6 @@
 import '../../categories/domain/category_links.dart';
 import '../../resources/domain/resource_links.dart';
+import '../../tasks/domain/task_item_links.dart';
 import '../domain/note_repository.dart';
 
 /// Deleting a category keeps its notes (uncategorized); Undo re-links them.
@@ -30,4 +31,18 @@ class NoteResourceLinks implements ResourceLinks {
   @override
   Future<void> reattach(String resourceId, List<String> itemIds) =>
       _notes.assignResource(resourceId, itemIds);
+}
+
+/// Deleting a task keeps its notes (unlinked); Undo re-links them.
+class NoteTaskLinks implements TaskItemLinks {
+  NoteTaskLinks(this._notes);
+
+  final NoteRepository _notes;
+
+  @override
+  Future<List<String>> detach(String taskId) => _notes.clearTask(taskId);
+
+  @override
+  Future<void> reattach(String taskId, List<String> itemIds) =>
+      _notes.assignTask(taskId, itemIds);
 }

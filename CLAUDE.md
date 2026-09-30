@@ -13,7 +13,7 @@ Only implement the phase the user asks for; never jump ahead.
 - [x] PHASE 06 — Dashboard & Global Search
 - [x] PHASE 07 — Notifications & Reminders
 - [x] PHASE 08 — Backup / Import / Export
-- [ ] PHASE 09 — Polish / Performance / Accessibility / Production
+- [x] PHASE 09 — Polish / Performance / Accessibility / Production
 
 ## Conventions
 
@@ -113,5 +113,23 @@ Only implement the phase the user asks for; never jump ahead.
   tests override it with `FakeFileService` (`test/helpers/test_app.dart`).
   Settings restored from a backup are pushed to the UI with
   `SettingsController.adopt`.
+- Platforms: web and Android. Platform code lives behind interfaces with
+  conditional imports (`stub` / `web` via `dart.library.js_interop` / `io`
+  via `dart.library.io`): storage factory + path, `UrlOpener`,
+  `FileService`, `SystemNotifier`. Tests never hit the io versions (they
+  pass an in-memory factory and fakes).
+- Notes can link to a task (`Note.taskId`); deleting a task keeps its notes
+  unlinked via `TaskItemLinks` / `NoteTaskLinks`, Undo re-links them.
+- Keyboard: Ctrl/⌘+K search, N (or Ctrl/⌘+N outside the browser) creates
+  the current section's item (`NewItemShortcut`), Esc closes dialogs.
+- Accessibility and scale are tested: `test/app/accessibility_test.dart`
+  (labels, WCAG AA contrast, 24×24 targets on every page, light/dark) and
+  `test/app/performance_test.dart` (1000 items per kind). Add new pages to
+  the accessibility list; status colors in `AppPalette` are tuned for 4.5:1.
+- Web offline: `web/sw.js` (network-first app files, cache-first CDN
+  engine/fonts). Build with `--no-web-resources-cdn` for production.
+- Android APK: `flutter build apk --release --target-platform
+  android-arm64` (this machine's Application Control policy blocks the
+  32-bit ARM `gen_snapshot`). Signed with the debug key.
 - Before finishing a phase: `flutter analyze` clean, `flutter test` green,
-  `flutter build web` succeeds.
+  `flutter build web` succeeds (and the APK for Android changes).

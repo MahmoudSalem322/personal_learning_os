@@ -10,6 +10,7 @@ import '../../../core/routing/app_routes.dart';
 import '../../../core/widgets/app_confirm_dialog.dart';
 import '../../../core/widgets/app_toast.dart';
 import '../../resources/presentation/resources_providers.dart';
+import '../../tasks/presentation/tasks_providers.dart';
 import '../domain/note.dart';
 import '../domain/note_draft.dart';
 import 'notes_providers.dart';
@@ -24,19 +25,34 @@ abstract final class NoteActions {
     WidgetRef ref, {
     String? categoryId,
     String? resourceId,
+    String? taskId,
   }) async {
     var category = categoryId;
-    if (category == null && resourceId != null) {
+    var resource = resourceId;
+    if (taskId != null) {
+      final task = (ref.read(tasksProvider).value ?? const [])
+          .where((t) => t.id == taskId)
+          .firstOrNull;
+      category ??= task?.categoryId;
+      resource ??= task?.resourceId;
+    }
+    if (category == null && resource != null) {
       final resources = ref.read(resourcesProvider).value ?? const [];
       category = resources
-          .where((r) => r.id == resourceId)
+          .where((r) => r.id == resource)
           .firstOrNull
           ?.categoryId;
     }
     try {
       final note = await ref
           .read(noteServiceProvider)
-          .create(NoteDraft(categoryId: category, resourceId: resourceId));
+          .create(
+            NoteDraft(
+              categoryId: category,
+              resourceId: resource,
+              taskId: taskId,
+            ),
+          );
       if (context.mounted) context.go(AppRoutes.note(note.id));
     } on AppException {
       if (context.mounted) {

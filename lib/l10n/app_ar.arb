@@ -14,16 +14,15 @@
   "navOpenMenu": "فتح قائمة التنقل",
   "navMainLabel": "التنقل الرئيسي",
 
-  "dashboardSubtitle": "نظرة سريعة على رحلة تعلّمك.",
   "categoriesSubtitle": "نظّم تعلّمك في مجالات واضحة ومركّزة.",
   "resourcesSubtitle": "الدورات والفيديوهات والتوثيقات والمقالات في مكتبة واحدة.",
   "notesSubtitle": "دوّن ما تتعلّمه بأسلوبك الخاص.",
   "tasksSubtitle": "خطّط وتابع خطواتك القادمة في التعلّم.",
   "favoritesSubtitle": "كل ما أضفته إلى المفضلة في مكان واحد.",
+  "favoritesEmptyTitle": "لا توجد مفضلة بعد",
+  "favoritesEmptyMessage": "ضع نجمة على المصادر والملاحظات والمهام التي تعود إليها كثيرًا، وستجدها كلها هنا.",
+  "favoritesNoneOfKind": "لا شيء في المفضلة هنا بعد",
   "settingsSubtitle": "خصّص مظهر Learning OS وطريقة عمله.",
-
-  "comingSoonTitle": "قسم {section} قادم قريبًا",
-  "comingSoonMessage": "هذه المساحة جزء من مرحلة قادمة. الأساس جاهز، وستظهر هنا قريبًا.",
 
   "themeLabel": "المظهر",
   "themeLight": "فاتح",
@@ -255,6 +254,7 @@
   "notesNoResultsMessage": "جرّب بحثًا مختلفًا أو امسح الفلاتر.",
   "notesSection": "الملاحظات",
   "notesNoneForResource": "لا توجد ملاحظات لهذا المصدر بعد",
+  "notesNoneForTask": "لا توجد ملاحظات لهذه المهمة بعد",
   "notesNoneForCategory": "لا توجد ملاحظات في {name} بعد",
   "notesNoneMessage": "دوّن ما تتعلّمه وهو ما زال حاضرًا في ذهنك.",
   "sortRecentlyUpdated": "المُحدّث مؤخرًا",
@@ -273,6 +273,8 @@
   "noteEmptyPreview": "لا يوجد ما يُعرض بعد.",
   "noteResource": "المصدر",
   "noteNoResource": "بدون مصدر",
+  "noteTask": "المهمة",
+  "noteNoTask": "بدون مهمة",
   "noteTasks": "{done} من {total} مكتملة",
   "noteCreateError": "تعذّر إنشاء الملاحظة. يرجى المحاولة مرة أخرى.",
   "noteUpdateError": "تعذّر تحديث الملاحظة. يرجى المحاولة مرة أخرى.",
@@ -627,5 +629,13 @@
   "backupErrorDuplicates": "يتكرّر العنصر نفسه أكثر من مرة في {kind}.",
   "@backupErrorDuplicates": {
     "placeholders": { "kind": { "type": "String" } }
-  }
+  },
+  "errorWidgetFailed": "تعذّر عرض هذا الجزء.",
+  "notificationPrefBrowser": "إشعارات المتصفح",
+  "notificationPrefBrowserHint": "نبّهني أيضًا عندما يكون Learning OS في الخلفية. سيطلب المتصفح إذنك.",
+  "notificationBrowserBlocked": "حظر المتصفح الإشعارات. اسمح بها من إعدادات الموقع ثم حاول مجددًا.",
+  "settingsShortcuts": "اختصارات لوحة المفاتيح",
+  "shortcutSearch": "البحث في كل شيء",
+  "shortcutNewItem": "عنصر جديد في الصفحة الحالية (أو Ctrl/⌘ + N خارج المتصفح)",
+  "shortcutClose": "إغلاق نافذة أو البحث"
 }

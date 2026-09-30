@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'url_opener_stub.dart'
     if (dart.library.js_interop) 'url_opener_web.dart'
+    if (dart.library.io) 'url_opener_io.dart'
     as platform;
 
 /// Opens external links. Abstracted so widgets and tests don't depend on

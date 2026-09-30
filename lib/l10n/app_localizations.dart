@@ -164,12 +164,6 @@ abstract class AppLocalizations {
   /// **'Main navigation'**
   String get navMainLabel;
 
-  /// No description provided for @dashboardSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Your learning at a glance.'**
-  String get dashboardSubtitle;
-
   /// No description provided for @categoriesSubtitle.
   ///
   /// In en, this message translates to:
@@ -200,23 +194,29 @@ abstract class AppLocalizations {
   /// **'Everything you starred, in one place.'**
   String get favoritesSubtitle;
 
+  /// No description provided for @favoritesEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No favorites yet'**
+  String get favoritesEmptyTitle;
+
+  /// No description provided for @favoritesEmptyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Star resources, notes and tasks you come back to often. They\'ll all be here.'**
+  String get favoritesEmptyMessage;
+
+  /// No description provided for @favoritesNoneOfKind.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing starred here yet'**
+  String get favoritesNoneOfKind;
+
   /// No description provided for @settingsSubtitle.
   ///
   /// In en, this message translates to:
   /// **'Personalize how Learning OS looks and works.'**
   String get settingsSubtitle;
-
-  /// No description provided for @comingSoonTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'{section} is on its way'**
-  String comingSoonTitle(String section);
-
-  /// No description provided for @comingSoonMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'This space is part of an upcoming phase. The foundation is ready, and it will appear here soon.'**
-  String get comingSoonMessage;
 
   /// No description provided for @themeLabel.
   ///
@@ -1466,6 +1466,12 @@ abstract class AppLocalizations {
   /// **'No notes for this resource yet'**
   String get notesNoneForResource;
 
+  /// No description provided for @notesNoneForTask.
+  ///
+  /// In en, this message translates to:
+  /// **'No notes for this task yet'**
+  String get notesNoneForTask;
+
   /// No description provided for @notesNoneForCategory.
   ///
   /// In en, this message translates to:
@@ -1567,6 +1573,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No resource'**
   String get noteNoResource;
+
+  /// No description provided for @noteTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Task'**
+  String get noteTask;
+
+  /// No description provided for @noteNoTask.
+  ///
+  /// In en, this message translates to:
+  /// **'No task'**
+  String get noteNoTask;
 
   /// No description provided for @noteTasks.
   ///
@@ -3151,6 +3169,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The same item appears more than once in {kind}.'**
   String backupErrorDuplicates(String kind);
+
+  /// No description provided for @errorWidgetFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'This part couldn\'t be shown.'**
+  String get errorWidgetFailed;
+
+  /// No description provided for @notificationPrefBrowser.
+  ///
+  /// In en, this message translates to:
+  /// **'Browser notifications'**
+  String get notificationPrefBrowser;
+
+  /// No description provided for @notificationPrefBrowserHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Also alert you while Learning OS is in the background. Your browser will ask for permission.'**
+  String get notificationPrefBrowserHint;
+
+  /// No description provided for @notificationBrowserBlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'The browser blocked notifications. Allow them in the site settings, then try again.'**
+  String get notificationBrowserBlocked;
+
+  /// No description provided for @settingsShortcuts.
+  ///
+  /// In en, this message translates to:
+  /// **'Keyboard shortcuts'**
+  String get settingsShortcuts;
+
+  /// No description provided for @shortcutSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search everything'**
+  String get shortcutSearch;
+
+  /// No description provided for @shortcutNewItem.
+  ///
+  /// In en, this message translates to:
+  /// **'New item on the current page (or Ctrl/⌘ + N outside the browser)'**
+  String get shortcutNewItem;
+
+  /// No description provided for @shortcutClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Close a dialog or search'**
+  String get shortcutClose;
 }
 
 class _AppLocalizationsDelegate

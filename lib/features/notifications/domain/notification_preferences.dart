@@ -8,6 +8,7 @@ class NotificationPreferences {
     this.reminders = true,
     this.upcomingTasks = true,
     this.overdueTasks = true,
+    this.browser = false,
   });
 
   /// Missing or invalid values fall back to the defaults (all on).
@@ -19,6 +20,7 @@ class NotificationPreferences {
       reminders: read(_Keys.reminders),
       upcomingTasks: read(_Keys.upcomingTasks),
       overdueTasks: read(_Keys.overdueTasks),
+      browser: json[_Keys.browser] == true,
     );
   }
 
@@ -36,6 +38,10 @@ class NotificationPreferences {
   /// Open tasks past their due date.
   final bool overdueTasks;
 
+  /// Also show new notifications as browser notifications while the app is
+  /// in the background (web only; needs the browser's permission).
+  final bool browser;
+
   bool get allowsReminders => enabled && reminders;
   bool get allowsUpcoming => enabled && upcomingTasks;
   bool get allowsOverdue => enabled && overdueTasks;
@@ -45,12 +51,14 @@ class NotificationPreferences {
     bool? reminders,
     bool? upcomingTasks,
     bool? overdueTasks,
+    bool? browser,
   }) {
     return NotificationPreferences(
       enabled: enabled ?? this.enabled,
       reminders: reminders ?? this.reminders,
       upcomingTasks: upcomingTasks ?? this.upcomingTasks,
       overdueTasks: overdueTasks ?? this.overdueTasks,
+      browser: browser ?? this.browser,
     );
   }
 
@@ -59,6 +67,7 @@ class NotificationPreferences {
     _Keys.reminders: reminders,
     _Keys.upcomingTasks: upcomingTasks,
     _Keys.overdueTasks: overdueTasks,
+    _Keys.browser: browser,
   };
 
   @override
@@ -67,11 +76,12 @@ class NotificationPreferences {
       other.enabled == enabled &&
       other.reminders == reminders &&
       other.upcomingTasks == upcomingTasks &&
-      other.overdueTasks == overdueTasks;
+      other.overdueTasks == overdueTasks &&
+      other.browser == browser;
 
   @override
   int get hashCode =>
-      Object.hash(enabled, reminders, upcomingTasks, overdueTasks);
+      Object.hash(enabled, reminders, upcomingTasks, overdueTasks, browser);
 }
 
 abstract final class _Keys {
@@ -79,4 +89,5 @@ abstract final class _Keys {
   static const reminders = 'reminders';
   static const upcomingTasks = 'upcomingTasks';
   static const overdueTasks = 'overdueTasks';
+  static const browser = 'browser';
 }

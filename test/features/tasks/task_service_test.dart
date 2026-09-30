@@ -185,11 +185,11 @@ void main() {
       final created = await service.create(draft('Practice'));
       final deleted = await service.delete(created.id);
 
-      expect(deleted.title, 'Practice');
+      expect(deleted.task.title, 'Practice');
       expect(await repository.getById(created.id), isNull);
 
       await service.restore(deleted);
-      expect(await repository.getById(created.id), deleted);
+      expect(await repository.getById(created.id), deleted.task);
     });
 
     test('deleting an unknown id throws NotFoundException', () async {

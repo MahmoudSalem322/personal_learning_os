@@ -25,7 +25,13 @@ Future<List<Override>> bootstrap({
   Database database;
   var status = isPersistent ? StorageStatus.persistent : StorageStatus.volatile;
   try {
-    database = await AppDatabase.open(factory);
+    database = await AppDatabase.open(
+      factory,
+      // Tests pass their own factory; only the platform one needs a path.
+      path: databaseFactory == null
+          ? await platformDatabasePath(AppDatabase.name)
+          : AppDatabase.name,
+    );
   } catch (error, stackTrace) {
     developer.log(
       'Persistent storage unavailable, using in-memory database',

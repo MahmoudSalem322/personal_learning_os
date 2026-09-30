@@ -66,6 +66,15 @@ final notesByResourceProvider = Provider.family<AsyncValue<List<Note>>, String>(
       ),
 );
 
+/// Notes linked to one task.
+final notesByTaskProvider = Provider.family<AsyncValue<List<Note>>, String>(
+  (ref, taskId) => ref
+      .watch(notesProvider)
+      .whenData(
+        (all) => all.where((n) => n.taskId == taskId && !n.isBlank).toList(),
+      ),
+);
+
 /// Tags used by notes, for filters and suggestions.
 final noteTagsProvider = Provider<List<String>>((ref) {
   final notes = ref.watch(notesProvider).value ?? const [];

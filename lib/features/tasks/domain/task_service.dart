@@ -3,16 +3,23 @@ import '../../../core/utils/id_generator.dart';
 import '../../tags/domain/tags.dart';
 import 'task.dart';
 import 'task_draft.dart';
+import 'task_item_links.dart';
 import 'task_repository.dart';
 
 /// Use cases for tasks: validation, ids, timestamps, status changes
 /// (including [Task.completedAt] bookkeeping) and delete + restore.
 class TaskService {
-  TaskService(this._repository, {IdGenerator? ids, DateTime Function()? clock})
-    : _ids = ids ?? IdGenerator(),
-      _clock = clock ?? DateTime.now;
+  TaskService(
+    this._repository, {
+    List<TaskItemLinks> links = const [],
+    IdGenerator? ids,
+    DateTime Function()? clock,
+  }) : _links = List.unmodifiable(links),
+       _ids = ids ?? IdGenerator(),
+       _clock = clock ?? DateTime.now;
 
   final TaskRepository _repository;
+  final List<TaskItemLinks> _links;
   final IdGenerator _ids;
   final DateTime Function() _clock;
 
@@ -132,14 +139,23 @@ class TaskService {
     return updated;
   }
 
-  /// Deletes the task and returns it so the caller can offer Undo.
-  Future<Task> delete(String id) async {
+  /// Deletes the task. Linked items (notes) are kept and unlinked; the
+  /// result lets the caller offer Undo.
+  Future<DeletedTask> delete(String id) async {
     final current = await _require(id);
+    final detached = [for (final links in _links) await links.detach(id)];
     await _repository.delete(id);
-    return current;
+    return DeletedTask(current, detached);
   }
 
-  Future<void> restore(Task task) => _repository.save(task);
+  /// Undo for [delete]: puts the task back unchanged and re-links the
+  /// items that were unlinked.
+  Future<void> restore(DeletedTask deleted) async {
+    await _repository.save(deleted.task);
+    for (var i = 0; i < _links.length && i < deleted.detached.length; i++) {
+      await _links[i].reattach(deleted.task.id, deleted.detached[i]);
+    }
+  }
 
   TaskDraft _validated(TaskDraft draft) {
     final errors = validate(draft);

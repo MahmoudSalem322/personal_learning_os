@@ -13,7 +13,8 @@ abstract final class AppPalette {
   static const Color indigo950 = Color(0xFF232248);
 
   static const Color teal400 = Color(0xFF2DC4B2);
-  static const Color teal600 = Color(0xFF0E8C80);
+  // Tuned so text on teal50 and white passes WCAG AA (4.7:1+).
+  static const Color teal600 = Color(0xFF0B7A70);
   static const Color teal50 = Color(0xFFE8F7F5);
   static const Color teal950 = Color(0xFF0F2E2B);
 
@@ -40,7 +41,8 @@ abstract final class AppPalette {
   static const Color green50 = Color(0xFFEAF6EE);
   static const Color amber600 = Color(0xFFB45309);
   static const Color amber50 = Color(0xFFFDF3E6);
-  static const Color red600 = Color(0xFFDC2626);
+  // Darker than Tailwind red-600 so text on red50 passes WCAG AA (5.0:1).
+  static const Color red600 = Color(0xFFC81E1E);
   static const Color red50 = Color(0xFFFDECEC);
   static const Color blue600 = Color(0xFF2563EB);
   static const Color blue50 = Color(0xFFEBF1FE);

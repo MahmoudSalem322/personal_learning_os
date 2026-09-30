@@ -1,6 +1,10 @@
+import 'dart:ui' show Locale, PlatformDispatcher;
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/services/system_notifier.dart';
 import '../../../core/storage/storage_providers.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../reminders/presentation/reminders_providers.dart';
 import '../../resources/presentation/resources_providers.dart';
 import '../../settings/presentation/settings_controller.dart';
@@ -11,6 +15,7 @@ import '../domain/app_notification.dart';
 import '../domain/notification_engine.dart';
 import '../domain/notification_repository.dart';
 import '../domain/notification_service.dart';
+import 'browser_notification_channel.dart';
 import 'notification_scheduler.dart';
 
 final notificationRepositoryProvider = Provider<NotificationRepository>(
@@ -58,7 +63,26 @@ final notificationEngineProvider = Provider<NotificationEngine>(
     tasks: ref.watch(taskRepositoryProvider),
     resources: ref.watch(resourceRepositoryProvider),
     preferences: () => ref.read(settingsControllerProvider).notifications,
-    channels: [ref.watch(inAppNotificationChannelProvider)],
+    channels: [
+      ref.watch(inAppNotificationChannelProvider),
+      BrowserNotificationChannel(
+        notifier: ref.watch(systemNotifierProvider),
+        preferences: () => ref.read(settingsControllerProvider).notifications,
+        localizations: () {
+          final language = ref.read(settingsControllerProvider).language;
+          final code =
+              language.languageCode ??
+              PlatformDispatcher.instance.locale.languageCode;
+          final locale =
+              AppLocalizations.supportedLocales.any(
+                (l) => l.languageCode == code,
+              )
+              ? Locale(code)
+              : const Locale('en');
+          return (lookupAppLocalizations(locale), locale.toLanguageTag());
+        },
+      ),
+    ],
   ),
 );
 

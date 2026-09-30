@@ -1,8 +1,9 @@
+import 'package:intl/intl.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../../core/extensions/context_extensions.dart';
-import '../../../core/extensions/date_extensions.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../l10n/app_localizations.dart';
 import '../domain/app_notification.dart';
 
 /// Icon, colors and localized text of a notification.
@@ -27,23 +28,30 @@ extension NotificationAppearance on AppNotification {
         NotificationType.system => (colors.success, colors.successSoft),
       };
 
-  String title(BuildContext context) {
-    final l10n = context.l10n;
-    return switch (type) {
-      NotificationType.taskReminder => l10n.notificationTaskReminder,
-      NotificationType.upcomingTask => l10n.notificationUpcomingTask,
-      NotificationType.overdueTask => l10n.notificationOverdueTask,
-      NotificationType.learningReminder => l10n.notificationLearningReminder,
-      NotificationType.system => switch (notice) {
-        SystemNotice.welcome || null => l10n.notificationWelcomeTitle,
-      },
-    };
-  }
+  String title(BuildContext context) => titleIn(context.l10n);
 
   /// The detail line; due dates are worded relative to [now].
-  String body(BuildContext context, {DateTime? now}) {
-    final l10n = context.l10n;
+  String body(BuildContext context, {DateTime? now}) => bodyIn(
+    context.l10n,
+    Localizations.localeOf(context).toLanguageTag(),
+    now: now,
+  );
+
+  /// [title] without a widget context (e.g. for browser notifications).
+  String titleIn(AppLocalizations l10n) => switch (type) {
+    NotificationType.taskReminder => l10n.notificationTaskReminder,
+    NotificationType.upcomingTask => l10n.notificationUpcomingTask,
+    NotificationType.overdueTask => l10n.notificationOverdueTask,
+    NotificationType.learningReminder => l10n.notificationLearningReminder,
+    NotificationType.system => switch (notice) {
+      SystemNotice.welcome || null => l10n.notificationWelcomeTitle,
+    },
+  };
+
+  /// [body] without a widget context; [locale] formats dates.
+  String bodyIn(AppLocalizations l10n, String locale, {DateTime? now}) {
     String withNote(String text) => note.isEmpty ? text : '$text · $note';
+    String date(DateTime day) => DateFormat.yMMMd(locale).format(day);
     switch (type) {
       case NotificationType.taskReminder:
       case NotificationType.learningReminder:
@@ -56,13 +64,13 @@ extension NotificationAppearance on AppNotification {
         return switch (due.difference(today).inDays) {
           0 => l10n.notificationDueToday(subject),
           1 => l10n.notificationDueTomorrow(subject),
-          _ => l10n.notificationDueOn(subject, context.formatDate(due)),
+          _ => l10n.notificationDueOn(subject, date(due)),
         };
       case NotificationType.overdueTask:
         final due = dueDate;
         return due == null
             ? subject
-            : l10n.notificationWasDue(subject, context.formatDate(due));
+            : l10n.notificationWasDue(subject, date(due));
       case NotificationType.system:
         return switch (notice) {
           SystemNotice.welcome || null => l10n.notificationWelcomeMessage,
