@@ -50,8 +50,14 @@ Only implement the phase the user asks for; never jump ahead.
   `categoryServiceProvider`'s `links`; Undo re-links the same items. Notes
   and tasks must do the same.
 - Deleting a resource keeps its notes and tasks and unlinks them:
-  implement `ResourceLinks` (see `NoteResourceLinks`, `TaskResourceLinks`) and add it to
-  `resourceServiceProvider`'s `links`; `DeletedResource` carries the Undo.
+  implement `ResourceLinks` (see `NoteResourceLinks`, `TaskResourceLinks`)
+  and add it to `resourceServiceProvider`'s `links`; `DeletedResource`
+  carries the Undo.
+- Tasks: due dates are calendar days stored as `yyyy-MM-dd` (local midnight
+  in memory) so they never shift across time zones. `TaskService` owns
+  `completedAt` (set on completion, kept while completed, cleared on
+  reopen). Lists put completed tasks after open ones. Views (All / Today /
+  Upcoming / Overdue / Completed) live in `TaskFilter`.
 - Notes: Markdown via `package:markdown` (GFM). The editor autosaves with a
   600 ms debounce, flushes on dispose and discards blank new notes. Widget
   tests that open the editor must end with `leaveEditor`/`unmountApp`
