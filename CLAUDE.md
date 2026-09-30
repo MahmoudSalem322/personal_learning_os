@@ -12,7 +12,7 @@ Only implement the phase the user asks for; never jump ahead.
 - [x] PHASE 05 — Tasks
 - [x] PHASE 06 — Dashboard & Global Search
 - [x] PHASE 07 — Notifications & Reminders
-- [ ] PHASE 08 — Backup / Import / Export
+- [x] PHASE 08 — Backup / Import / Export
 - [ ] PHASE 09 — Polish / Performance / Accessibility / Production
 
 ## Conventions
@@ -102,5 +102,16 @@ Only implement the phase the user asks for; never jump ahead.
   session. Missed occurrences fire once when the app reopens; reminders
   whose item was deleted wait (Undo brings it back). Preferences live in
   `AppSettings.notifications`.
+- Backups (`features/backup`): `BackupSnapshot` holds every store;
+  `BackupCodec` (format 1) validates the whole file before anything is
+  written; `LocalBackupStore.replaceAll` writes in one transaction. A new
+  store must be added to `BackupSnapshot`, `BackupCodec` and
+  `LocalBackupStore` (a test counts `AppStores.all`). Import merges (newer
+  `updatedAt` wins) or replaces; replace/clear return the previous state
+  for Undo. Links to missing items are cleared on import.
+- Files: `FileService` (`fileServiceProvider`) downloads and picks files;
+  tests override it with `FakeFileService` (`test/helpers/test_app.dart`).
+  Settings restored from a backup are pushed to the UI with
+  `SettingsController.adopt`.
 - Before finishing a phase: `flutter analyze` clean, `flutter test` green,
   `flutter build web` succeeds.

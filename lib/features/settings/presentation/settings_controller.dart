@@ -37,6 +37,10 @@ class SettingsController extends Notifier<AppSettings> {
   Future<void> setNotificationPreferences(NotificationPreferences value) =>
       _update(state.copyWith(notifications: value));
 
+  /// Takes settings that were already saved elsewhere (e.g. restored from
+  /// a backup) without writing them again.
+  void adopt(AppSettings settings) => state = settings;
+
   Future<void> _update(AppSettings next) async {
     if (next == state) return;
     final previous = state;

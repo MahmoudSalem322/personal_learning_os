@@ -7,6 +7,7 @@ import '../../features/dashboard/presentation/dashboard_routes.dart';
 import '../../features/notes/presentation/notes_routes.dart';
 import '../../features/notifications/presentation/notifications_routes.dart';
 import '../../features/resources/presentation/resources_routes.dart';
+import '../../features/settings/presentation/settings_routes.dart';
 import '../../features/tasks/presentation/tasks_routes.dart';
 import '../shell/app_shell.dart';
 import 'app_destination.dart';
@@ -44,7 +45,8 @@ GoRoute _routeFor(AppDestination destination) => switch (destination) {
   AppDestination.resources => resourcesRoute(),
   AppDestination.notes => notesRoute(),
   AppDestination.tasks => tasksRoute(),
-  AppDestination.favorites || AppDestination.settings => GoRoute(
+  AppDestination.settings => settingsRoute(),
+  AppDestination.favorites => GoRoute(
     path: destination.path,
     name: destination.name,
     pageBuilder: (context, state) => NoTransitionPage(

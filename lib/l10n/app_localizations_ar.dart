@@ -1664,4 +1664,168 @@ class AppLocalizationsAr extends AppLocalizations {
   String timeDateAt(String date, String time) {
     return '$date الساعة $time';
   }
+
+  @override
+  String get settingsAppearance => 'المظهر واللغة';
+
+  @override
+  String get settingsChange => 'تغيير';
+
+  @override
+  String get settingsNotificationsOn => 'مفعّلة. اختر التنبيهات التي تصلك.';
+
+  @override
+  String get settingsNotificationsOff =>
+      'متوقفة. لا يُضاف شيء جديد إلى صندوق الوارد.';
+
+  @override
+  String get settingsData => 'البيانات';
+
+  @override
+  String get settingsAbout => 'حول التطبيق';
+
+  @override
+  String settingsVersion(String version) {
+    return 'الإصدار $version';
+  }
+
+  @override
+  String get settingsAboutMessage =>
+      'مساحتك الشخصية للتعلّم. كل شيء يبقى في هذا المتصفح على هذا الجهاز ولا يُرسَل أي شيء إلى خادم. صدّر نسخة احتياطية لتحتفظ بنسخة أو لتنتقل إلى جهاز آخر.';
+
+  @override
+  String get backupExport => 'تصدير نسخة احتياطية';
+
+  @override
+  String get backupExportHint =>
+      'نزّل كل شيء (المجالات والمصادر والملاحظات والمهام والتذكيرات والإشعارات والإعدادات) كملف JSON.';
+
+  @override
+  String get backupExportAction => 'تصدير';
+
+  @override
+  String get backupImport => 'استيراد نسخة احتياطية';
+
+  @override
+  String get backupImportHint =>
+      'استعد بياناتك من ملف نسخة احتياطية. سترى محتواه وتختار الدمج أو الاستبدال قبل أن يتغيّر أي شيء.';
+
+  @override
+  String get backupImportAction => 'استيراد';
+
+  @override
+  String get backupClear => 'مسح كل البيانات';
+
+  @override
+  String get backupClearHint =>
+      'حذف كل المجالات والمصادر والملاحظات والمهام والتذكيرات والإشعارات. تبقى تفضيلاتك كما هي.';
+
+  @override
+  String get backupClearAction => 'مسح البيانات';
+
+  @override
+  String get backupVolatileWarning =>
+      'هذا المتصفح لا يحفظ البيانات بشكل دائم حاليًا. صدّر نسخة احتياطية حتى لا تفقد عملك.';
+
+  @override
+  String get backupExported => 'تم تنزيل النسخة الاحتياطية';
+
+  @override
+  String get backupExportError =>
+      'تعذّر إنشاء النسخة الاحتياطية. حاول مرة أخرى.';
+
+  @override
+  String get backupReadError => 'تعذّرت قراءة الملف. حاول مرة أخرى.';
+
+  @override
+  String get backupImportError =>
+      'تعذّر استيراد النسخة الاحتياطية. لم تتغيّر بياناتك.';
+
+  @override
+  String get backupClearError => 'تعذّر مسح بياناتك. حاول مرة أخرى.';
+
+  @override
+  String get backupImportTitle => 'استيراد نسخة احتياطية';
+
+  @override
+  String backupExportedOn(String when) {
+    return 'صُدّرت $when';
+  }
+
+  @override
+  String get backupMerge => 'دمج';
+
+  @override
+  String get backupMergeHint =>
+      'تبقى بياناتك، ويُضاف الجديد وتُحدَّث العناصر الأحدث في النسخة الاحتياطية.';
+
+  @override
+  String get backupReplace => 'استبدال';
+
+  @override
+  String get backupReplaceHint =>
+      'تُحذف بياناتك وإعداداتك الحالية وتُستخدم بيانات النسخة الاحتياطية بدلًا منها.';
+
+  @override
+  String get backupReplaceConfirmTitle => 'استبدال كل بياناتك؟';
+
+  @override
+  String get backupReplaceConfirmMessage =>
+      'سيُستبدل كل ما لديك الآن بمحتوى النسخة الاحتياطية. يمكنك التراجع مباشرةً بعد ذلك.';
+
+  @override
+  String get backupMerged => 'تم دمج النسخة الاحتياطية';
+
+  @override
+  String get backupRestored => 'تمت استعادة النسخة الاحتياطية';
+
+  @override
+  String get backupClearConfirmTitle => 'مسح كل البيانات؟';
+
+  @override
+  String get backupClearConfirmMessage =>
+      'ستُحذف كل المجالات والمصادر والملاحظات والمهام والتذكيرات والإشعارات. يُفضَّل تصدير نسخة احتياطية أولًا. يمكنك التراجع مباشرةً بعد ذلك.';
+
+  @override
+  String get backupCleared => 'تم مسح كل البيانات';
+
+  @override
+  String get backupInvalidTitle => 'لا يمكن استيراد هذا الملف';
+
+  @override
+  String get backupNothingChanged => 'لم يتغيّر أي شيء.';
+
+  @override
+  String get backupErrorTooLarge =>
+      'الملف أكبر من أن يكون نسخة احتياطية من Learning OS.';
+
+  @override
+  String get backupErrorNotJson => 'الملف ليس JSON صالحًا.';
+
+  @override
+  String get backupErrorNotBackup =>
+      'هذا ليس ملف نسخة احتياطية من Learning OS.';
+
+  @override
+  String get backupErrorNewer =>
+      'أُنشئت هذه النسخة بإصدار أحدث من Learning OS. حدّث التطبيق ثم حاول مجددًا.';
+
+  @override
+  String backupErrorInvalid(int count, String kind) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count عنصر في $kind تالف.',
+      many: '$count عنصرًا في $kind تالفًا.',
+      few: '$count عناصر في $kind تالفة.',
+      two: 'عنصران في $kind تالفان.',
+      one: 'عنصر واحد في $kind تالف.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String backupErrorDuplicates(String kind) {
+    return 'يتكرّر العنصر نفسه أكثر من مرة في $kind.';
+  }
 }

@@ -11,10 +11,11 @@ class LocalSettingsRepository implements SettingsRepository {
 
   final Database _db;
 
-  static const String _recordKey = 'app';
+  /// Key of the single settings record (also used by backups).
+  static const String recordKey = 'app';
 
   RecordRef<String, Map<String, Object?>> get _record =>
-      AppStores.settings.record(_recordKey);
+      AppStores.settings.record(recordKey);
 
   @override
   Future<AppSettings> load() async {

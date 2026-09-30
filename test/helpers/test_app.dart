@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:personal_learning_os/app/app.dart';
 import 'package:personal_learning_os/app/bootstrap.dart';
+import 'package:personal_learning_os/core/services/file_service.dart';
 import 'package:personal_learning_os/core/services/url_opener.dart';
 import 'package:personal_learning_os/features/notifications/presentation/notifications_providers.dart';
 import 'package:sembast/sembast_memory.dart'
@@ -25,6 +26,27 @@ Finder findTooltip(String message) => find.byWidgetPredicate(
   description: 'Tooltip "$message"',
 );
 
+/// Records saved files and returns a preset file when asked to pick one.
+class FakeFileService implements FileService {
+  final List<({String name, String content})> saved = [];
+
+  /// What [pickText] returns next (`null` = the user cancelled).
+  PickedTextFile? nextPick;
+
+  @override
+  Future<void> saveText(
+    String fileName,
+    String content, {
+    String mimeType = 'application/json',
+  }) async => saved.add((name: fileName, content: content));
+
+  @override
+  Future<PickedTextFile?> pickText({
+    String accept = '.json,application/json',
+    int maxBytes = 20 * 1024 * 1024,
+  }) async => nextPick;
+}
+
 /// Records links instead of opening browser tabs.
 class FakeUrlOpener implements UrlOpener {
   final List<String> opened = [];
@@ -46,6 +68,7 @@ extension PumpApp on WidgetTester {
     Size size = TestViewports.desktop,
     DatabaseFactory? factory,
     UrlOpener? urlOpener,
+    FileService? fileService,
     bool notificationScheduling = false,
   }) async {
     view.physicalSize = size;
@@ -63,6 +86,9 @@ extension PumpApp on WidgetTester {
         overrides: [
           ...overrides!,
           urlOpenerProvider.overrideWithValue(urlOpener ?? FakeUrlOpener()),
+          fileServiceProvider.overrideWithValue(
+            fileService ?? FakeFileService(),
+          ),
           // The background scheduler runs timers and storage work outside
           // the test's control; notification tests drive the engine.
           notificationSchedulingEnabledProvider.overrideWithValue(

@@ -570,5 +570,62 @@
   "timeDateAt": "{date} الساعة {time}",
   "@timeDateAt": {
     "placeholders": { "date": { "type": "String" }, "time": { "type": "String" } }
+  },
+
+  "settingsAppearance": "المظهر واللغة",
+  "settingsChange": "تغيير",
+  "settingsNotificationsOn": "مفعّلة. اختر التنبيهات التي تصلك.",
+  "settingsNotificationsOff": "متوقفة. لا يُضاف شيء جديد إلى صندوق الوارد.",
+  "settingsData": "البيانات",
+  "settingsAbout": "حول التطبيق",
+  "settingsVersion": "الإصدار {version}",
+  "@settingsVersion": {
+    "placeholders": { "version": { "type": "String" } }
+  },
+  "settingsAboutMessage": "مساحتك الشخصية للتعلّم. كل شيء يبقى في هذا المتصفح على هذا الجهاز ولا يُرسَل أي شيء إلى خادم. صدّر نسخة احتياطية لتحتفظ بنسخة أو لتنتقل إلى جهاز آخر.",
+  "backupExport": "تصدير نسخة احتياطية",
+  "backupExportHint": "نزّل كل شيء (المجالات والمصادر والملاحظات والمهام والتذكيرات والإشعارات والإعدادات) كملف JSON.",
+  "backupExportAction": "تصدير",
+  "backupImport": "استيراد نسخة احتياطية",
+  "backupImportHint": "استعد بياناتك من ملف نسخة احتياطية. سترى محتواه وتختار الدمج أو الاستبدال قبل أن يتغيّر أي شيء.",
+  "backupImportAction": "استيراد",
+  "backupClear": "مسح كل البيانات",
+  "backupClearHint": "حذف كل المجالات والمصادر والملاحظات والمهام والتذكيرات والإشعارات. تبقى تفضيلاتك كما هي.",
+  "backupClearAction": "مسح البيانات",
+  "backupVolatileWarning": "هذا المتصفح لا يحفظ البيانات بشكل دائم حاليًا. صدّر نسخة احتياطية حتى لا تفقد عملك.",
+  "backupExported": "تم تنزيل النسخة الاحتياطية",
+  "backupExportError": "تعذّر إنشاء النسخة الاحتياطية. حاول مرة أخرى.",
+  "backupReadError": "تعذّرت قراءة الملف. حاول مرة أخرى.",
+  "backupImportError": "تعذّر استيراد النسخة الاحتياطية. لم تتغيّر بياناتك.",
+  "backupClearError": "تعذّر مسح بياناتك. حاول مرة أخرى.",
+  "backupImportTitle": "استيراد نسخة احتياطية",
+  "backupExportedOn": "صُدّرت {when}",
+  "@backupExportedOn": {
+    "placeholders": { "when": { "type": "String" } }
+  },
+  "backupMerge": "دمج",
+  "backupMergeHint": "تبقى بياناتك، ويُضاف الجديد وتُحدَّث العناصر الأحدث في النسخة الاحتياطية.",
+  "backupReplace": "استبدال",
+  "backupReplaceHint": "تُحذف بياناتك وإعداداتك الحالية وتُستخدم بيانات النسخة الاحتياطية بدلًا منها.",
+  "backupReplaceConfirmTitle": "استبدال كل بياناتك؟",
+  "backupReplaceConfirmMessage": "سيُستبدل كل ما لديك الآن بمحتوى النسخة الاحتياطية. يمكنك التراجع مباشرةً بعد ذلك.",
+  "backupMerged": "تم دمج النسخة الاحتياطية",
+  "backupRestored": "تمت استعادة النسخة الاحتياطية",
+  "backupClearConfirmTitle": "مسح كل البيانات؟",
+  "backupClearConfirmMessage": "ستُحذف كل المجالات والمصادر والملاحظات والمهام والتذكيرات والإشعارات. يُفضَّل تصدير نسخة احتياطية أولًا. يمكنك التراجع مباشرةً بعد ذلك.",
+  "backupCleared": "تم مسح كل البيانات",
+  "backupInvalidTitle": "لا يمكن استيراد هذا الملف",
+  "backupNothingChanged": "لم يتغيّر أي شيء.",
+  "backupErrorTooLarge": "الملف أكبر من أن يكون نسخة احتياطية من Learning OS.",
+  "backupErrorNotJson": "الملف ليس JSON صالحًا.",
+  "backupErrorNotBackup": "هذا ليس ملف نسخة احتياطية من Learning OS.",
+  "backupErrorNewer": "أُنشئت هذه النسخة بإصدار أحدث من Learning OS. حدّث التطبيق ثم حاول مجددًا.",
+  "backupErrorInvalid": "{count, plural, =1{عنصر واحد في {kind} تالف.} =2{عنصران في {kind} تالفان.} few{{count} عناصر في {kind} تالفة.} many{{count} عنصرًا في {kind} تالفًا.} other{{count} عنصر في {kind} تالف.}}",
+  "@backupErrorInvalid": {
+    "placeholders": { "count": { "type": "int" }, "kind": { "type": "String" } }
+  },
+  "backupErrorDuplicates": "يتكرّر العنصر نفسه أكثر من مرة في {kind}.",
+  "@backupErrorDuplicates": {
+    "placeholders": { "kind": { "type": "String" } }
   }
 }

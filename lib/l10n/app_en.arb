@@ -640,5 +640,62 @@
   "timeDateAt": "{date} at {time}",
   "@timeDateAt": {
     "placeholders": { "date": { "type": "String" }, "time": { "type": "String" } }
+  },
+
+  "settingsAppearance": "Appearance & language",
+  "settingsChange": "Change",
+  "settingsNotificationsOn": "On. Choose which alerts you get.",
+  "settingsNotificationsOff": "Off. Nothing new is added to your inbox.",
+  "settingsData": "Data",
+  "settingsAbout": "About",
+  "settingsVersion": "Version {version}",
+  "@settingsVersion": {
+    "placeholders": { "version": { "type": "String" } }
+  },
+  "settingsAboutMessage": "Your personal learning workspace. Everything stays in this browser on this device: nothing is sent to a server. Export a backup to keep a copy or move to another device.",
+  "backupExport": "Export backup",
+  "backupExportHint": "Download everything (categories, resources, notes, tasks, reminders, notifications and settings) as a JSON file.",
+  "backupExportAction": "Export",
+  "backupImport": "Import backup",
+  "backupImportHint": "Restore from a backup file. You'll see what's inside and choose to merge or replace before anything changes.",
+  "backupImportAction": "Import",
+  "backupClear": "Clear all data",
+  "backupClearHint": "Delete every category, resource, note, task, reminder and notification. Your preferences are kept.",
+  "backupClearAction": "Clear data",
+  "backupVolatileWarning": "This browser isn't saving data permanently right now. Export a backup so you don't lose your work.",
+  "backupExported": "Backup downloaded",
+  "backupExportError": "Couldn't create the backup. Please try again.",
+  "backupReadError": "Couldn't read the file. Please try again.",
+  "backupImportError": "Couldn't import the backup. Your data wasn't changed.",
+  "backupClearError": "Couldn't clear your data. Please try again.",
+  "backupImportTitle": "Import backup",
+  "backupExportedOn": "Exported {when}",
+  "@backupExportedOn": {
+    "placeholders": { "when": { "type": "String" } }
+  },
+  "backupMerge": "Merge",
+  "backupMergeHint": "keep your data, add what's new and update items that are newer in the backup.",
+  "backupReplace": "Replace",
+  "backupReplaceHint": "delete your current data and settings and use the backup's instead.",
+  "backupReplaceConfirmTitle": "Replace all your data?",
+  "backupReplaceConfirmMessage": "Everything you have now will be replaced by the backup. You can undo this right after.",
+  "backupMerged": "Backup merged",
+  "backupRestored": "Backup restored",
+  "backupClearConfirmTitle": "Clear all data?",
+  "backupClearConfirmMessage": "All categories, resources, notes, tasks, reminders and notifications will be deleted. Consider exporting a backup first. You can undo this right after.",
+  "backupCleared": "All data cleared",
+  "backupInvalidTitle": "Can't import this file",
+  "backupNothingChanged": "Nothing was changed.",
+  "backupErrorTooLarge": "The file is too large to be a Learning OS backup.",
+  "backupErrorNotJson": "The file isn't valid JSON.",
+  "backupErrorNotBackup": "This isn't a Learning OS backup file.",
+  "backupErrorNewer": "This backup was made by a newer version of Learning OS. Update the app and try again.",
+  "backupErrorInvalid": "{count, plural, =1{1 item in {kind} is damaged.} other{{count} items in {kind} are damaged.}}",
+  "@backupErrorInvalid": {
+    "placeholders": { "count": { "type": "int" }, "kind": { "type": "String" } }
+  },
+  "backupErrorDuplicates": "The same item appears more than once in {kind}.",
+  "@backupErrorDuplicates": {
+    "placeholders": { "kind": { "type": "String" } }
   }
 }

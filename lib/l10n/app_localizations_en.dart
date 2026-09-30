@@ -1623,4 +1623,164 @@ class AppLocalizationsEn extends AppLocalizations {
   String timeDateAt(String date, String time) {
     return '$date at $time';
   }
+
+  @override
+  String get settingsAppearance => 'Appearance & language';
+
+  @override
+  String get settingsChange => 'Change';
+
+  @override
+  String get settingsNotificationsOn => 'On. Choose which alerts you get.';
+
+  @override
+  String get settingsNotificationsOff =>
+      'Off. Nothing new is added to your inbox.';
+
+  @override
+  String get settingsData => 'Data';
+
+  @override
+  String get settingsAbout => 'About';
+
+  @override
+  String settingsVersion(String version) {
+    return 'Version $version';
+  }
+
+  @override
+  String get settingsAboutMessage =>
+      'Your personal learning workspace. Everything stays in this browser on this device: nothing is sent to a server. Export a backup to keep a copy or move to another device.';
+
+  @override
+  String get backupExport => 'Export backup';
+
+  @override
+  String get backupExportHint =>
+      'Download everything (categories, resources, notes, tasks, reminders, notifications and settings) as a JSON file.';
+
+  @override
+  String get backupExportAction => 'Export';
+
+  @override
+  String get backupImport => 'Import backup';
+
+  @override
+  String get backupImportHint =>
+      'Restore from a backup file. You\'ll see what\'s inside and choose to merge or replace before anything changes.';
+
+  @override
+  String get backupImportAction => 'Import';
+
+  @override
+  String get backupClear => 'Clear all data';
+
+  @override
+  String get backupClearHint =>
+      'Delete every category, resource, note, task, reminder and notification. Your preferences are kept.';
+
+  @override
+  String get backupClearAction => 'Clear data';
+
+  @override
+  String get backupVolatileWarning =>
+      'This browser isn\'t saving data permanently right now. Export a backup so you don\'t lose your work.';
+
+  @override
+  String get backupExported => 'Backup downloaded';
+
+  @override
+  String get backupExportError =>
+      'Couldn\'t create the backup. Please try again.';
+
+  @override
+  String get backupReadError => 'Couldn\'t read the file. Please try again.';
+
+  @override
+  String get backupImportError =>
+      'Couldn\'t import the backup. Your data wasn\'t changed.';
+
+  @override
+  String get backupClearError => 'Couldn\'t clear your data. Please try again.';
+
+  @override
+  String get backupImportTitle => 'Import backup';
+
+  @override
+  String backupExportedOn(String when) {
+    return 'Exported $when';
+  }
+
+  @override
+  String get backupMerge => 'Merge';
+
+  @override
+  String get backupMergeHint =>
+      'keep your data, add what\'s new and update items that are newer in the backup.';
+
+  @override
+  String get backupReplace => 'Replace';
+
+  @override
+  String get backupReplaceHint =>
+      'delete your current data and settings and use the backup\'s instead.';
+
+  @override
+  String get backupReplaceConfirmTitle => 'Replace all your data?';
+
+  @override
+  String get backupReplaceConfirmMessage =>
+      'Everything you have now will be replaced by the backup. You can undo this right after.';
+
+  @override
+  String get backupMerged => 'Backup merged';
+
+  @override
+  String get backupRestored => 'Backup restored';
+
+  @override
+  String get backupClearConfirmTitle => 'Clear all data?';
+
+  @override
+  String get backupClearConfirmMessage =>
+      'All categories, resources, notes, tasks, reminders and notifications will be deleted. Consider exporting a backup first. You can undo this right after.';
+
+  @override
+  String get backupCleared => 'All data cleared';
+
+  @override
+  String get backupInvalidTitle => 'Can\'t import this file';
+
+  @override
+  String get backupNothingChanged => 'Nothing was changed.';
+
+  @override
+  String get backupErrorTooLarge =>
+      'The file is too large to be a Learning OS backup.';
+
+  @override
+  String get backupErrorNotJson => 'The file isn\'t valid JSON.';
+
+  @override
+  String get backupErrorNotBackup => 'This isn\'t a Learning OS backup file.';
+
+  @override
+  String get backupErrorNewer =>
+      'This backup was made by a newer version of Learning OS. Update the app and try again.';
+
+  @override
+  String backupErrorInvalid(int count, String kind) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items in $kind are damaged.',
+      one: '1 item in $kind is damaged.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String backupErrorDuplicates(String kind) {
+    return 'The same item appears more than once in $kind.';
+  }
 }

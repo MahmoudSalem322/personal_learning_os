@@ -2887,6 +2887,270 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{date} at {time}'**
   String timeDateAt(String date, String time);
+
+  /// No description provided for @settingsAppearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance & language'**
+  String get settingsAppearance;
+
+  /// No description provided for @settingsChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change'**
+  String get settingsChange;
+
+  /// No description provided for @settingsNotificationsOn.
+  ///
+  /// In en, this message translates to:
+  /// **'On. Choose which alerts you get.'**
+  String get settingsNotificationsOn;
+
+  /// No description provided for @settingsNotificationsOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off. Nothing new is added to your inbox.'**
+  String get settingsNotificationsOff;
+
+  /// No description provided for @settingsData.
+  ///
+  /// In en, this message translates to:
+  /// **'Data'**
+  String get settingsData;
+
+  /// No description provided for @settingsAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get settingsAbout;
+
+  /// No description provided for @settingsVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Version {version}'**
+  String settingsVersion(String version);
+
+  /// No description provided for @settingsAboutMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your personal learning workspace. Everything stays in this browser on this device: nothing is sent to a server. Export a backup to keep a copy or move to another device.'**
+  String get settingsAboutMessage;
+
+  /// No description provided for @backupExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Export backup'**
+  String get backupExport;
+
+  /// No description provided for @backupExportHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Download everything (categories, resources, notes, tasks, reminders, notifications and settings) as a JSON file.'**
+  String get backupExportHint;
+
+  /// No description provided for @backupExportAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Export'**
+  String get backupExportAction;
+
+  /// No description provided for @backupImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Import backup'**
+  String get backupImport;
+
+  /// No description provided for @backupImportHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore from a backup file. You\'ll see what\'s inside and choose to merge or replace before anything changes.'**
+  String get backupImportHint;
+
+  /// No description provided for @backupImportAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Import'**
+  String get backupImportAction;
+
+  /// No description provided for @backupClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear all data'**
+  String get backupClear;
+
+  /// No description provided for @backupClearHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete every category, resource, note, task, reminder and notification. Your preferences are kept.'**
+  String get backupClearHint;
+
+  /// No description provided for @backupClearAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear data'**
+  String get backupClearAction;
+
+  /// No description provided for @backupVolatileWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'This browser isn\'t saving data permanently right now. Export a backup so you don\'t lose your work.'**
+  String get backupVolatileWarning;
+
+  /// No description provided for @backupExported.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup downloaded'**
+  String get backupExported;
+
+  /// No description provided for @backupExportError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t create the backup. Please try again.'**
+  String get backupExportError;
+
+  /// No description provided for @backupReadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t read the file. Please try again.'**
+  String get backupReadError;
+
+  /// No description provided for @backupImportError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t import the backup. Your data wasn\'t changed.'**
+  String get backupImportError;
+
+  /// No description provided for @backupClearError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t clear your data. Please try again.'**
+  String get backupClearError;
+
+  /// No description provided for @backupImportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Import backup'**
+  String get backupImportTitle;
+
+  /// No description provided for @backupExportedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Exported {when}'**
+  String backupExportedOn(String when);
+
+  /// No description provided for @backupMerge.
+  ///
+  /// In en, this message translates to:
+  /// **'Merge'**
+  String get backupMerge;
+
+  /// No description provided for @backupMergeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'keep your data, add what\'s new and update items that are newer in the backup.'**
+  String get backupMergeHint;
+
+  /// No description provided for @backupReplace.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace'**
+  String get backupReplace;
+
+  /// No description provided for @backupReplaceHint.
+  ///
+  /// In en, this message translates to:
+  /// **'delete your current data and settings and use the backup\'s instead.'**
+  String get backupReplaceHint;
+
+  /// No description provided for @backupReplaceConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace all your data?'**
+  String get backupReplaceConfirmTitle;
+
+  /// No description provided for @backupReplaceConfirmMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything you have now will be replaced by the backup. You can undo this right after.'**
+  String get backupReplaceConfirmMessage;
+
+  /// No description provided for @backupMerged.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup merged'**
+  String get backupMerged;
+
+  /// No description provided for @backupRestored.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup restored'**
+  String get backupRestored;
+
+  /// No description provided for @backupClearConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear all data?'**
+  String get backupClearConfirmTitle;
+
+  /// No description provided for @backupClearConfirmMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'All categories, resources, notes, tasks, reminders and notifications will be deleted. Consider exporting a backup first. You can undo this right after.'**
+  String get backupClearConfirmMessage;
+
+  /// No description provided for @backupCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'All data cleared'**
+  String get backupCleared;
+
+  /// No description provided for @backupInvalidTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t import this file'**
+  String get backupInvalidTitle;
+
+  /// No description provided for @backupNothingChanged.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was changed.'**
+  String get backupNothingChanged;
+
+  /// No description provided for @backupErrorTooLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'The file is too large to be a Learning OS backup.'**
+  String get backupErrorTooLarge;
+
+  /// No description provided for @backupErrorNotJson.
+  ///
+  /// In en, this message translates to:
+  /// **'The file isn\'t valid JSON.'**
+  String get backupErrorNotJson;
+
+  /// No description provided for @backupErrorNotBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'This isn\'t a Learning OS backup file.'**
+  String get backupErrorNotBackup;
+
+  /// No description provided for @backupErrorNewer.
+  ///
+  /// In en, this message translates to:
+  /// **'This backup was made by a newer version of Learning OS. Update the app and try again.'**
+  String get backupErrorNewer;
+
+  /// No description provided for @backupErrorInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 item in {kind} is damaged.} other{{count} items in {kind} are damaged.}}'**
+  String backupErrorInvalid(int count, String kind);
+
+  /// No description provided for @backupErrorDuplicates.
+  ///
+  /// In en, this message translates to:
+  /// **'The same item appears more than once in {kind}.'**
+  String backupErrorDuplicates(String kind);
 }
 
 class _AppLocalizationsDelegate
